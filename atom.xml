@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-04-14T09:55:34.000Z</updated>
+  <updated>2018-04-14T10:17:57.000Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/2018/02/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     <id>https://sevencho.github.io/2018/02/15/敏捷开发/</id>
     <published>2018-02-15T05:43:17.000Z</published>
-    <updated>2018-04-14T09:55:34.000Z</updated>
+    <updated>2018-04-14T10:17:57.000Z</updated>
     
     <summary type="html">
     
@@ -34,14 +34,118 @@
     
     </summary>
     
-      <category term="开发" scheme="https://sevencho.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+      <category term="随笔" scheme="https://sevencho.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="敏捷开发" scheme="https://sevencho.github.io/categories/%E5%BC%80%E5%8F%91/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+      <category term="敏捷开发" scheme="https://sevencho.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
     
       <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
       <category term="[object Object]" scheme="https://sevencho.github.io/tags/object-Object/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>汇编初识（Mac)</title>
+    <link href="https://sevencho.github.io/2018/01/18/%E6%B1%87%E7%BC%96%E5%88%9D%E8%AF%86%EF%BC%88Mac)/"/>
+    <id>https://sevencho.github.io/2018/01/18/汇编初识（Mac)/</id>
+    <published>2018-01-18T10:04:05.000Z</published>
+    <updated>2018-04-14T10:18:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#&lt;br&gt;Decompile&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;class-dump安装方法&quot;&gt;&lt;a href=&quot;#class-dump安装方法&quot; class=&quot;headerlink&quot; title=&quot;class-dump安装方法&quot;&gt;&lt;/a&gt;class-dump安装方法&lt;/h
+      
+    
+    </summary>
+    
+      <category term="汇编" scheme="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
+    
+      <category term="汇编工具" scheme="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="汇编" scheme="https://sevencho.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Homebrew介绍</title>
+    <link href="https://sevencho.github.io/2017/12/30/Homebrew%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://sevencho.github.io/2017/12/30/Homebrew介绍/</id>
+    <published>2017-12-30T10:18:51.000Z</published>
+    <updated>2018-04-14T10:19:59.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#&lt;br&gt;Homebrew&lt;/p&gt;
+&lt;h4 id=&quot;Homebrew官网-https-brew-sh-index-zh-cn-html&quot;&gt;&lt;a href=&quot;#Homebrew官网-https-brew-sh-index-zh-cn-html&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Homebrew" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/Homebrew/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LLDB介绍</title>
+    <link href="https://sevencho.github.io/2017/12/30/LLDB%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://sevencho.github.io/2017/12/30/LLDB介绍/</id>
+    <published>2017-12-30T10:11:08.000Z</published>
+    <updated>2018-04-14T10:17:14.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#&lt;br&gt;LLDB&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;LLDB 是一个有着 REPL 的特性和 C++ ,Python 插件的开源调试器。LLDB 绑定在 Xcode 内部，存在于主窗口底部的控制台中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="LLDB" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/LLDB/"/>
+    
+    
+      <category term="LLBD" scheme="https://sevencho.github.io/tags/LLBD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VIM介绍</title>
+    <link href="https://sevencho.github.io/2017/11/11/VIM%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://sevencho.github.io/2017/11/11/VIM介绍/</id>
+    <published>2017-11-11T10:20:46.000Z</published>
+    <updated>2018-04-14T10:24:58.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#&lt;/p&gt;
+&lt;h1 id=&quot;VIM相关的指令&quot;&gt;&lt;a href=&quot;#VIM相关的指令&quot; class=&quot;headerlink&quot; title=&quot;VIM相关的指令&quot;&gt;&lt;/a&gt;VIM相关的指令&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;vi编辑器是所有Unix及Linux系统下标准的
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
     
   </entry>
   
