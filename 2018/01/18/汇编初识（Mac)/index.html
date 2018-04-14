@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="#Decompile  class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin * 原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限  * 其实可以在RecoveryMod">
+<meta name="description" content="Decompile class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin  原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限 其实可以在RecoveryMode关闭这个特">
 <meta name="keywords" content="汇编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编初识（Mac)">
 <meta property="og:url" content="https://sevencho.github.io/2018/01/18/汇编初识（Mac)/index.html">
 <meta property="og:site_name" content="曹雪松de博客">
-<meta property="og:description" content="#Decompile  class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin * 原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限  * 其实可以在RecoveryMod">
+<meta property="og:description" content="Decompile class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin  原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限 其实可以在RecoveryMode关闭这个特">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-14T10:18:12.000Z">
+<meta property="og:updated_time" content="2018-04-14T10:31:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编初识（Mac)">
-<meta name="twitter:description" content="#Decompile  class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin * 原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限  * 其实可以在RecoveryMod">
+<meta name="twitter:description" content="Decompile class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin  原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限 其实可以在RecoveryMode关闭这个特">
 
 
 
@@ -351,7 +351,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-14T18:18:12+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-14T18:31:29+08:00">
                 2018-04-14
               </time>
             
@@ -449,13 +449,13 @@
       
 
       
-        <p>#<br>Decompile</p>
-<hr>
+        <h1 id="Decompile"><a href="#Decompile" class="headerlink" title="Decompile"></a>Decompile</h1><hr>
 <h3 id="class-dump安装方法"><a href="#class-dump安装方法" class="headerlink" title="class-dump安装方法"></a>class-dump安装方法</h3><p>当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录<strong>/usr/bin</strong></p>
-<pre><code>* 原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限
-
-* 其实可以在RecoveryMode关闭这个特性，这样就直接可以读写/usr/bin了，不过不建议。
-</code></pre><blockquote>
+<ul>
+<li>原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限</li>
+<li>其实可以在RecoveryMode关闭这个特性，这样就直接可以读写/usr/bin了，不过不建议。</li>
+</ul>
+<blockquote>
 <p>关闭方法：开机的时候按住option出现选择磁盘的界面按command + R进入RecoveryMode，选择实用工具终端，输入csrutil disable回车搞定</p>
 </blockquote>
 <ul>
@@ -502,38 +502,6 @@
     <div>
      
      
-<div class="my_post_copyright">
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<!-- JS库 sweetalert 可修改路径 -->
-<script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
-<script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-
-<p><span>本文标题:</span>汇编初识（Mac)</a></p>
-<p><span>文章作者:</span>曹雪松</a></p>
-<p><span>发布时间:</span>2018年01月18日 - 18:04:05</p>
-<p><span>最后更新:</span>2018年04月14日 - 18:18:12</p>
-<p><span>原始链接:</span><a href="/2018/01/18/汇编初识（Mac)/" title="汇编初识（Mac)">https://sevencho.github.io/2018/01/18/汇编初识（Mac)/</a>
-<span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sevencho.github.io/2018/01/18/汇编初识（Mac)/"  aria-label="复制成功！"></i></span>
-</p>
-<p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
-</div>
-<script>
-var clipboard = new Clipboard('.fa-clipboard');
-clipboard.on('success', $(function(){
-$(".fa-clipboard").click(function(){
-swal({
-title: "",
-text: '复制成功',
-html: false,
-timer: 500,
-showConfirmButton: false
-});
-});
-}));
-</script>
-
 
      
     </div>
@@ -712,7 +680,7 @@ showConfirmButton: false
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -773,7 +741,7 @@ showConfirmButton: false
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump安装方法"><span class="nav-number">1.</span> <span class="nav-text">class-dump安装方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump使用"><span class="nav-number">2.</span> <span class="nav-text">class-dump使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命令如下："><span class="nav-number">2.0.1.</span> <span class="nav-text">命令如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用-class-dump-可以导出-AppKit，UIKit"><span class="nav-number">2.0.2.</span> <span class="nav-text">利用 class-dump 可以导出 AppKit，UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AppKit"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">AppKit :</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UIKit"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">UIKit :</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Decompile"><span class="nav-number">1.</span> <span class="nav-text">Decompile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump安装方法"><span class="nav-number">1.0.1.</span> <span class="nav-text">class-dump安装方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump使用"><span class="nav-number">1.0.2.</span> <span class="nav-text">class-dump使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命令如下："><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">命令如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用-class-dump-可以导出-AppKit，UIKit"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">利用 class-dump 可以导出 AppKit，UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AppKit"><span class="nav-number">1.0.2.0.2.1.</span> <span class="nav-text">AppKit :</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UIKit"><span class="nav-number">1.0.2.0.2.2.</span> <span class="nav-text">UIKit :</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
