@@ -5,9 +5,9 @@
   <subtitle>技术宅 iOS开发</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://sevencho.github.io/"/>
   <updated>2018-04-14T08:49:54.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://sevencho.github.io/</id>
   
   <author>
     <name>曹雪松</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>敏捷开发</title>
-    <link href="http://yoursite.com/2018/02/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
-    <id>http://yoursite.com/2018/02/15/敏捷开发/</id>
+    <link href="https://sevencho.github.io/2018/02/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+    <id>https://sevencho.github.io/2018/02/15/敏捷开发/</id>
     <published>2018-02-15T05:43:17.000Z</published>
     <updated>2018-04-14T08:49:54.000Z</updated>
     
@@ -34,12 +34,12 @@
     
     </summary>
     
-      <category term="开发" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://sevencho.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="敏捷开发" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+      <category term="敏捷开发" scheme="https://sevencho.github.io/categories/%E5%BC%80%E5%8F%91/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="敏捷开发" scheme="http://yoursite.com/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+      <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
