@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>曹雪松de博客</title>
+  
+  <subtitle>技术宅 iOS开发</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-04-14T08:49:54.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>曹雪松</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敏捷开发</title>
+    <link href="http://yoursite.com/2018/02/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+    <id>http://yoursite.com/2018/02/15/敏捷开发/</id>
+    <published>2018-02-15T05:43:17.000Z</published>
+    <updated>2018-04-14T08:49:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;开发模式&quot;&gt;&lt;a href=&quot;#开发模式&quot; class=&quot;headerlink&quot; title=&quot;开发模式&quot;&gt;&lt;/a&gt;开发模式&lt;/h1&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;传统的软件开发模式需要经历问题评估、计划解决方案、设计系统架构、开发代码、测试、部署和使用系统、维护解
+      
+    
+    </summary>
+    
+      <category term="开发" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="敏捷开发" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="敏捷开发" scheme="http://yoursite.com/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+</feed>
