@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-04-14T10:17:57.000Z</updated>
+  <updated>2018-04-14T14:15:22.000Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/2018/02/15/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     <id>https://sevencho.github.io/2018/02/15/敏捷开发/</id>
     <published>2018-02-15T05:43:17.000Z</published>
-    <updated>2018-04-14T10:17:57.000Z</updated>
+    <updated>2018-04-14T14:15:22.000Z</updated>
     
     <summary type="html">
     
@@ -40,8 +40,6 @@
     
     
       <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="[object Object]" scheme="https://sevencho.github.io/tags/object-Object/"/>
     
   </entry>
   
@@ -76,7 +74,7 @@
     <link href="https://sevencho.github.io/2017/12/30/Homebrew%E4%BB%8B%E7%BB%8D/"/>
     <id>https://sevencho.github.io/2017/12/30/Homebrew介绍/</id>
     <published>2017-12-30T10:18:51.000Z</published>
-    <updated>2018-04-14T10:31:55.000Z</updated>
+    <updated>2018-04-15T04:58:49.000Z</updated>
     
     <summary type="html">
     
@@ -89,8 +87,10 @@
     
       <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="Homebrew" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/Homebrew/"/>
     
+      <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Homebrew" scheme="https://sevencho.github.io/tags/Homebrew/"/>
     
   </entry>
   
@@ -99,7 +99,7 @@
     <link href="https://sevencho.github.io/2017/12/30/LLDB%E4%BB%8B%E7%BB%8D/"/>
     <id>https://sevencho.github.io/2017/12/30/LLDB介绍/</id>
     <published>2017-12-30T10:11:08.000Z</published>
-    <updated>2018-04-14T10:32:06.000Z</updated>
+    <updated>2018-04-15T04:59:02.000Z</updated>
     
     <summary type="html">
     
@@ -114,10 +114,10 @@
     
       <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="LLDB" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/LLDB/"/>
     
+      <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="LLBD" scheme="https://sevencho.github.io/tags/LLBD/"/>
+      <category term="LLDB" scheme="https://sevencho.github.io/tags/LLDB/"/>
     
   </entry>
   
@@ -126,7 +126,7 @@
     <link href="https://sevencho.github.io/2017/11/11/VIM%E4%BB%8B%E7%BB%8D/"/>
     <id>https://sevencho.github.io/2017/11/11/VIM介绍/</id>
     <published>2017-11-11T10:20:46.000Z</published>
-    <updated>2018-04-14T10:32:35.000Z</updated>
+    <updated>2018-04-15T04:59:16.000Z</updated>
     
     <summary type="html">
     
@@ -140,8 +140,10 @@
     
       <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="VIM" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
     
+      <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="VIM" scheme="https://sevencho.github.io/tags/VIM/"/>
     
   </entry>
   
