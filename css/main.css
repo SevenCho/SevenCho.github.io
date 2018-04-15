@@ -2010,7 +2010,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0e0dc6;
+  background: #17beff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2850,8 +2850,8 @@ embed {
 }
 .post {
   margin-top: 0px;
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: 5px;
+  padding: 2px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
