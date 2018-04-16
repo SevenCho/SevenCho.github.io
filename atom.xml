@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>曹雪松de博客</title>
+  <title>曹雪松de博客|SevenCho’s Blog</title>
   
-  <subtitle>技术宅 iOS开发 美剧迷</subtitle>
+  <subtitle>技术宅 iOS开发 美剧控</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-04-16T05:00:23.545Z</updated>
+  <updated>2018-04-16T06:04:54.042Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/2018/04/15/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>https://sevencho.github.io/2018/04/15/Hexo博客搭建/</id>
     <published>2018-04-15T03:53:53.000Z</published>
-    <updated>2018-04-16T05:00:23.545Z</updated>
+    <updated>2018-04-16T06:04:54.042Z</updated>
     
     <summary type="html">
     
