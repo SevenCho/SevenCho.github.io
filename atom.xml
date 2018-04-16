@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-04-16T03:56:54.929Z</updated>
+  <updated>2018-04-16T04:28:41.952Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -18,18 +18,18 @@
   
   <entry>
     <title>Hexo博客搭建</title>
-    <link href="https://sevencho.github.io/2018/04/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    <id>https://sevencho.github.io/2018/04/16/Hexo博客搭建/</id>
-    <published>2018-04-16T03:53:53.000Z</published>
-    <updated>2018-04-16T03:56:54.929Z</updated>
+    <link href="https://sevencho.github.io/2018/04/15/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>https://sevencho.github.io/2018/04/15/Hexo博客搭建/</id>
+    <published>2018-04-15T03:53:53.000Z</published>
+    <updated>2018-04-16T04:28:41.952Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;#&lt;/p&gt;
-&lt;h2 id=&quot;博客搭建&quot;&gt;&lt;a href=&quot;#博客搭建&quot; class=&quot;headerlink&quot; title=&quot;博客搭建&quot;&gt;&lt;/a&gt;博客搭建&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitb
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + 
       
     
     </summary>
