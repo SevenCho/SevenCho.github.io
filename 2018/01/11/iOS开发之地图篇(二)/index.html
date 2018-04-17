@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="iOS开发之地图篇(二) 百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL ret = [_mapManager start:XSBaiduMapA">
+<meta name="description" content="iOS开发之地图篇(二)  春日游，杏花吹满头。陌上谁家年少足风流？我也不知道为什么想淫诗😂  百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL">
 <meta name="keywords" content="iOS,地图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发之地图篇(二)">
 <meta property="og:url" content="https://sevencho.github.io/2018/01/11/iOS开发之地图篇(二)/index.html">
 <meta property="og:site_name" content="曹雪松de博客|SevenCho’s Blog">
-<meta property="og:description" content="iOS开发之地图篇(二) 百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL ret = [_mapManager start:XSBaiduMapA">
+<meta property="og:description" content="iOS开发之地图篇(二)  春日游，杏花吹满头。陌上谁家年少足风流？我也不知道为什么想淫诗😂  百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T04:18:13.448Z">
+<meta property="og:updated_time" content="2018-04-17T04:24:55.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之地图篇(二)">
-<meta name="twitter:description" content="iOS开发之地图篇(二) 百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL ret = [_mapManager start:XSBaiduMapA">
+<meta name="twitter:description" content="iOS开发之地图篇(二)  春日游，杏花吹满头。陌上谁家年少足风流？我也不知道为什么想淫诗😂  百度地图1、注册地图api key1234567// 在程序启动代理方法注册baidu map api key 百度开发者平台获取_mapManager = [[BMKMapManager alloc]init];// 如果要关注网络及授权验证事件，请设定 generalDelegate参数BOOL">
 
 
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,934
+                  2,962
                 </span>
               
 
@@ -446,6 +446,9 @@
 
       
         <h1 id="iOS开发之地图篇-二"><a href="#iOS开发之地图篇-二" class="headerlink" title="iOS开发之地图篇(二)"></a>iOS开发之地图篇(二)</h1><hr>
+<blockquote>
+<p>春日游，杏花吹满头。陌上谁家年少足风流？我也不知道为什么想淫诗😂</p>
+</blockquote>
 <h2 id="百度地图"><a href="#百度地图" class="headerlink" title="百度地图"></a>百度地图</h2><h4 id="1、注册地图api-key"><a href="#1、注册地图api-key" class="headerlink" title="1、注册地图api key"></a>1、注册地图api key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 在程序启动代理方法注册baidu map api key 百度开发者平台获取</span><br><span class="line">_mapManager = [[BMKMapManager alloc]init];</span><br><span class="line">// 如果要关注网络及授权验证事件，请设定 generalDelegate参数</span><br><span class="line">BOOL ret = [_mapManager start:XSBaiduMapApiKey  generalDelegate:nil];</span><br><span class="line">if (!ret) &#123;</span><br><span class="line">    XSLog(@&quot;BMKMapManager start failed!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、初始化地图"><a href="#2、初始化地图" class="headerlink" title="2、初始化地图"></a>2、初始化地图</h4><ul>
 <li>添加地图的初始化配置</li>
