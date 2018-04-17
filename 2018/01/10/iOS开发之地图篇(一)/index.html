@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="工具,VIM," />
+  <meta name="keywords" content="iOS,地图," />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开12345vim 直接启动vi">
-<meta name="keywords" content="工具,VIM">
+<meta name="description" content="iOS开发之地图篇(一) 地图坐标体系1.WGS－84原始坐标系 一般用国际GPS纪录仪记录下来的经纬度 通过GPS定位拿到的原始经纬度 Google（国外）、高德地图（国外）、OSM地图定位的的经纬度。 但是在国内是不允许直接用WGS84坐标系标注的，必须经过加密后才能使用  注意：国内不允许直接使用，但是GPS设备上传的数据还是标准的数据，国内使用需要转为GCJ－02坐标    2.GCJ－0">
+<meta name="keywords" content="iOS,地图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIM介绍">
-<meta property="og:url" content="https://sevencho.github.io/2017/11/11/VIM介绍/index.html">
+<meta property="og:title" content="iOS开发之地图篇(一)">
+<meta property="og:url" content="https://sevencho.github.io/2018/01/10/iOS开发之地图篇(一)/index.html">
 <meta property="og:site_name" content="曹雪松de博客|SevenCho’s Blog">
-<meta property="og:description" content="VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开12345vim 直接启动vi">
+<meta property="og:description" content="iOS开发之地图篇(一) 地图坐标体系1.WGS－84原始坐标系 一般用国际GPS纪录仪记录下来的经纬度 通过GPS定位拿到的原始经纬度 Google（国外）、高德地图（国外）、OSM地图定位的的经纬度。 但是在国内是不允许直接用WGS84坐标系标注的，必须经过加密后才能使用  注意：国内不允许直接使用，但是GPS设备上传的数据还是标准的数据，国内使用需要转为GCJ－02坐标    2.GCJ－0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-15T05:01:34.000Z">
+<meta property="og:updated_time" content="2018-04-17T02:52:03.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VIM介绍">
-<meta name="twitter:description" content="VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开12345vim 直接启动vi">
+<meta name="twitter:title" content="iOS开发之地图篇(一)">
+<meta name="twitter:description" content="iOS开发之地图篇(一) 地图坐标体系1.WGS－84原始坐标系 一般用国际GPS纪录仪记录下来的经纬度 通过GPS定位拿到的原始经纬度 Google（国外）、高德地图（国外）、OSM地图定位的的经纬度。 但是在国内是不允许直接用WGS84坐标系标注的，必须经过加密后才能使用  注意：国内不允许直接使用，但是GPS设备上传的数据还是标准的数据，国内使用需要转为GCJ－02坐标    2.GCJ－0">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/2017/11/11/VIM介绍/"/>
+  <link rel="canonical" href="https://sevencho.github.io/2018/01/10/iOS开发之地图篇(一)/"/>
 
 
 
 
 
-  <title>VIM介绍 | 曹雪松de博客|SevenCho’s Blog</title>
+  <title>iOS开发之地图篇(一) | 曹雪松de博客|SevenCho’s Blog</title>
   
 
 
@@ -208,22 +208,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/2017/11/11/VIM介绍/">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/2018/01/10/iOS开发之地图篇(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="曹雪松">
@@ -331,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">VIM介绍</h1>
+          <h1 class="post-title" itemprop="name headline">iOS开发之地图篇(一)</h1>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T18:20:46+08:00">
-                2017-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T09:15:45+08:00">
+                2018-01-10
               </time>
             
 
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -377,8 +377,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/VIM/" itemprop="url" rel="index">
-                    <span itemprop="name">VIM</span>
+                  <a href="/categories/iOS/地图/" itemprop="url" rel="index">
+                    <span itemprop="name">地图</span>
                   </a>
                 </span>
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,519
+                  1,875
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  7
                 </span>
               
             </div>
@@ -445,223 +445,164 @@
       
 
       
-        <h1 id="VIM相关的指令"><a href="#VIM相关的指令" class="headerlink" title="VIM相关的指令"></a>VIM相关的指令</h1><blockquote>
-<p>vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。</p>
+        <h1 id="iOS开发之地图篇-一"><a href="#iOS开发之地图篇-一" class="headerlink" title="iOS开发之地图篇(一)"></a>iOS开发之地图篇(一)</h1><hr>
+<h1 id="地图坐标体系"><a href="#地图坐标体系" class="headerlink" title="地图坐标体系"></a>地图坐标体系</h1><h4 id="1-WGS－84原始坐标系"><a href="#1-WGS－84原始坐标系" class="headerlink" title="1.WGS－84原始坐标系"></a>1.WGS－84原始坐标系</h4><ul>
+<li>一般用国际GPS纪录仪记录下来的经纬度</li>
+<li>通过GPS定位拿到的原始经纬度</li>
+<li>Google（国外）、高德地图（国外）、OSM地图定位的的经纬度。</li>
+<li><p>但是在国内是不允许直接用WGS84坐标系标注的，必须经过加密后才能使用</p>
+<blockquote>
+<p>注意：国内不允许直接使用，但是GPS设备上传的数据还是标准的数据，国内使用需要转为GCJ－02坐标</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-GCJ－02坐标系"><a href="#2-GCJ－02坐标系" class="headerlink" title="2.GCJ－02坐标系"></a>2.GCJ－02坐标系</h4><ul>
+<li>GCJ－02坐标系又名“火星坐标系”，是我国国测局独创的坐标体系，由WGS－84加密而成。</li>
+<li>在国内，必须至少使用GCJ－02坐标系，如高德和Google在国内。</li>
+<li>或者使用在GCJ－02加密后再进行加密的坐标系，如百度坐标系。</li>
+</ul>
+<h4 id="3-百度坐标系-bd-09"><a href="#3-百度坐标系-bd-09" class="headerlink" title="3.百度坐标系:bd-09"></a>3.百度坐标系:bd-09</h4><ul>
+<li>百度坐标系是在GCJ－02坐标系的基础上再次加密偏移后形成的坐标系，只适用于百度地图。</li>
+</ul>
+<h1 id="国内地图偏移问题"><a href="#国内地图偏移问题" class="headerlink" title="国内地图偏移问题"></a>国内地图偏移问题</h1><ul>
+<li>地图偏移问题一般只有在国内才会出现</li>
+</ul>
+<blockquote>
+<p>国内‘标准’GPS设备定位坐标为GCJ－02坐标系，显示地图为偏移过的地图，最终显示的为准确的位置<br>国内非’标准’的设备定位坐标为WGS－84原始坐标系，显示地图为偏移过的地图，最终显示的位置出现偏移</p>
+</blockquote>
+<h1 id="Google-Maps"><a href="#Google-Maps" class="headerlink" title="Google Maps"></a>Google Maps</h1><h4 id="Google-Maps注意点"><a href="#Google-Maps注意点" class="headerlink" title="Google Maps注意点"></a>Google Maps注意点</h4><ul>
+<li><p>自定义弹窗可以直接使用InfoWindow</p>
+</li>
+<li><p>调整地图上面的图标位置</p>
+</li>
+</ul>
+<blockquote>
+<p>没办法可以直接调整每一个图标的位置</p>
+<p>可以设置地图的内容padding属性来调整</p>
+<p>但是padding属性设置局限于调整和屏幕边缘的距离</p>
+</blockquote>
+<ul>
+<li><p>刷新地图弹框内容可以设置自动刷新帧的间隔（对应有的不需要变化的控件可以关闭以节约性能）</p>
+</li>
+<li><p>添加手势会和地图的手势冲突，需要设置地图的consumesGesturesInView为false</p>
+</li>
+</ul>
+<blockquote>
+<p>consumesGesturesInView手势控制是否用户设置的手势被谷歌地图接管处理<br>默认设置为YES</p>
+</blockquote>
+<ul>
+<li>定位点的自定义弹框</li>
+</ul>
+<blockquote>
+<p>每一个定位点对象GMSMarker 如果想要自定义弹框可以在下面方法实现</p>
+<ul>
+<li>(UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker</li>
+</ul>
 </blockquote>
 <blockquote>
-<p>由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。</p>
+<p>如果想要刷新地图弹框的内容, 需要在设置Marker的方法里直接转换坐标，并且实时位置的自定义弹框需要全局是一个控件，否则无法刷新控件</p>
+<p>markerInfoWindow：方法只需要初始化控件即可，在获取到数据设置GMSMarker的方法里传递数据</p>
+<p>想要刷新数据要设置 tracksInfoWindowChanges = YES</p>
 </blockquote>
-<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim 直接启动vim</span><br><span class="line">vim filename 打开vim并创建名为filename的文件 <span class="comment">// 打开单个文件</span></span><br><span class="line">vim file1 file2 file3 … <span class="comment">// 打开多个文件</span></span><br><span class="line">:open file <span class="comment">// 在vim窗口中打开一个新文件</span></span><br><span class="line">:split file <span class="comment">// 在新窗口中打开文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="退出指令"><a href="#退出指令" class="headerlink" title="退出指令"></a>退出指令</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:w 保存文件但不退出vi</span><br><span class="line">:w file 将修改另外保存到file中，不退出vi</span><br><span class="line">:w! 强制保存，不推出vi</span><br><span class="line">:wq 保存文件并退出vi</span><br><span class="line">:wq! 强制保存文件，并退出vi</span><br><span class="line">:q 不保存文件，退出vi</span><br><span class="line">:q! 不保存文件，强制退出vi</span><br><span class="line">:e! 放弃所有修改，从上次保存文件开始再编辑命令历史</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h3 id="1、vi的基本概念"><a href="#1、vi的基本概念" class="headerlink" title="1、vi的基本概念"></a>1、vi的基本概念</h3></li>
-<li><p>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insertmode）和底行模式（last line mode），各模式的功能区分如下：</p>
-</li>
-<li><p>1) 命令行模式(command mode）</p>
+<li>在国内直接使用GPS原始坐标显示在地图上面会有偏移</li>
+</ul>
+<blockquote>
+<p>可以使用网上别人c语言写的一些纠偏算法，纠偏后偏移不是很大（纠偏只针对国内，可以使用经纬度区分国内还是国外的区域，不是非常准确）</p>
+<p>高德地图和百度地图SDK里面有提供国内外区域判断的Api，提供一个坐标点判断是在国内还是在国外</p>
+</blockquote>
+<h3 id="Google-Maps-收费"><a href="#Google-Maps-收费" class="headerlink" title="Google Maps 收费"></a>Google Maps 收费</h3><ul>
+<li><h5 id="The-Google-Maps-Geolocation-API"><a href="#The-Google-Maps-Geolocation-API" class="headerlink" title="The Google Maps Geolocation API"></a>The Google Maps Geolocation API</h5></li>
+<li>普通用户</li>
+</ul>
+<blockquote>
+<p>每天可以调用2500次，每秒调用50次</p>
+<p>超过后按每1000次/0.5美元收费（还是有调用限制：每天上限:100000次）</p>
+</blockquote>
 <ul>
-<li>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。</li>
+<li>高级用户</li>
 </ul>
-</li>
-<li><p>2) 插入模式（Insert mode）</p>
+<blockquote>
+<p>高级用户需要和Google公司联系，可以按协议付费提高调用次数限制</p>
+<p>但是只能针对国外的公司（不对国内公司提供服务），账单付费也必须是国外的公司</p>
+</blockquote>
 <ul>
-<li>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。</li>
-</ul>
+<li><h5 id="解决方法-（调用高德服务）"><a href="#解决方法-（调用高德服务）" class="headerlink" title="解决方法 （调用高德服务）"></a>解决方法 （调用高德服务）</h5></li>
+<li><p>高德地图针对没有开发对应的iOS和Android的客户端的只能硬件产品的企业用户, 提供智能硬件定位服务，支持通过服务端上传WIFI和基站信息进行定位并获取经纬度。</p>
 </li>
-<li><p>3) 底行模式（last line mode）</p>
+</ul>
+<blockquote>
+<p>需要开发者账号注册为企业用户</p>
+<p>免费调用限制为3000000次/每天</p>
+<p>同Google Maps Geolocation API 将设备GPS获取到的Wifi和Lb数据或者Cell Tower数据转换为对应的经纬度信息</p>
+<p>高德转出来的为GCJ－02坐标体系（火星坐标）</p>
+<p><em><strong>有国外的数据支持，但是具体的精准的还需要再测试</strong></em></p>
+</blockquote>
+<h3 id="Maps-导航"><a href="#Maps-导航" class="headerlink" title="Maps 导航"></a>Maps 导航</h3><ul>
+<li>检测是否安装对应的地图</li>
+<li>常用的4个地图的 URL Scheme:<blockquote>
+<p>1.苹果自带地图（不需要检测，所以不需要URL Scheme）<br>2.百度地图 ：baidumap://<br>3.高德地图 ：iosamap://<br>4.谷歌地图 ：comgooglemaps://</p>
+</blockquote>
+</li>
+</ul>
 <ul>
-<li>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。</li>
+<li>在IOS9之后，苹果进一步完善了安全机制，必须在plist里面设置url scheme白名单，不然无法打开对应的应用</li>
+<li>添加白名单：</li>
 </ul>
-</li>
-<li><p>不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。</p>
-</li>
-<li><h3 id="2、vi的基本操作"><a href="#2、vi的基本操作" class="headerlink" title="2、vi的基本操作"></a>2、vi的基本操作</h3></li>
-<li><p>a) 进入vi</p>
+<blockquote>
+<p>在 info.plist 文件里面，添加一个字段：LSApplicationQueriesSchemes，类型为数组</p>
+<p>然后在这个数组里面再添加我们所需要的地图 URL Scheme :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; baidumap // 百度</span><br><span class="line">&gt; iosamap // 高德</span><br><span class="line">&gt; comgooglemaps // 谷歌</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
 <ul>
-<li><p>在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi myfile</span><br></pre></td></tr></table></figure>
-</li>
+<li>应用内部调用google maps地图发起导航功能</li>
 </ul>
-</li>
-</ul>
-<pre><code>* 不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！
-</code></pre><ul>
-<li><p>b) 切换至插入模式（Insert mode）编辑文件</p>
+<blockquote>
+<p>1、x-source=%@&amp;x-success=%@跟高德一样 这里分别代表APP的名称和URL Scheme</p>
+<p>2、saddr=这里留空则表示从当前位置触发。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@&quot;comgooglemaps://&quot;]]) &#123;</span><br><span class="line">NSMutableDictionary *googleMapDic = [NSMutableDictionary dictionary];</span><br><span class="line">googleMapDic[@&quot;title&quot;] = @&quot;谷歌地图&quot;;</span><br><span class="line">NSString *urlString = [[NSString stringWithFormat:@&quot;comgooglemaps://?x-source=%@&amp;x-success=%@&amp;saddr=&amp;daddr=%f,%f&amp;directionsmode=driving&quot;,@&quot;导航测试&quot;,@&quot;nav123456&quot;,endLocation.latitude, endLocation.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];  </span><br><span class="line">googleMapDic[@&quot;url&quot;] = urlString;</span><br><span class="line">[maps addObject:googleMapDic];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。</li>
+<li>应用内部调用百度地图发起导航功能</li>
 </ul>
-</li>
-<li><p>c) Insert 的切换</p>
+<blockquote>
+<p>1，origin=, 这个是不能被修改的，不然无法把出发位置设置为当前位置</p>
+<p>2，destination = latlng:%f,%f|name = 目的地这里面的 name 的字段不能省略，否则导航会失败，而后面的文字则可以随意，赋个你的目的地的值给他就可以了。</p>
+<p>3，coord_type = gcj02coord_type 允许的值为 bd09ll、gcj02、wgs84，如果你 APP 的地图 SDK 用的是百度地图 SDK，请填 bd09ll，否则就填gcj02，wgs84的话基本是用不上了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if ([[UIApplication sharedApplication] canOpenURL:[NSURL        URLWithString:@&quot;baidumap://&quot;]]) &#123;</span><br><span class="line">NSMutableDictionary *baiduMapDic = [NSMutableDictionary dictionary];</span><br><span class="line">baiduMapDic[@&quot;title&quot;] = @&quot;百度地图&quot;;</span><br><span class="line">NSString *urlString = [[NSString stringWithFormat:@&quot;baidumap://map/direction?origin=&#123;&#123;我的位置&#125;&#125;&amp;destination=latlng:%f,%f|name=北京&amp;mode=driving&amp;coord_type=gcj02&quot;,endLocation.latitude,endLocation.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">baiduMapDic[@&quot;url&quot;] = urlString;</span><br><span class="line">[maps addObject:baiduMapDic];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字</li>
+<li>应用内部调用高德地图发起导航功能</li>
 </ul>
-</li>
-<li><p>d) 退出vi及保存文件</p>
+<blockquote>
+<p>1、sourceApplication=%@&amp;backScheme=%@sourceApplication代表你自己APP的名称 会在之后跳回的时候显示出来 所以必须填写 backScheme是你APP的URL Scheme 不填是跳不回来的哟</p>
+<p>2、dev=0这里填0就行了，跟上面的gcj02一个意思 1代表wgs84 也用不上</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@&quot;iosamap://&quot;]]) &#123;</span><br><span class="line">NSMutableDictionary *gaodeMapDic = [NSMutableDictionary dictionary];</span><br><span class="line">gaodeMapDic[@&quot;title&quot;] = @&quot;高德地图&quot;;</span><br><span class="line">NSString *urlString = [[NSString stringWithFormat:@&quot;iosamap://navi?sourceApplication=%@&amp;backScheme=%@&amp;lat=%f&amp;lon=%f&amp;dev=0&amp;style=2&quot;,@&quot;导航功能&quot;,@&quot;nav123456&quot;,endLocation.latitude,endLocation.longitude] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">gaodeMapDic[@&quot;url&quot;] = urlString;</span><br><span class="line">[maps addObject:gaodeMapDic];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</li>
+<li>应用内部调用苹果地图发起导航功能</li>
 </ul>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CLLocationCoordinate2D loc = CLLocationCoordinate2DMake([self.model.latitude floatValue], [self.model.longitude floatValue]);</span><br><span class="line">MKMapItem *currentLocation = [MKMapItem mapItemForCurrentLocation];</span><br><span class="line">MKMapItem *toLocation = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:loc addressDictionary:nil]];</span><br><span class="line">[MKMapItem openMapsWithItems:@[currentLocation, toLocation]</span><br><span class="line">launchOptions:@&#123;MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,</span><br><span class="line">MKLaunchOptionsShowsTrafficKey: [NSNumber numberWithBool:YES]&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="地图坐标体系转换"><a href="#地图坐标体系转换" class="headerlink" title="地图坐标体系转换"></a>地图坐标体系转换</h3><ul>
+<li>地图的SDK一般会提供其他地图坐标体系到自身体系的转换接口</li>
+<li>但是</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">: w filename // （输入 「w filename」将文章以指定的文件名filename保存）</span><br><span class="line"></span><br><span class="line">: wq // (输入「wq」，存盘并退出vi)</span><br><span class="line"></span><br><span class="line">: q! // (输入q!， 不存盘强制退出vi)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>均不提供从自身向其他坐标体系转换</p>
+<p>google SDK没有坐标转换接口</p>
+</blockquote>
 <ul>
-<li><h3 id="3、命令行模式（command-mode）功能键"><a href="#3、命令行模式（command-mode）功能键" class="headerlink" title="3、命令行模式（command mode）功能键"></a>3、命令行模式（command mode）功能键</h3></li>
-<li><p>1）. 插入模式</p>
+<li>别人写的转换方法、有误差</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/JackZhouCn/JZLocationConverter" target="_blank" rel="noopener">https://github.com/JackZhouCn/JZLocationConverter</a></p>
+</blockquote>
 <ul>
-<li><p>按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件；</p>
-</li>
-<li><p>按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字；</p>
-</li>
-<li><p>按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。</p>
-</li>
+<li>别人写的服务器（C#版）坐标转换</li>
 </ul>
-</li>
-<li><p>2）. 从插入模式切换为命令行模式</p>
-<ul>
-<li>按「ESC」键。</li>
-</ul>
-</li>
-<li><p>3）. 移动光标</p>
-<ul>
-<li><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
-</li>
-<li><p>按「ctrl」+「b」：屏幕往“后”移动一页。</p>
-</li>
-<li><p>按「ctrl」+「f」：屏幕往“前”移动一页。</p>
-</li>
-<li><p>按「ctrl」+「u」：屏幕往“后”移动半页。</p>
-</li>
-<li><p>按「ctrl」+「d」：屏幕往“前”移动半页。</p>
-</li>
-<li><p>按数字「0」：移到文章的开头。</p>
-</li>
-<li><p>按「G」：移动到文章的最后。</p>
-</li>
-<li><p>按「$」：移动到光标所在行的“行尾”。</p>
-</li>
-<li><p>按「^」：移动到光标所在行的“行首”</p>
-</li>
-<li><p>按「w」：光标跳到下个字的开头</p>
-</li>
-<li><p>按「e」：光标跳到下个字的字尾</p>
-</li>
-<li><p>按「b」：光标回到上个字的开头</p>
-</li>
-<li><p>按「#l」：光标移到该行的第#个位置，如：5l,56l</p>
-</li>
-</ul>
-</li>
-<li><p>4）. 删除文字</p>
-<ul>
-<li><p>「x」：每按一次，删除光标所在位置的“后面”一个字符</p>
-</li>
-<li><p>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符</p>
-</li>
-<li><p>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符</p>
-</li>
-<li><p>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符</p>
-</li>
-<li><p>「dd」：删除光标所在行</p>
-</li>
-<li><p>「#dd」：从光标所在行开始删除#行</p>
-</li>
-</ul>
-</li>
-<li><p>5）. 复制</p>
-<ul>
-<li><p>「yw」：将光标所在之处到字尾的字符复制到缓冲区中</p>
-</li>
-<li><p>「#yw」：复制#个字到缓冲区</p>
-</li>
-<li><p>「yy」：复制光标所在行到缓冲区</p>
-</li>
-<li><p>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字</p>
-</li>
-<li><p>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能</p>
-</li>
-</ul>
-</li>
-<li><p>6）. 替换</p>
-<ul>
-<li><p>「r」：替换光标所在处的字符</p>
-</li>
-<li><p>「R」：替换光标所到之处的字符，直到按下「ESC」键为止</p>
-</li>
-</ul>
-</li>
-<li><p>7）. 回复上一次操作</p>
-<ul>
-<li>「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作 、按多次“u”可以执行多次回复</li>
-</ul>
-</li>
-<li><p>8）. 更改</p>
-<ul>
-<li><p>「cw」：更改光标所在处的字到字尾处</p>
-</li>
-<li><p>「c#w」：例如，「c3w」表示更改3个字</p>
-</li>
-</ul>
-</li>
-<li><p>9）. 跳至指定的行</p>
-<ul>
-<li><p>「ctrl」+「g」列出光标所在行的行号</p>
-</li>
-<li><p>「#G」：例如，「15G」，表示移动光标至文章的第15行行首</p>
-</li>
-</ul>
-</li>
-<li><h3 id="4、Last-line-mode下命令简介"><a href="#4、Last-line-mode下命令简介" class="headerlink" title="4、Last line mode下命令简介"></a>4、Last line mode下命令简介</h3></li>
-<li><p>在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」</p>
-</li>
-<li><p>A) 列出行号</p>
-<ul>
-<li>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号</li>
-</ul>
-</li>
-<li><p>B) 跳到文件中的某一行</p>
-<ul>
-<li>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行</li>
-</ul>
-</li>
-<li><p>C) 查找字符</p>
-<ul>
-<li><p>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止</p>
-</li>
-<li><p>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止</p>
-</li>
-</ul>
-</li>
-<li><p>D) 保存文件</p>
-<ul>
-<li>「w」：在冒号输入字母「w」就可以将文件保存起来</li>
-</ul>
-</li>
-<li><p>E) 离开vi</p>
-<ul>
-<li><p>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi</p>
-</li>
-<li><p>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件</p>
-</li>
-</ul>
-</li>
-<li><h3 id="5、vi命令列表"><a href="#5、vi命令列表" class="headerlink" title="5、vi命令列表"></a>5、vi命令列表</h3></li>
-<li><p>1、下表列出命令模式下的一些键的功能：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">h 左移光标一个字符</span><br><span class="line">h 左移光标一个字符</span><br><span class="line">k 光标上移一行</span><br><span class="line">j 光标下移一行</span><br><span class="line">^ 光标移动至行首</span><br><span class="line">0 数字“0”，光标移至文章的开头</span><br><span class="line">G 光标移至文章的最后</span><br><span class="line">$ 光标移动至行尾</span><br><span class="line">Ctrl+f 向前翻屏</span><br><span class="line">Ctrl+b 向后翻屏</span><br><span class="line">Ctrl+d 向前翻半屏</span><br><span class="line">Ctrl+u 向后翻半屏</span><br><span class="line">i 在光标位置前插入字符</span><br><span class="line">a 在光标所在位置的后一个字符开始增加</span><br><span class="line">o 插入新的一行，从行首开始输入</span><br><span class="line">ESC 从输入状态退至命令状态</span><br><span class="line">x 删除光标后面的字符</span><br><span class="line">#x 删除光标后的＃个字符</span><br><span class="line">X (大写X) 删除光标前面的字符</span><br><span class="line">#X 删除光标前面的#个字符</span><br><span class="line">dd 删除光标所在的行</span><br><span class="line">#dd 删除从光标所在行数的#行</span><br><span class="line">yw 复制光标所在位置的一个字</span><br><span class="line"># yw复制光标所在位置的#个字</span><br><span class="line">yy 复制光标所在位置的一行</span><br><span class="line">#yy 复制从光标所在行数的#行</span><br><span class="line">p 粘贴</span><br><span class="line">u 取消操作</span><br><span class="line">cw 更改光标所在位置的一个字</span><br><span class="line">#cw 更改光标所在位置的#个字</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2、下表列出行命令模式下的一些指令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w filename 储存正在编辑的文件为filename</span><br><span class="line">wq filename 储存正在编辑的文件为filename，并退出vi</span><br><span class="line">q! 放弃所有修改，退出vi</span><br><span class="line">set nu 显示行号</span><br><span class="line">/或? 查找，在/后输入要查找的内容</span><br><span class="line">n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="对于第一次用vi，有几点注意要提醒一下："><a href="#对于第一次用vi，有几点注意要提醒一下：" class="headerlink" title="对于第一次用vi，有几点注意要提醒一下："></a>对于第一次用vi，有几点注意要提醒一下：</h4></li>
-<li><p>1、用vi打开文件后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。</p>
-</li>
-<li><p>切换放方法：在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了</p>
-</li>
-<li><p>2、编辑好后，需从插入模式切换为命令行模式才能对文件进行保存，切换方法：按「ESC」键</p>
-</li>
-<li><p>3、保存并退出文件：在命令模式下输入:wq即可！（别忘了wq前面的:）</p>
-</li>
-</ul>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/8975586a820e" target="_blank" rel="noopener">https://www.jianshu.com/p/8975586a820e</a></p>
+</blockquote>
 
       
     </div>
@@ -728,7 +669,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sevencho.github.io/2017/11/11/VIM介绍/" title="VIM介绍">https://sevencho.github.io/2017/11/11/VIM介绍/</a>
+    <a href="https://sevencho.github.io/2018/01/10/iOS开发之地图篇(一)/" title="iOS开发之地图篇(一)">https://sevencho.github.io/2018/01/10/iOS开发之地图篇(一)/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -743,9 +684,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/VIM/" rel="tag"><i class="fa fa-tag"></i> VIM</a>
+            <a href="/tags/地图/" rel="tag"><i class="fa fa-tag"></i> 地图</a>
           
         </div>
       
@@ -758,14 +699,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/30/iOS开发工具之Homebrew篇/" rel="next" title="Homebrew介绍">
+                <i class="fa fa-chevron-left"></i> Homebrew介绍
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/30/LLDB介绍/" rel="prev" title="LLDB介绍">
-                LLDB介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/11/iOS开发之地图篇(二)/" rel="prev" title="iOS开发之地图篇(二)">
+                iOS开发之地图篇(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -847,7 +792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -858,7 +803,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -869,7 +814,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -919,7 +864,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VIM相关的指令"><span class="nav-number">1.</span> <span class="nav-text">VIM相关的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开"><span class="nav-number">1.0.1.</span> <span class="nav-text">打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出指令"><span class="nav-number">1.0.2.</span> <span class="nav-text">退出指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、vi的基本概念"><span class="nav-number">1.0.3.</span> <span class="nav-text">1、vi的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、vi的基本操作"><span class="nav-number">1.0.4.</span> <span class="nav-text">2、vi的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、命令行模式（command-mode）功能键"><span class="nav-number">1.0.5.</span> <span class="nav-text">3、命令行模式（command mode）功能键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、Last-line-mode下命令简介"><span class="nav-number">1.0.6.</span> <span class="nav-text">4、Last line mode下命令简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、vi命令列表"><span class="nav-number">1.0.7.</span> <span class="nav-text">5、vi命令列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于第一次用vi，有几点注意要提醒一下："><span class="nav-number">1.0.7.1.</span> <span class="nav-text">对于第一次用vi，有几点注意要提醒一下：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS开发之地图篇-一"><span class="nav-number">1.</span> <span class="nav-text">iOS开发之地图篇(一)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#地图坐标体系"><span class="nav-number">2.</span> <span class="nav-text">地图坐标体系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-WGS－84原始坐标系"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.WGS－84原始坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-GCJ－02坐标系"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.GCJ－02坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-百度坐标系-bd-09"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.百度坐标系:bd-09</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#国内地图偏移问题"><span class="nav-number">3.</span> <span class="nav-text">国内地图偏移问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Maps"><span class="nav-number">4.</span> <span class="nav-text">Google Maps</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Maps注意点"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">Google Maps注意点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-Maps-收费"><span class="nav-number">4.0.1.</span> <span class="nav-text">Google Maps 收费</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-Google-Maps-Geolocation-API"><span class="nav-number">4.0.1.0.1.</span> <span class="nav-text">The Google Maps Geolocation API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方法-（调用高德服务）"><span class="nav-number">4.0.1.0.2.</span> <span class="nav-text">解决方法 （调用高德服务）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maps-导航"><span class="nav-number">4.0.2.</span> <span class="nav-text">Maps 导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地图坐标体系转换"><span class="nav-number">4.0.3.</span> <span class="nav-text">地图坐标体系转换</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -953,7 +898,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.3k</span>
+    <span title="Site words total count">13.2k</span>
   
 </div>
 
