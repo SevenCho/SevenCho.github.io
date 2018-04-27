@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="曹雪松de博客|SevenCho&#39;s Blog">
 <meta property="og:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以直接点击下载，不需要往下看">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-27T09:35:30.127Z">
+<meta property="og:updated_time" content="2018-04-27T09:53:35.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS蓝牙开发之iBeacon篇(二)">
 <meta name="twitter:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以直接点击下载，不需要往下看">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,212
+                  1,466
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -455,6 +455,12 @@
 <blockquote>
 <p>如果想了解iBeacon相关信息，请参考<a href="https://sevencho.github.io/archives/1f6c5df3.html">iOS蓝牙开发之iBeacon篇(一)</a></p>
 </blockquote>
+<ul>
+<li>虽然iBeacon也是基于Ble的，从硬件上看也是一套东西，但是Apple公司把他封装成了两套东西，所以在iOS移动端开发来说，这是两个完全不同的东西，调用完全不同框架的api.</li>
+<li>Apple公司为了省电和隐私限制只能监听指定UUID的iBeacon，无法像安卓一样搜索附近所有的iBeacon信息，虽然iBeacon扫描底层可以获取到附近的所有的iBeacon信息（底层就是获取附近所有的iBeacon然后和当前监听的iBeacon标识对比，然后回调给上层），如果你只是想在你自己的手机上测试下，可以参考<a href="https://github.com/sandeepmistry/AnyiBeacon-iOS" target="_blank" rel="noopener">AnyiBeacon-iOS</a>这个项目，但是只能作为测试使用，因为涉及到Apple的私有api，是不允许上架App Store的。</li>
+<li>想了解iBeacon底层数据协议格式的，可以参考<a href="https://stackoverflow.com/questions/18906988/what-is-the-ibeacon-bluetooth-profile" target="_blank" rel="noopener">What is the iBeacon Bluetooth Profile
+</a>这篇文章。</li>
+</ul>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
 <li>在 iOS8.0之后的时候如果想使用iBeacon，必须让用户授权<ul>
 <li>在info.plist文件里面配置下面的key</li>
@@ -522,7 +528,7 @@
 <li>监听目标离开区域并发送本地通知</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">AppDelegate</span>: <span class="title">CLLocationManagerDelegate</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didExitRegion region: CLRegion)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> region <span class="keyword">is</span> <span class="type">CLBeaconRegion</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> content = <span class="type">UNMutableNotificationContent</span>()</span><br><span class="line">        content.title = <span class="string">"Forget Me Not"</span></span><br><span class="line">        content.body = <span class="string">"Are you forgetting something?"</span></span><br><span class="line">        content.sound = .<span class="keyword">default</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> request = <span class="type">UNNotificationRequest</span>(identifier: <span class="string">"iBeaconDemo"</span>, content: content, trigger: <span class="literal">nil</span>)</span><br><span class="line">        <span class="type">UNUserNotificationCenter</span>.current().add(request, withCompletionHandler: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="noopener">官方文档</a><br><a href="https://en.wikipedia.org/wiki/IBeacon" target="_blank" rel="noopener">维基百科</a><br><a href="http://www.cocoachina.com/ios/20180211/22253.html" target="_blank" rel="noopener">iOS 中 iBeacon 开发</a><br><a href="https://www.raywenderlich.com/152330/ibeacon-tutorial-ios-swift" target="_blank" rel="noopener">iBeacon Tutorial with iOS and Swift</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="noopener">官方文档</a><br><a href="https://en.wikipedia.org/wiki/IBeacon" target="_blank" rel="noopener">维基百科</a><br><a href="http://www.cocoachina.com/ios/20180211/22253.html" target="_blank" rel="noopener">iOS 中 iBeacon 开发</a><br><a href="https://www.raywenderlich.com/152330/ibeacon-tutorial-ios-swift" target="_blank" rel="noopener">iBeacon Tutorial with iOS and Swift</a><br><a href="https://stackoverflow.com/questions/37164085/how-to-detect-ibeacon-device-without-knowing-uuid-in-ios" target="_blank" rel="noopener">How to detect ibeacon device without knowing UUID in iOS?</a><br><a href="https://stackoverflow.com/questions/28255475/detecting-beacons-via-ibeacon-monitoring-ranging-vs-corebluetooth-scanforperip" target="_blank" rel="noopener">Detecting beacons via iBeacon Monitoring &amp; Ranging vs CoreBluetooth scanForPeripheralsWithServices</a></p>
 
       
     </div>
@@ -814,7 +820,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.4k</span>
+    <span title="Site words total count">18.7k</span>
   
 </div>
 
