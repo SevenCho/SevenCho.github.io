@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="整理,Hexo博客搭建," />
+  <meta name="keywords" content="iOS,蓝牙," />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。  关于博客">
-<meta name="keywords" content="整理,Hexo博客搭建">
+<meta name="description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以点击下载，不需要往下看了�">
+<meta name="keywords" content="iOS,蓝牙">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建">
-<meta property="og:url" content="https://sevencho.github.io/archives/b8f4bd70.html">
+<meta property="og:title" content="iOS蓝牙开发之iBeacon篇(二)">
+<meta property="og:url" content="https://sevencho.github.io/archives/b05dc691.html">
 <meta property="og:site_name" content="曹雪松de博客|SevenCho&#39;s Blog">
-<meta property="og:description" content="之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。  关于博客">
+<meta property="og:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以点击下载，不需要往下看了�">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T07:13:22.000Z">
+<meta property="og:updated_time" content="2018-04-27T09:28:44.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建">
-<meta name="twitter:description" content="之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。  关于博客">
+<meta name="twitter:title" content="iOS蓝牙开发之iBeacon篇(二)">
+<meta name="twitter:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以点击下载，不需要往下看了�">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/archives/b8f4bd70.html"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/b05dc691.html"/>
 
 
 
 
 
-  <title>Hexo博客搭建 | 曹雪松de博客|SevenCho's Blog</title>
+  <title>iOS蓝牙开发之iBeacon篇(二) | 曹雪松de博客|SevenCho's Blog</title>
   
 
 
@@ -314,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/b8f4bd70.html">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/b05dc691.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="曹雪松">
@@ -331,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo博客搭建</h1>
+          <h1 class="post-title" itemprop="name headline">iOS蓝牙开发之iBeacon篇(二)</h1>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T11:53:53+08:00">
-                2018-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T17:27:45+08:00">
+                2018-04-27
               </time>
             
 
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/整理/" itemprop="url" rel="index">
-                    <span itemprop="name">整理</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -377,8 +377,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/整理/Hexo博客搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo博客搭建</span>
+                  <a href="/categories/iOS/蓝牙/" itemprop="url" rel="index">
+                    <span itemprop="name">蓝牙</span>
                   </a>
                 </span>
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,375
+                  1,210
                 </span>
               
 
@@ -447,113 +447,82 @@
       
         <hr>
 <blockquote>
-<p>之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。</p>
+<p>那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。<br>——王小波《黄金时代》</p>
 </blockquote>
-<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><ul>
-<li>常见的博客搭建方法（查到资料的）</li>
-<li>WordPress：一般需要独立域名（收费），传统的博客搭建方法，但是对MarkDown支持不是很好</li>
-<li>GitHubPages + Jekell：免费，稍微比较麻烦</li>
-<li>GitHubPages + Hexo：免费，使用简单，适合新手入门</li>
-</ul>
-<h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><ul>
-<li>Hexo 是一个基于 Nodejs 的静态博客网站生成器，作者是来自中国台湾的Tommy Chen。</li>
-<li><a href="https://zespia.tw/" title="Tommy Chen" target="_blank" rel="noopener">作者网站</a></li>
-</ul>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>部署方便且速度快</li>
-<li>支持Markdown语法</li>
-<li>已移植 Octopress 插件</li>
-<li>高扩展性、自订性</li>
-<li>兼容Windows, Mac &amp; Linux</li>
-</ul>
-<h3 id="Hexo实现原理"><a href="#Hexo实现原理" class="headerlink" title="Hexo实现原理"></a>Hexo实现原理</h3><ul>
-<li>1、Hexo是一个静态博客生成器，根据给定的主题，负责把写好的 Markdown 文章转换成一堆 HTML + CSS + Javascript 页面。</li>
-<li>2、Hexo还有把生成好的站点上传到 Github Pages 的功能。</li>
-</ul>
-<h2 id="GitHubPages-Hexo搭建方法"><a href="#GitHubPages-Hexo搭建方法" class="headerlink" title="GitHubPages + Hexo搭建方法"></a>GitHubPages + Hexo搭建方法</h2><ul>
-<li>关于使用可参考下面这两篇文章，写的非常详细，而且是针对Windows/Mac两个平台方法，就不在浪费时间码字了。</li>
-<li><a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a></li>
-<li><p><a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">博客搭建包含windows</a></p>
-</li>
-<li><p>常用的指令</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean // 清空本地缓存，解决由于本地缓存导致部署无效</span><br><span class="line">hexo g // == hexo generate <span class="comment">#生成静态网页</span></span><br><span class="line">gulp // 压缩生成的静态资料（如果安装gulp插件，具体安装方法见下面）</span><br><span class="line">hexo d // == hexo deploy <span class="comment">#开始部署</span></span><br><span class="line">hexo s // == hexo server <span class="comment">#启动服务器 本地调试使用</span></span><br></pre></td></tr></table></figure>
-<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><h4 id="RSS订阅插件"><a href="#RSS订阅插件" class="headerlink" title="RSS订阅插件"></a>RSS订阅插件</h4><ul>
-<li>执行如下指令</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>打开 Hexo 站点下的 _config.yml ,添加如下配置：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># feed</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line">feed:</span><br><span class="line"><span class="built_in">type</span>: atom</span><br><span class="line">path: atom.xml</span><br><span class="line"><span class="built_in">limit</span>: 20</span><br><span class="line">hub:</span><br><span class="line">content:</span><br></pre></td></tr></table></figure>
-<h4 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h4><ul>
-<li>执行如下指令</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>打开 Hexo 站点的 _config.yml,添加配置</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">path: search.xml</span><br><span class="line">field: post</span><br><span class="line">format: html</span><br><span class="line"><span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
-<h4 id="静态资源压缩插件"><a href="#静态资源压缩插件" class="headerlink" title="静态资源压缩插件"></a>静态资源压缩插件</h4><ul>
-<li>安装gulp</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g // 如果报npm WARN deprecated警告 可使用npm install -g npm</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装gulp插件：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-minify-css --save // 如果报npm WARN deprecated警告则使用sudo npm install gulp-clean-css执行</span><br><span class="line">npm install gulp-uglify --save</span><br><span class="line">npm install gulp-htmlmin --save</span><br><span class="line">npm install gulp-htmlclean --save</span><br><span class="line">npm install gulp-imagemin --save</span><br></pre></td></tr></table></figure>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h4 id="设置网站标签页favicon图标"><a href="#设置网站标签页favicon图标" class="headerlink" title="设置网站标签页favicon图标"></a>设置网站标签页favicon图标</h4><ul>
-<li>图标格式：32 * 32 的ico格式图标，重命名为favicon.ico</li>
-<li>把设计好的图标放在/themes/next/source/images里</li>
-<li>修改主题配置文件medium</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">    small: /images/favicon-16x16-next.png</span><br><span class="line">    medium: /images/favicon.ico</span><br><span class="line">    apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">    safari_pinned_tab: /images/logo.svg</span><br><span class="line">    #android_manifest: /images/manifest.json</span><br><span class="line">    #ms_browserconfig: /images/browserconfig.xml</span><br></pre></td></tr></table></figure>
-<ul>
-<li>更多配置可参考<a href="https://www.jianshu.com/p/efbeddc5eb19" target="_blank" rel="noopener">Hexo+Next个人博客主题优化</a></li>
-</ul>
-<h2 id="关于多电脑同步"><a href="#关于多电脑同步" class="headerlink" title="关于多电脑同步"></a>关于多电脑同步</h2><ul>
-<li><p>使用电脑搭建好博客后可能面临如下问题</p>
-<ul>
-<li>1、是在家里私人电脑上搭建的，想在公司也可以愉快的写文章</li>
-<li>2、换了一台新的电脑（挣钱了要换装备😂）</li>
-<li><p>3、电脑系统崩了😭</p>
-</li>
-<li><p>关于多电脑同步解决方案1</p>
-<ul>
-<li>gitHub分支管理，master分支存博客静态网页资源，Hexo分支存所有源文件（设置为默认分支）</li>
-<li>每个电脑每次更新文章前需要正常的git同步操作</li>
-<li>每个电脑每次更新文章后需要正常的git同步操作</li>
-<li>但是个人感觉不安全，别人可能直接把你的Hexo分支拉取下来就等于获取了你的全部博客资源（虽然我的博客没什么有用的价值😂）</li>
-<li>具体分支实现可参考<a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用分支同步</a></li>
-</ul>
-</li>
-<li><p>关于多电脑同步解决方案2</p>
-<ul>
-<li>每次手动拷贝最新的文件夹替换另一台电脑旧文件夹（想想就麻烦）</li>
-<li>通过云盘如Dropbox自动同步整个文件夹，使所有的电脑都可以同步到最新的 </li>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>照例，如果只是需要监听iBeacon的demo代码，可以点击<a href="https://github.com/SevenCho/iBeaconRanging" target="_blank" rel="noopener">下载</a>，不需要往下看了😂</p>
+</blockquote>
+<blockquote>
+<p>如果想了解iBeacon相关信息，请参考<a href="">iOS蓝牙开发之iBeacon篇(一)</a></p>
+</blockquote>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul>
+<li>在 iOS8.0之后的时候如果想使用iBeacon，必须让用户授权<ul>
+<li>在info.plist文件里面配置下面的key</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>目标电脑获取到最新的博客文件后</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLocationAlwaysAndWhenInUseUsageDescription</span> <span class="comment">// 推荐</span></span><br><span class="line"><span class="built_in">NSLocationWhenInUseUsageDescription</span></span><br><span class="line"><span class="built_in">NSLocationAlwaysUsageDescription</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>如果是情形3可以考虑先把整个博客目录拷贝出来到新的系统博客目录下</li>
-<li>GitHub添加配置新电脑的SSH key 和搭建时一样参考<a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a></li>
-<li><p>配置运行环境，执行如下指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install node   // 安装Node.js</span><br><span class="line">npm install -g hexo // 安装hexo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>切换到博客目录下安装博客模块和插件 (具体参考之前安装过的插件)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"> npm install hexo-deployer-git --save</span><br><span class="line"> npm install hexo-generator-feed --save</span><br><span class="line"> npm install hexo-generator-sitemap --save</span><br><span class="line"> npm install hexo-generator-feed --save</span><br><span class="line"> npm install hexo-generator-searchdb --save</span><br><span class="line"> </span><br><span class="line">npm install -g gulp </span><br><span class="line">    npm install gulp-minify-css --save</span><br><span class="line">    npm install gulp-uglify --save</span><br><span class="line">    npm install gulp-htmlmin --save</span><br><span class="line">    npm install gulp-htmlclean --save</span><br><span class="line">    npm install gulp-imagemin --save</span><br></pre></td></tr></table></figure>
+<li>在capabilities里面开启Background Modes的 <code>Location updates</code></li>
+<li>由于iBeacon是基于CoreLocation框架的，所以先导入头文件并实例化位置管理者</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CoreLocation</span><br><span class="line"><span class="keyword">let</span> locationManager = <span class="type">CLLocationManager</span>()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>请求授权并设置代理</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    locationManager.requestAlwaysAuthorization()</span><br><span class="line">    locationManager.delegate = <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="添加需要监听的iBeacon"><a href="#添加需要监听的iBeacon" class="headerlink" title="添加需要监听的iBeacon"></a>添加需要监听的iBeacon</h2><ul>
+<li>这个是添加iBeacon信息界面代理回调</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: AddBeacon</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ItemsViewController</span>: <span class="title">AddBeacon</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">addBeacon</span><span class="params">(item: Item)</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        items.append(item)</span><br><span class="line">        </span><br><span class="line">        tableView.beginUpdates()</span><br><span class="line">        <span class="keyword">let</span> newIndexPath = <span class="type">IndexPath</span>(row: items.<span class="built_in">count</span> - <span class="number">1</span>, section: <span class="number">0</span>)</span><br><span class="line">        tableView.insertRows(at: [newIndexPath], with: .automatic)</span><br><span class="line">        tableView.endUpdates()</span><br><span class="line">        </span><br><span class="line">        startMonitoring(item) <span class="comment">// 开始监控</span></span><br><span class="line">        persistItems() <span class="comment">// 持久化到本地</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Item为一个iBeacon信息的数据模型, 即包含如下信息</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: <span class="type">String</span> <span class="comment">// 非必须</span></span><br><span class="line"><span class="keyword">let</span> icon: <span class="type">Int</span>   <span class="comment">// 非必须</span></span><br><span class="line"><span class="keyword">let</span> uuid: <span class="type">UUID</span></span><br><span class="line"><span class="keyword">let</span> majorValue: <span class="type">CLBeaconMajorValue</span> <span class="comment">// 非必须</span></span><br><span class="line"><span class="keyword">let</span> minorValue: <span class="type">CLBeaconMinorValue</span> <span class="comment">// 非必须</span></span><br></pre></td></tr></table></figure>
+<h2 id="开始监听和停止监听"><a href="#开始监听和停止监听" class="headerlink" title="开始监听和停止监听"></a>开始监听和停止监听</h2><ul>
+<li>根据一个iBeacon的参数（iBeacon硬件提供或者自己用iPhone或者mac模拟）初始化一个CLBeaconRegion</li>
+<li>两种监听模式</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">startMonitoring</span><span class="params">(<span class="number">_</span> item: Item)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> region = item.asBeaconRegion()</span><br><span class="line">    locationManager.startMonitoring(<span class="keyword">for</span>: region) <span class="comment">// 低功耗，支持后台监听</span></span><br><span class="line">    locationManager.startRangingBeacons(<span class="keyword">in</span>: region) <span class="comment">// 大功耗，不支持后台监听</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: 根据模型数据初始化一个Beacon Region</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">asBeaconRegion</span><span class="params">()</span></span> -&gt; <span class="type">CLBeaconRegion</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">CLBeaconRegion</span>(proximityUUID: uuid, major: majorValue, minor: minorValue, identifier: name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果想停止监听某个iBeacon</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">stopMonitoring</span><span class="params">(<span class="number">_</span> item: Item)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> region = item.asBeaconRegion()</span><br><span class="line">    locationManager.stopMonitoring(<span class="keyword">for</span>: region)</span><br><span class="line">    locationManager.stopRangingBeacons(<span class="keyword">in</span>: region)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="监听到iBeacon信息回调"><a href="#监听到iBeacon信息回调" class="headerlink" title="监听到iBeacon信息回调"></a>监听到iBeacon信息回调</h2><ul>
+<li>开始监听某个Beacon</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didStartMonitoringFor region: CLRegion)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"didStartMonitoringFor\(region)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听到Beacons</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: CLLocationManagerDelegate</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ItemsViewController</span>: <span class="title">CLLocationManagerDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], <span class="keyword">in</span> region: CLBeaconRegion)</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"didRangeBeacons \(beacons.count)个"</span>)</span><br><span class="line">        <span class="keyword">var</span> indexPaths = [<span class="type">IndexPath</span>]()</span><br><span class="line">        <span class="keyword">for</span> beacon <span class="keyword">in</span> beacons &#123;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">0</span>..&lt;items.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="comment">// 检测是否是需要监控的beacon</span></span><br><span class="line">                <span class="keyword">if</span> items[row] == beacon &#123;</span><br><span class="line">                    items[row].beacon = beacon</span><br><span class="line">                    indexPaths += [<span class="type">IndexPath</span>(row: row, section: <span class="number">0</span>)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> visiblaRows = tableView.indexPathsForVisibleRows &#123;</span><br><span class="line">            <span class="keyword">let</span> rowsToUpdate = visiblaRows.<span class="built_in">filter</span>&#123; indexPaths.<span class="built_in">contains</span>($<span class="number">0</span>) &#125;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> rowsToUpdate &#123;</span><br><span class="line">                <span class="keyword">let</span> cell = tableView.cellForRow(at: row) <span class="keyword">as</span>? <span class="type">ItemCell</span></span><br><span class="line">                cell?.refreshLocation()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他的回调方法</li>
+<li><p>注意：</p>
+<ul>
+<li>如果需要监听进入某个区域或者从某个区域离开，则需要在初始化Beacon Region的时候订阅</li>
+<li><p>不然进入和离开区域不回回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; region.notifyOnEntry = YES;  </span><br><span class="line">&gt; region.notifyOnExit = YES;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<ul>
-<li>又可以愉快的随时随地写文章了😂</li>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// monitoring 监听某个beacon失败    </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Failed monitoring region\(error.localizedDescription)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 位置管理者出现错误信息    </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didFailWithError error: Error)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Location manager failed \(error.localizedDescription)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ranging 监听某个beacon失败     </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: Error)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"rangingBeaconsDidFailFor"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 已经进入到某个区域       </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didEnterRegion region: CLRegion)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"didEnterRegion"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 已经从某个区域离开        </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didExitRegion region: CLRegion)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"didExitRegion"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于推送"><a href="#关于推送" class="headerlink" title="关于推送"></a>关于推送</h2><ul>
+<li>app现在能显示iBeacon设备，并且还能实时监控它们的距离。但是当app没有处于运行状态时，如iBeacon设备在宠物猫脖子上但是宠物猫跑丢了！</li>
+<li>此时app就需要在猫离开区域的时候通知用户。</li>
+<li>在AppDelegate导入通知框架并初始化一个位置管理者</li>
 </ul>
-<hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a><br><a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">免费个人博客搭建详解</a><br><a href="https://www.jianshu.com/p/efbeddc5eb19" target="_blank" rel="noopener">Hexo+Next个人博客主题优化</a><br><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客</a></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CoreLocation</span><br><span class="line"><span class="keyword">import</span> UserNotifications</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> locationManager = <span class="type">CLLocationManager</span>()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>程序启动的时候，配置位置监听和设置通知</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 注册通知，请求权限</span></span><br><span class="line">    <span class="keyword">let</span> center = <span class="type">UNUserNotificationCenter</span>.current()</span><br><span class="line">    center.requestAuthorization(options: [.alert, .sound]) &#123; (granted, error) <span class="keyword">in</span> &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置代理</span></span><br><span class="line">    locationManager.delegate = <span class="keyword">self</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听目标离开区域并发送本地通知</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">AppDelegate</span>: <span class="title">CLLocationManagerDelegate</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didExitRegion region: CLRegion)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> region <span class="keyword">is</span> <span class="type">CLBeaconRegion</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> content = <span class="type">UNMutableNotificationContent</span>()</span><br><span class="line">        content.title = <span class="string">"Forget Me Not"</span></span><br><span class="line">        content.body = <span class="string">"Are you forgetting something?"</span></span><br><span class="line">        content.sound = .<span class="keyword">default</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> request = <span class="type">UNNotificationRequest</span>(identifier: <span class="string">"iBeaconDemo"</span>, content: content, trigger: <span class="literal">nil</span>)</span><br><span class="line">        <span class="type">UNUserNotificationCenter</span>.current().add(request, withCompletionHandler: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="noopener">官方文档</a><br><a href="https://en.wikipedia.org/wiki/IBeacon" target="_blank" rel="noopener">维基百科</a><br><a href="http://www.cocoachina.com/ios/20180211/22253.html" target="_blank" rel="noopener">iOS 中 iBeacon 开发</a><br><a href="https://www.raywenderlich.com/152330/ibeacon-tutorial-ios-swift" target="_blank" rel="noopener">iBeacon Tutorial with iOS and Swift</a></p>
 
       
     </div>
@@ -620,7 +589,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sevencho.github.io/archives/b8f4bd70.html" title="Hexo博客搭建">https://sevencho.github.io/archives/b8f4bd70.html</a>
+    <a href="https://sevencho.github.io/archives/b05dc691.html" title="iOS蓝牙开发之iBeacon篇(二)">https://sevencho.github.io/archives/b05dc691.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -635,9 +604,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/整理/" rel="tag"><i class="fa fa-tag"></i> 整理</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/Hexo博客搭建/" rel="tag"><i class="fa fa-tag"></i> Hexo博客搭建</a>
+            <a href="/tags/蓝牙/" rel="tag"><i class="fa fa-tag"></i> 蓝牙</a>
           
         </div>
       
@@ -650,8 +619,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/ed2e9abb.html" rel="next" title="敏捷开发">
-                <i class="fa fa-chevron-left"></i> 敏捷开发
+              <a href="/archives/1f6c5df3.html" rel="next" title="iOS蓝牙开发之iBeacon篇(一)">
+                <i class="fa fa-chevron-left"></i> iOS蓝牙开发之iBeacon篇(一)
               </a>
             
           </div>
@@ -659,10 +628,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/b47045de.html" rel="prev" title="iOS开发之地图篇(三):历史轨迹记录">
-                iOS开发之地图篇(三):历史轨迹记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -815,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于博客"><span class="nav-number">1.</span> <span class="nav-text">关于博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hexo"><span class="nav-number">2.</span> <span class="nav-text">关于Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo实现原理"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHubPages-Hexo搭建方法"><span class="nav-number">3.</span> <span class="nav-text">GitHubPages + Hexo搭建方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装"><span class="nav-number">4.</span> <span class="nav-text">插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RSS订阅插件"><span class="nav-number">4.0.1.</span> <span class="nav-text">RSS订阅插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地搜索插件"><span class="nav-number">4.0.2.</span> <span class="nav-text">本地搜索插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源压缩插件"><span class="nav-number">4.0.3.</span> <span class="nav-text">静态资源压缩插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">5.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网站标签页favicon图标"><span class="nav-number">5.0.1.</span> <span class="nav-text">设置网站标签页favicon图标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于多电脑同步"><span class="nav-number">6.</span> <span class="nav-text">关于多电脑同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加需要监听的iBeacon"><span class="nav-number">3.</span> <span class="nav-text">添加需要监听的iBeacon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始监听和停止监听"><span class="nav-number">4.</span> <span class="nav-text">开始监听和停止监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听到iBeacon信息回调"><span class="nav-number">5.</span> <span class="nav-text">监听到iBeacon信息回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于推送"><span class="nav-number">6.</span> <span class="nav-text">关于推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

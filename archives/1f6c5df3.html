@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="iOS, C, Object-C, Swift, Python" />
+  <meta name="keywords" content="iOS,蓝牙," />
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="一只特立独行的Coder🐶">
-<meta name="keywords" content="iOS, Object-C, Swift, Git, Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="曹雪松de博客|SevenCho&#39;s Blog">
-<meta property="og:url" content="https://sevencho.github.io/archives/2016/index.html">
+<meta name="description" content="高山有崖,林木有枝。忧来无方, 人莫之知。——曹丕《善哉行》  什么是iBeacon 如果只是需要iPhone模拟iBeacon的demo代码，可以点击下载，不需要往下看了😂   你曾经想过用手机在一个大型建筑物中为自己定位吗，比如购物中心，或者博物馆。 当然，GPS可以让你得知自己身处哪一座建筑物里。但是如果想要在这些钢筋混凝土堆砌而成的建筑中获得精确的GPS信号，只能祝你好运了。你所需要">
+<meta name="keywords" content="iOS,蓝牙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS蓝牙开发之iBeacon篇(一)">
+<meta property="og:url" content="https://sevencho.github.io/archives/1f6c5df3.html">
 <meta property="og:site_name" content="曹雪松de博客|SevenCho&#39;s Blog">
-<meta property="og:description" content="一只特立独行的Coder🐶">
+<meta property="og:description" content="高山有崖,林木有枝。忧来无方, 人莫之知。——曹丕《善哉行》  什么是iBeacon 如果只是需要iPhone模拟iBeacon的demo代码，可以点击下载，不需要往下看了😂   你曾经想过用手机在一个大型建筑物中为自己定位吗，比如购物中心，或者博物馆。 当然，GPS可以让你得知自己身处哪一座建筑物里。但是如果想要在这些钢筋混凝土堆砌而成的建筑中获得精确的GPS信号，只能祝你好运了。你所需要">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-27T09:28:44.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="曹雪松de博客|SevenCho&#39;s Blog">
-<meta name="twitter:description" content="一只特立独行的Coder🐶">
+<meta name="twitter:title" content="iOS蓝牙开发之iBeacon篇(一)">
+<meta name="twitter:description" content="高山有崖,林木有枝。忧来无方, 人莫之知。——曹丕《善哉行》  什么是iBeacon 如果只是需要iPhone模拟iBeacon的demo代码，可以点击下载，不需要往下看了😂   你曾经想过用手机在一个大型建筑物中为自己定位吗，比如购物中心，或者博物馆。 当然，GPS可以让你得知自己身处哪一座建筑物里。但是如果想要在这些钢筋混凝土堆砌而成的建筑中获得精确的GPS信号，只能祝你好运了。你所需要">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/archives/2016/"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/1f6c5df3.html"/>
 
 
 
 
 
-  <title>归档 | 曹雪松de博客|SevenCho's Blog</title>
+  <title>iOS蓝牙开发之iBeacon篇(一) | 曹雪松de博客|SevenCho's Blog</title>
   
 
 
@@ -151,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,74 +300,376 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/1f6c5df3.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|SevenCho's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/9b9b2c59.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发之AppStore篇</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">iOS蓝牙开发之iBeacon篇(一)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-26T09:15:45+08:00"
-              content="2016-10-26" >
-          10-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T11:27:45+08:00">
+                2018-04-27
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/蓝牙/" itemprop="url" rel="index">
+                    <span itemprop="name">蓝牙</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,322
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <hr>
+<blockquote>
+<p>高山有崖,林木有枝。忧来无方, 人莫之知。<br>——曹丕《善哉行》</p>
+</blockquote>
+<h2 id="什么是iBeacon"><a href="#什么是iBeacon" class="headerlink" title="什么是iBeacon"></a>什么是iBeacon</h2><blockquote>
+<p>如果只是需要iPhone模拟iBeacon的demo代码，可以点击<a href="https://github.com/SevenCho/iBeaconAdvertising" target="_blank" rel="noopener">下载</a>，不需要往下看了😂</p>
+</blockquote>
+<ul>
+<li>你曾经想过用手机在一个大型建筑物中为自己定位吗，比如购物中心，或者博物馆。</li>
+<li>当然，GPS可以让你得知自己身处哪一座建筑物里。但是如果想要在这些钢筋混凝土堆砌而成的建筑中获得精确的GPS信号，只能祝你好运了。你所需要的是内置在建筑物中一些设备，（通过它们）让手机获取确定你的位置。</li>
+<li>iBeacon是Apple公司开发的一种近场通讯协议，于2013年的WWDC开发者大会推出。当你的手持设备靠近一个Beacon基站时，设备就能够感应到Beacon信号，范围可以从几毫米到50米。因为是一种定位技术，苹果将iBeacon相关的接口放到了CoreLocation.framework。</li>
+<li>其工作方式是: 配备有低功耗蓝牙（BLE）通信功能的设备(iBeacon)使用BLE技术向周围发送自己特有的UUID，使用iBeacon的App接收到该UUID的应用软件会根据该UUID采取一些行动。</li>
+</ul>
+<h2 id="iBeacon的应用场景"><a href="#iBeacon的应用场景" class="headerlink" title="iBeacon的应用场景"></a>iBeacon的应用场景</h2><ul>
+<li>当使用者走进某个博物馆时，会扫描到一个 beacon。这个 beacon 有三个标志符<ul>
+<li>proximityUUID 是一个整个博物馆统一的值，可以用来标识这个博物馆</li>
+<li>major 值用来标识特定的展馆，比如唐代展馆，汉代展馆等等</li>
+<li>minor 值标识了特定的一个位置的 beacon，例如定位到使用者正在唐代展馆的唐三彩展品的位置。</li>
+</ul>
+</li>
+<li>这时博物馆的 app 会被系统唤醒，app 可以运行一个比较短的时间。在这段时间内，app 可以根据 beacon 的属性查询到使用者的地理位置（通过查询服务器或者本地数据）<ul>
+<li>例如在唐代展馆的唐三彩展品位置，之后就可以通过一个 local notification 推送这件展品的简介。用户可以点击这次 local notification 来查看更详细的信息，这样一次导览行为就完成了。</li>
+</ul>
+</li>
+</ul>
+<h2 id="可以充当iBeacon的iOS的设备"><a href="#可以充当iBeacon的iOS的设备" class="headerlink" title="可以充当iBeacon的iOS的设备"></a>可以充当iBeacon的iOS的设备</h2><ul>
+<li>iPhone4s 或者 之后的iPhone设备</li>
+<li>第三代iPad或者 之后iPad设备</li>
+<li>iPad mini 或者 之后iPad mini设备</li>
+<li>第五代iPod touch 或者之后iPod touch设备</li>
+<li>iMac 或者 MacBookPro</li>
+</ul>
+<h2 id="iBeacon监听方式"><a href="#iBeacon监听方式" class="headerlink" title="iBeacon监听方式"></a>iBeacon监听方式</h2><ul>
+<li>Monitoring：低功耗监听，用来判断设备进出ibeacon围栏，支持后台或app进程杀掉后监听。</li>
+<li>Ranging：大功率监听，监听当前设备所在区域内的ibeacon信息，包括rssi，距离，不支持后台监听。</li>
+<li>基于这两个特性，我们在使用时就分为前台和后台两个场景来实现ibeacon的检测。</li>
+</ul>
+<h2 id="iBeacon监听"><a href="#iBeacon监听" class="headerlink" title="iBeacon监听"></a>iBeacon监听</h2><ul>
+<li>你的设备当然不会自动监测iBeacon的，所以首先你得告知它。CLBeaconRegion类代表一个iBeacon。</li>
+<li>iBeacon与Core Location关联在一起看上去有点奇怪，因为它就是一个蓝牙设备而已，但是也可以这么认为，那就是iBeacon提供小范围定位功能，而GPS提供的是大范围定位功能。</li>
+<li>CLBeaconRegion参数介绍</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必要字段</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identifier</td>
+<td>是</td>
+<td>标识字符串</td>
+</tr>
+<tr>
+<td>proximityUUID</td>
+<td>是</td>
+<td>一级标识（eg.标识公司）</td>
+</tr>
+<tr>
+<td>major</td>
+<td>否<span class="Apple-tab-span" style="white-space:pre"></span></td>
+<td>二级标识（eg.标识店铺）</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>否<span class="Apple-tab-span" style="white-space:pre"></span></td>
+<td>三级标识（eg.标识位置）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="手机模拟iBeacon"><a href="#手机模拟iBeacon" class="headerlink" title="手机模拟iBeacon"></a>手机模拟iBeacon</h2><ul>
+<li>当想让iOS设备充当iBeacon时，你还需要引入Core Bluetooth框架，但只想检测iBeacon设备，你只需要Core Location就行了。</li>
+</ul>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><ul>
+<li>初始化配置一个iBeacon的参数<ul>
+<li>beaconUUID 是一个128位的值，可以使用<code>uuidgen</code>生成，但是生成的某些值不可用，推荐使用我提供的这个</li>
+<li>初始化一个蓝牙外设管理者，</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private let beaconIdentity = <span class="string">"kitty"</span></span><br><span class="line">private let beaconUUID = <span class="string">"B0702880-A295-A8AB-F734-031A98A512DE"</span></span><br><span class="line">private let beaconMajorValue = <span class="built_in">UInt16</span>(<span class="number">2</span>)</span><br><span class="line">private let beaconMinorValue = <span class="built_in">UInt16</span>(<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line">private var peripheraManager: CBPeripheralManager?</span><br><span class="line"></span><br><span class="line">override func viewDidLoad() &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    </span><br><span class="line">    peripheraManager = CBPeripheralManager(delegate: <span class="keyword">self</span>, queue: .main)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="监听蓝牙状态改变"><a href="#监听蓝牙状态改变" class="headerlink" title="监听蓝牙状态改变"></a>监听蓝牙状态改变</h4><ul>
+<li>在inof.plist文件配置<code>Privacy - Bluetooth Peripheral Usage Description</code>请求蓝牙授权</li>
+<li>遵守<code>CBPeripheralManagerDelegate</code>协议</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">extension ViewController: CBPeripheralManagerDelegate</span><br><span class="line">&#123;</span><br><span class="line">    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span> peripheral.state &#123;</span><br><span class="line">        <span class="keyword">case</span> .unknown:</span><br><span class="line">            print(<span class="string">"蓝牙未知的"</span>)</span><br><span class="line">        <span class="keyword">case</span> .resetting:</span><br><span class="line">            print(<span class="string">"蓝牙重置中"</span>)</span><br><span class="line">        <span class="keyword">case</span> .unsupported:</span><br><span class="line">            print(<span class="string">"蓝牙不支持"</span>)</span><br><span class="line">        <span class="keyword">case</span> .unauthorized:</span><br><span class="line">            print(<span class="string">"蓝牙未验证"</span>)</span><br><span class="line">        <span class="keyword">case</span> .poweredOff:</span><br><span class="line">            print(<span class="string">"蓝牙未启动"</span>)</span><br><span class="line">        <span class="keyword">case</span> .poweredOn:</span><br><span class="line">            print(<span class="string">"蓝牙可用"</span>)</span><br><span class="line">            beaconAdvertising()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="配置模拟iBeacon广播数据"><a href="#配置模拟iBeacon广播数据" class="headerlink" title="配置模拟iBeacon广播数据"></a>配置模拟iBeacon广播数据</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func beaconAdvertising() &#123;</span><br><span class="line">    </span><br><span class="line">    guard let uuid = UUID(uuidString: beaconUUID) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    let region = <span class="built_in">CLBeaconRegion</span>(proximityUUID: uuid, major: beaconMajorValue, minor: beaconMinorValue, identifier: beaconIdentity)</span><br><span class="line">    let regionData = region.peripheralData(withMeasuredPower: <span class="literal">nil</span>)</span><br><span class="line">    let regionAdvertising = regionData as? [String : Any]</span><br><span class="line">    peripheraManager?.startAdvertising(regionAdvertising)</span><br><span class="line">    print(<span class="string">"开始模拟Beacon广播数据\(regionData)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="监听是否广播成功"><a href="#监听是否广播成功" class="headerlink" title="监听是否广播成功"></a>监听是否广播成功</h4><ul>
+<li>若广播成功，则可作为iBeacon使用</li>
+<li>需要监听iBeacon可参考<a href="">iOS蓝牙开发之iBeacon篇(二)</a></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) &#123;</span><br><span class="line">        print(<span class="string">"正在模拟Beacon广播数据: \(peripheral.isAdvertising) --- 错误信息: \(String(error?.localizedDescription ?? "</span>无<span class="string">"))"</span>)</span><br><span class="line">        stateLbl.text = <span class="string">"正在模拟Beacon广播数据: \n\(peripheral.isAdvertising) \n错误信息: \n\(String(error?.localizedDescription ?? "</span>无<span class="string">"))"</span></span><br><span class="line">        stateLbl.textAlignment = .center</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="noopener">官方文档</a><br><a href="https://en.wikipedia.org/wiki/IBeacon" target="_blank" rel="noopener">维基百科</a><br><a href="http://www.cocoachina.com/ios/20180211/22253.html" target="_blank" rel="noopener">iOS 中 iBeacon 开发</a></p>
+
+      
     </div>
+    
+    
+    
+
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/1f6c5df3.html" title="iOS蓝牙开发之iBeacon篇(一)">https://sevencho.github.io/archives/1f6c5df3.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/蓝牙/" rel="tag"><i class="fa fa-tag"></i> 蓝牙</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/b47045de.html" rel="next" title="iOS开发之地图篇(三):历史轨迹记录">
+                <i class="fa fa-chevron-left"></i> iOS开发之地图篇(三):历史轨迹记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/b05dc691.html" rel="prev" title="iOS蓝牙开发之iBeacon篇(二)">
+                iOS蓝牙开发之iBeacon篇(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -374,6 +677,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -394,8 +701,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -476,6 +792,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是iBeacon"><span class="nav-number">1.</span> <span class="nav-text">什么是iBeacon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon的应用场景"><span class="nav-number">2.</span> <span class="nav-text">iBeacon的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以充当iBeacon的iOS的设备"><span class="nav-number">3.</span> <span class="nav-text">可以充当iBeacon的iOS的设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon监听方式"><span class="nav-number">4.</span> <span class="nav-text">iBeacon监听方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon监听"><span class="nav-number">5.</span> <span class="nav-text">iBeacon监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手机模拟iBeacon"><span class="nav-number">6.</span> <span class="nav-text">手机模拟iBeacon</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">6.0.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听蓝牙状态改变"><span class="nav-number">6.0.2.</span> <span class="nav-text">监听蓝牙状态改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置模拟iBeacon广播数据"><span class="nav-number">6.0.3.</span> <span class="nav-text">配置模拟iBeacon广播数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听是否广播成功"><span class="nav-number">6.0.4.</span> <span class="nav-text">监听是否广播成功</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -618,6 +950,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
