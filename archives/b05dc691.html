@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="曹雪松de博客|SevenCho&#39;s Blog">
 <meta property="og:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以直接点击下载，不需要往下看">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-27T09:53:35.428Z">
+<meta property="og:updated_time" content="2018-05-02T01:56:22.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS蓝牙开发之iBeacon篇(二)">
 <meta name="twitter:description" content="那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。——王小波《黄金时代》  前言 照例，如果只是需要监听iBeacon的demo代码，可以直接点击下载，不需要往下看">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,466
+                  1,501
                 </span>
               
 
@@ -467,7 +467,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLocationAlwaysAndWhenInUseUsageDescription</span> <span class="comment">// 推荐</span></span><br><span class="line"><span class="built_in">NSLocationWhenInUseUsageDescription</span></span><br><span class="line"><span class="built_in">NSLocationAlwaysUsageDescription</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NSLocationAlwaysAndWhenInUseUsageDescription</span> <span class="comment">// 推荐</span></span><br><span class="line"><span class="type">NSLocationWhenInUseUsageDescription</span></span><br><span class="line"><span class="type">NSLocationAlwaysUsageDescription</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>在capabilities里面开启Background Modes的 <code>Location updates</code></li>
 <li>由于iBeacon是基于CoreLocation框架的，所以先导入头文件并实例化位置管理者</li>
@@ -476,7 +476,7 @@
 <ul>
 <li>请求授权并设置代理</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    locationManager.requestAlwaysAuthorization()</span><br><span class="line">    locationManager.delegate = <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    locationManager.requestAlwaysAuthorization() <span class="comment">// 必须要申请权限,否者不会回调扫描到beacons的代理方法</span></span><br><span class="line">    locationManager.delegate = <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="添加需要监听的iBeacon"><a href="#添加需要监听的iBeacon" class="headerlink" title="添加需要监听的iBeacon"></a>添加需要监听的iBeacon</h2><ul>
 <li>这个是添加iBeacon信息界面代理回调</li>
 </ul>
@@ -501,7 +501,7 @@
 <ul>
 <li>监听到Beacons</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: CLLocationManagerDelegate</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ItemsViewController</span>: <span class="title">CLLocationManagerDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], <span class="keyword">in</span> region: CLBeaconRegion)</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"didRangeBeacons \(beacons.count)个"</span>)</span><br><span class="line">        <span class="keyword">var</span> indexPaths = [<span class="type">IndexPath</span>]()</span><br><span class="line">        <span class="keyword">for</span> beacon <span class="keyword">in</span> beacons &#123;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">0</span>..&lt;items.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="comment">// 检测是否是需要监控的beacon</span></span><br><span class="line">                <span class="keyword">if</span> items[row] == beacon &#123;</span><br><span class="line">                    items[row].beacon = beacon</span><br><span class="line">                    indexPaths += [<span class="type">IndexPath</span>(row: row, section: <span class="number">0</span>)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> visiblaRows = tableView.indexPathsForVisibleRows &#123;</span><br><span class="line">            <span class="keyword">let</span> rowsToUpdate = visiblaRows.<span class="built_in">filter</span>&#123; indexPaths.<span class="built_in">contains</span>($<span class="number">0</span>) &#125;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> rowsToUpdate &#123;</span><br><span class="line">                <span class="keyword">let</span> cell = tableView.cellForRow(at: row) <span class="keyword">as</span>? <span class="type">ItemCell</span></span><br><span class="line">                cell?.refreshLocation()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: CLLocationManagerDelegate</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ItemsViewController</span>: <span class="title">CLLocationManagerDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], <span class="keyword">in</span> region: CLBeaconRegion)</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"didRangeBeacons \(beacons.count)个"</span>)</span><br><span class="line">        <span class="keyword">var</span> indexPaths = [<span class="type">IndexPath</span>]()</span><br><span class="line">        <span class="keyword">for</span> beacon <span class="keyword">in</span> beacons &#123;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> <span class="number">0</span>..&lt;items.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="comment">// 检测是否是需要监控的beacon</span></span><br><span class="line">                <span class="keyword">if</span> items[row] == beacon &#123;</span><br><span class="line">                    items[row].beacon = beacon</span><br><span class="line">                    indexPaths += [<span class="type">IndexPath</span>(row: row, section: <span class="number">0</span>)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> visiblaRows = tableView.indexPathsForVisibleRows &#123;</span><br><span class="line">            <span class="keyword">let</span> rowsToUpdate = visiblaRows.<span class="built_in">filter</span>&#123; indexPaths.<span class="built_in">contains</span>($<span class="number">0</span>) &#125;</span><br><span class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> rowsToUpdate &#123; <span class="comment">// 刷新可见cell上对应的Beacon距离信息</span></span><br><span class="line">                <span class="keyword">let</span> cell = tableView.cellForRow(at: row) <span class="keyword">as</span>? <span class="type">ItemCell</span></span><br><span class="line">                cell?.refreshLocation()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其他的回调方法</li>
 <li><p>注意：</p>
@@ -714,7 +714,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -755,6 +755,12 @@
 
           
             <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SevenCho" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
                 
                   <span class="links-of-author-item">
                     <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail">
@@ -820,7 +826,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.7k</span>
+    <span title="Site words total count">23.0k</span>
   
 </div>
 

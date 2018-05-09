@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-04-27T09:53:35.428Z</updated>
+  <updated>2018-05-02T01:56:22.587Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/b05dc691.html"/>
     <id>https://sevencho.github.io/archives/b05dc691.html</id>
     <published>2018-04-27T09:27:45.000Z</published>
-    <updated>2018-04-27T09:53:35.428Z</updated>
+    <updated>2018-05-02T01:56:22.587Z</updated>
     
     <summary type="html">
     
@@ -50,7 +50,7 @@
     <link href="https://sevencho.github.io/archives/1f6c5df3.html"/>
     <id>https://sevencho.github.io/archives/1f6c5df3.html</id>
     <published>2018-04-27T03:27:45.000Z</published>
-    <updated>2018-04-27T09:36:07.794Z</updated>
+    <updated>2018-04-28T05:49:41.468Z</updated>
     
     <summary type="html">
     
@@ -58,9 +58,9 @@
       
         &lt;hr&gt;
 &lt;blockquote&gt;
-&lt;p&gt;高山有崖,林木有枝。忧来无方, 人莫之知。&lt;br&gt;——曹丕《善哉行》&lt;/p&gt;
+&lt;p&gt;高山有崖, 林木有枝。忧来无方, 人莫之知。&lt;br&gt;——曹丕《善哉行》&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;什么是iBeacon&quot;&gt;&lt;a href=&quot;#什么是iBeacon&quot; class=&quot;headerlink&quot; title
+&lt;h2 id=&quot;什么是iBeacon&quot;&gt;&lt;a href=&quot;#什么是iBeacon&quot; class=&quot;headerlink&quot; titl
       
     
     </summary>
@@ -363,6 +363,68 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="App Store" scheme="https://sevencho.github.io/tags/App-Store/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS蓝牙开发之中心设备篇</title>
+    <link href="https://sevencho.github.io/archives/a46fbeec.html"/>
+    <id>https://sevencho.github.io/archives/a46fbeec.html</id>
+    <published>2016-05-27T03:27:45.000Z</published>
+    <updated>2018-05-09T09:13:55.510Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当我跨过沉沦的一切，向着永恒开战的时候，你是我的军旗。&lt;br&gt;—— 王小波《爱你就像爱生命》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;关于蓝牙4-0&quot;&gt;&lt;a href=&quot;#关于蓝牙4-0&quot; class=&quot;headerlink&quot;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="蓝牙" scheme="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="蓝牙" scheme="https://sevencho.github.io/tags/%E8%93%9D%E7%89%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS蓝牙开发之外设篇</title>
+    <link href="https://sevencho.github.io/archives/bd3ad682.html"/>
+    <id>https://sevencho.github.io/archives/bd3ad682.html</id>
+    <published>2016-04-27T03:27:45.000Z</published>
+    <updated>2018-05-09T07:54:13.865Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我时常回到童年，用一片童心来思考问题，很多烦恼的问题就变得易解。&lt;br&gt;——王小波 《一只特立独行的猪》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;占坑&quot;&gt;&lt;a href=&quot;#占坑&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="蓝牙" scheme="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="蓝牙" scheme="https://sevencho.github.io/tags/%E8%93%9D%E7%89%99/"/>
     
   </entry>
   
