@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
 <meta property="og:description" content="之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。  关于博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T07:13:22.000Z">
+<meta property="og:updated_time" content="2018-06-28T06:03:12.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建">
 <meta name="twitter:description" content="之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + GitHubPages搭建博客的文章，就查了下相关的资料和介绍，搭建了一个简单的博客（GitHubPages + Hexo + Next主题）。  关于博客">
@@ -470,7 +470,7 @@
 <li>1、Hexo是一个静态博客生成器，根据给定的主题，负责把写好的 Markdown 文章转换成一堆 HTML + CSS + Javascript 页面。</li>
 <li>2、Hexo还有把生成好的站点上传到 Github Pages 的功能。</li>
 </ul>
-<h2 id="GitHubPages-Hexo搭建方法"><a href="#GitHubPages-Hexo搭建方法" class="headerlink" title="GitHubPages + Hexo搭建方法"></a>GitHubPages + Hexo搭建方法</h2><ul>
+<h3 id="GitHubPages-Hexo搭建方法"><a href="#GitHubPages-Hexo搭建方法" class="headerlink" title="GitHubPages + Hexo搭建方法"></a>GitHubPages + Hexo搭建方法</h3><ul>
 <li>关于使用可参考下面这两篇文章，写的非常详细，而且是针对Windows/Mac两个平台方法，就不在浪费时间码字了。</li>
 <li><a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a></li>
 <li><p><a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">博客搭建包含windows</a></p>
@@ -479,7 +479,7 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean // 清空本地缓存，解决由于本地缓存导致部署无效</span><br><span class="line">hexo g // == hexo generate <span class="comment">#生成静态网页</span></span><br><span class="line">gulp // 压缩生成的静态资料（如果安装gulp插件，具体安装方法见下面）</span><br><span class="line">hexo d // == hexo deploy <span class="comment">#开始部署</span></span><br><span class="line">hexo s // == hexo server <span class="comment">#启动服务器 本地调试使用</span></span><br></pre></td></tr></table></figure>
-<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><h4 id="RSS订阅插件"><a href="#RSS订阅插件" class="headerlink" title="RSS订阅插件"></a>RSS订阅插件</h4><ul>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><h3 id="RSS订阅插件"><a href="#RSS订阅插件" class="headerlink" title="RSS订阅插件"></a>RSS订阅插件</h3><ul>
 <li>执行如下指令</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
@@ -487,7 +487,7 @@
 <li>打开 Hexo 站点下的 _config.yml ,添加如下配置：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># feed</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line">feed:</span><br><span class="line"><span class="built_in">type</span>: atom</span><br><span class="line">path: atom.xml</span><br><span class="line"><span class="built_in">limit</span>: 20</span><br><span class="line">hub:</span><br><span class="line">content:</span><br></pre></td></tr></table></figure>
-<h4 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h4><ul>
+<h3 id="本地搜索插件"><a href="#本地搜索插件" class="headerlink" title="本地搜索插件"></a>本地搜索插件</h3><ul>
 <li>执行如下指令</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
@@ -495,7 +495,7 @@
 <li>打开 Hexo 站点的 _config.yml,添加配置</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">path: search.xml</span><br><span class="line">field: post</span><br><span class="line">format: html</span><br><span class="line"><span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
-<h4 id="静态资源压缩插件"><a href="#静态资源压缩插件" class="headerlink" title="静态资源压缩插件"></a>静态资源压缩插件</h4><ul>
+<h3 id="静态资源压缩插件"><a href="#静态资源压缩插件" class="headerlink" title="静态资源压缩插件"></a>静态资源压缩插件</h3><ul>
 <li>安装gulp</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g // 如果报npm WARN deprecated警告 可使用npm install -g npm</span><br></pre></td></tr></table></figure>
@@ -503,7 +503,7 @@
 <li>安装gulp插件：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-minify-css --save // 如果报npm WARN deprecated警告则使用sudo npm install gulp-clean-css执行</span><br><span class="line">npm install gulp-uglify --save</span><br><span class="line">npm install gulp-htmlmin --save</span><br><span class="line">npm install gulp-htmlclean --save</span><br><span class="line">npm install gulp-imagemin --save</span><br></pre></td></tr></table></figure>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h4 id="设置网站标签页favicon图标"><a href="#设置网站标签页favicon图标" class="headerlink" title="设置网站标签页favicon图标"></a>设置网站标签页favicon图标</h4><ul>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h3 id="设置网站标签页favicon图标"><a href="#设置网站标签页favicon图标" class="headerlink" title="设置网站标签页favicon图标"></a>设置网站标签页favicon图标</h3><ul>
 <li>图标格式：32 * 32 的ico格式图标，重命名为favicon.ico</li>
 <li>把设计好的图标放在/themes/next/source/images里</li>
 <li>修改主题配置文件medium</li>
@@ -553,7 +553,12 @@
 <li>又可以愉快的随时随地写文章了😂</li>
 </ul>
 <hr>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a><br><a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">免费个人博客搭建详解</a><br><a href="https://www.jianshu.com/p/efbeddc5eb19" target="_blank" rel="noopener">Hexo+Next个人博客主题优化</a><br><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="noopener">Mac搭建Hexo博客及NexT主题配置优化</a></li>
+<li><a href="https://www.jianshu.com/p/380290deb8f0" target="_blank" rel="noopener">免费个人博客搭建详解</a></li>
+<li><a href="https://www.jianshu.com/p/efbeddc5eb19" target="_blank" rel="noopener">Hexo+Next个人博客主题优化</a></li>
+<li><a href="https://www.jianshu.com/p/0b1fccce74e0" target="_blank" rel="noopener">利用Hexo在多台电脑上提交和更新github pages博客</a></li>
+</ul>
 
       
     </div>
@@ -743,7 +748,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -765,7 +770,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -821,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于博客"><span class="nav-number">1.</span> <span class="nav-text">关于博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hexo"><span class="nav-number">2.</span> <span class="nav-text">关于Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo实现原理"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHubPages-Hexo搭建方法"><span class="nav-number">3.</span> <span class="nav-text">GitHubPages + Hexo搭建方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装"><span class="nav-number">4.</span> <span class="nav-text">插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RSS订阅插件"><span class="nav-number">4.0.1.</span> <span class="nav-text">RSS订阅插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地搜索插件"><span class="nav-number">4.0.2.</span> <span class="nav-text">本地搜索插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源压缩插件"><span class="nav-number">4.0.3.</span> <span class="nav-text">静态资源压缩插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">5.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网站标签页favicon图标"><span class="nav-number">5.0.1.</span> <span class="nav-text">设置网站标签页favicon图标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于多电脑同步"><span class="nav-number">6.</span> <span class="nav-text">关于多电脑同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于博客"><span class="nav-number">1.</span> <span class="nav-text">关于博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hexo"><span class="nav-number">2.</span> <span class="nav-text">关于Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo实现原理"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHubPages-Hexo搭建方法"><span class="nav-number">2.3.</span> <span class="nav-text">GitHubPages + Hexo搭建方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装"><span class="nav-number">3.</span> <span class="nav-text">插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS订阅插件"><span class="nav-number">3.1.</span> <span class="nav-text">RSS订阅插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地搜索插件"><span class="nav-number">3.2.</span> <span class="nav-text">本地搜索插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态资源压缩插件"><span class="nav-number">3.3.</span> <span class="nav-text">静态资源压缩插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">4.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置网站标签页favicon图标"><span class="nav-number">4.1.</span> <span class="nav-text">设置网站标签页favicon图标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于多电脑同步"><span class="nav-number">5.</span> <span class="nav-text">关于多电脑同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -855,7 +860,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.0k</span>
+    <span title="Site words total count">29.4k</span>
   
 </div>
 

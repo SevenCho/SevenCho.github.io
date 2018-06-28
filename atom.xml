@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-05-02T01:56:22.587Z</updated>
+  <updated>2018-06-28T05:57:45.967Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建自己的CocoaPods公有库</title>
+    <link href="https://sevencho.github.io/archives/2e7b1d7b.html"/>
+    <id>https://sevencho.github.io/archives/2e7b1d7b.html</id>
+    <published>2018-06-27T09:27:45.000Z</published>
+    <updated>2018-06-28T05:57:45.967Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我把我整个灵魂都给你，连同它的怪癖，耍小脾气，忽明忽暗，一千八百种坏毛病。它真讨厌，只有一点好，爱你。&lt;br&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="CocoaPods" scheme="https://sevencho.github.io/tags/CocoaPods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个成功的分支模型</title>
+    <link href="https://sevencho.github.io/archives/33f710d8.html"/>
+    <id>https://sevencho.github.io/archives/33f710d8.html</id>
+    <published>2018-06-25T09:27:45.000Z</published>
+    <updated>2018-06-28T05:57:35.108Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。&lt;br&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="git" scheme="https://sevencho.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS蓝牙开发之iBeacon篇(二)</title>
@@ -81,7 +139,7 @@
     <link href="https://sevencho.github.io/archives/b47045de.html"/>
     <id>https://sevencho.github.io/archives/b47045de.html</id>
     <published>2018-04-20T14:31:26.000Z</published>
-    <updated>2018-04-24T01:57:27.169Z</updated>
+    <updated>2018-06-28T06:03:14.925Z</updated>
     
     <summary type="html">
     
@@ -112,7 +170,7 @@
     <link href="https://sevencho.github.io/archives/b8f4bd70.html"/>
     <id>https://sevencho.github.io/archives/b8f4bd70.html</id>
     <published>2018-04-15T03:53:53.000Z</published>
-    <updated>2018-04-17T07:13:22.000Z</updated>
+    <updated>2018-06-28T06:03:12.336Z</updated>
     
     <summary type="html">
     
@@ -198,7 +256,7 @@
     <link href="https://sevencho.github.io/archives/b3b6a999.html"/>
     <id>https://sevencho.github.io/archives/b3b6a999.html</id>
     <published>2018-01-11T01:15:45.000Z</published>
-    <updated>2018-04-18T06:46:32.000Z</updated>
+    <updated>2018-06-28T06:08:33.087Z</updated>
     
     <summary type="html">
     
@@ -229,7 +287,7 @@
     <link href="https://sevencho.github.io/archives/1c8732fb.html"/>
     <id>https://sevencho.github.io/archives/1c8732fb.html</id>
     <published>2018-01-10T01:15:45.000Z</published>
-    <updated>2018-04-20T14:52:11.000Z</updated>
+    <updated>2018-06-28T06:07:31.020Z</updated>
     
     <summary type="html">
     
@@ -239,7 +297,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。&lt;br&gt;十步杀一人，千里不留行。事了拂衣去，深藏身与名。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;地图坐标体系&quot;&gt;&lt;a href=&quot;#地图坐标体系&quot; class=&quot;headerl
+&lt;h2 id=&quot;地图坐标体系&quot;&gt;&lt;a href=&quot;#地图坐标体系&quot; class=&quot;headerl
       
     
     </summary>

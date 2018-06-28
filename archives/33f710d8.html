@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="工具,VIM," />
+  <meta name="keywords" content="iOS,git," />
 
 
 
@@ -86,18 +86,26 @@
 
 
 
-<meta name="description" content="iOS开发工具之VIM篇VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开123">
-<meta name="keywords" content="工具,VIM">
+<meta name="description" content="我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。——王小波《爱你就像爱生命》  前言 本文翻译自“A successful Git branching model” 英文原文请点击此处查看  正文 在这篇文章中，我将展示我一年前曾经介绍过的用于我部分项目（无论是在工作还是私人）的开发模">
+<meta name="keywords" content="iOS,git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIM介绍">
-<meta property="og:url" content="https://sevencho.github.io/archives/1c40fe4d.html">
+<meta property="og:title" content="一个成功的分支模型">
+<meta property="og:url" content="https://sevencho.github.io/archives/33f710d8.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="iOS开发工具之VIM篇VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开123">
+<meta property="og:description" content="我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。——王小波《爱你就像爱生命》  前言 本文翻译自“A successful Git branching model” 英文原文请点击此处查看  正文 在这篇文章中，我将展示我一年前曾经介绍过的用于我部分项目（无论是在工作还是私人）的开发模">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T07:13:22.000Z">
+<meta property="og:image" content="https://nvie.com/img/git-model@2x.png">
+<meta property="og:image" content="https://nvie.com/img/centr-decentr@2x.png">
+<meta property="og:image" content="https://nvie.com/img/main-branches@2x.png">
+<meta property="og:image" content="https://nvie.com/img/fb@2x.png">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j123aaj20qk0ni3zy.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j1l9k0j20hk0no407.jpg">
+<meta property="og:image" content="http://nvie.com/img/pdf@2x.png">
+<meta property="og:updated_time" content="2018-06-28T05:57:35.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VIM介绍">
-<meta name="twitter:description" content="iOS开发工具之VIM篇VIM相关的指令 vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。   由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。  打开123">
+<meta name="twitter:title" content="一个成功的分支模型">
+<meta name="twitter:description" content="我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。——王小波《爱你就像爱生命》  前言 本文翻译自“A successful Git branching model” 英文原文请点击此处查看  正文 在这篇文章中，我将展示我一年前曾经介绍过的用于我部分项目（无论是在工作还是私人）的开发模">
+<meta name="twitter:image" content="https://nvie.com/img/git-model@2x.png">
 
 
 
@@ -127,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/archives/1c40fe4d.html"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/33f710d8.html"/>
 
 
 
 
 
-  <title>VIM介绍 | 曹雪松de博客|CoderBoy's Blog</title>
+  <title>一个成功的分支模型 | 曹雪松de博客|CoderBoy's Blog</title>
   
 
 
@@ -314,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/1c40fe4d.html">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/33f710d8.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="曹雪松">
@@ -331,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">VIM介绍</h1>
+          <h1 class="post-title" itemprop="name headline">一个成功的分支模型</h1>
         
 
         <div class="post-meta">
@@ -343,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T18:20:46+08:00">
-                2017-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T17:27:45+08:00">
+                2018-06-25
               </time>
             
 
@@ -366,19 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/VIM/" itemprop="url" rel="index">
-                    <span itemprop="name">VIM</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -408,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,526
+                  3,860
                 </span>
               
 
@@ -424,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  14
                 </span>
               
             </div>
@@ -445,222 +442,158 @@
       
 
       
-        <h1 id="iOS开发工具之VIM篇"><a href="#iOS开发工具之VIM篇" class="headerlink" title="iOS开发工具之VIM篇"></a>iOS开发工具之VIM篇</h1><h2 id="VIM相关的指令"><a href="#VIM相关的指令" class="headerlink" title="VIM相关的指令"></a>VIM相关的指令</h2><blockquote>
-<p>vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。</p>
-</blockquote>
+        <hr>
 <blockquote>
-<p>由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。</p>
+<p>我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。<br>——王小波《爱你就像爱生命》</p>
 </blockquote>
-<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim 直接启动vim</span><br><span class="line">vim filename 打开vim并创建名为filename的文件 <span class="comment">// 打开单个文件</span></span><br><span class="line">vim file1 file2 file3 … <span class="comment">// 打开多个文件</span></span><br><span class="line">:open file <span class="comment">// 在vim窗口中打开一个新文件</span></span><br><span class="line">:split file <span class="comment">// 在新窗口中打开文件</span></span><br></pre></td></tr></table></figure>
-<h3 id="退出指令"><a href="#退出指令" class="headerlink" title="退出指令"></a>退出指令</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:w 保存文件但不退出vi</span><br><span class="line">:w file 将修改另外保存到file中，不退出vi</span><br><span class="line">:w! 强制保存，不推出vi</span><br><span class="line">:wq 保存文件并退出vi</span><br><span class="line">:wq! 强制保存文件，并退出vi</span><br><span class="line">:q 不保存文件，退出vi</span><br><span class="line">:q! 不保存文件，强制退出vi</span><br><span class="line">:e! 放弃所有修改，从上次保存文件开始再编辑命令历史</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="1、vi的基本概念"><a href="#1、vi的基本概念" class="headerlink" title="1、vi的基本概念"></a>1、vi的基本概念</h3></li>
-<li><p>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insertmode）和底行模式（last line mode），各模式的功能区分如下：</p>
-</li>
-<li><p>1) 命令行模式(command mode）</p>
-<ul>
-<li>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。</li>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>本文翻译自“A successful Git branching model”</li>
+<li>英文原文请<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">点击此处查看</a></li>
 </ul>
-</li>
-<li><p>2) 插入模式（Insert mode）</p>
-<ul>
-<li>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。</li>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ul>
+<li>在这篇文章中，我将展示我一年前曾经介绍过的用于我部分项目（无论是在工作还是私人）的开发模式，并且已经证明是非常成功的。我有写这篇文章的打算已经很久了，但直到今天我才有时间彻底的完成它。我不会谈论关于项目的任何细节，仅仅讨论关于分支策略和发布管理。<br><img src="https://nvie.com/img/git-model@2x.png" alt="git-model"></li>
 </ul>
-</li>
-<li><p>3) 底行模式（last line mode）</p>
-<ul>
-<li>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。</li>
+<h3 id="为什么git？"><a href="#为什么git？" class="headerlink" title="为什么git？"></a>为什么git？</h3><ul>
+<li>关于专业人士的全面讨论以及Git和集中的源代码控制系统的利弊比较，请<a href="http://whygitisbetterthanx.com/" target="_blank" rel="noopener">看</a><a href="http://git.or.cz/gitwiki/GitSvnComparsion" target="_blank" rel="noopener">这里</a>。那是一个充满了硝烟的战场。作为开发人员，如今我喜欢Git要远超其他工具。Git真正的改变了开发人员想要合并和构建分支的方式。我从经典的CVS / Subversion世界一路走来，合并/分支一直被认为是一个可怕的（“合并冲突要小心，他们会咬你！”）而且这些事你仅仅偶尔做一次。</li>
+<li>但是使用Git，这些操作非常简洁和高效，它们也被称作日常工作流程的核心部分之一。例如，在CVS / Subversion <a href="http://svnbook.red-bean.com/" target="_blank" rel="noopener">书籍</a>中，分支和合并将在后面的章节（高级用户）中优先讨论，而在 <a href="http://book.git-scm.com/" target="_blank" rel="noopener">每一本</a> <a href="http://pragprog.com/titles/tsgit/pragmatic-version-control-using-git" target="_blank" rel="noopener">Git</a> <a href="http://github.com/progit/progit" target="_blank" rel="noopener">书中</a>，它已经在第3章（基础知识）中讨论过。</li>
+<li>由于其简单性和重复性，分支和合并不再是令人害怕的事情。版本控制工具可以帮助快速的进行分支/合并。</li>
+<li>工具到此为止，让我们来看看开发模型。我在这里展示的模型本质上只是一系列的步骤，每个团队成员都必须遵循这些过程来实现可管理的软件开发过程。</li>
 </ul>
+<h3 id="分散但集中"><a href="#分散但集中" class="headerlink" title="分散但集中"></a>分散但集中</h3><ul>
+<li>我们使用的，且与这个分支模型配合良好的仓库，他有一个“真正”的中央仓库。注意，这个库只是被认为是中央仓库(因为Git是一个分布式的版本控制工具，在技术层面没有所谓的中央仓库)。我们将会为这个仓库起名为origin，因为所有的Git用户对这个名字都比较熟悉。<br><img src="https://nvie.com/img/centr-decentr@2x.png" alt="centr-decentr"></li>
+<li><p>每个开发者从origin拉取和推送代码。除了集中式的推送拉取外，每个开发者也可以从别的开发者处拉取代码，组成一个子团队。例如当与两个或者更多的人开发一个大的功能时，在将代码推送到origin之前，这种代码管理模式将非常有用。在上图中，存在Alice和Bob，Alice和David，Clair和David三个子团队。</p>
 </li>
-<li><p>不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。</p>
+<li><p>技术上而言，这只不过意味着Alice定义了一个远程Git仓库，起名为bob，实际上指向Bob的版本库，反之亦然(Bob定义了一个远程Git仓库，起名为alice，实际上指向Alice的版本库)。</p>
 </li>
-<li><h3 id="2、vi的基本操作"><a href="#2、vi的基本操作" class="headerlink" title="2、vi的基本操作"></a>2、vi的基本操作</h3></li>
-<li><p>a) 进入vi</p>
-<ul>
-<li><p>在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi myfile</span><br></pre></td></tr></table></figure>
-</li>
+</ul>
+<h3 id="主分支"><a href="#主分支" class="headerlink" title="主分支"></a>主分支</h3><ul>
+<li>在核心地方，当前开发模型受到了已存在模型的很大启发。集中式的版本库有两个永久存在的主分支：<ul>
+<li>master分支</li>
+<li>develop分支</li>
 </ul>
 </li>
 </ul>
-<pre><code>* 不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！
+<p><img src="https://nvie.com/img/main-branches@2x.png" alt="main-branches"></p>
+<ul>
+<li><p>origin的master分支每个Git用户都很熟悉。平行的另外一个分支叫做develop分支。</p>
+</li>
+<li><p>我们认为origin/master这个分支上HEAD引用所指向的代码都是可发布的。</p>
+</li>
+<li><p>我们认为origin/develop这个分支上HEAD引用所指向的代码总是反应了下一个版本所要交付功能的最新的代码变更。一些人管它叫“整合分支”。它也是自动构建系统执行构建命令的分支。</p>
+</li>
+<li><p>当develop分支上的代码达到了一个稳定状态，并且准备发布时，所有的代码变更都应该合并到master分支，然后打上发布版本号的tag。具体如何进行这些操作，我们将会讨论</p>
+</li>
+<li><p>因此，每次代码合并到master分支时，它就是一个人为定义的新的发布产品。理论上来讲，在这里我们应该非常严格，当master分支有新的提交时，我们应该使用Git的钩子脚本执行自动构建命令，然后将软件推送到生产环境的服务器中进行发布。</p>
+</li>
+</ul>
+<h3 id="辅助性分支"><a href="#辅助性分支" class="headerlink" title="辅助性分支"></a>辅助性分支</h3><ul>
+<li><p>紧邻master和develop分支，我们的开发模型采用了另外一种辅助性的分支，以帮助团队成员间的并行开发，特性的简单跟踪，产品的发布准备事宜，以及快速的解决线上问题。不同于主分支，这些辅助性分支往往只要有限的生命周期，因为他们最终会被删除。</p>
+</li>
+<li><p>我们使用的不同类型分支包括:</p>
+<ul>
+<li>特性分支</li>
+<li>Release分支</li>
+<li>Hotfix 分支</li>
+</ul>
+</li>
+<li>上述的每一个分支都有其特殊目的，也绑定了严格的规则：哪些分支是自己的拉取分支，哪些分支是自己的目标合并分支。</li>
+<li>从技术角度看，这些分支的特殊性没有更多的含义。只是按照我们的使用方式对这些分支进行了归类。他们依旧是原Git分支的样子。</li>
+</ul>
+<h3 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h3><ul>
+<li><p>功能分支可以从develop分支拉取建立，最终必须合并会develop分支。特性分支的命名，除了 master， develop， <code>release-*</code>，或<code>hotfix-*</code>以外，可以随便起名。<br><img src="https://nvie.com/img/fb@2x.png" alt="Feature branches"></p>
+</li>
+<li><p>功能分支(有时候也成主题分支)用于开发未来某个版本新的特性。当开始一个新特性的开发时，这个特性未来将发布于哪个目标版本，此刻我们是不得而知的。功能分支的本质特征就是只要特性还在开发，他就应该存在，但最终这些功能分支会被合并到develop分支(目的是在新版本中添加新的功能)或者被丢弃(它只是一个令人失望的试验)</p>
+</li>
+<li>功能分支只存在开发者本地版本库，不在远程版本库。</li>
+</ul>
+<h4 id="创建功能分支"><a href="#创建功能分支" class="headerlink" title="创建功能分支"></a>创建功能分支</h4><ul>
+<li>当开始开发一个新功能时，从develop分支中创建功能分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b myfeature develop</span><br><span class="line">Switched to a new branch &quot;myfeature&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="在develop分支整合已经开发完成的功能"><a href="#在develop分支整合已经开发完成的功能" class="headerlink" title="在develop分支整合已经开发完成的功能"></a>在develop分支整合已经开发完成的功能</h4><ul>
+<li>开发完成的功能必须合并到develop分支，即添加到即将发布的版本中。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff myfeature</span><br><span class="line">Updating ea1b82a..05e9557</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git branch -d myfeature</span><br><span class="line">Deleted branch myfeature (was 05e9557).</span><br><span class="line">$ git push origin develop</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>--no-ff</code>参数的作用是在合并的时候，会创建一个新的提交对象，即使是fast-forward方式的合并。这就避免了丢失功能分支的历史记录信息以及提交记录信息。比较一下<br><img src="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j123aaj20qk0ni3zy.jpg" alt=""></p>
+</li>
+<li><p>在后面的例子中，是不可能从Git历史记录中看到一个已经实现了的功能的所有提交对象-除非你去查看所有的日志信息。要想获取整个功能分支信息，在右面的例子中的确是一个头疼的问题，但是如果使用<code>--no-ff</code>参数就没有这个问题。</p>
+</li>
+<li>使用这个参数后，的确创建了一些新的提交对象(那怕是空提交对象)，但是很值得。</li>
+<li>不幸的是，我还没有找到一种方法使Git默认的merge操作带着<code>--no-ff</code>参数，但的确应该这样。</li>
+</ul>
+<h3 id="发布分支"><a href="#发布分支" class="headerlink" title="发布分支"></a>发布分支</h3><ul>
+<li><p>从develop分支去建立Release分支，Release分支必须合并到develop分支和master分支，Release分支名可以这样起名:<code>release-*</code>。</p>
+</li>
+<li><p>Release分支用于支持一个新版本的发布。他们允许在最后时刻进行一些小修小改。甚至允许进行一些小bug的修改，为新版本的发布准要一些元数据(版本号，构建时间等)。通过在release分支完成这些工作，develop分支将会合并这些特性以备下一个大版本的发布。</p>
+</li>
+<li><p>从develop分支拉取新的release分支的时间点是当开发工作已经达到了新版本的期望值。至少在这个时间点，下一版本准备发布的所有目标特性必须已经合并到了develop分支。更远版本的目标特性不必合并会develop分支。这些特性必须等到个性分支创建后，才能合并回develop分支</p>
+</li>
+<li><p>在release分支创建好后，就会获取到一个分配好即将发布的版本号，不能更早，就在这个时间点。在此之前，develop分支代码反应出了下一版本的代码变更，但是到底下一版本是 0.3 还是 1.0，不是很明确，直到release分支被建立后一切都确定了。这些决定在release分支开始建立，项目版本号等项目规则出来后就会做出。</p>
+</li>
+</ul>
+<h4 id="创建release分支"><a href="#创建release分支" class="headerlink" title="创建release分支"></a>创建release分支</h4><ul>
+<li>从develop分支创建release分支。例如1.1.5版本是当前产品的发布版本，我们即将发布一个更大的版本。develop分支此时已经为下一版本准备好了，我们决定下一版的版本号是1.2(1.1.6或者2.0也可以)。所以我们创建release分支，并给分支赋予新的版本号:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b release-1.2 develop</span><br><span class="line">Switched to a new branch &quot;release-1.2&quot;</span><br><span class="line">$ ./bump-version.sh 1.2</span><br><span class="line">Files modified successfully, version bumped to 1.2.</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2&quot;</span><br><span class="line">[release-1.2 74d9424] Bumped version number to 1.2</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(-)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建好分支并切到这个分支后，我们给分支打上版本号。bump-version.sh是一个虚构的shell脚本，它更改了工作空间的某些文件来反映新版本特征。(当然也可以手动改变这些文件)，然后版本就被提交了。</li>
+<li>新的分支会存在一段时间，直到新版本最终发布。在这段时间里，bug的解决可以在这个分支进行(不要在develop分支进行)。此时是严禁添加新的大特性。这些修改必须合并回develop分支，之后就等待新版本的发布。</li>
+</ul>
+<h4 id="完成一个release分支"><a href="#完成一个release分支" class="headerlink" title="完成一个release分支"></a>完成一个release分支</h4><ul>
+<li>当release分支的准备成为一个真正的发布版本时，一些操作必须需要执行。首先，将release分支合并回master分支(因为master分支的每一次提交都是预先定义好的一个新版本，谨记)。然后为这次提交打tag，为将来去查看历史版本。最后在release分支做的更改也合并到develop分支，这样的话，将来的其他版本也会包含这些已经解决了的bug。</li>
+<li>在Git中需要两步完成:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">$ git merge --no-ff release-1.2</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git tag -a 1.2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样release分支已经完成工作，tag也已经打了。</li>
+<li>备注:你可以使用-s or -u <key>参数为你的tag设置标签签名。</key></li>
+<li>为了保存这些在release分支所做的变更，我们需要将这些变更合并回develop分支。执行如下Git命令:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff release-1.2</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这步有可能会有合并冲突(极有可能，因为我们已经改变了版本号)。如果有冲突，解决掉他，然后提交。</li>
+<li>现在我们已经完成了工作，release分支可以删除了，因为我们不在需要他:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d release-1.2</span><br><span class="line">Deleted branch release-1.2 (was ff452fe).</span><br></pre></td></tr></table></figure>
+<h3 id="Hotfix分支"><a href="#Hotfix分支" class="headerlink" title="Hotfix分支"></a>Hotfix分支</h3><ul>
+<li>Hotfix分支从master分支建立，必须合并回develop分支和master分支，为Hotfix分支可以这样起名:<code>hotfix-*</code></li>
+<li>Hotfix分支在某种程度上非常像release分支，他们都意味着为某个新版本发布做准备，并且都是预先不可知的。Hotfix分支是基于当前生产环境的产品的一个bug急需解决而必须创建的。当某个版本的产品有一个严重bug需要立即解决，Hotfix分支需要从master分支上该版本对应的tag上进行建立，因为这个tag标记了产品版本<br><img src="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j1l9k0j20hk0no407.jpg" alt="Hotfix分支"></li>
+</ul>
+<h4 id="创建hotfix分支"><a href="#创建hotfix分支" class="headerlink" title="创建hotfix分支"></a>创建hotfix分支</h4><ul>
+<li>Hotfix分支从master分支进行创建。例如当前线上1.2版本产品因为server端的一个Bug导致系统有问题。但是在develop分支进行更改是不靠谱的，所以我们需要建立hotfix分支，然后开始解决问题:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hotfix-1.2.1 master</span><br><span class="line">Switched to a new branch &quot;hotfix-1.2.1&quot;</span><br><span class="line">$ ./bump-version.sh 1.2.1</span><br><span class="line">Files modified successfully, version bumped to 1.2.1.</span><br><span class="line">$ git commit -a -m &quot;Bumped version number to 1.2.1&quot;</span><br><span class="line">[hotfix-1.2.1 41e61bb] Bumped version number to 1.2.1</span><br><span class="line">1 files changed, 1 insertions(+), 1 deletions(-)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>千万别忘记在创建分支后修改版本号。</li>
+<li>然后解决掉bug，提交一次或多次。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;Fixed severe production problem&quot;</span><br><span class="line">[hotfix-1.2.1 abbe5d6] Fixed severe production problem</span><br><span class="line">5 files changed, 32 insertions(+), 17 deletions(-)</span><br></pre></td></tr></table></figure>
+<h4 id="结束hotfix分支"><a href="#结束hotfix分支" class="headerlink" title="结束hotfix分支"></a>结束hotfix分支</h4><ul>
+<li>完成工作后，解决掉的bug代码需要合并回master分支，但同时也需要合并到develop分支，目的是保证在下一版中该bug已经被解决。这多么像release分支啊。</li>
+<li>首先，对master分支进行合并更新，然后打tag</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git tag -a 1.2.1</span><br></pre></td></tr></table></figure>
+<pre><code>- 备注:你可以使用-s or -u &lt;key&gt;参数为你的tag设置标签签名。
 </code></pre><ul>
-<li><p>b) 切换至插入模式（Insert mode）编辑文件</p>
-<ul>
-<li>在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。</li>
+<li>紧接着，在develop分支合并bugfix代码</li>
 </ul>
-</li>
-<li><p>c) Insert 的切换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字</li>
+<li>这里可能会有一些异常情况，当一个release分支存在时，hotfix 分支需要合并到release 分支，而不是develop分支。当release分支的使命完成后，合并回release分支的bugfix代码最终也会被合并到develop分支。(当develop分支急需解决这些bug，而等不到release分支的结束，你可以安全的将这些bugfix代码合并到develop分支，这样做也是可以的)。</li>
+<li>最后删除这些临时分支</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d hotfix-1.2.1</span><br><span class="line">Deleted branch hotfix-1.2.1 (was abbe5d6).</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>这个分支模型其实没有什么震撼人心的新东西，这篇文章开始的那个“最大图片”已经证明了他在我们工程项目中的巨大作用。它会形成一种优雅的理想模型，而且很容易理解，该模型也允许团队成员形成一个关于分支和版本发布过程的相同理念。</li>
+<li><p>这里有提供一个高质量的分支模型图的PDF版本。去吧，把它挂在墙上随时快速参考。</p>
+<center><img src="http://nvie.com/img/pdf@2x.png" alt="pdf"></center><br><center><a href="http://nvie.com/files/Git-branching-model.pdf" target="_blank" rel="noopener">Git-分支-模型.pdf</a></center>
 </li>
-<li><p>d) 退出vi及保存文件</p>
-<ul>
-<li>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">: w filename // （输入 「w filename」将文章以指定的文件名filename保存）</span><br><span class="line"></span><br><span class="line">: wq // (输入「wq」，存盘并退出vi)</span><br><span class="line"></span><br><span class="line">: q! // (输入q!， 不存盘强制退出vi)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="3、命令行模式（command-mode）功能键"><a href="#3、命令行模式（command-mode）功能键" class="headerlink" title="3、命令行模式（command mode）功能键"></a>3、命令行模式（command mode）功能键</h3></li>
-<li><p>1）. 插入模式</p>
-<ul>
-<li><p>按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件；</p>
-</li>
-<li><p>按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字；</p>
-</li>
-<li><p>按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。</p>
+<li><p>更新：任何需要的小伙伴，这里有一个原图的<a href="http://github.com/downloads/nvie/gitflow/Git-branching-model-src.key.zip" target="_blank" rel="noopener">gitflow-model.src.key</a>文件。</p>
 </li>
 </ul>
-</li>
-<li><p>2）. 从插入模式切换为命令行模式</p>
-<ul>
-<li>按「ESC」键。</li>
-</ul>
-</li>
-<li><p>3）. 移动光标</p>
-<ul>
-<li><p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
-</li>
-<li><p>按「ctrl」+「b」：屏幕往“后”移动一页。</p>
-</li>
-<li><p>按「ctrl」+「f」：屏幕往“前”移动一页。</p>
-</li>
-<li><p>按「ctrl」+「u」：屏幕往“后”移动半页。</p>
-</li>
-<li><p>按「ctrl」+「d」：屏幕往“前”移动半页。</p>
-</li>
-<li><p>按数字「0」：移到文章的开头。</p>
-</li>
-<li><p>按「G」：移动到文章的最后。</p>
-</li>
-<li><p>按「$」：移动到光标所在行的“行尾”。</p>
-</li>
-<li><p>按「^」：移动到光标所在行的“行首”</p>
-</li>
-<li><p>按「w」：光标跳到下个字的开头</p>
-</li>
-<li><p>按「e」：光标跳到下个字的字尾</p>
-</li>
-<li><p>按「b」：光标回到上个字的开头</p>
-</li>
-<li><p>按「#l」：光标移到该行的第#个位置，如：5l,56l</p>
-</li>
-</ul>
-</li>
-<li><p>4）. 删除文字</p>
-<ul>
-<li><p>「x」：每按一次，删除光标所在位置的“后面”一个字符</p>
-</li>
-<li><p>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符</p>
-</li>
-<li><p>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符</p>
-</li>
-<li><p>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符</p>
-</li>
-<li><p>「dd」：删除光标所在行</p>
-</li>
-<li><p>「#dd」：从光标所在行开始删除#行</p>
-</li>
-</ul>
-</li>
-<li><p>5）. 复制</p>
-<ul>
-<li><p>「yw」：将光标所在之处到字尾的字符复制到缓冲区中</p>
-</li>
-<li><p>「#yw」：复制#个字到缓冲区</p>
-</li>
-<li><p>「yy」：复制光标所在行到缓冲区</p>
-</li>
-<li><p>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字</p>
-</li>
-<li><p>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能</p>
-</li>
-</ul>
-</li>
-<li><p>6）. 替换</p>
-<ul>
-<li><p>「r」：替换光标所在处的字符</p>
-</li>
-<li><p>「R」：替换光标所到之处的字符，直到按下「ESC」键为止</p>
-</li>
-</ul>
-</li>
-<li><p>7）. 回复上一次操作</p>
-<ul>
-<li>「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作 、按多次“u”可以执行多次回复</li>
-</ul>
-</li>
-<li><p>8）. 更改</p>
-<ul>
-<li><p>「cw」：更改光标所在处的字到字尾处</p>
-</li>
-<li><p>「c#w」：例如，「c3w」表示更改3个字</p>
-</li>
-</ul>
-</li>
-<li><p>9）. 跳至指定的行</p>
-<ul>
-<li><p>「ctrl」+「g」列出光标所在行的行号</p>
-</li>
-<li><p>「#G」：例如，「15G」，表示移动光标至文章的第15行行首</p>
-</li>
-</ul>
-</li>
-<li><h3 id="4、Last-line-mode下命令简介"><a href="#4、Last-line-mode下命令简介" class="headerlink" title="4、Last line mode下命令简介"></a>4、Last line mode下命令简介</h3></li>
-<li><p>在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」</p>
-</li>
-<li><p>A) 列出行号</p>
-<ul>
-<li>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号</li>
-</ul>
-</li>
-<li><p>B) 跳到文件中的某一行</p>
-<ul>
-<li>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行</li>
-</ul>
-</li>
-<li><p>C) 查找字符</p>
-<ul>
-<li><p>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止</p>
-</li>
-<li><p>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止</p>
-</li>
-</ul>
-</li>
-<li><p>D) 保存文件</p>
-<ul>
-<li>「w」：在冒号输入字母「w」就可以将文件保存起来</li>
-</ul>
-</li>
-<li><p>E) 离开vi</p>
-<ul>
-<li><p>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi</p>
-</li>
-<li><p>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件</p>
-</li>
-</ul>
-</li>
-<li><h3 id="5、vi命令列表"><a href="#5、vi命令列表" class="headerlink" title="5、vi命令列表"></a>5、vi命令列表</h3></li>
-<li><p>1、下表列出命令模式下的一些键的功能：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">h 左移光标一个字符</span><br><span class="line">h 左移光标一个字符</span><br><span class="line">k 光标上移一行</span><br><span class="line">j 光标下移一行</span><br><span class="line">^ 光标移动至行首</span><br><span class="line">0 数字“0”，光标移至文章的开头</span><br><span class="line">G 光标移至文章的最后</span><br><span class="line">$ 光标移动至行尾</span><br><span class="line">Ctrl+f 向前翻屏</span><br><span class="line">Ctrl+b 向后翻屏</span><br><span class="line">Ctrl+d 向前翻半屏</span><br><span class="line">Ctrl+u 向后翻半屏</span><br><span class="line">i 在光标位置前插入字符</span><br><span class="line">a 在光标所在位置的后一个字符开始增加</span><br><span class="line">o 插入新的一行，从行首开始输入</span><br><span class="line">ESC 从输入状态退至命令状态</span><br><span class="line">x 删除光标后面的字符</span><br><span class="line">#x 删除光标后的＃个字符</span><br><span class="line">X (大写X) 删除光标前面的字符</span><br><span class="line">#X 删除光标前面的#个字符</span><br><span class="line">dd 删除光标所在的行</span><br><span class="line">#dd 删除从光标所在行数的#行</span><br><span class="line">yw 复制光标所在位置的一个字</span><br><span class="line"># yw复制光标所在位置的#个字</span><br><span class="line">yy 复制光标所在位置的一行</span><br><span class="line">#yy 复制从光标所在行数的#行</span><br><span class="line">p 粘贴</span><br><span class="line">u 取消操作</span><br><span class="line">cw 更改光标所在位置的一个字</span><br><span class="line">#cw 更改光标所在位置的#个字</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2、下表列出行命令模式下的一些指令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w filename 储存正在编辑的文件为filename</span><br><span class="line">wq filename 储存正在编辑的文件为filename，并退出vi</span><br><span class="line">q! 放弃所有修改，退出vi</span><br><span class="line">set nu 显示行号</span><br><span class="line">/或? 查找，在/后输入要查找的内容</span><br><span class="line">n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="对于第一次用vi，有几点注意要提醒一下："><a href="#对于第一次用vi，有几点注意要提醒一下：" class="headerlink" title="对于第一次用vi，有几点注意要提醒一下："></a>对于第一次用vi，有几点注意要提醒一下：</h4></li>
-<li><p>1、用vi打开文件后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。</p>
-</li>
-<li><p>切换放方法：在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了</p>
-</li>
-<li><p>2、编辑好后，需从插入模式切换为命令行模式才能对文件进行保存，切换方法：按「ESC」键</p>
-</li>
-<li><p>3、保存并退出文件：在命令模式下输入:wq即可！（别忘了wq前面的:）</p>
-</li>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">A successful Git branching model</a></li>
 </ul>
 
       
@@ -728,7 +661,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sevencho.github.io/archives/1c40fe4d.html" title="VIM介绍">https://sevencho.github.io/archives/1c40fe4d.html</a>
+    <a href="https://sevencho.github.io/archives/33f710d8.html" title="一个成功的分支模型">https://sevencho.github.io/archives/33f710d8.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -743,9 +676,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/VIM/" rel="tag"><i class="fa fa-tag"></i> VIM</a>
+            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
           
         </div>
       
@@ -758,8 +691,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/9b9b2c59.html" rel="next" title="iOS开发之AppStore篇">
-                <i class="fa fa-chevron-left"></i> iOS开发之AppStore篇
+              <a href="/archives/b05dc691.html" rel="next" title="iOS蓝牙开发之iBeacon篇(二)">
+                <i class="fa fa-chevron-left"></i> iOS蓝牙开发之iBeacon篇(二)
               </a>
             
           </div>
@@ -768,8 +701,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/archives/c9e6c86c.html" rel="prev" title="LLDB介绍">
-                LLDB介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/archives/2e7b1d7b.html" rel="prev" title="创建自己的CocoaPods公有库">
+                创建自己的CocoaPods公有库 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -929,7 +862,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS开发工具之VIM篇"><span class="nav-number">1.</span> <span class="nav-text">iOS开发工具之VIM篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM相关的指令"><span class="nav-number">1.1.</span> <span class="nav-text">VIM相关的指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开"><span class="nav-number">1.1.1.</span> <span class="nav-text">打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出指令"><span class="nav-number">1.1.2.</span> <span class="nav-text">退出指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、vi的基本概念"><span class="nav-number">1.1.3.</span> <span class="nav-text">1、vi的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、vi的基本操作"><span class="nav-number">1.1.4.</span> <span class="nav-text">2、vi的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、命令行模式（command-mode）功能键"><span class="nav-number">1.1.5.</span> <span class="nav-text">3、命令行模式（command mode）功能键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、Last-line-mode下命令简介"><span class="nav-number">1.1.6.</span> <span class="nav-text">4、Last line mode下命令简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、vi命令列表"><span class="nav-number">1.1.7.</span> <span class="nav-text">5、vi命令列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于第一次用vi，有几点注意要提醒一下："><span class="nav-number">1.1.7.1.</span> <span class="nav-text">对于第一次用vi，有几点注意要提醒一下：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么git？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么git？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分散但集中"><span class="nav-number">2.2.</span> <span class="nav-text">分散但集中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主分支"><span class="nav-number">2.3.</span> <span class="nav-text">主分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助性分支"><span class="nav-number">2.4.</span> <span class="nav-text">辅助性分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分支"><span class="nav-number">2.5.</span> <span class="nav-text">功能分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建功能分支"><span class="nav-number">2.5.1.</span> <span class="nav-text">创建功能分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在develop分支整合已经开发完成的功能"><span class="nav-number">2.5.2.</span> <span class="nav-text">在develop分支整合已经开发完成的功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布分支"><span class="nav-number">2.6.</span> <span class="nav-text">发布分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建release分支"><span class="nav-number">2.6.1.</span> <span class="nav-text">创建release分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完成一个release分支"><span class="nav-number">2.6.2.</span> <span class="nav-text">完成一个release分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hotfix分支"><span class="nav-number">2.7.</span> <span class="nav-text">Hotfix分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建hotfix分支"><span class="nav-number">2.7.1.</span> <span class="nav-text">创建hotfix分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束hotfix分支"><span class="nav-number">2.7.2.</span> <span class="nav-text">结束hotfix分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

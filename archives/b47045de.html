@@ -95,7 +95,7 @@
 <meta property="og:description" content="月落乌啼霜满天，江枫渔火对愁眠。姑苏城外寒山寺，夜半钟声到客船。  前言 思 考 要 怎 么 开 始 。。。 嗯 (过了一万年。。。)    最近一直在做一个宠物定位的项目，本来以为只需要参考官方文档接入地图实现功能就可以winner winner chicken dinner了，但是等到我掉以轻心的做到后面再加上历史轨迹疯狂改需求的时候，又双叒叕加上还要百度和谷歌同步实现功能，心中开始有一万">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/historicalTrace.gif">
-<meta property="og:updated_time" content="2018-04-24T01:57:27.169Z">
+<meta property="og:updated_time" content="2018-06-28T06:03:14.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之地图篇(三):历史轨迹记录">
 <meta name="twitter:description" content="月落乌啼霜满天，江枫渔火对愁眠。姑苏城外寒山寺，夜半钟声到客船。  前言 思 考 要 怎 么 开 始 。。。 嗯 (过了一万年。。。)    最近一直在做一个宠物定位的项目，本来以为只需要参考官方文档接入地图实现功能就可以winner winner chicken dinner了，但是等到我掉以轻心的做到后面再加上历史轨迹疯狂改需求的时候，又双叒叕加上还要百度和谷歌同步实现功能，心中开始有一万">
@@ -487,16 +487,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="百度地图历史轨迹"><a href="#百度地图历史轨迹" class="headerlink" title="百度地图历史轨迹"></a>百度地图历史轨迹</h2><h4 id="开始挖坑"><a href="#开始挖坑" class="headerlink" title="开始挖坑"></a>开始挖坑</h4><ul>
+<h2 id="百度地图历史轨迹"><a href="#百度地图历史轨迹" class="headerlink" title="百度地图历史轨迹"></a>百度地图历史轨迹</h2><h3 id="开始挖坑"><a href="#开始挖坑" class="headerlink" title="开始挖坑"></a>开始挖坑</h3><ul>
 <li>历史古迹无非就是多个位置点构成，所以和上一篇的添加坐标点大头针一样，只是添加多个而已，考虑到控件的重用机制，所以有了下面的代码</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ... 遍历历史古迹数据 创建地图大头针</span></span><br><span class="line"><span class="comment">// ... 对每一个坐标反地理编码</span></span><br><span class="line"><span class="comment">// ... 在反地理编码里面刷新对应的模型信息地址 并刷新自定义弹框paopaoView</span></span><br><span class="line">- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(<span class="keyword">id</span> &lt;BMKAnnotation&gt;)annotation</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (![annotation isKindOfClass:[XSPointAnnotation <span class="keyword">class</span>]]) &#123; <span class="comment">// 不是自定义大头针模型</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    BMKAnnotationView *annotationView = <span class="literal">nil</span>;</span><br><span class="line">    XSPointAnnotation *customAnnotation = (XSPointAnnotation *)annotation;</span><br><span class="line">    <span class="keyword">if</span> (customAnnotation.annotationType == XSAnnotationTypeLocationPoint) &#123; <span class="comment">// 当前位置点类型</span></span><br><span class="line">        annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:<span class="string">@"LocationAnnotation"</span>];</span><br><span class="line">        <span class="keyword">if</span> (annotationView == <span class="literal">nil</span>) &#123;</span><br><span class="line">            annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:customAnnotation reuseIdentifier:<span class="string">@"LocationAnnotation"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        annotationView.image = [<span class="built_in">UIImage</span> imageNamed:[customAnnotation.locationDetailsModel.deviceBindingTypeImageName stringByAppendingString:<span class="string">@"_small"</span>]];</span><br><span class="line">        annotationView.draggable = <span class="literal">NO</span>;</span><br><span class="line">        annotationView.canShowCallout = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span>.petAnnotationView.locationDetails = customAnnotation.locationDetailsModel;</span><br><span class="line">        <span class="keyword">self</span>.petAnnotationView.isHiddenNoNeeds = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span>.petAnnotationView.width = <span class="number">270</span>;</span><br><span class="line">        annotationView.paopaoView = [[BMKActionPaopaoView alloc] initWithCustomView:<span class="keyword">self</span>.petAnnotationView];</span><br><span class="line">        [annotationView setSelected:<span class="literal">YES</span> animated:<span class="literal">NO</span>]; <span class="comment">// 选中当前的</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> annotationView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="掉坑里了"><a href="#掉坑里了" class="headerlink" title="掉坑里了"></a>掉坑里了</h4><ul>
+<h3 id="掉坑里了"><a href="#掉坑里了" class="headerlink" title="掉坑里了"></a>掉坑里了</h3><ul>
 <li>如果所有的大头针都共用一个自定义的paopaoView（petAnnotationView）的话，就会导致<code>selectAnnotation:animated:</code>方法没有效果</li>
 <li>并且只有最后添加的那一个轨迹带你点击才会调用<code>selectAnnotation:animated:</code> 其他大头针点击都会失效</li>
 <li>如果要控制切换轨迹点刷新显示弹框信息，那就需要根据索引先移除当前点，再重新添加重新渲染，而且切换不流畅，会出现莫名的问题</li>
 </ul>
-<h4 id="怎么从坑里跳出来？"><a href="#怎么从坑里跳出来？" class="headerlink" title="怎么从坑里跳出来？"></a>怎么从坑里跳出来？</h4><ul>
+<h3 id="怎么从坑里跳出来？"><a href="#怎么从坑里跳出来？" class="headerlink" title="怎么从坑里跳出来？"></a>怎么从坑里跳出来？</h3><ul>
 <li>1、找大牛</li>
 <li>2、查资料</li>
 <li><p>3、习惯有坑，顺其自然</p>
@@ -542,7 +542,7 @@
 </code></pre><ul>
 <li>再运行，点击切换轨迹点，世界都美好了，操作轨迹点的切换也可以直接使用<code>selectAnnotation:animated:</code>弹出详情自定义弹框了</li>
 </ul>
-<h4 id="轨迹点区域控制"><a href="#轨迹点区域控制" class="headerlink" title="轨迹点区域控制"></a>轨迹点区域控制</h4><ul>
+<h3 id="轨迹点区域控制"><a href="#轨迹点区域控制" class="headerlink" title="轨迹点区域控制"></a>轨迹点区域控制</h3><ul>
 <li>如果想控制所有的估计点都在屏幕范围内显示，最早使用的上一篇里面的方法，后来查资料看这一种也可以</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)baiduMapViewFitAnnotationsWithCoordinates:(<span class="built_in">NSArray</span> *)coordsModels count:(<span class="built_in">NSUInteger</span>)count</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//创建两个数组，用来存所有的经度和纬度</span></span><br><span class="line">    <span class="keyword">if</span> (count &lt; <span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *latArr = [[<span class="built_in">NSMutableArray</span> alloc] init];</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *lonArr = [[<span class="built_in">NSMutableArray</span> alloc] init];</span><br><span class="line">    <span class="keyword">for</span> (XSLocationDetails *locationDetails <span class="keyword">in</span> coordsModels) &#123;</span><br><span class="line">        [latArr addObject:@(locationDetails.coordinateBD09ll.latitude)];</span><br><span class="line">        [lonArr addObject:@(locationDetails.coordinateBD09ll.longitude)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSNumber</span> *latMax = [latArr valueForKeyPath:<span class="string">@"@max.floatValue"</span>];<span class="comment">//最大纬度</span></span><br><span class="line">    <span class="built_in">NSNumber</span> *latMin = [latArr valueForKeyPath:<span class="string">@"@min.floatValue"</span>];<span class="comment">//最小纬度</span></span><br><span class="line">    <span class="built_in">NSNumber</span> *lonMax = [lonArr valueForKeyPath:<span class="string">@"@max.floatValue"</span>];<span class="comment">//最大经度</span></span><br><span class="line">    <span class="built_in">NSNumber</span> *lonMin = [lonArr valueForKeyPath:<span class="string">@"@min.floatValue"</span>];<span class="comment">//最小经度</span></span><br><span class="line"></span><br><span class="line">    BMKCoordinateRegion region;</span><br><span class="line">    region.center.latitude  = ([latMax doubleValue] + [latMin doubleValue]) / <span class="number">2</span>;</span><br><span class="line">    region.center.longitude = ([lonMax doubleValue] + [lonMin doubleValue]) / <span class="number">2</span>;</span><br><span class="line">    region.span.latitudeDelta = <span class="number">0.0055</span>; <span class="comment">// 数字越小 缩放等级越大</span></span><br><span class="line">    region.span.longitudeDelta = <span class="number">0.0055</span>;</span><br><span class="line">    region = [<span class="keyword">self</span>.baiduMapView regionThatFits:region];</span><br><span class="line">    [<span class="keyword">self</span>.baiduMapView setRegion:region animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -751,7 +751,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -773,7 +773,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -829,7 +829,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于历史轨迹"><span class="nav-number">2.</span> <span class="nav-text">关于历史轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图历史轨迹"><span class="nav-number">3.</span> <span class="nav-text">百度地图历史轨迹</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始挖坑"><span class="nav-number">3.0.1.</span> <span class="nav-text">开始挖坑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#掉坑里了"><span class="nav-number">3.0.2.</span> <span class="nav-text">掉坑里了</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎么从坑里跳出来？"><span class="nav-number">3.0.3.</span> <span class="nav-text">怎么从坑里跳出来？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轨迹点区域控制"><span class="nav-number">3.0.4.</span> <span class="nav-text">轨迹点区域控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌地图历史轨迹"><span class="nav-number">4.</span> <span class="nav-text">谷歌地图历史轨迹</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于历史轨迹"><span class="nav-number">2.</span> <span class="nav-text">关于历史轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图历史轨迹"><span class="nav-number">3.</span> <span class="nav-text">百度地图历史轨迹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始挖坑"><span class="nav-number">3.1.</span> <span class="nav-text">开始挖坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#掉坑里了"><span class="nav-number">3.2.</span> <span class="nav-text">掉坑里了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么从坑里跳出来？"><span class="nav-number">3.3.</span> <span class="nav-text">怎么从坑里跳出来？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轨迹点区域控制"><span class="nav-number">3.4.</span> <span class="nav-text">轨迹点区域控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谷歌地图历史轨迹"><span class="nav-number">4.</span> <span class="nav-text">谷歌地图历史轨迹</span></a></li></ol></div>
             
 
           </div>
@@ -863,7 +863,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.0k</span>
+    <span title="Site words total count">29.4k</span>
   
 </div>
 

@@ -4,6 +4,150 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/b3b6a999.html</loc>
+    <lastmod>2018-06-28T06:08:33.087Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(二)</title>
+        <pubTime>2018-01-11T01:15:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/1c8732fb.html</loc>
+    <lastmod>2018-06-28T06:07:31.020Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(一)</title>
+        <pubTime>2018-01-10T01:15:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b47045de.html</loc>
+    <lastmod>2018-06-28T06:03:14.925Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(三):历史轨迹记录</title>
+        <pubTime>2018-04-20T14:31:26.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b8f4bd70.html</loc>
+    <lastmod>2018-06-28T06:03:12.336Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建</title>
+        <pubTime>2018-04-15T03:53:53.000Z</pubTime>
+        
+        <tag>整理</tag>
+         
+        <tag>Hexo博客搭建</tag>
+         
+         
+           
+             
+              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+          
+             
+              <breadCrumb title="Hexo博客搭建" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/2e7b1d7b.html</loc>
+    <lastmod>2018-06-28T05:57:45.967Z</lastmod>
+    <data>
+        <display>
+        <title>创建自己的CocoaPods公有库</title>
+        <pubTime>2018-06-27T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>CocoaPods</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/33f710d8.html</loc>
+    <lastmod>2018-06-28T05:57:35.108Z</lastmod>
+    <data>
+        <display>
+        <title>一个成功的分支模型</title>
+        <pubTime>2018-06-25T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/a46fbeec.html</loc>
     <lastmod>2018-05-09T09:18:16.750Z</lastmod>
     <data>
@@ -104,81 +248,6 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/b47045de.html</loc>
-    <lastmod>2018-04-24T01:57:27.169Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(三):历史轨迹记录</title>
-        <pubTime>2018-04-20T14:31:26.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/1c8732fb.html</loc>
-    <lastmod>2018-04-20T14:52:11.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(一)</title>
-        <pubTime>2018-01-10T01:15:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/b3b6a999.html</loc>
-    <lastmod>2018-04-18T06:46:32.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(二)</title>
-        <pubTime>2018-01-11T01:15:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://sevencho.github.io/archives/ed2e9abb.html</loc>
     <lastmod>2018-04-18T01:17:51.000Z</lastmod>
     <data>
@@ -195,31 +264,6 @@
           
              
               <breadCrumb title="敏捷开发" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
-    <lastmod>2018-04-17T07:13:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>VIM介绍</title>
-        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-        <tag>VIM</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-             
-              <breadCrumb title="VIM" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
           
         </display>
     </data>
@@ -252,24 +296,47 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/b8f4bd70.html</loc>
+    <loc>https://sevencho.github.io/archives/4f2aa8f3.html</loc>
     <lastmod>2018-04-17T07:13:22.000Z</lastmod>
     <data>
         <display>
-        <title>Hexo博客搭建</title>
-        <pubTime>2018-04-15T03:53:53.000Z</pubTime>
+        <title>Homebrew介绍</title>
+        <pubTime>2017-12-30T10:18:51.000Z</pubTime>
         
-        <tag>整理</tag>
+        <tag>工具</tag>
          
-        <tag>Hexo博客搭建</tag>
+        <tag>Homebrew</tag>
          
          
            
              
-              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
           
              
-              <breadCrumb title="Hexo博客搭建" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+              <breadCrumb title="Homebrew" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/Homebrew/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
+    <lastmod>2018-04-17T07:13:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>汇编初识（Mac)</title>
+        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
+        
+        <tag>汇编</tag>
+         
+         
+           
+             
+              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
+          
+             
+              <breadCrumb title="汇编工具" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -302,39 +369,16 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
+    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
     <lastmod>2018-04-17T07:13:22.000Z</lastmod>
     <data>
         <display>
-        <title>汇编初识（Mac)</title>
-        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
-        
-        <tag>汇编</tag>
-         
-         
-           
-             
-              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
-          
-             
-              <breadCrumb title="汇编工具" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/4f2aa8f3.html</loc>
-    <lastmod>2018-04-17T07:13:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Homebrew介绍</title>
-        <pubTime>2017-12-30T10:18:51.000Z</pubTime>
+        <title>VIM介绍</title>
+        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
         
         <tag>工具</tag>
          
-        <tag>Homebrew</tag>
+        <tag>VIM</tag>
          
          
            
@@ -342,7 +386,7 @@
               <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
           
              
-              <breadCrumb title="Homebrew" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/Homebrew/"/>
+              <breadCrumb title="VIM" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
           
         </display>
     </data>
