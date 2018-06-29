@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-06-28T05:57:45.967Z</updated>
+  <updated>2018-06-28T06:11:28.459Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/2e7b1d7b.html"/>
     <id>https://sevencho.github.io/archives/2e7b1d7b.html</id>
     <published>2018-06-27T09:27:45.000Z</published>
-    <updated>2018-06-28T05:57:45.967Z</updated>
+    <updated>2018-06-28T06:11:28.459Z</updated>
     
     <summary type="html">
     
@@ -46,11 +46,11 @@
   </entry>
   
   <entry>
-    <title>一个成功的分支模型</title>
+    <title>&lt;译&gt;一个成功的分支模型</title>
     <link href="https://sevencho.github.io/archives/33f710d8.html"/>
     <id>https://sevencho.github.io/archives/33f710d8.html</id>
     <published>2018-06-25T09:27:45.000Z</published>
-    <updated>2018-06-28T05:57:35.108Z</updated>
+    <updated>2018-06-29T05:50:43.867Z</updated>
     
     <summary type="html">
     
@@ -71,6 +71,35 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="git" scheme="https://sevencho.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&lt;译&gt;最佳的iOS开发技巧及小窍门</title>
+    <link href="https://sevencho.github.io/archives/ed90488b.html"/>
+    <id>https://sevencho.github.io/archives/ed90488b.html</id>
+    <published>2018-06-21T07:27:45.000Z</published>
+    <updated>2018-06-29T07:12:24.288Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我选择沉默的主要原因之一：从话语中，你很少能学到人性，从沉默中却能。假如还想学得更多，那就要继续一声不吭 。&lt;br&gt;——王小波《沉默的大多数》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; cla
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="xCode" scheme="https://sevencho.github.io/tags/xCode/"/>
     
   </entry>
   
