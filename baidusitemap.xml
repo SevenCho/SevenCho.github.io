@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/e016e61f.html</loc>
+    <lastmod>2018-07-03T12:01:13.200Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发多Target（一）：新建Target</title>
+        <pubTime>2017-01-25T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Multi Target</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/9c6697bb.html</loc>
+    <lastmod>2018-07-03T12:01:10.590Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发多Target（二）：复制Target</title>
+        <pubTime>2017-01-25T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Multi Target</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/e38331a.html</loc>
     <lastmod>2018-07-03T07:26:02.819Z</lastmod>
     <data>
@@ -315,29 +359,6 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
-    <lastmod>2018-04-17T07:13:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>汇编初识（Mac)</title>
-        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
-        
-        <tag>汇编</tag>
-         
-         
-           
-             
-              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
-          
-             
-              <breadCrumb title="汇编工具" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://sevencho.github.io/archives/c9e6c86c.html</loc>
     <lastmod>2018-04-17T07:13:22.000Z</lastmod>
     <data>
@@ -388,24 +409,22 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
+    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
     <lastmod>2018-04-17T07:13:22.000Z</lastmod>
     <data>
         <display>
-        <title>VIM介绍</title>
-        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
+        <title>汇编初识（Mac)</title>
+        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
         
-        <tag>工具</tag>
-         
-        <tag>VIM</tag>
+        <tag>汇编</tag>
          
          
            
              
-              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
           
              
-              <breadCrumb title="VIM" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
+              <breadCrumb title="汇编工具" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
           
         </display>
     </data>
@@ -431,6 +450,31 @@
           
              
               <breadCrumb title="App Store" url="https://sevencho.github.io/categories/iOS/App-Store/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
+    <lastmod>2018-04-17T07:13:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>VIM介绍</title>
+        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+        <tag>VIM</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+             
+              <breadCrumb title="VIM" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
           
         </display>
     </data>
