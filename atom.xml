@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-06-29T07:10:35.773Z</updated>
+  <updated>2018-07-03T07:26:02.819Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS攻防（一）： iPhone手机越狱 &amp; SSH</title>
+    <link href="https://sevencho.github.io/archives/e38331a.html"/>
+    <id>https://sevencho.github.io/archives/e38331a.html</id>
+    <published>2018-06-29T07:27:45.000Z</published>
+    <updated>2018-07-03T07:26:02.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人在年轻时，最头疼的一件事就是决定自己这一生要做什么。&lt;br&gt;——王小波 《工作与人生》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="Xcode" scheme="https://sevencho.github.io/tags/Xcode/"/>
+    
+  </entry>
   
   <entry>
     <title>创建自己的CocoaPods公有库</title>

@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="HhBjw6NlG9jv92NsZi5oPfRaClxLx2ldt71WWPQEnMM" />
+<meta name="baidu-site-verification" content="GqAQCqMt8R" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,Xcode," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
+<meta name="keywords" content="iOS,Xcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS攻防（一）： iPhone手机越狱 &amp; SSH">
+<meta property="og:url" content="https://sevencho.github.io/archives/e38331a.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Cydia_Impactor.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/drag_mixtape_player.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/h3lix_impactor.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/h3lix_jailbreak_error.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/h3lix_jailbreak_success.PNG">
+<meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-02.PNG-w375">
+<meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-03.PNG-w375">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/iphone_fileList.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/helloworld_executable_failed.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke_sucess.png">
+<meta property="og:updated_time" content="2018-07-03T07:26:02.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS攻防（一）： iPhone手机越狱 &amp; SSH">
+<meta name="twitter:description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/Cydia_Impactor.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'CoderBoy'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/e38331a.html"/>
+
+
+
+
+
+  <title>iOS攻防（一）： iPhone手机越狱 & SSH | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/e38331a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS攻防（一）： iPhone手机越狱 & SSH</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T15:27:45+08:00">
+                2018-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,883
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>人在年轻时，最头疼的一件事就是决定自己这一生要做什么。<br>——王小波 《工作与人生》</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。</li>
+<li>但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较久远也在读了两篇后被遗忘在chrome的书签里面，真真的从入门到放弃。🤣</li>
+<li>最近这段时间刚好工作行有一些闲暇的时间，偶尔在网上看到《iOS 应用逆向与安全》这本书，这是自“小黄书”后的又一本关于逆向安全的书。随想再从头开始学习下iOS越狱开发和逆向相关的知识，并将学习过程及采坑经验记录于此，希望这一次会有始有终…</li>
+<li>这是本系列的第一篇，希望不会成为最后一篇🐒😂</li>
+</ul>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ul>
+<li>现在Apple公司已经越来越注重开放性，iPhone已经不像几年前那样异常封闭，许多以前只有越狱才有的功能也慢慢的原生自带，越来越多的小伙伴已经没有了当前那种越狱的激情，而随着越来越多的越狱大神隐退、越狱组织解散，辉煌了近10年的越狱也渐渐走向了没落。</li>
+<li>但如果想借鉴别人的App某个功能实现思路或者加强我们自己App的安全性，那么最好的途径就是从越狱开发和逆向入手，而这一切的开始的基础：你必须要有一部越狱过的iPhone手机。</li>
+</ul>
+<h3 id="iOS-9x-32位系统越狱"><a href="#iOS-9x-32位系统越狱" class="headerlink" title="iOS 9x 32位系统越狱"></a>iOS 9x 32位系统越狱</h3><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>机型：iPhone4s</li>
+<li>版本：美版</li>
+<li>系统：9.3.2</li>
+</ul>
+<h4 id="越狱工具"><a href="#越狱工具" class="headerlink" title="越狱工具"></a>越狱工具</h4><ul>
+<li>使用<code>Home Depot</code>越狱工具，仅支持32手机系统，如果是64位手机系统请直接使用各种助手越狱</li>
+<li>支持设备（32位设备）：<ul>
+<li>iPhone 4s、iPhone 5、iPhone 5c、iPad 2、iPad 3、 iPad 4、iPad mini、iPod touch 5G</li>
+</ul>
+</li>
+<li>支持iOS系统版本：<ul>
+<li>iOS 9.1、iOS 9.2.1、iOS 9.3、iOS 9.3.2、iOS 9.3.3、iOS 9.3.4</li>
+</ul>
+</li>
+<li>越狱须知:<ul>
+<li>越狱前请备份您的重要资料以免造成丢失；</li>
+<li>本次越狱属于不完美越狱，若设备重启，则会恢复到未越狱状态，Cydia 及已装得越狱应用会闪退，越狱插件也将失效，需要重新激活；但是安装插件Community Offsets后，重启设备越狱也不会失效，可实现完美越狱。</li>
+<li>越狱工具请在这里<a href="https://pan.baidu.com/s/1c1miZk" target="_blank" rel="noopener">下载</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="越狱步骤"><a href="#越狱步骤" class="headerlink" title="越狱步骤"></a>越狱步骤</h4><ul>
+<li>1、首先下载签名工具以及越狱ipa，将签名工具解压到电脑桌面，打开Impactor，手机连接电脑后软件会读取到手机信息；</li>
+</ul>
+<p><img src="/uploads/assets/Cydia_Impactor.png" alt="Cydia_Impactor"></p>
+<ul>
+<li>2、然后把32位iOS9越狱ipa（MixtapePlayer.ipa）拖入软件里；</li>
+</ul>
+<p><img src="/uploads/assets/drag_mixtape_player.png" alt="drag_mixtape_player"></p>
+<ul>
+<li>3、提示输入你的Apple ID账号，和Apple ID密码。</li>
+<li>4、Apple ID验证完成后软件会自动安装到手机里，可以在手机桌面看到<code>Home Depot</code>的图标，这个就是越狱工具；</li>
+<li>5、接下来进手机<code>设置-通用-设备管理</code>，找到你的ID后点进去并点击信任（设备须保持联网状态）；</li>
+<li>6、然后回到设备桌面，运行<code>Home Depot</code>应用，<ul>
+<li>点击<code>Prepare for jailbreak</code>，</li>
+<li>再依次点击<code>Accept</code> –&gt; <code>Dismiss</code> –&gt; <code>Proceed With Jailbreak</code> –&gt; <code>Begin Installation</code> –&gt; <code>Use Provided Offsets</code>；</li>
+<li>等待设备自动重启后，<code>Cydia</code>就会出现在手机桌面则代表越狱完成，如果越狱重启后没有出现<code>Cydia</code>，则可以多试几次，直到成功为止；</li>
+</ul>
+</li>
+<li>成功后打开Cydia，添加插件源「<a href="http://repo.tihmstar.net」，在Cydia中搜索「Community" target="_blank" rel="noopener">http://repo.tihmstar.net」，在Cydia中搜索「Community</a> Offsets」并插件安装，安装后即使重启越狱也不会失效，Cydia也不会闪退，相当于完美越狱。</li>
+</ul>
+<h3 id="iOS-10x-32位系统越狱"><a href="#iOS-10x-32位系统越狱" class="headerlink" title="iOS 10x 32位系统越狱"></a>iOS 10x 32位系统越狱</h3><h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>机型：iPhone5c</li>
+<li>版本：美版</li>
+<li>系统：10.3.2</li>
+</ul>
+<h4 id="越狱工具-1"><a href="#越狱工具-1" class="headerlink" title="越狱工具"></a>越狱工具</h4><ul>
+<li>使用<code>h3lix-RC5</code>越狱工具，仅支持32手机系统，如果是64位手机系统请直接使用各种助手越狱。</li>
+<li>支持设备（32位设备）：<ul>
+<li>iPhone 4s、iPhone 5、iPhone 5c、iPad 2、iPad 3、 iPad 4、iPad mini、iPod touch 5G</li>
+</ul>
+</li>
+<li>支持iOS系统版本：<ul>
+<li>iOS 10 - 10.3.x</li>
+</ul>
+</li>
+<li>越狱须知:<ul>
+<li>越狱前请备份您的重要资料以免造成丢失；</li>
+<li>本次越狱属于不完美越狱，若设备重启，则会恢复到未越狱状态，Cydia 及已装得越狱应用会闪退，越狱插件也将失效，需要重新激活；</li>
+<li>越狱工具<ul>
+<li><a href="https://h3lix.tihmstar.net/" target="_blank" rel="noopener">h3lix</a></li>
+<li><a href="http://www.cydiaimpactor.com/" target="_blank" rel="noopener">Cydia Impactor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="越狱步骤-1"><a href="#越狱步骤-1" class="headerlink" title="越狱步骤"></a>越狱步骤</h4><ul>
+<li>1、首先下载签名工具以及越狱ipa，将签名工具解压到电脑桌面，打开Impactor，手机连接电脑后软件会读取到手机信息；</li>
+</ul>
+<p><img src="/uploads/assets/h3lix_impactor.png" alt="Cydia_Impactor"></p>
+<ul>
+<li>2、然后把32位iOS10x越狱ipa（h3lix-RC5.ipa）拖入软件里；</li>
+<li>3、提示输入你的Apple ID账号，和Apple ID密码。</li>
+<li>4、Apple ID验证完成后软件会自动安装到手机里，可以在手机桌面看到<code>h3lix</code>的图标，这个就是越狱工具；</li>
+<li>5、接下来进手机<code>设置-通用-设备管理</code>，找到你的ID后点进去并点击信任（设备须保持联网状态）；</li>
+<li><p>6、然后回到设备桌面，运行<code>h3lix</code>应用，</p>
+<ul>
+<li>点击屏幕中间的<code>jailbreak</code>，</li>
+<li>等待设备自动重启后，</li>
+<li><p>如果提示如下错误，可不用管<br><img src="/uploads/assets/h3lix_jailbreak_error.png" alt="drag_mixtape_player"></p>
+</li>
+<li><p><code>Cydia</code>就会出现在手机桌面则代表越狱完成，如果越狱重启后没有出现<code>Cydia</code>，则可以多试几次，直到成功为止；<br><img src="/uploads/assets/h3lix_jailbreak_success.PNG" alt="drag_mixtape_player"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><ul>
+<li>iphone越狱后就需要安装一些插件来协助进行一些逆向辅助操作。</li>
+<li>如果部分需要的插件找不到，可以先尝试添加一些Cydia源。如下是我添加的源地址：</li>
+</ul>
+<blockquote>
+<p>tihmstar: <a href="http://repo.tihmstar.net" target="_blank" rel="noopener">http://repo.tihmstar.net</a><br>多玩源:    <a href="http://yuan.duowan.com" target="_blank" rel="noopener">http://yuan.duowan.com</a><br>BigBoss:  <a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a><br>雷锋源     <a href="http://apt.abcydia.com" target="_blank" rel="noopener">http://apt.abcydia.com</a></p>
+</blockquote>
+<center><img src="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-02.PNG-w375" alt="cydia_source"></center><br><center><img src="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-03.PNG-w375" alt="cydia_source_add"></center>
+
+<ul>
+<li>越狱必备工具(20180702)：<ul>
+<li>openSSH    // 远程控制，如远程登录 (iOS10以后不需要安装)</li>
+<li>MobileTerminal // 无法安装 可用MTerminal 代替</li>
+<li>MTerminal</li>
+<li>LLVM+Clang // 32位手机需要下载32位的才可以安装，否则无法安装(试了两台手机都没有安装成功，不知道是不是以为32位系统或者16G的缘故)</li>
+<li>LD64</li>
+<li>Darwin CC Tools</li>
+<li>adv-cmds: 执行 ps 命令报错，需要安装这个工具；</li>
+<li>iFile: (没有安装成功) 可以安装Filza</li>
+<li>Filza：在手机上查看文件目录；(必装)</li>
+<li>Apple File Conduit”2”，安装完后iFunbox显示越狱状态</li>
+<li>scp：终端命令，把远程设备的文件复制到另一个设备；</li>
+</ul>
+</li>
+<li>还需要的软件：<ul>
+<li>Cydia Translations // 安装后自带</li>
+<li>Cydia Substrate // 允许第三方开发者在越狱系统的方法中打一些补丁或扩展方法。</li>
+<li>Cydia Installer // 安装后自带</li>
+</ul>
+</li>
+</ul>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><h4 id="SSH通过WiFi连接手机"><a href="#SSH通过WiFi连接手机" class="headerlink" title="SSH通过WiFi连接手机"></a>SSH通过WiFi连接手机</h4><ul>
+<li>OpenSSH原是一个在Linux下很实用的一个软件。iPhone本身就是一个运行BSD系统(可认为是一种Liunx)的硬件，因此，Cydia的作者Saurik把OpenSSH这一软件移植到了iOS平台上，并且简化了安全认证密钥的繁琐，使之成为一款可以在iPhone上运行的Cydia插件。</li>
+<li><p>关于ssh(Secure Shell)详细资料请自行搜索相关资料，可以简单理解成『远程登录』，可以通过一台设备远程登陆另一台设备。</p>
+<ul>
+<li>保证你的Mac和iPhone在同一网段</li>
+<li>确定iPhone的IP</li>
+<li>远程登陆</li>
+</ul>
+</li>
+<li><p>Terminal输入</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx.xxx.xxx.xxx // xxx.xxx.xxx.xxx为手机ip地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>如果系统是iOS10.3以上，默认是不能直接使用ssh通过wifi或者USB访问手机的，详情请参考<a href="https://www.jianshu.com/p/91e0c22a6ea7" target="_blank" rel="noopener">iPhone10.3.X越狱后SSH连接不上的问题（已解决）</a></p>
+<ul>
+<li>1.卸载手机上的OpenSSL和Openssh</li>
+<li>2.添加源：<a href="http://cydia.ichitaso.com/test" target="_blank" rel="noopener">http://cydia.ichitaso.com/test</a></li>
+<li>3.搜索并下载：dropbear</li>
+<li>4.安装完毕，执行ssh root@deviceIP，默认密码为alpine（也可以在iPhone里下载ssh软件进行连接测试）</li>
+<li>5.成功后，再重新安装openssh和OpenSSL了（经测试不会影响SSH连接iPhone）。</li>
+</ul>
+</li>
+<li><p>第一次连接会提醒你是否连接，输入<code>yes</code>继续，输入密码，初始密码是<code>alpine</code>。</p>
+</li>
+<li>建议将改密码改掉，因为在默认密码的情况下，任何人都可以尝试登陆你的设备。</li>
+</ul>
+<blockquote>
+<p>Ikee, iOS上的一种蠕虫病毒, 通过使用默认密码alpine入侵安装了openssh的越狱设备, 然后所有数据, 包括电话本, 短信, 甚至Apple ID都有可能被窃取.所以强烈建议您修改ssh密码</p>
+</blockquote>
+<ul>
+<li>在登录之后，你可以更改你的密码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root // 提示输入两次新密码即可修改</span><br></pre></td></tr></table></figure>
+<ul>
+<li>成功后可查看手机文件目录</li>
+</ul>
+<p><img src="/uploads/assets/iphone_fileList.png" alt="iPhone_fileList"></p>
+<h4 id="SSH通过USB连接手机"><a href="#SSH通过USB连接手机" class="headerlink" title="SSH通过USB连接手机"></a>SSH通过USB连接手机</h4><ul>
+<li>比WIFI响应速度快，网络环境无限制</li>
+<li><p>usbmuxd是网上开源社区，貌似是国外牛人倾力打造的一个专门针对该功能开源库</p>
+<ul>
+<li><p>通过brew来安装（当然也可以自己去下源码手动安装，由于依赖项比较多，所以很繁琐）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install usbmuxd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>usbmuxd 自带工具iproxy，iproxy 可以快捷的操作连接iPhone等操作。由于Mac上只支持4位的端口号，所以需要把iPhone的默认端口22映射到Mac上，相当于建立一个Mac和iPhone之间的通道。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iproxy 7777 22</span><br><span class="line">// waiting for connection</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上命令就是把当前连接设备的22端口(SSH端口)映射到电脑的7777端口，那么想和设备22端口通信，直接和本地的7777端口通信就可以了。</p>
+</li>
+<li><p>终端提示 <code>waiting for connection</code> ，表示这两个端口之间已经可以通信了，保留当前终端(如果关闭就停止端口之间的通信了)，新建另一个终端输入如下指令</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 7777 root@127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果是第一次使用USB连接手机，会提示如下信息，输入<code>yes</code>继续</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;[127.0.0.1]:7777 ([127.0.0.1]:7777)&apos; can&apos;t be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:rBkW26LHWZbqrbfOsrkSCeLN1gr3fADxIF5PWB8VXDI.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;[127.0.0.1]:7777&apos; (ECDSA) to the list of known hosts.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有修改过root密码，则输入默认<code>alpine</code>，修改过，则输入修改过密码，完成后即可连接上iPhone。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="配置免ssh密码登陆"><a href="#配置免ssh密码登陆" class="headerlink" title="配置免ssh密码登陆"></a>配置免ssh密码登陆</h4><ul>
+<li><p>每次连接手机都需要输入密码比较麻烦，可以通过如下配置免ssh密码登陆</p>
+<ul>
+<li><p>如果本人是做iOS开发的，项目用到了GIT版本控制，一般都配置SSH密钥了。密钥已经存在了电脑的./ssh目录中，如果没有配置，那么可手动重新生成SSH密钥，如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成完成后，我们会在./ssh目录中发现id_rsa.pub公钥这个文件。<br>然后我们把它copy出来放到个人目录下，并重命名，比如：</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /Users/SevenCho/.ssh/id_rsa.pub ~/authorized_keys</span><br></pre></td></tr></table></figure>
+<ul>
+<li>手动SSH进入设备中，或者通过<code>Filza</code>，查看是否存在var/root/.ssh目录，如果没有，我们手动创建下。可通过SSH连接后mkdir创建，或者<code>Filza</code>手动创建。</li>
+<li>创建后我们把authorized_keys拷贝到设备中，可利用SCP命令：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~/authorized_keys root@iphone ip:/var/root/.ssh // iphone ip 为你手机的ip地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后按正常连接步骤我们就可以直接SSH连接的时候不用输入密码了。</li>
+<li>这个时候，如果我们使用tweak打包时候，也不会再让我们输入SSH密码了。</li>
+</ul>
+<h4 id="重置ssh登陆密码"><a href="#重置ssh登陆密码" class="headerlink" title="重置ssh登陆密码"></a>重置ssh登陆密码</h4><ul>
+<li>如果你不幸忘记了ssh密码，可以在Cydia中下载<code>Filza</code>软件，通过Filza找到<code>/private/etc/master.password</code>文件，文件中会有以下一段：</li>
+</ul>
+<blockquote>
+<p>root:xxxxxxxxxxxxx:0:0::0:0:System<br>Administrator:/var/root:/bin/sh<br>mobile:xxxxxxxxxxxxx:501:501::0:0:Mobile<br>User:/var/mobile:/bin/sh</p>
+</blockquote>
+<ul>
+<li>将root:及mobile:后面的13个x字符处修改成/smx7MYTQIi2M，修改后保存此文件，你iphone的ssh密码就重新回到默认的alpine</li>
+</ul>
+<h4 id="2-交叉编译"><a href="#2-交叉编译" class="headerlink" title="2. 交叉编译"></a>2. 交叉编译</h4><ul>
+<li>交叉编译指在一个平台上生成另一个平台上的可执行代码。如我们将会在MAC上编写编译可在iPhone上运行的可执行文件。</li>
+<li><p>编译是由编译器完成的，所以我们首先要找到合适的编译器。关于目前Apple公司开源及很多大公司使用和维护的Clang编译器详细资料请看<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/" target="_blank" rel="noopener">结构化编译器前端 Clang 介绍</a></p>
+<ul>
+<li><p>编写代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch helloworld.c // 新建c文件</span><br><span class="line">open helloworld.c  // 打开.c文件，编写测试代码，如下面代码：</span><br><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;                                                                                              </span><br><span class="line">int main()&#123;   </span><br><span class="line">       printf(&quot;Hello world !!!\n&quot;);   </span><br><span class="line">       return 0;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成可执行文件</p>
+<ul>
+<li>生成可在iPhone平台运行的二进制可执行文件</li>
+<li>iOS的指令集参考文章结尾</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 格式：xcrun -sdk iphoneos clang -arch armv7s -o [目标文件名] [源文件名]</span><br><span class="line">xcrun -sdk iphoneos clang -arch armv7 -o helloworld helloworld.c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>传输可执行文件</p>
+<ul>
+<li>通过ssh传输本地文件到iPhone（服务器）</li>
+<li>关于iOS10.2系统越狱后无法调用<code>scp</code>，可参考<a href="https://www.reddit.com/r/jailbreak/comments/6l4n5p/tutorial_how_to_fix_scp_on_yalu_dropbear/" target="_blank" rel="noopener">[Tutorial] How to fix scp on Yalu / Dropbear</a></li>
+<li><p>iOS10.3 还是无法使用scp传输文件，有知道解决方法的可以告诉我一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp /path/filename username@servername:/path</span><br><span class="line">scp helloworld root@192.168.1.42:helloworld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将iPhone（服务器）文件传输到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp username@servername:/path/filename</span><br><span class="line">scp helloworld root@192.168.1.42:helloworld</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>查看iPhone文件目录是否存在对应文件<code>helloworld</code>，在终端执行可执行文件</p>
+<ul>
+<li><p>传完可执行文件后, 此时可执行文件并没有权限, 所以要执行以下命令给权限:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x helloworld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行可执行文件 </p>
+<ul>
+<li>执行失败，如下 有知道原因的告知一下，谢谢。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./helloworld</span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/assets/helloworld_executable_failed.png" alt="helloworld_executable_failed"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>如果越狱成功，一定要安装可以远程访问手机的工具，和手机端可以查看越狱系统文件的工具。（以防手贱把<code>Cydia</code>给误删了，需要恢复）</li>
+<li>千万要注意：删除某些安装的工具的时候有可能会把<code>Cydia</code>也给一起删除的。</li>
+<li>如果想重新使用Apple ID签名越狱, 输入Apple ID账号密码后遇到如下错误</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">provision.cpp:81</span><br><span class="line">ios/submitDevelopmentCSR =7460</span><br><span class="line">You already have a current IOS Development certificate or a pending certificate request.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>此时需要删除上一个certificate，操作步骤：</p>
+<ul>
+<li><p>选择菜单栏Xcode -&gt; revokeCertificates</p>
+<p><img src="/uploads/assets/Impactor_cer_revoke.png" alt="Cydia_Impactor"></p>
+</li>
+<li><p>如果revokeCertificates失败，提示如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">progress hpp：87_assert  false</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载旧版本Impactor，如<code>Impactor_0.9.42</code>, 使用旧版本软件重新revokeCertificates</p>
+</li>
+<li><p>revokeCertificates成功如下</p>
+<p><img src="/uploads/assets/Impactor_cer_revoke_sucess.png" alt="Cydia_Impactor"></p>
+</li>
+</ul>
+</li>
+<li><p>关于生成可执行文件采用的iOS的指令集</p>
+</li>
+<li><p>armv6</p>
+<ul>
+<li>iPhone、iPhone 3G</li>
+<li>iPod 1G、iPod 2G</li>
+</ul>
+</li>
+<li><p>armv7</p>
+<ul>
+<li>iPhone 3GS、iPhone 4</li>
+<li>iPod 3G、iPod 4G、iPod 5G</li>
+<li>iPad、iPad 2、iPad 3、iPad Mini</li>
+</ul>
+</li>
+<li><p>armv7s</p>
+<ul>
+<li>iPhone 5、iPhone 5C</li>
+<li>iPad 4</li>
+</ul>
+</li>
+<li><p>arm64</p>
+<ul>
+<li>iPhone 5S   iPhone 6   iPhone 6Plus 以及之后的</li>
+<li>iPad Air, Retina iPad Mini 以及之后的</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://zhoulingyu.com/2016/07/11/iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" target="_blank" rel="noopener">iOS攻防——（一）ssh登陆与交叉编译</a></li>
+<li><a href="https://juejin.im/post/5b31c6dee51d4558e3602270" target="_blank" rel="noopener">《iOS 应用逆向与安全》读后感</a></li>
+<li><a href="http://tieba.baidu.com/p/5574105023?pn=0&amp;&amp;red_tag=z1913916686" target="_blank" rel="noopener">不用换ID，完美解决 Cydia Impactor 错误81</a></li>
+<li><a href="http://bbs.iosre.com/t/iphone6s-10-3-1-plist-hpp-201-not-plist-string/11207" target="_blank" rel="noopener">iPhone6s 10.3.1越狱失败 提示./plist.hpp:201 not PLIST_STRING</a></li>
+<li><a href="https://www.i4.cn/news_detail_17858.html" target="_blank" rel="noopener">32位设备iOS 10-10.3.x越狱工具h3lix发布</a></li>
+<li><a href="https://www.i4.cn/news_detail_17962.html" target="_blank" rel="noopener">32位设备iOS9.1-9.3.4越狱图文教程</a></li>
+<li><a href="https://www.jianshu.com/p/91e0c22a6ea7" target="_blank" rel="noopener">iPhone10.3.X越狱后SSH连接不上的问题（已解决）</a></li>
+<li><a href="https://www.reddit.com/r/jailbreak/comments/7oj564/tutorial_how_to_access_ssh_using_dropbear_in_ios/" target="_blank" rel="noopener">[Tutorial] How To Access SSH Using Dropbear In iOS 10.3.x To Fix Filza’s Root Permission Using Your Device!</a></li>
+<li><a href="http://iphonedevwiki.net/index.php/SSH_Over_USB" target="_blank" rel="noopener">SSH Over USB</a></li>
+<li><a href="https://www.reddit.com/r/jailbreak/comments/6l4n5p/tutorial_how_to_fix_scp_on_yalu_dropbear/" target="_blank" rel="noopener">[Tutorial] How to fix scp on Yalu / Dropbear</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/e38331a.html" title="iOS攻防（一）： iPhone手机越狱 & SSH">https://sevencho.github.io/archives/e38331a.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Xcode/" rel="tag"><i class="fa fa-tag"></i> Xcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/2e7b1d7b.html" rel="next" title="创建自己的CocoaPods公有库">
+                <i class="fa fa-chevron-left"></i> 创建自己的CocoaPods公有库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SevenCho" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-9x-32位系统越狱"><span class="nav-number">2.1.</span> <span class="nav-text">iOS 9x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤"><span class="nav-number">2.1.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-10x-32位系统越狱"><span class="nav-number">2.2.</span> <span class="nav-text">iOS 10x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件安装"><span class="nav-number">2.3.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-number">2.4.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过WiFi连接手机"><span class="nav-number">2.4.1.</span> <span class="nav-text">SSH通过WiFi连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过USB连接手机"><span class="nav-number">2.4.2.</span> <span class="nav-text">SSH通过USB连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置免ssh密码登陆"><span class="nav-number">2.4.3.</span> <span class="nav-text">配置免ssh密码登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重置ssh登陆密码"><span class="nav-number">2.4.4.</span> <span class="nav-text">重置ssh登陆密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交叉编译"><span class="nav-number">2.4.5.</span> <span class="nav-text">2. 交叉编译</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">2.5.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">34.0k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/lib/clipboard/clipboard.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
