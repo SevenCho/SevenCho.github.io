@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-07-03T07:26:02.819Z</updated>
+  <updated>2018-07-04T07:42:21.075Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/e38331a.html"/>
     <id>https://sevencho.github.io/archives/e38331a.html</id>
     <published>2018-06-29T07:27:45.000Z</published>
-    <updated>2018-07-03T07:26:02.819Z</updated>
+    <updated>2018-07-04T07:42:21.075Z</updated>
     
     <summary type="html">
     
@@ -38,10 +38,12 @@
     
       <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
     
+      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+    
     
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
-      <category term="Xcode" scheme="https://sevencho.github.io/tags/Xcode/"/>
+      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
     
   </entry>
   
@@ -519,7 +521,7 @@
     <link href="https://sevencho.github.io/archives/9b9b2c59.html"/>
     <id>https://sevencho.github.io/archives/9b9b2c59.html</id>
     <published>2016-10-26T01:15:45.000Z</published>
-    <updated>2018-04-17T07:13:22.000Z</updated>
+    <updated>2018-07-04T07:41:44.248Z</updated>
     
     <summary type="html">
     
@@ -532,8 +534,6 @@
     </summary>
     
       <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="App Store" scheme="https://sevencho.github.io/categories/iOS/App-Store/"/>
     
     
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
