@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iphone_fileList.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke_sucess.png">
-<meta property="og:updated_time" content="2018-07-05T07:45:31.827Z">
+<meta property="og:updated_time" content="2018-07-05T07:47:41.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（一）： iPhone手机越狱 &amp; SSH">
 <meta name="twitter:description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
@@ -709,7 +709,8 @@
 </li>
 <li><p>在电脑上用iTools把<code>scp</code>文件导入到<code>usr/bin</code>目录中，把另外两个文件导入到<code>usr/lib</code>目录中</p>
 </li>
-<li>通过手机<code>MTerminal</code>，登陆进来root模式</li>
+<li><p>通过手机<code>MTerminal</code>，登陆进来root模式</p>
+</li>
 <li><p>进入usr/bin目录，执行下列命令</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S scp</span><br><span class="line">chmod 777 scp</span><br></pre></td></tr></table></figure>
 </li>
@@ -724,7 +725,7 @@
 
             <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 libcrypto.0.9.8.dylib</span><br><span class="line">chmod 755 libcrypto.dylib</span><br></pre></td></tr></table></figure>
 
-    &lt;center&gt;![iPhone_fileList](/uploads/assets/install_scp_manually.PNG)&lt;/center&gt;
+        &lt;center&gt;![iPhone_fileList](/uploads/assets/install_scp_manually.PNG)&lt;/center&gt;
 
     - 将iPhone（服务器）文件传输到本地
 
