@@ -102,10 +102,9 @@
 <meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-02.PNG-w375">
 <meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-03.PNG-w375">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iphone_fileList.png">
-<meta property="og:image" content="https://sevencho.github.io/uploads/assets/helloworld_executable_failed.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke_sucess.png">
-<meta property="og:updated_time" content="2018-07-04T07:42:21.075Z">
+<meta property="og:updated_time" content="2018-07-05T07:39:18.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（一）： iPhone手机越狱 &amp; SSH">
 <meta name="twitter:description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
@@ -420,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,883
+                  4,083
                 </span>
               
 
@@ -436,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  16
                 </span>
               
             </div>
@@ -570,8 +569,8 @@
 
 <ul>
 <li>越狱必备工具(20180702)：<ul>
-<li>openSSH    // 远程控制，如远程登录 (iOS10以后不需要安装)</li>
-<li>MobileTerminal // 无法安装 可用MTerminal 代替</li>
+<li>openSSH    // 远程控制，如远程登录 (如果越狱工具自带<code>Dropbear</code>不需要安装)</li>
+<li>MobileTerminal // 无法安装 可用<code>MTerminal</code>代替</li>
 <li>MTerminal</li>
 <li>LLVM+Clang // 32位手机需要下载32位的才可以安装，否则无法安装(试了两台手机都没有安装成功，不知道是不是以为32位系统或者16G的缘故)</li>
 <li>LD64</li>
@@ -681,7 +680,7 @@
 <ul>
 <li>将root:及mobile:后面的13个x字符处修改成/smx7MYTQIi2M，修改后保存此文件，你iphone的ssh密码就重新回到默认的alpine</li>
 </ul>
-<h4 id="2-交叉编译"><a href="#2-交叉编译" class="headerlink" title="2. 交叉编译"></a>2. 交叉编译</h4><ul>
+<h4 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h4><ul>
 <li>交叉编译指在一个平台上生成另一个平台上的可执行代码。如我们将会在MAC上编写编译可在iPhone上运行的可执行文件。</li>
 <li><p>编译是由编译器完成的，所以我们首先要找到合适的编译器。关于目前Apple公司开源及很多大公司使用和维护的Clang编译器详细资料请看<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/" target="_blank" rel="noopener">结构化编译器前端 Clang 介绍</a></p>
 <ul>
@@ -693,38 +692,51 @@
 <li>生成可在iPhone平台运行的二进制可执行文件</li>
 <li>iOS的指令集参考文章结尾</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 格式：xcrun -sdk iphoneos clang -arch armv7s -o [目标文件名] [源文件名]</span><br><span class="line">xcrun -sdk iphoneos clang -arch armv7 -o helloworld helloworld.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 格式：xcrun -sdk iphoneos clang -arch armv7s -o [目标文件名] [源文件名]</span><br><span class="line">xcrun -sdk iphoneos clang -arch armv7s -o helloworld helloworld.c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>传输可执行文件</p>
 <ul>
-<li>通过ssh传输本地文件到iPhone（服务器）</li>
-<li>关于iOS10.2系统越狱后无法调用<code>scp</code>，可参考<a href="https://www.reddit.com/r/jailbreak/comments/6l4n5p/tutorial_how_to_fix_scp_on_yalu_dropbear/" target="_blank" rel="noopener">[Tutorial] How to fix scp on Yalu / Dropbear</a></li>
-<li><p>iOS10.3 还是无法使用scp传输文件，有知道解决方法的可以告诉我一下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp /path/filename username@servername:/path</span><br><span class="line">scp helloworld root@192.168.1.42:helloworld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将iPhone（服务器）文件传输到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp username@servername:/path/filename</span><br><span class="line">scp helloworld root@192.168.1.42:helloworld</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>查看iPhone文件目录是否存在对应文件<code>helloworld</code>，在终端执行可执行文件</p>
-<ul>
-<li><p>传完可执行文件后, 此时可执行文件并没有权限, 所以要执行以下命令给权限:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x helloworld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行可执行文件 </p>
-<ul>
-<li>执行失败，如下 有知道原因的告知一下，谢谢。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./helloworld</span><br></pre></td></tr></table></figure>
-<p><img src="/uploads/assets/helloworld_executable_failed.png" alt="helloworld_executable_failed"></p>
+<li><p>通过ssh传输本地文件到iPhone（服务器）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp /path/filename username@servername:/path/filename</span><br><span class="line">scp helloworld root@192.168.1.42:/helloworld</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<pre><code>    - 关于iOS10.2系统越狱后无法调用`scp`，可参考[[Tutorial] How to fix scp on Yalu / Dropbear](https://www.reddit.com/r/jailbreak/comments/6l4n5p/tutorial_how_to_fix_scp_on_yalu_dropbear/)
+    - `坑`：使用iPhone5 iOS10.3 还是无法使用scp传输文件，后来发现因为是32位系统，而使用上面解决方法下载的`scp`是64位的，手动安装授权32位就可以了，如下
+        - 先下载scp二进制文件及相关库文件：[scp](https://bbs.feng.com/tencentdownload.php?aid=13144529&amp;key=22c30ac545833270340a63399f3284b0)、[libcrypto.0.9.8.dylib](libcrypto.0.9.8.dylib)、[libcrypto.dylib](https://bbs.feng.com/tencentdownload.php?aid=13144591&amp;key=8994cdc7d29b271ba1c295b413ca9e89)
+
+        - 在电脑上用iTools把`scp`文件导入到`usr/bin`目录中，把另外两个文件导入到`usr/lib`目录中
+        - 通过手机`MTerminal`，登陆进来root模式
+        - 进入usr/bin目录，执行下列命令
+
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S scp</span><br><span class="line">chmod 777 scp</span><br></pre></td></tr></table></figure>
+
+
+        - 进入usr/lib目录
+
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 libcrypto.0.9.8.dylib</span><br><span class="line">chmod 755 libcrypto.dylib</span><br></pre></td></tr></table></figure>
+
+        &lt;center&gt;![iPhone_fileList](/uploads/assets/install_scp_manually.PNG)&lt;/center&gt;
+
+    - 将iPhone（服务器）文件传输到本地
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp username@servername:/source/path/filename /des/path/filename</span><br><span class="line">scp root@192.168.1.42:/iphone/path/helloworld /mac/path/helloworld</span><br></pre></td></tr></table></figure>
+
+- 查看iPhone文件目录是否存在对应文件`helloworld`，在终端执行可执行文件
+    - 传完可执行文件后, 此时可执行文件并没有权限, 所以要执行以下命令给权限:
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x helloworld</span><br></pre></td></tr></table></figure>
+
+    - 运行可执行文件 
+      - 执行失败，如下 有知道原因的告知一下，谢谢。
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./helloworld</span><br></pre></td></tr></table></figure>
+
+    ![helloworld_executable_failed](/uploads/assets/helloworld_executable_failed.png)
+</code></pre><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
 <li>如果越狱成功，一定要安装可以远程访问手机的工具，和手机端可以查看越狱系统文件的工具。（以防手贱把<code>Cydia</code>给误删了，需要恢复）</li>
 <li>千万要注意：删除某些安装的工具的时候有可能会把<code>Cydia</code>也给一起删除的。</li>
 <li>如果想重新使用Apple ID签名越狱, 输入Apple ID账号密码后遇到如下错误</li>
@@ -982,7 +994,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -993,7 +1005,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1049,7 +1061,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-9x-32位系统越狱"><span class="nav-number">2.1.</span> <span class="nav-text">iOS 9x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤"><span class="nav-number">2.1.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-10x-32位系统越狱"><span class="nav-number">2.2.</span> <span class="nav-text">iOS 10x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件安装"><span class="nav-number">2.3.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-number">2.4.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过WiFi连接手机"><span class="nav-number">2.4.1.</span> <span class="nav-text">SSH通过WiFi连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过USB连接手机"><span class="nav-number">2.4.2.</span> <span class="nav-text">SSH通过USB连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置免ssh密码登陆"><span class="nav-number">2.4.3.</span> <span class="nav-text">配置免ssh密码登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重置ssh登陆密码"><span class="nav-number">2.4.4.</span> <span class="nav-text">重置ssh登陆密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交叉编译"><span class="nav-number">2.4.5.</span> <span class="nav-text">2. 交叉编译</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">2.5.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-9x-32位系统越狱"><span class="nav-number">2.1.</span> <span class="nav-text">iOS 9x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤"><span class="nav-number">2.1.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-10x-32位系统越狱"><span class="nav-number">2.2.</span> <span class="nav-text">iOS 10x 32位系统越狱</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱工具-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">越狱工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#越狱步骤-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">越狱步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件安装"><span class="nav-number">2.3.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-number">2.4.</span> <span class="nav-text">SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过WiFi连接手机"><span class="nav-number">2.4.1.</span> <span class="nav-text">SSH通过WiFi连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH通过USB连接手机"><span class="nav-number">2.4.2.</span> <span class="nav-text">SSH通过USB连接手机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置免ssh密码登陆"><span class="nav-number">2.4.3.</span> <span class="nav-text">配置免ssh密码登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重置ssh登陆密码"><span class="nav-number">2.4.4.</span> <span class="nav-text">重置ssh登陆密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉编译"><span class="nav-number">2.4.5.</span> <span class="nav-text">交叉编译</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">2.5.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -1083,7 +1095,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">46.1k</span>
+    <span title="Site words total count">46.3k</span>
   
 </div>
 
