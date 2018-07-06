@@ -103,10 +103,10 @@
 <meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%B8%80%EF%BC%89ssh%E7%99%BB%E9%99%86%E4%B8%8E%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-03.PNG-w375">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iphone_fileList.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/install_scp_manually.PNG">
-<meta property="og:image" content="https://sevencho.github.io/uploads/assets/helloworld_executable_failed.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/helloworld_executable_success.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Impactor_cer_revoke_sucess.png">
-<meta property="og:updated_time" content="2018-07-05T07:49:47.752Z">
+<meta property="og:updated_time" content="2018-07-05T08:48:08.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（一）： iPhone手机越狱 &amp; SSH">
 <meta name="twitter:description" content="人在年轻时，最头疼的一件事就是决定自己这一生要做什么。——王小波 《工作与人生》  前言 很早之前就想研究了解一下iOS越狱开发和逆向相关的知识，然后就买了《iOS应用逆向工程》这本’小黄书’，也查了查相关的资料，比较出名的可能就是iOS女神念茜的iOS攻防系列文章了。 但是由于自身的惰性和其他的外界因素，导致’小黄书’翻了几章后就在公司的办公桌上处于长时间的休眠状态，而念茜的文章年代稍微比较">
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,032
+                  4,045
                 </span>
               
 
@@ -734,10 +734,10 @@
 </li>
 <li><p>运行可执行文件 </p>
 <ul>
-<li>执行失败，如下 有知道原因的告知一下，谢谢。</li>
+<li>如果执行失败，报<code>Killed: 9</code>，可能是因为执行文件没有签名，使用<code>ldid -S helloworld</code>签名即可。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./helloworld</span><br></pre></td></tr></table></figure>
-<p><img src="/uploads/assets/helloworld_executable_failed.png" alt="helloworld_executable_failed"></p>
+<p><img src="/uploads/assets/helloworld_executable_success.png" alt="helloworld_executable_failed"></p>
 </li>
 </ul>
 </li>
@@ -912,6 +912,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/archives/bf5c1be0.html" rel="prev" title="iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用">
+                iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -991,7 +995,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1103,7 +1107,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">46.2k</span>
+    <span title="Site words total count">47.8k</span>
   
 </div>
 

