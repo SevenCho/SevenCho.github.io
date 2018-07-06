@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="iOS,RAC," />
+  <meta name="keywords" content="iOS,攻防," />
 
 
 
@@ -86,18 +86,25 @@
 
 
 
-<meta name="description" content="谁家玉笛暗飞声，散入春风满洛城。此夜曲中闻折柳，何人不起故园情。 ——李白《春夜洛城闻笛》  冷信号与热信号特点 热信号是主动的，即使你没有订阅事件，它仍然会时刻推送。（例如它会推送值即使还没有订阅者）而冷信号是被动的，只有当你订阅的时候，它才会发送消息。  热信号可以有多个订阅者，是一对多，信号可以与订阅者共享信息。（订阅者1和订阅者2是共享的，他们都能在同一时间接收到某个值），而冷信号只能">
-<meta name="keywords" content="iOS,RAC">
+<meta name="description" content="你生了气就哭,我一看见你哭就目瞪口呆,就像一个小孩子做了坏事在未受责备之前目瞪口呆一样,所以什么事你先别哭,先来责备我,好吗? ——王小波《爱你就像爱生命》  简介 工欲善其事，必先利其器 Reveal在逆向工程中不仅仅可以用来查看分析别人App的UI层次结构，还可以用来帮助我们在平时开发中快速定位问题。 对于初学者来说，去分析其他优秀App的界面实现，能够帮助快速提升开发能力。 我的环境配置">
+<meta name="keywords" content="iOS,攻防">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发ReactiveCocoa（六）：冷信号与热信号">
-<meta property="og:url" content="https://sevencho.github.io/archives/53929de4.html">
+<meta property="og:title" content="iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面">
+<meta property="og:url" content="https://sevencho.github.io/archives/4de69069.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="谁家玉笛暗飞声，散入春风满洛城。此夜曲中闻折柳，何人不起故园情。 ——李白《春夜洛城闻笛》  冷信号与热信号特点 热信号是主动的，即使你没有订阅事件，它仍然会时刻推送。（例如它会推送值即使还没有订阅者）而冷信号是被动的，只有当你订阅的时候，它才会发送消息。  热信号可以有多个订阅者，是一对多，信号可以与订阅者共享信息。（订阅者1和订阅者2是共享的，他们都能在同一时间接收到某个值），而冷信号只能">
+<meta property="og:description" content="你生了气就哭,我一看见你哭就目瞪口呆,就像一个小孩子做了坏事在未受责备之前目瞪口呆一样,所以什么事你先别哭,先来责备我,好吗? ——王小波《爱你就像爱生命》  简介 工欲善其事，必先利其器 Reveal在逆向工程中不仅仅可以用来查看分析别人App的UI层次结构，还可以用来帮助我们在平时开发中快速定位问题。 对于初学者来说，去分析其他优秀App的界面实现，能够帮助快速提升开发能力。 我的环境配置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T01:25:12.454Z">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_framework.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_framework_dylib.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_config.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_config_selectedApp.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_selected_result.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/reveal_selected.png">
+<meta property="og:updated_time" content="2018-07-06T08:49:10.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发ReactiveCocoa（六）：冷信号与热信号">
-<meta name="twitter:description" content="谁家玉笛暗飞声，散入春风满洛城。此夜曲中闻折柳，何人不起故园情。 ——李白《春夜洛城闻笛》  冷信号与热信号特点 热信号是主动的，即使你没有订阅事件，它仍然会时刻推送。（例如它会推送值即使还没有订阅者）而冷信号是被动的，只有当你订阅的时候，它才会发送消息。  热信号可以有多个订阅者，是一对多，信号可以与订阅者共享信息。（订阅者1和订阅者2是共享的，他们都能在同一时间接收到某个值），而冷信号只能">
+<meta name="twitter:title" content="iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面">
+<meta name="twitter:description" content="你生了气就哭,我一看见你哭就目瞪口呆,就像一个小孩子做了坏事在未受责备之前目瞪口呆一样,所以什么事你先别哭,先来责备我,好吗? ——王小波《爱你就像爱生命》  简介 工欲善其事，必先利其器 Reveal在逆向工程中不仅仅可以用来查看分析别人App的UI层次结构，还可以用来帮助我们在平时开发中快速定位问题。 对于初学者来说，去分析其他优秀App的界面实现，能够帮助快速提升开发能力。 我的环境配置">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/reveal_framework.png">
 
 
 
@@ -127,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/archives/53929de4.html"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/4de69069.html"/>
 
 
 
 
 
-  <title>iOS开发ReactiveCocoa（六）：冷信号与热信号 | 曹雪松de博客|CoderBoy's Blog</title>
+  <title>iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面 | 曹雪松de博客|CoderBoy's Blog</title>
   
 
 
@@ -314,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/53929de4.html">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/4de69069.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="曹雪松">
@@ -331,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS开发ReactiveCocoa（六）：冷信号与热信号</h1>
+          <h1 class="post-title" itemprop="name headline">iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</h1>
         
 
         <div class="post-meta">
@@ -343,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-25T20:27:45+08:00">
-                2016-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T15:47:45+08:00">
+                2018-07-06
               </time>
             
 
@@ -377,8 +384,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/ReactiveCocoa/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactiveCocoa</span>
+                  <a href="/categories/iOS/攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">攻防</span>
                   </a>
                 </span>
 
@@ -408,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  270
+                  759
                 </span>
               
 
@@ -424,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -447,21 +454,66 @@
       
         <hr>
 <blockquote>
-<p>谁家玉笛暗飞声，散入春风满洛城。<br>此夜曲中闻折柳，何人不起故园情。</p>
-<p>——李白《春夜洛城闻笛》</p>
+<p>你生了气就哭,我一看见你哭就目瞪口呆,就像一个小孩子做了坏事在未受责备之前目瞪口呆一样,所以什么事你先别哭,先来责备我,好吗?</p>
+<p>——王小波《爱你就像爱生命》</p>
 </blockquote>
-<h2 id="冷信号与热信号"><a href="#冷信号与热信号" class="headerlink" title="冷信号与热信号"></a>冷信号与热信号</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><p>热信号是主动的，即使你没有订阅事件，它仍然会时刻推送。（例如它会推送值即使还没有订阅者）而冷信号是被动的，只有当你订阅的时候，它才会发送消息。</p>
-</li>
-<li><p>热信号可以有多个订阅者，是一对多，信号可以与订阅者共享信息。（订阅者1和订阅者2是共享的，他们都能在同一时间接收到某个值），而冷信号只能一对一，当有不同的订阅者，消息会从新完整发送。（两个订阅者没有联系，都是基于各自的订阅时间开始接收消息的）。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><code>工欲善其事，必先利其器</code></li>
+<li><code>Reveal</code>在逆向工程中不仅仅可以用来查看分析别人App的UI层次结构，还可以用来帮助我们在平时开发中快速定位问题。</li>
+<li>对于初学者来说，去分析其他优秀App的界面实现，能够帮助快速提升开发能力。</li>
+<li>我的环境配置：<ul>
+<li>越狱iPhone5c 10.3.2</li>
+<li>Mac 10.13.5 并且安装有Reveal version 4(8796)</li>
+</ul>
 </li>
 </ul>
-<h3 id="美团的几篇资料-（开发中可能遇到的坑）"><a href="#美团的几篇资料-（开发中可能遇到的坑）" class="headerlink" title="美团的几篇资料 （开发中可能遇到的坑）"></a>美团的几篇资料 （开发中可能遇到的坑）</h3><ul>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-1.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号1</a></li>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-2.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号2</a></li>
-<li><a href="http://tech.meituan.com/talk-about-reactivecocoas-cold-signal-and-hot-signal-part-3.html" target="_blank" rel="noopener">细说ReactiveCocoa的冷信号与热信号3</a></li>
-<li><a href="http://tech.meituan.com/RACSignalSubscription.html" target="_blank" rel="noopener">RACSignal的Subscription深入分析</a></li>
+<h2 id="在越狱设备上配置Reveal"><a href="#在越狱设备上配置Reveal" class="headerlink" title="在越狱设备上配置Reveal"></a>在越狱设备上配置Reveal</h2><h3 id="Reveal-Loader安装"><a href="#Reveal-Loader安装" class="headerlink" title="Reveal Loader安装"></a>Reveal Loader安装</h3><ul>
+<li>首先在越狱设备的Cydia中输入搜索<code>Reveal2Loader</code>，并且进行安装即可。这一步比较简单，安装后重启SpringBoard即可。</li>
+<li>注意安装最新的<code>Reveal2Loader</code>，兼容iOS8/9/10,如果越狱设备系统版本过低，请下载旧版本<code>Reveal Loader</code>安装即可。</li>
 </ul>
+<h3 id="导入libReveal-dylib"><a href="#导入libReveal-dylib" class="headerlink" title="导入libReveal.dylib"></a>导入libReveal.dylib</h3><ul>
+<li>安装完成<code>Reveal2Loader</code>后查看在<code>/Library/</code>路径下下是否存在<code>RHRevealLoader</code>这个文件夹，并且查看该文件夹中是否有<code>libReveal.dylib</code>这个文件。</li>
+<li>可以使用电脑端助手工具查看，也可以在终端查看</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 连接手机</span><br><span class="line">ssh root@192.168.1.60 </span><br><span class="line"></span><br><span class="line">// 进入Library文件夹</span><br><span class="line"><span class="built_in">cd</span> /Library  </span><br><span class="line"></span><br><span class="line">// 查看Library文件夹下文件列表</span><br><span class="line">ls -r</span><br></pre></td></tr></table></figure>
+<h4 id="文件夹存在"><a href="#文件夹存在" class="headerlink" title="文件夹存在"></a>文件夹存在</h4><ul>
+<li>如果存在<code>libReveal.dylib</code>这个文件，则安装Reveal完成。</li>
+</ul>
+<h4 id="文件夹不存在"><a href="#文件夹不存在" class="headerlink" title="文件夹不存在"></a>文件夹不存在</h4><ul>
+<li><p>如果不存在<code>libReveal.dylib</code>这个文件，按如下步骤</p>
+<ul>
+<li><p>手动创建<code>RHRevealLoader</code>这个文件夹，可以使用<code>iTools</code>或者<code>Filza</code>，也可以通过指令创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir RHRevealLoader</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在Mac电脑上打开<code>Reveal</code>，打开<code>Reveal菜单 -&gt; Help -&gt; Show Reveal Library in Finder -&gt; iOS Library</code></p>
+<center><img src="/uploads/assets/reveal_framework.png" alt="hack_appList_result_failed"></center>
+</li>
+<li><p>注意：新版本的<code>Reveal</code>已经没有<code>libReveal.dylib</code>这个文件，只存在一个<code>RevealServer.framework</code>文件。</p>
+<ul>
+<li>我们需要找到这个库文件下的<code>RevealServer</code>并复制一份到桌面，重命名为<code>libReveal.dylib</code></li>
+</ul>
+<center><img src="/uploads/assets/reveal_framework_dylib.png" alt="hack_appList_result_failed"></center>
+</li>
+<li><p>将<code>libReveal.dylib</code>这个文件放入手机刚创建的<code>/Library/RHRevealLoader/</code>这个文件夹内。可以使用<code>iTools</code>，也可以通过指令上传</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /Users/sevencho/Desktop/libReveal.dylib root@192.168.1.60:/Library/RHRevealLoader/libReveal.dylib</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>至此,手机的<code>Reveal</code>安装配置完成。<code>重启手机</code>就可以愉快的和新认识的<del>基友</del>小伙伴一起玩耍了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reveal的使用"><a href="#Reveal的使用" class="headerlink" title="Reveal的使用"></a>Reveal的使用</h2><h3 id="在设备上选择想要Reveal的App"><a href="#在设备上选择想要Reveal的App" class="headerlink" title="在设备上选择想要Reveal的App"></a>在设备上选择想要Reveal的App</h3><ul>
+<li>在越狱设备上安装完Reveal Loader后就可以在设置中找到Reveal的配置项，在该配置项中我们可以去选择要Reveal的App。</li>
+<li>对于越狱手机，手机上安装的所有App都可以Reveal。当然也包括从AppStore下载的，也包括iOS系统自带的。如下所示：</li>
+</ul>
+<center><img src="/uploads/assets/reveal_config.png" alt="hack_appList_result_failed"></center><br><center><img src="/uploads/assets/reveal_config_selectedApp.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="查看App的UI层级"><a href="#查看App的UI层级" class="headerlink" title="查看App的UI层级"></a>查看App的UI层级</h3><ul>
+<li>Mac上Reveal查看设备上App的UI层级时可以通过USB进行连接。</li>
+<li>也可以使用wifi连接，但要保证你的iOS设备与你的Mac在同一个局域网内。</li>
+</ul>
+<center><img src="/uploads/assets/reveal_selected_result.png" alt="hack_appList_result_failed"></center><br><center><img src="/uploads/assets/reveal_selected.png" alt="hack_appList_result_failed"></center>
+
 
       
     </div>
@@ -528,7 +580,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sevencho.github.io/archives/53929de4.html" title="iOS开发ReactiveCocoa（六）：冷信号与热信号">https://sevencho.github.io/archives/53929de4.html</a>
+    <a href="https://sevencho.github.io/archives/4de69069.html" title="iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面">https://sevencho.github.io/archives/4de69069.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -545,7 +597,7 @@
           
             <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/RAC/" rel="tag"><i class="fa fa-tag"></i> RAC</a>
+            <a href="/tags/攻防/" rel="tag"><i class="fa fa-tag"></i> 攻防</a>
           
         </div>
       
@@ -558,8 +610,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/a972913f.html" rel="next" title="iOS开发ReactiveCocoa（五）：RAC底层bind">
-                <i class="fa fa-chevron-left"></i> iOS开发ReactiveCocoa（五）：RAC底层bind
+              <a href="/archives/bf5c1be0.html" rel="next" title="iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用">
+                <i class="fa fa-chevron-left"></i> iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用
               </a>
             
           </div>
@@ -567,10 +619,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/2a9c0fa5.html" rel="prev" title="iOS开发ReactiveCocoa（七）：开发中常见用法">
-                iOS开发ReactiveCocoa（七）：开发中常见用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -729,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#冷信号与热信号"><span class="nav-number">1.</span> <span class="nav-text">冷信号与热信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#美团的几篇资料-（开发中可能遇到的坑）"><span class="nav-number">1.2.</span> <span class="nav-text">美团的几篇资料 （开发中可能遇到的坑）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在越狱设备上配置Reveal"><span class="nav-number">2.</span> <span class="nav-text">在越狱设备上配置Reveal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reveal-Loader安装"><span class="nav-number">2.1.</span> <span class="nav-text">Reveal Loader安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入libReveal-dylib"><span class="nav-number">2.2.</span> <span class="nav-text">导入libReveal.dylib</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件夹存在"><span class="nav-number">2.2.1.</span> <span class="nav-text">文件夹存在</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件夹不存在"><span class="nav-number">2.2.2.</span> <span class="nav-text">文件夹不存在</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reveal的使用"><span class="nav-number">3.</span> <span class="nav-text">Reveal的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在设备上选择想要Reveal的App"><span class="nav-number">3.1.</span> <span class="nav-text">在设备上选择想要Reveal的App</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看App的UI层级"><span class="nav-number">3.2.</span> <span class="nav-text">查看App的UI层级</span></a></li></ol></li></ol></div>
             
 
           </div>
