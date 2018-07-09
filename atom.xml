@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-07-06T08:49:16.431Z</updated>
+  <updated>2018-07-09T07:29:35.039Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件</title>
+    <link href="https://sevencho.github.io/archives/8c50aab9.html"/>
+    <id>https://sevencho.github.io/archives/8c50aab9.html</id>
+    <published>2018-07-09T01:25:45.000Z</published>
+    <updated>2018-07-09T07:29:35.039Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。&lt;/p&gt;
+&lt;p&gt;——王小波《似水流年》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a hr
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</title>
@@ -53,7 +85,7 @@
     <link href="https://sevencho.github.io/archives/bf5c1be0.html"/>
     <id>https://sevencho.github.io/archives/bf5c1be0.html</id>
     <published>2018-07-05T10:27:45.000Z</published>
-    <updated>2018-07-06T02:16:50.020Z</updated>
+    <updated>2018-07-06T10:04:53.393Z</updated>
     
     <summary type="html">
     
@@ -354,14 +386,14 @@
     <link href="https://sevencho.github.io/archives/24e561e5.html"/>
     <id>https://sevencho.github.io/archives/24e561e5.html</id>
     <published>2018-01-18T10:04:05.000Z</published>
-    <updated>2018-04-17T07:13:22.000Z</updated>
+    <updated>2018-07-09T01:46:00.329Z</updated>
     
     <summary type="html">
     
       
       
         &lt;h1 id=&quot;Decompile&quot;&gt;&lt;a href=&quot;#Decompile&quot; class=&quot;headerlink&quot; title=&quot;Decompile&quot;&gt;&lt;/a&gt;Decompile&lt;/h1&gt;&lt;hr&gt;
-&lt;h3 id=&quot;class-dump安装方法&quot;&gt;&lt;a href=&quot;#class-
+&lt;h2 id=&quot;class-dump安装方法&quot;&gt;&lt;a href=&quot;#class-
       
     
     </summary>
@@ -577,32 +609,6 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="Multi Target" scheme="https://sevencho.github.io/tags/Multi-Target/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之AppStore篇</title>
-    <link href="https://sevencho.github.io/archives/9b9b2c59.html"/>
-    <id>https://sevencho.github.io/archives/9b9b2c59.html</id>
-    <published>2016-10-26T01:15:45.000Z</published>
-    <updated>2018-07-04T07:41:44.248Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;iOS开发之AppStore篇&quot;&gt;&lt;a href=&quot;#iOS开发之AppStore篇&quot; class=&quot;headerlink&quot; title=&quot;iOS开发之AppStore篇&quot;&gt;&lt;/a&gt;iOS开发之AppStore篇&lt;/h1&gt;&lt;p&gt;–&lt;/p&gt;
-&lt;h2 id=&quot;上架图片
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="App Store" scheme="https://sevencho.github.io/tags/App-Store/"/>
     
   </entry>
   

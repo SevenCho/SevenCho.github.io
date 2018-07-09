@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xt4xp.com1.z0.glb.clouddn.com/blog_iOS%E6%94%BB%E9%98%B2%E2%80%94%E2%80%94%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E7%AA%83%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84iTunesstore%E4%BF%A1%E6%81%AF-01.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/hack_appList_result_failed.png">
-<meta property="og:updated_time" content="2018-07-06T02:16:50.020Z">
+<meta property="og:updated_time" content="2018-07-06T10:04:53.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用">
 <meta name="twitter:description" content="咱们应当在一起，否则就太伤天害理啦。 ——王小波《爱你就像爱生命》  简介 通过在iPhone上开启一个开机自启进程，读取用户手机通讯录数据库或者用户应用安装列表，写到标准输出。 开启一个Socket通信端口。 通过使用NetCat将iPhone手机的指定ip端口数据以文件格式传输到Mac桌面上。  了解一下OS X的启动原理 Mac下的启动服务主要有三个地方可配置：  系统偏好设置-&amp;gt;">
@@ -497,7 +497,7 @@
 </li>
 </ul>
 <h3 id="几个目录下plist文件格式及每个字段的含义："><a href="#几个目录下plist文件格式及每个字段的含义：" class="headerlink" title="几个目录下plist文件格式及每个字段的含义："></a>几个目录下plist文件格式及每个字段的含义：</h3><ul>
-<li>因为iOS和Macd都是基于Unix，所以启动过程基本是类似的。</li>
+<li>因为iOS和Mac都是基于Unix，所以启动过程基本是类似的。</li>
 </ul>
 <table>
 <thead>
@@ -629,7 +629,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S hack</span><br><span class="line">scp hack root@192.168.1.60:/usr/bin/hack</span><br></pre></td></tr></table></figure>
 <ul>
-<li>新开一个终端，SSH连接电脑。</li>
+<li>新开一个终端，SSH连接手机。</li>
 </ul>
 <h2 id="获取AddressBook-amp-用户安装App列表数据"><a href="#获取AddressBook-amp-用户安装App列表数据" class="headerlink" title="获取AddressBook &amp; 用户安装App列表数据"></a>获取AddressBook &amp; 用户安装App列表数据</h2><ul>
 <li>利用<code>netcat</code>，将指定服务端口的数据以文件的形式传输到电脑的当前目录下，抓取设备 <code>AddressBook</code> 或者 用户安装App列表信息。</li>
@@ -849,7 +849,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -961,7 +961,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.6k</span>
+    <span title="Site words total count">51.0k</span>
   
 </div>
 

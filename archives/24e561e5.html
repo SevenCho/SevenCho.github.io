@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
 <meta property="og:description" content="Decompile class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin  原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限 其实可以在RecoveryMode关闭这个特">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T07:13:22.000Z">
+<meta property="og:updated_time" content="2018-07-09T01:46:00.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编初识（Mac)">
 <meta name="twitter:description" content="Decompile class-dump安装方法当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录/usr/bin  原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限 其实可以在RecoveryMode关闭这个特">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  610
+                  731
                 </span>
               
 
@@ -446,38 +446,59 @@
 
       
         <h1 id="Decompile"><a href="#Decompile" class="headerlink" title="Decompile"></a>Decompile</h1><hr>
-<h3 id="class-dump安装方法"><a href="#class-dump安装方法" class="headerlink" title="class-dump安装方法"></a>class-dump安装方法</h3><p>当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录<strong>/usr/bin</strong></p>
+<h2 id="class-dump安装方法"><a href="#class-dump安装方法" class="headerlink" title="class-dump安装方法"></a>class-dump安装方法</h2><p>当Mac升级了OSX 10.11后，配置class-dump的时候，会发现推荐的class-dump无法放入目录<code>/usr/bin</code></p>
 <ul>
 <li>原因是 OSX10.11的一个新特性 Rootless,也叫System Integrity Protection（SIP）和SELinux差不多，都是限制root用户的权限</li>
-<li>其实可以在RecoveryMode关闭这个特性，这样就直接可以读写/usr/bin了，不过不建议。</li>
+<li>其实可以在RecoveryMode关闭这个特性，这样就直接可以读写<code>/usr/bin</code>了，不过不建议。</li>
 </ul>
 <blockquote>
-<p>关闭方法：开机的时候按住option出现选择磁盘的界面按command + R进入RecoveryMode，选择实用工具终端，输入csrutil disable回车搞定</p>
+<p>关闭方法：开机的时候按住option出现选择磁盘的界面按command + R进入RecoveryMode，选择实用工具终端，输入<code>csrutil disable</code>回车搞定</p>
 </blockquote>
 <ul>
 <li>class-dump下载地址</li>
 </ul>
 <p><a href="http://stevenygard.com/projects/class-dump/" title="class-dump下载地址" target="_blank" rel="noopener">http://stevenygard.com/projects/class-dump/</a></p>
-<p>1、打开Terminal，输入mkdir ~/bin，在当前用户根目录下创建一个bin目录。</p>
-<p>2、把下载下来的dmg打开，复制文件文件里面的class-dump到创建的bin目录下。赋权限:<code>chmod +x ~/bin/class-dump</code></p>
-<p>3、打开bash_profile文件配置环境变量<strong>：</strong></p>
-<pre><code>* vim ~/.bash\_profile
-
-* 按下 i 键进入编辑状态，在最下方加一行`export PATH=$HOME/bin/:$PATH`
-
-* 按下esc键, 再按shift+: 输入 wq! 进行保存退出编辑
-</code></pre><p>4、在Terminal中执行source ~/.bash_profile</p>
-<p>5、执行class-dump测试是否成功，成功如下：</p>
+<h3 id="安装方法1"><a href="#安装方法1" class="headerlink" title="安装方法1"></a>安装方法1</h3><ul>
+<li><p>查看磁盘根目录是否存在<code>~/bin</code>路径，存在就下一步，不存在，打开Terminal，输入<code>mkdir ~/bin</code>，在当前用户根目录下创建一个bin目录。</p>
+</li>
+<li><p>把下载下来的dmg打开，复制文件文件里面的class-dump到创建的bin目录下。赋权限:<code>chmod +x ~/bin/class-dump</code></p>
+</li>
+<li><p>打开bash_profile文件配置环境变量</p>
+<ul>
+<li><code>vim ~/.bash_profile</code></li>
+<li>按下 i 键进入编辑状态，在最下方加一行<code>export PATH=$HOME/bin/:$PATH</code></li>
+<li>按下esc键, 再按<code>shift+:</code> 输入 <code>wq!</code> 进行保存退出编辑</li>
+</ul>
+</li>
+<li><p>在Terminal中执行<code>source ~/.bash_profile</code></p>
+</li>
+<li><p>执行<code>class-dump</code>测试是否成功，成功如下：</p>
+</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">MelodydeMBP:~ melody$ class-dump</span><br><span class="line">class-dump 3.5 (64 bit)</span><br><span class="line">Usage: class-dump [options] &lt;mach-o-file&gt;</span><br><span class="line"></span><br><span class="line">where options are:</span><br><span class="line">-a show instance variable offsets</span><br><span class="line">-A show implementation addresses</span><br><span class="line">--arch &lt;arch&gt; choose a specific architecture from a universal binary (ppc, ppc64, i386, x86_64, armv6, armv7, armv7s, arm64)</span><br><span class="line">-C &lt;regex&gt; only display classes matching regular expression</span><br><span class="line">-f &lt;str&gt; find string in method name</span><br><span class="line">-H generate header files in current directory, or directory specified with -o</span><br><span class="line">-I sort classes, categories, and protocols by inheritance (overrides -s)</span><br><span class="line">-o &lt;dir&gt; output directory used for -H</span><br><span class="line">-r recursively expand frameworks and fixed VM shared libraries</span><br><span class="line">-s sort classes and categories by name</span><br><span class="line">-S sort methods by name</span><br><span class="line">-t suppress header in output, for testing</span><br><span class="line">--list-arches list the arches in the file, then exit</span><br><span class="line">--sdk-ios specify iOS SDK version (will look in /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS&lt;version&gt;.sdk</span><br><span class="line">--sdk-mac specify Mac OS X version (will look in /Developer/SDKs/MacOSX&lt;version&gt;.sdk</span><br><span class="line">--sdk-root specify the full SDK root path (or use --sdk-ios/--sdk-mac for a shortcut)</span><br><span class="line">MelodydeMBP:~ melody$</span><br></pre></td></tr></table></figure>
-<h3 id="class-dump使用"><a href="#class-dump使用" class="headerlink" title="class-dump使用"></a>class-dump使用</h3><h5 id="命令如下："><a href="#命令如下：" class="headerlink" title="命令如下："></a>命令如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump -H /Users/sevencho/Desktop/KYRemoteUnit.app -o /Users/sevencho/Desktop/headers</span><br></pre></td></tr></table></figure>
+<h3 id="推荐安装方法2"><a href="#推荐安装方法2" class="headerlink" title="推荐安装方法2"></a>推荐安装方法2</h3><ul>
+<li>下载后解压后会有class-dump和源码文件。</li>
+<li><p>将<code>class-dump</code>复制到<code>/usr/bin/class-dump</code>。</p>
+<ul>
+<li>如果是OS X 10.11，因为没有<code>/usr/bin</code>文件夹的写权限，所以将<code>class-dump</code>复制到<code>/usr/local/bin/class-dump</code>即可。</li>
+</ul>
+</li>
+<li><p>打开Terminal，执行命令赋予其执行权限：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /usr/bin/class-dump</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行<code>class-dump</code>测试是否成功.</li>
+</ul>
+<h2 id="class-dump使用"><a href="#class-dump使用" class="headerlink" title="class-dump使用"></a>class-dump使用</h2><h3 id="命令如下："><a href="#命令如下：" class="headerlink" title="命令如下："></a>命令如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump -H /Users/sevencho/Desktop/KYRemoteUnit.app -o /Users/sevencho/Desktop/headers</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>-H 代表着要解析的文件</p>
 <p>/Users/sevencho/Desktop/KYRemoteUnit.app 需要反编译的应用路径（解压.ipa包获得）</p>
 <p>-o 表示解析完成保存的目录</p>
 <p>/Users/sevencho/Desktop/headers 反编译出的头文件存放路径</p>
 </blockquote>
-<h5 id="利用-class-dump-可以导出-AppKit，UIKit"><a href="#利用-class-dump-可以导出-AppKit，UIKit" class="headerlink" title="利用 class-dump 可以导出 AppKit，UIKit"></a>利用 class-dump 可以导出 AppKit，UIKit</h5><h6 id="AppKit"><a href="#AppKit" class="headerlink" title="AppKit :"></a>AppKit :</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump /System/Library/Frameworks/AppKit.framework</span><br></pre></td></tr></table></figure>
-<h6 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit :"></a>UIKit :</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework</span><br></pre></td></tr></table></figure>
+<h3 id="利用-class-dump-可以导出-AppKit，UIKit"><a href="#利用-class-dump-可以导出-AppKit，UIKit" class="headerlink" title="利用 class-dump 可以导出 AppKit，UIKit"></a>利用 class-dump 可以导出 AppKit，UIKit</h3><h4 id="AppKit"><a href="#AppKit" class="headerlink" title="AppKit :"></a>AppKit :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump /System/Library/Frameworks/AppKit.framework</span><br></pre></td></tr></table></figure>
+<h4 id="UIKit"><a href="#UIKit" class="headerlink" title="UIKit :"></a>UIKit :</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class-dump /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -665,7 +686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -743,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Decompile"><span class="nav-number">1.</span> <span class="nav-text">Decompile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump安装方法"><span class="nav-number">1.0.1.</span> <span class="nav-text">class-dump安装方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump使用"><span class="nav-number">1.0.2.</span> <span class="nav-text">class-dump使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命令如下："><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">命令如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用-class-dump-可以导出-AppKit，UIKit"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">利用 class-dump 可以导出 AppKit，UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AppKit"><span class="nav-number">1.0.2.0.2.1.</span> <span class="nav-text">AppKit :</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UIKit"><span class="nav-number">1.0.2.0.2.2.</span> <span class="nav-text">UIKit :</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Decompile"><span class="nav-number">1.</span> <span class="nav-text">Decompile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#class-dump安装方法"><span class="nav-number">1.1.</span> <span class="nav-text">class-dump安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装方法1"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐安装方法2"><span class="nav-number">1.1.2.</span> <span class="nav-text">推荐安装方法2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-dump使用"><span class="nav-number">1.2.</span> <span class="nav-text">class-dump使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令如下："><span class="nav-number">1.2.1.</span> <span class="nav-text">命令如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用-class-dump-可以导出-AppKit，UIKit"><span class="nav-number">1.2.2.</span> <span class="nav-text">利用 class-dump 可以导出 AppKit，UIKit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AppKit"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">AppKit :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIKit"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">UIKit :</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -777,7 +798,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.6k</span>
+    <span title="Site words total count">51.0k</span>
   
 </div>
 
