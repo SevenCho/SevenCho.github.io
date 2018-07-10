@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-07-09T07:29:35.039Z</updated>
+  <updated>2018-07-10T11:09:26.863Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -17,11 +17,108 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS逆向笔记（二）：iOS二进制文件类型</title>
+    <link href="https://sevencho.github.io/archives/c7624e77.html"/>
+    <id>https://sevencho.github.io/archives/c7624e77.html</id>
+    <published>2018-07-10T11:54:45.000Z</published>
+    <updated>2018-07-10T11:09:26.863Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人活在世界上，快乐和痛苦本就分不清。所以我只求它货真价实。&lt;/p&gt;
+&lt;p&gt;——王小波 《革命时期的爱情》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;iOS二进制文件类型&quot;&gt;&lt;a href=&quot;#iOS二进制文件类型&quot; class=
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="逆向笔记" scheme="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="逆向笔记" scheme="https://sevencho.github.io/tags/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS逆向笔记（一）：iOS目录结构 &amp; 文件权限</title>
+    <link href="https://sevencho.github.io/archives/971c1db6.html"/>
+    <id>https://sevencho.github.io/archives/971c1db6.html</id>
+    <published>2018-07-10T08:54:45.000Z</published>
+    <updated>2018-07-10T09:43:18.401Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;绝望是无限的美好。&lt;/p&gt;
+&lt;p&gt;——王小波 《万寿寺》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="逆向笔记" scheme="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="逆向笔记" scheme="https://sevencho.github.io/tags/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS攻防（五）：使用Keychain-Dumper导出keychain数据</title>
+    <link href="https://sevencho.github.io/archives/65ed9c65.html"/>
+    <id>https://sevencho.github.io/archives/65ed9c65.html</id>
+    <published>2018-07-10T07:54:45.000Z</published>
+    <updated>2018-07-10T09:43:18.401Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生为冰山，就该淡淡地爱海流、爱风，并且在偶然接触时，全心全意地爱另一块冰山。&lt;/p&gt;
+&lt;p&gt;——王小波 《似水柔情》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlin
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件</title>
     <link href="https://sevencho.github.io/archives/8c50aab9.html"/>
     <id>https://sevencho.github.io/archives/8c50aab9.html</id>
     <published>2018-07-09T01:25:45.000Z</published>
-    <updated>2018-07-09T07:29:35.039Z</updated>
+    <updated>2018-07-10T08:44:54.167Z</updated>
     
     <summary type="html">
     
@@ -53,7 +150,7 @@
     <link href="https://sevencho.github.io/archives/4de69069.html"/>
     <id>https://sevencho.github.io/archives/4de69069.html</id>
     <published>2018-07-06T07:47:45.000Z</published>
-    <updated>2018-07-06T08:49:16.431Z</updated>
+    <updated>2018-07-09T08:51:17.058Z</updated>
     
     <summary type="html">
     
@@ -85,7 +182,7 @@
     <link href="https://sevencho.github.io/archives/bf5c1be0.html"/>
     <id>https://sevencho.github.io/archives/bf5c1be0.html</id>
     <published>2018-07-05T10:27:45.000Z</published>
-    <updated>2018-07-06T10:04:53.393Z</updated>
+    <updated>2018-07-09T08:51:36.757Z</updated>
     
     <summary type="html">
     
@@ -117,7 +214,7 @@
     <link href="https://sevencho.github.io/archives/e38331a.html"/>
     <id>https://sevencho.github.io/archives/e38331a.html</id>
     <published>2018-06-29T07:27:45.000Z</published>
-    <updated>2018-07-05T08:48:08.482Z</updated>
+    <updated>2018-07-10T08:36:40.813Z</updated>
     
     <summary type="html">
     
@@ -522,93 +619,6 @@
       <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="LLDB" scheme="https://sevencho.github.io/tags/LLDB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VIM介绍</title>
-    <link href="https://sevencho.github.io/archives/1c40fe4d.html"/>
-    <id>https://sevencho.github.io/archives/1c40fe4d.html</id>
-    <published>2017-11-11T10:20:46.000Z</published>
-    <updated>2018-04-17T07:13:22.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;iOS开发工具之VIM篇&quot;&gt;&lt;a href=&quot;#iOS开发工具之VIM篇&quot; class=&quot;headerlink&quot; title=&quot;iOS开发工具之VIM篇&quot;&gt;&lt;/a&gt;iOS开发工具之VIM篇&lt;/h1&gt;&lt;h2 id=&quot;VIM相关的指令&quot;&gt;&lt;a href=&quot;#VIM相关
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VIM" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/VIM/"/>
-    
-    
-      <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VIM" scheme="https://sevencho.github.io/tags/VIM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发多Target（二）：复制Target</title>
-    <link href="https://sevencho.github.io/archives/9c6697bb.html"/>
-    <id>https://sevencho.github.io/archives/9c6697bb.html</id>
-    <published>2017-01-25T12:27:45.000Z</published>
-    <updated>2018-07-03T12:01:20.897Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;祝你今天愉快，你明天的愉快留着我明天再祝。&lt;/p&gt;
-&lt;p&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;项目中复制添加Target&quot;&gt;&lt;a href=&quot;#项目中复制添加Target&quot; class=&quot;he
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="Multi Target" scheme="https://sevencho.github.io/tags/Multi-Target/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发多Target（一）：新建Target</title>
-    <link href="https://sevencho.github.io/archives/e016e61f.html"/>
-    <id>https://sevencho.github.io/archives/e016e61f.html</id>
-    <published>2017-01-25T09:27:45.000Z</published>
-    <updated>2018-07-03T12:01:20.896Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在我周围，像我这种性格的人特多——在公众场合什么都不说，到了私下里却妙语连珠，换言之，对信得过的人什么都说，对信不过的人什么都不说。&lt;/p&gt;
-&lt;p&gt;——王小波《沉默的大多数》&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;需求1&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="Multi Target" scheme="https://sevencho.github.io/tags/Multi-Target/"/>
     
   </entry>
   

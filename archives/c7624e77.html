@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="HhBjw6NlG9jv92NsZi5oPfRaClxLx2ldt71WWPQEnMM" />
+<meta name="baidu-site-verification" content="GqAQCqMt8R" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,逆向笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="人活在世界上，快乐和痛苦本就分不清。所以我只求它货真价实。 ——王小波 《革命时期的爱情》  iOS二进制文件类型 在iOS逆向工程初学阶段，我们的目标主要是Application、Dynamic Library（以下简称dylib）和Daemon这三类二进制文件，对它们的了解越深入，逆向工程就会越顺利。这三类文件分工不同，其目录结构和文件权限也有一些区别。  Application Appl">
+<meta name="keywords" content="iOS,逆向笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS逆向笔记（二）：iOS二进制文件类型">
+<meta property="og:url" content="https://sevencho.github.io/archives/c7624e77.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="人活在世界上，快乐和痛苦本就分不清。所以我只求它货真价实。 ——王小波 《革命时期的爱情》  iOS二进制文件类型 在iOS逆向工程初学阶段，我们的目标主要是Application、Dynamic Library（以下简称dylib）和Daemon这三类二进制文件，对它们的了解越深入，逆向工程就会越顺利。这三类文件分工不同，其目录结构和文件权限也有一些区别。  Application Appl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-10T11:09:26.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS逆向笔记（二）：iOS二进制文件类型">
+<meta name="twitter:description" content="人活在世界上，快乐和痛苦本就分不清。所以我只求它货真价实。 ——王小波 《革命时期的爱情》  iOS二进制文件类型 在iOS逆向工程初学阶段，我们的目标主要是Application、Dynamic Library（以下简称dylib）和Daemon这三类二进制文件，对它们的了解越深入，逆向工程就会越顺利。这三类文件分工不同，其目录结构和文件权限也有一些区别。  Application Appl">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'CoderBoy'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/c7624e77.html"/>
+
+
+
+
+
+  <title>iOS逆向笔记（二）：iOS二进制文件类型 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/c7624e77.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS逆向笔记（二）：iOS二进制文件类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-10T19:54:45+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/逆向笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">逆向笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,969
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>人活在世界上，快乐和痛苦本就分不清。所以我只求它货真价实。</p>
+<p>——王小波 《革命时期的爱情》</p>
+</blockquote>
+<h2 id="iOS二进制文件类型"><a href="#iOS二进制文件类型" class="headerlink" title="iOS二进制文件类型"></a>iOS二进制文件类型</h2><ul>
+<li>在iOS逆向工程初学阶段，我们的目标主要是<code>Application</code>、<code>Dynamic Library</code>（以下简称dylib）和<code>Daemon</code>这三类二进制文件，对它们的了解越深入，逆向工程就会越顺利。这三类文件分工不同，其目录结构和文件权限也有一些区别。</li>
+</ul>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><ul>
+<li>Application就是我们最熟悉的App了。虽然对于大多数iOS开发者来说，工作都是在跟App打交道，但在iOS逆向工程中，关注App的侧重点与正向开发还是不尽相同的。了解下面的几个App相关概念，是开始逆向工程前的必备工作。</li>
+</ul>
+<h4 id="bundle"><a href="#bundle" class="headerlink" title="bundle"></a>bundle</h4><ul>
+<li><code>bundle</code>的概念来源于<code>NeXTSTEP</code>，它不是一个文件，而是一个按某种标准结构来组织的目录，其中包含了二进制文件及运行所需的资源。正向开发中常见的<code>App</code>和<code>framework</code>都是以<code>bundle</code>的形式存在的；在越狱iOS中常见的<code>PreferenceBundle</code>，可以看成是一种依附于<code>Settings</code>的App，结构与App类似，本质也是<code>bundle</code>。</li>
+<li><code>Framework</code>也是<code>bundle</code>，但<code>framework</code>的<code>bundle</code>中存放的是一个<code>dylib</code>，而不是可执行文件。相对来说，<code>framework</code>的地位比App更高，因为一个App的绝大多数功能都是通过调用framework提供的接口来实现的。将某个<code>bundle</code>确立为逆向目标后，绝大多数逆向线索都可以在bundle内找到，这大大降低了逆向工程的复杂度。</li>
+</ul>
+<h4 id="App目录结构"><a href="#App目录结构" class="headerlink" title="App目录结构"></a>App目录结构</h4><ul>
+<li>在iOS逆向工程中，对App目录结构的熟悉程度是决定工作效率的重要因素。App目录的以下三个部分比较重要。</li>
+</ul>
+<h5 id="Info-plist"><a href="#Info-plist" class="headerlink" title="Info.plist"></a>Info.plist</h5><ul>
+<li><code>Info.plist</code>记录了App的基本信息，如<code>bundle identifier</code>、<code>可执行文件名</code>、<code>图标文件名</code>等。可以通过Xcode查看它的值，也可以通过Xcode自带的命令行工具<code>plutil</code>查看它的值，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plutil -p /Users/snakeninny/Code/iOSSystemBinaries/8.1_iPhone5/SiriViewService.app/Info.plist | grep CFBundleIdentifier</span><br><span class="line"></span><br><span class="line">&quot;CFBundleIdentifier&quot; =&gt; &quot;com.apple.SiriViewService&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="可执行文件"><a href="#可执行文件" class="headerlink" title="可执行文件"></a>可执行文件</h5><ul>
+<li>可执行文件的重要性不言而喻，它是App目录下最核心的部分，也是逆向工程最主要的目标。同样可以通过Xcode和plutil两种方式来查看<code>Info.plist</code>，定位可执行文件。用Xcode查看<code>Info.plist</code>的界面，也可以通过Xcode自带的命令行工具<code>plutil</code>查看它的值，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">snakeninny$ plutil -p /Users/snakeninny/Code/iOSSystemBinaries/8.1_iPhone5/SiriViewService.app/Info.plist| grep CFBundleExecutable</span><br><span class="line">&quot;CFBundleExecutable&quot; =&gt; &quot;SiriViewService&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="lproj目录"><a href="#lproj目录" class="headerlink" title="lproj目录"></a>lproj目录</h5><ul>
+<li><code>lproj</code>目录下存放的是各种本地化的字符串（<code>.strings</code>），是iOS逆向工程的重要线索，也可以用<br><code>plutil</code>查看，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> plutil -p /Users/snakeninny/Code/iOSSystemBinaries/8.1_iPhone5/SiriViewService.app/en.lproj/Localizable.strings</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> &quot;ASSISTANT_INITIAL_QUERY_IPAD&quot; =&gt; &quot;What can I help you</span><br><span class="line">with?&quot;</span><br><span class="line"> &quot;ASSISTANT_BOREALIS_EDUCATION_SUBHEADER_IPAD&quot; =&gt; &quot;Just</span><br><span class="line">say &quot;Hey Siri&quot; to learn more.&quot;</span><br><span class="line"> &quot;ASSISTANT_FIRST_UNLOCK_SUBTITLE_FORMAT&quot; =&gt; &quot;Your</span><br><span class="line">passcode is required when %@ restarts&quot;</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<h4 id="系统App-VS-StoreApp"><a href="#系统App-VS-StoreApp" class="headerlink" title="系统App VS StoreApp"></a>系统App VS StoreApp</h4><ul>
+<li><code>/Applications/</code>目录存放系统<code>App</code>和从<code>Cydia</code>下载的App（我们把来自Cydia的App视为系统App），而<code>/var/mobile/Containers/</code>目录存放的则是<code>StoreApp</code>。虽然两者都是App，但它们在如下方面存在着一些差别。</li>
+</ul>
+<h5 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h5><ul>
+<li>两种App的bundle内部目录结构区别不大，都含有<code>Info.plist</code>、<code>可执行文件</code>、<code>lproj目录</code>等，但是数据目录的位置不同：StoreApp的数据目录在<code>/var/mobile/Containers/Data/</code>下，以<code>mobile</code>权限运行的系统App的数据目录在<code>/var/mobile/</code>下，而以<code>root</code>权限运行的系统App的数据目录在<code>/var/root/</code>下。</li>
+</ul>
+<h5 id="安装包格式与权限"><a href="#安装包格式与权限" class="headerlink" title="安装包格式与权限"></a>安装包格式与权限</h5><ul>
+<li><code>Cydia App</code>的安装包格式一般是<code>deb</code>，<code>StoreApp</code>的安装包格式一般是<code>ipa</code>。其中<code>deb</code>是来自<code>Debian</code>的安装包格式，由Cydia作者<code>saurik</code>移植到iOS中，它的属主用户和属主组一般是root和admin，能够以root权限运行；而ipa是苹果为iOS推出的专属App安装包格式，属主用户和属主组都是mobile，只能以mobile权限运行。</li>
+</ul>
+<h5 id="沙盒（sandbox）"><a href="#沙盒（sandbox）" class="headerlink" title="沙盒（sandbox）"></a>沙盒（sandbox）</h5><ul>
+<li>通俗地说，iOS中的沙盒就是一种访问限制机制，我们可以把它看作是权限的一种表现形式，授权文件（entitlements）也是沙盒的一部分。它是iOS最核心的安全组件之一，其实现很复杂，这里不过多讨论其细节。总的来说，沙盒会将App的文件访问范围限制在这个App内部，一个App一般不知道其他App的存在，更别说访问它们了；沙盒还会限制App的功能，例如对iCloud接口的调用就必须经过沙盒的允许。</li>
+<li>在初学阶段，我们的目标不是沙盒，知道有这样一个东西存在就够了。在iOS逆向工程中，越狱本身已经破除了iOS的绝大多数安全限制，并对沙盒进行了一定程度的扩充，因此我们往往很容易忽略<code>sandbox</code>的存在，从而碰到一些看似很奇怪的问题。比如某个<code>tweak</code>不能写文件，调用了某个函数却没有出现应有的效果，在确保自己的代码没有问题的前提下，就要回过头来检查这些问题是不是因为权限不够，或者沙盒限制造成的。</li>
+</ul>
+<h3 id="Dynamic-Library"><a href="#Dynamic-Library" class="headerlink" title="Dynamic Library"></a>Dynamic Library</h3><ul>
+<li>大部分iOS开发者的日常工作应该都是写App，估计很少有人写过<code>dylib</code>，因此对<code>dylib</code>的概念很陌生。殊不知，在Xcode工程里导入的各种framework，链接的各种<code>lib</code>，其实本质都是<code>dylib</code>。可以用<code>“file”</code>命令验证一下，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file /Users/snakeninny/Code/iOSSystemBinaries/8.1.1_iPhone5/System/Library/Frameworks/UIKit.framework/UIKit</span><br><span class="line"></span><br><span class="line">/Users/snakeninny/Code/iOSSystemBinaries/8.1.1_iPhone5/System/Library/Frameworks/UIKit.framework/UIKit: Mach-O dynamically linked shared library arm</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果把焦点转移到越狱iOS中，Cydia里的各种<code>tweak</code>无一不是以<code>dylib</code>的形式工作的，正是这些<code>tweak</code>的存在让我们能够随意定制自己的iOS。在逆向工程中，我们会频繁接触各种<code>dylib</code>，因此有必要了解一些相关知识。</li>
+<li>在iOS中，lib分为<code>static</code>和<code>dynamic</code>两种，其中<code>staticlib</code>在编译阶段成为App可执行文件的一部分，会增加可执行文件的大小。因为App尺寸变大，启动时需要加载的内容变多，所以可能会导致App启动变慢。<code>dylib</code>则相对“智能”一些，它不会改变可执行文件的大小，只有当App需要用到这个<code>dylib</code>时，iOS才会把它加载进内存，成为App进程的一部分。</li>
+<li>值得一提的是，<code>dylib</code>虽然充斥在iOS的各个角落，是逆向工程的重要目标类型，但其本身并不是可执行文件，不能独立运行，只能为别的进程服务，而且它们寄生在别的进程里，成为了这个进程的一部分。因此，<code>dylib</code>的权限是由它寄生的那个App决定的，同一个<code>dylib</code>寄生在系统App和StoreApp里时的权限是不同的。例如，你写了一个Instagram的tweak，用来把喜欢的图片保存在本地，如果保存目录是<code>/var/mobile/Containers/Data/</code>下App对应的<code>Documents</code>目录，那么因为Instagram是一个StoreApp，这样的操作是没有问题的，tweak能够正常工作。而如果保存目录是<code>/var/mobile/Documents</code>，那么在兴高采烈地保存了一大堆美图，准备回头细细品味时，你就会发现<code>/var/mobile/Documents</code>里啥图片也没有——操作都被sandbox给禁掉了。</li>
+</ul>
+<h3 id="Daemon"><a href="#Daemon" class="headerlink" title="Daemon"></a>Daemon</h3><ul>
+<li><p>相信绝大部分开发者从接触iOS开发的第一天起，就不断被苹果灌输这样一个观念——iOS中没有真正的后台多任务，你的App在后台将被大大限制。如果你是一个纯粹的App Store开发者，坚信并坚守这个观念，那么它将是你的App通过苹果审核的助推剂；但想要在学习逆向工程的同时了解一些官方文档没有阐述的事实，那么你就要保持冷静，理性思考。让我们一起回想一下iPhone上的一些现象。</p>
+<ul>
+<li>当我们正在用iPhone上网或刷微博时来了一个电话，所有其他操作会立即中断，iOS第一时间将接听电话的界面呈现在我们面前。如果iOS中没有真正的后台多任务，系统是如何实时处理这个来电的呢？</li>
+<li>对于那些经常收到垃圾短信和骚扰电话的朋友来说，类似于SMSNinja这样的防火墙软件必不可少。如果它不能常驻iOS后台，怎么能够实时地处理并过滤收到的每一条短信呢？</li>
+<li>Backgrounder是一款iOS 5时代的插件，它能够帮助App实现真正的后台运行。有了它，我们再也不用担心因为push功能的不给力而漏收QQ消息啦！</li>
+</ul>
+</li>
+<li><p>如果iOS中没有真正的后台多任务，Backgrounder怎么会存在呢？</p>
+</li>
+<li>这些现象无一不说明iOS实际上存在真正的后台多任务。那么难道是苹果说错了？并不是！对于StoreApp来说，当用户按下home键时，进程就进入后台了，大多数功能都会被暂停；也就是说，对于遵纪守法的App Store开发者来说，可以把iOS看作是没有真正后台多任务的系统，因为你唯一能干的事不支持后台多任务。但iOS源于OSX，后者又跟所有类UNIX操作系统一样，有<code>daemon</code>（即守护进程，Windows称Service）的概念。越狱开放了iOS全文件系统，<code>daemon</code>也得以展现在我们面前。</li>
+<li><code>Daemon</code>为后台运行而生，给用户提供了各种“守护”，如<code>imagent</code>保障了iMessage的正确收发，<code>mediaserverd</code>处理了几乎所有的音频、视频，<code>syslogd</code>则用于记录系统日志等。iOS中的<code>daemon</code>主要由一个<code>可执行文</code>件和一个<code>plist文件</code>构成。iOS的根进程是<code>launchd</code>，它会在开机时检查<code>/System/Library/LaunchDaemons</code>和<code>/Library/LaunchDaemons</code>下所有格式符合规定的<code>plist</code>文件，然后启动对应的<code>daemon</code>。这里的plist文件与App中的Info.plist文件作用类似，即记录<code>daemon</code>的基本信息，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">plutil -p</span><br><span class="line">/Users/snakeninny/Code/iOSSystemBinaries/</span><br><span class="line">8.1.1_iPhone5/System/Library/LaunchDaemons/com.apple.imagent.plist</span><br><span class="line">&#123;</span><br><span class="line"> &quot;WorkingDirectory&quot; =&gt; &quot;/tmp&quot;</span><br><span class="line"> &quot;Label&quot; =&gt; &quot;com.apple.imagent&quot;</span><br><span class="line"> &quot;JetsamProperties&quot; =&gt; &#123;</span><br><span class="line"> &quot;JetsamMemoryLimit&quot; =&gt; 3000</span><br><span class="line"> &#125;</span><br><span class="line"> &quot;EnvironmentVariables&quot; =&gt; &#123;</span><br><span class="line"> &quot;NSRunningFromLaunchd&quot; =&gt; &quot;1&quot;</span><br><span class="line"> &#125;</span><br><span class="line"> &quot;POSIXSpawnType&quot; =&gt; &quot;Interactive&quot;</span><br><span class="line"> &quot;MachServices&quot; =&gt; &#123;</span><br><span class="line"> &quot;com.apple.hsa-authentication-server&quot; =&gt; 1</span><br><span class="line"> &quot;com.apple.imagent.embedded.auth&quot; =&gt; 1</span><br><span class="line"> &quot;com.apple.incoming-call-filter-server&quot; =&gt; 1</span><br><span class="line"> &#125;</span><br><span class="line"> &quot;UserName&quot; =&gt; &quot;mobile&quot;</span><br><span class="line"> &quot;RunAtLoad&quot; =&gt; 1</span><br><span class="line"> &quot;ProgramArguments&quot; =&gt; [</span><br><span class="line"> 0 =&gt;</span><br><span class="line">&quot;/System/Library/PrivateFrameworks/IMCore.framework/imagent.app/imagent&quot;</span><br><span class="line"> ]</span><br><span class="line"> &quot;KeepAlive&quot; =&gt; &#123;</span><br><span class="line">  &quot;SuccessfulExit&quot; =&gt; 0</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>相对于App，<code>daemon</code>提供的功能要底层得多，逆向难度也要大得多，随意改动造成的后果当然也就严重得多，所以白苹果的惨案才会时有发生。在iOS逆向工程初学阶段，请不要把daemon当作练习目标；当你逆向了几个App，有了一定的心得和积累后再挑战这些daemon才是比较明智的选择。相比App，<code>逆向daemon</code>花费的时间和精力会更多，但更多的付出一定会带来更丰厚的回报。例如，“iOS上的第一款电话录音软件”Audio Recorder就是通过逆向<code>mediaserverd</code>这个daemon实现的。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>简单介绍了常见的二进制文件类型，它们都是App Store开发者不需要了解也接触不到的知识，在学习iOS逆向工程时很容易形成概念盲区。</li>
+<li>本文旨在科普那些在逆向工程中非常重要但苹果官方闭口不提的iOS系统级知识点，从而为AppStore开发者打开iOS逆向工程的这扇窗。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="">本文摘录整理自《iOS应用逆向工程(第2版)》一书, 以便学习查阅</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/c7624e77.html" title="iOS逆向笔记（二）：iOS二进制文件类型">https://sevencho.github.io/archives/c7624e77.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/逆向笔记/" rel="tag"><i class="fa fa-tag"></i> 逆向笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/971c1db6.html" rel="next" title="iOS逆向笔记（一）：iOS目录结构 & 文件权限">
+                <i class="fa fa-chevron-left"></i> iOS逆向笔记（一）：iOS目录结构 & 文件权限
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SevenCho" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS二进制文件类型"><span class="nav-number">1.</span> <span class="nav-text">iOS二进制文件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Application"><span class="nav-number">1.1.</span> <span class="nav-text">Application</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bundle"><span class="nav-number">1.1.1.</span> <span class="nav-text">bundle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#App目录结构"><span class="nav-number">1.1.2.</span> <span class="nav-text">App目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Info-plist"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Info.plist</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可执行文件"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">可执行文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lproj目录"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">lproj目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统App-VS-StoreApp"><span class="nav-number">1.1.3.</span> <span class="nav-text">系统App VS StoreApp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目录结构"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装包格式与权限"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">安装包格式与权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#沙盒（sandbox）"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">沙盒（sandbox）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-Library"><span class="nav-number">1.2.</span> <span class="nav-text">Dynamic Library</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Daemon"><span class="nav-number">1.3.</span> <span class="nav-text">Daemon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">56.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/lib/clipboard/clipboard.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

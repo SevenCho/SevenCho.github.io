@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标文件的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O中的类/分类/协议信息生成头文件导出。 从AppStore下载的App是被苹果加密过的，可执行文">
+<meta name="description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
 <meta name="keywords" content="iOS,攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件">
 <meta property="og:url" content="https://sevencho.github.io/archives/8c50aab9.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标文件的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O中的类/分类/协议信息生成头文件导出。 从AppStore下载的App是被苹果加密过的，可执行文">
+<meta property="og:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/dump_wechat.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/dump_wechat_file.png">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iPhone_support_sdk.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header_file.png">
-<meta property="og:updated_time" content="2018-07-09T07:29:35.039Z">
+<meta property="og:updated_time" content="2018-07-10T08:44:54.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件">
-<meta name="twitter:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标文件的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O中的类/分类/协议信息生成头文件导出。 从AppStore下载的App是被苹果加密过的，可执行文">
+<meta name="twitter:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/dump_wechat.png">
 
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,314
+                  2,396
                 </span>
               
 
@@ -458,9 +458,10 @@
 <p>——王小波《似水流年》</p>
 </blockquote>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
-<li><code>class-dump</code>是用来dump目标文件的头文件信息的工具。它利用Objective-C语言的<code>runtime</code>的特性，将存储在<code>mach-O</code>中的类/分类/协议信息生成头文件导出。</li>
+<li><code>class-dump</code>是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的<code>runtime</code>的特性，将存储在<code>mach-O</code>文件中的类/分类/协议等头文件信息提取出来并生产.h文件。</li>
 <li>从AppStore下载的App是被苹果加密过的，可执行文件被套上了一层保护壳， 而<code>class-dump</code>无法作用于加密过的App。 在这种情况下，想要获取头文件，需要先解密App的可执行文件，俗称“砸壳”。 <code>dumpdecrypted</code>就是由越狱社区的知名人士<code>Stefan Esser</code>出品的一款砸壳工具，被广泛运用在iOS逆向工程研究中。</li>
 <li>注意：如果不砸壳，直接使用<code>class-dump</code>现在已经无法dump出头文件的（之前可以dump出头文件但是是加密的），只会生成一个<code>CDStructures.h</code>文件.</li>
+<li>所有资料文件&amp;工具在<a href="https://github.com/SevenCho/BlogRepo" target="_blank" rel="noopener">这里</a></li>
 </ul>
 <h2 id="class-dump"><a href="#class-dump" class="headerlink" title="class-dump"></a>class-dump</h2><h3 id="下载安装class-dump"><a href="#下载安装class-dump" class="headerlink" title="下载安装class-dump"></a>下载安装class-dump</h3><ul>
 <li>关于的<code>class-dump</code>详细安装方法，请<a href="https://sevencho.github.io/archives/24e561e5.html">点击这里</a></li>
@@ -559,6 +560,14 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PID  TTY        TIME     CMD</span><br><span class="line">771   ??        0:06.94  /var/containers/Bundle/Application/6EE23DA1-6DE3-4477-A099-1E34639EB9C1/WeChat.app/WeChat</span><br></pre></td></tr></table></figure>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><ul>
+<li>查找可执行文件路径比较快的方法（如果知道可执行文件名称）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name WeChat.app</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查找程序进程<code>PID</code>比较快的方法（如果知道可执行文件名称）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep WeChat</span><br></pre></td></tr></table></figure>
 <h4 id="查找目标app的Documents目录"><a href="#查找目标app的Documents目录" class="headerlink" title="查找目标app的Documents目录"></a>查找目标app的Documents目录</h4><ul>
 <li>砸壳需要将我们编译生成的<code>dumpdecrypted.dylib</code>文件放入目标app的<code>Documents</code>目录下，所以我们需要找到目标app的<code>Documents</code>目录。</li>
 <li>终端进入手机的根目录执行下面指令, 我们会进入<code>cy#</code>模式：<ul>
@@ -734,6 +743,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/archives/65ed9c65.html" rel="prev" title="iOS攻防（五）：使用Keychain-Dumper导出keychain数据">
+                iOS攻防（五）：使用Keychain-Dumper导出keychain数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -813,7 +826,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -824,7 +837,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -835,7 +848,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -891,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-dump"><span class="nav-number">2.</span> <span class="nav-text">class-dump</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装class-dump"><span class="nav-number">2.1.</span> <span class="nav-text">下载安装class-dump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump的简单使用"><span class="nav-number">2.2.</span> <span class="nav-text">class-dump的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dump出Mac版微信的头文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">dump出Mac版微信的头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#也可以dump出系统库"><span class="nav-number">2.2.2.</span> <span class="nav-text">也可以dump出系统库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dumpMac版微信结果"><span class="nav-number">2.2.3.</span> <span class="nav-text">dumpMac版微信结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dumpdecrypted"><span class="nav-number">3.</span> <span class="nav-text">dumpdecrypted</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的准备"><span class="nav-number">3.1.</span> <span class="nav-text">我的准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装dumpdecrypted"><span class="nav-number">3.2.</span> <span class="nav-text">下载安装dumpdecrypted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpdecryptedp编译"><span class="nav-number">3.3.</span> <span class="nav-text">dumpdecryptedp编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpecrypted-dylib-签名"><span class="nav-number">3.4.</span> <span class="nav-text">dumpecrypted.dylib 签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpdecryptedp的简单使用"><span class="nav-number">3.5.</span> <span class="nav-text">dumpdecryptedp的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找目标-App-所在进程"><span class="nav-number">3.5.1.</span> <span class="nav-text">查找目标 App 所在进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找目标app的Documents目录"><span class="nav-number">3.5.2.</span> <span class="nav-text">查找目标app的Documents目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#砸壳"><span class="nav-number">3.5.3.</span> <span class="nav-text">砸壳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-dump-砸壳后的文件"><span class="nav-number">3.5.4.</span> <span class="nav-text">class dump 砸壳后的文件</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-dump"><span class="nav-number">2.</span> <span class="nav-text">class-dump</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装class-dump"><span class="nav-number">2.1.</span> <span class="nav-text">下载安装class-dump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-dump的简单使用"><span class="nav-number">2.2.</span> <span class="nav-text">class-dump的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dump出Mac版微信的头文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">dump出Mac版微信的头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#也可以dump出系统库"><span class="nav-number">2.2.2.</span> <span class="nav-text">也可以dump出系统库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dumpMac版微信结果"><span class="nav-number">2.2.3.</span> <span class="nav-text">dumpMac版微信结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dumpdecrypted"><span class="nav-number">3.</span> <span class="nav-text">dumpdecrypted</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的准备"><span class="nav-number">3.1.</span> <span class="nav-text">我的准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装dumpdecrypted"><span class="nav-number">3.2.</span> <span class="nav-text">下载安装dumpdecrypted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpdecryptedp编译"><span class="nav-number">3.3.</span> <span class="nav-text">dumpdecryptedp编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpecrypted-dylib-签名"><span class="nav-number">3.4.</span> <span class="nav-text">dumpecrypted.dylib 签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpdecryptedp的简单使用"><span class="nav-number">3.5.</span> <span class="nav-text">dumpdecryptedp的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找目标-App-所在进程"><span class="nav-number">3.5.1.</span> <span class="nav-text">查找目标 App 所在进程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#补充"><span class="nav-number">3.5.1.1.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找目标app的Documents目录"><span class="nav-number">3.5.2.</span> <span class="nav-text">查找目标app的Documents目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#砸壳"><span class="nav-number">3.5.3.</span> <span class="nav-text">砸壳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-dump-砸壳后的文件"><span class="nav-number">3.5.4.</span> <span class="nav-text">class dump 砸壳后的文件</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -925,7 +938,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.0k</span>
+    <span title="Site words total count">56.5k</span>
   
 </div>
 
