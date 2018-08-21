@@ -515,11 +515,11 @@
 <ul>
 <li>这里填写的SDK必须与你越狱的iPhone系统版本需要一致，你可以使用如下指令先查看你<code>Xcode</code>的SDK版本：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer<span class="regexp">/Platforms/i</span>PhoneOS.platform<span class="regexp">/Developer/</span>SDKs<span class="regexp">/iPhoneOS11.4.sdk</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>虽然我的<code>Xcode</code>的SDK版本是<code>11.4</code>，但是我查看了下支持的目录文件，是有<code>10.3</code>的支持文件的，所以可以直接编译，查看目录如下：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 进入Application内，Xcode右键显示包内容</span><br><span class="line">/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span> 进入Application内，Xcode右键显示包内容</span><br><span class="line"><span class="regexp">/Contents/</span>Developer<span class="regexp">/Platforms/i</span>PhoneOS.platform<span class="regexp">/DeviceSupport</span></span><br></pre></td></tr></table></figure>
 <center><img src="/uploads/assets/iPhone_support_sdk.png" alt="iPhone_support_sdk"></center>
 
 <ul>
@@ -535,7 +535,7 @@
 <li><p>先找到已经在电脑上面安装的苹果开发者证书, 操作如下:</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 列出可签名证书, 找到 mac 上面已经安装的证书</span><br><span class="line">security find-identity -v -p codesigning</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 列出可签名证书, 找到 mac 上面已经安装的证书</span></span></span><br><span class="line">security find-identity -v -p codesigning</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>dumpecrypted.dylib</code>签名, 命令如下:</li>
 </ul>
@@ -550,7 +550,7 @@
 <li><p>通过电脑终端ssh登录iPhone手机，查看当前运行的所有的进程</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ps -e</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>会列出所有当前正在运行的进程，虽然我们杀掉了所有后台服务，但是会有很多的系统进程信息干扰，我们需要找到以<code>WeChat</code>结尾的进程，即是我们需要的微信进程<ul>
 <li><code>PID</code> 是微信进程的进程ID</li>
@@ -559,7 +559,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PID  TTY        TIME     CMD</span><br><span class="line">771   ??        0:06.94  /var/containers/Bundle/Application/6EE23DA1-6DE3-4477-A099-1E34639EB9C1/WeChat.app/WeChat</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PID  TTY        TIME     CMD</span><br><span class="line"><span class="number">771</span>   ??        0:<span class="number">06.94</span>  <span class="regexp">/var/</span>containers<span class="regexp">/Bundle/</span>Application<span class="regexp">/6EE23DA1-6DE3-4477-A099-1E34639EB9C1/</span>WeChat.app/WeChat</span><br></pre></td></tr></table></figure>
 <h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><ul>
 <li>查找可执行文件路径比较快的方法（如果知道可执行文件名称）</li>
 </ul>
@@ -567,7 +567,7 @@
 <ul>
 <li>查找程序进程<code>PID</code>比较快的方法（如果知道可执行文件名称）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep WeChat</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> aux | <span class="keyword">grep</span> WeChat</span><br></pre></td></tr></table></figure>
 <h4 id="查找目标app的Documents目录"><a href="#查找目标app的Documents目录" class="headerlink" title="查找目标app的Documents目录"></a>查找目标app的Documents目录</h4><ul>
 <li>砸壳需要将我们编译生成的<code>dumpdecrypted.dylib</code>文件放入目标app的<code>Documents</code>目录下，所以我们需要找到目标app的<code>Documents</code>目录。</li>
 <li>终端进入手机的根目录执行下面指令, 我们会进入<code>cy#</code>模式：<ul>
@@ -587,7 +587,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&quot;file:///var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="string">"file:///var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/"</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="砸壳"><a href="#砸壳" class="headerlink" title="砸壳"></a>砸壳</h4><ul>
 <li>拷贝<code>dumpdecrypted.dylib</code>这个之前编译签名好的文件到iPhone上面该目标APP的<code>Documents</code>目录.</li>
 <li>方法一：直接在电脑上通过助手软件将<code>dumpdecrypted.dylib</code>放入到目标app的<code>Documents</code>目录。</li>
@@ -615,14 +615,14 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mach-o decryption dumper</span><br><span class="line"></span><br><span class="line">DISCLAIMER: This tool is only meant for security research purposes, not for application crackers.</span><br><span class="line"></span><br><span class="line">[+] detected 32bit ARM binary in memory.</span><br><span class="line">[+] offset to cryptid found: @0x59a4c(from 0x59000) = a4c</span><br><span class="line">[+] Found encrypted data at address 00004000 of length 54755328 bytes - type 1.</span><br><span class="line">[+] Opening /private/var/containers/Bundle/Application/6EE23DA1-6DE3-4477-A099-1E34639EB9C1/WeChat.app/WeChat for reading.</span><br><span class="line">[+] Reading header</span><br><span class="line">[+] Detecting header type</span><br><span class="line">[+] Executable is a plain MACH-O image</span><br><span class="line">[+] Opening WeChat.decrypted for writing.</span><br><span class="line">[+] Copying the not encrypted start of the file</span><br><span class="line">[+] Dumping the decrypted data into the file</span><br><span class="line">[+] Copying the not encrypted remainder of the file</span><br><span class="line">[+] Setting the LC_ENCRYPTION_INFO-&gt;cryptid to 0 at offset a4c</span><br><span class="line">[+] Closing original file</span><br><span class="line">[+] Closing dump file</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mach-o decryption dumper</span><br><span class="line"></span><br><span class="line">DISCLAIMER: This<span class="built_in"> tool </span>is only meant <span class="keyword">for</span> security research purposes, <span class="keyword">not</span> <span class="keyword">for</span> application crackers.</span><br><span class="line"></span><br><span class="line">[+] detected 32bit ARM binary <span class="keyword">in</span> memory.</span><br><span class="line">[+] offset <span class="keyword">to</span> cryptid found: @0x59a4c(<span class="keyword">from</span> 0x59000) = a4c</span><br><span class="line">[+] Found encrypted data at<span class="built_in"> address </span>00004000 of length 54755328 bytes -<span class="built_in"> type </span>1.</span><br><span class="line">[+] Opening /private/var/containers/Bundle/Application/6EE23DA1-6DE3-4477-A099-1E34639EB9C1/WeChat.app/WeChat <span class="keyword">for</span> reading.</span><br><span class="line">[+] Reading header</span><br><span class="line">[+] Detecting header type</span><br><span class="line">[+] Executable is a plain MACH-O image</span><br><span class="line">[+] Opening WeChat.decrypted <span class="keyword">for</span> writing.</span><br><span class="line">[+] Copying the <span class="keyword">not</span> encrypted start of the file</span><br><span class="line">[+] Dumping the decrypted data into the file</span><br><span class="line">[+] Copying the <span class="keyword">not</span> encrypted remainder of the file</span><br><span class="line">[+] Setting the LC_ENCRYPTION_INFO-&gt;cryptid <span class="keyword">to</span> 0 at offset a4c</span><br><span class="line">[+] Closing original file</span><br><span class="line">[+] Closing dump file</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用Mac的助手工具直接将生成的<code>WeChat.decrypted</code>文件拷贝到桌面即可，也可使用终端指令拷贝，如下<ul>
 <li>退出手机<code>Root</code>模式，拷贝砸壳后文件到电脑桌面</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line"></span><br><span class="line">scp root@192.168.1.60:/var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/WeChat.decrypted ~/Desktop/WeChat.decrypted</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">exit</span></span><br><span class="line"></span><br><span class="line">scp root@<span class="number">192.168</span>.<span class="number">1.60</span>:<span class="regexp">/var/m</span>obile<span class="regexp">/Containers/</span>Data<span class="regexp">/Application/</span><span class="number">8</span>B12B9B9-<span class="number">06</span>BE-<span class="number">49</span>C2-ADC2-<span class="number">96</span>BB1C4F5E79<span class="regexp">/Documents/</span>WeChat.decrypted ~<span class="regexp">/Desktop/</span>WeChat.decrypted</span><br></pre></td></tr></table></figure>
 <h4 id="class-dump-砸壳后的文件"><a href="#class-dump-砸壳后的文件" class="headerlink" title="class dump 砸壳后的文件"></a>class dump 砸壳后的文件</h4><ul>
 <li>砸壳后的<code>WeChat.decrypted</code>文件就可以使用<code>class-dump</code>导出头文件，如下<ul>
 <li><code>--arch armv7</code>是指定架构，<code>dumpdecrypted</code>只会砸你手机处理器对应的那个壳，<code>fat binary</code>的其它部分仍然是有壳的</li>

@@ -604,7 +604,7 @@
 <li><p>Terminal输入</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx.xxx.xxx.xxx // xxx.xxx.xxx.xxx为手机ip地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@xxx<span class="selector-class">.xxx</span><span class="selector-class">.xxx</span><span class="selector-class">.xxx</span> <span class="comment">// xxx.xxx.xxx.xxx为手机ip地址</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>如果系统是iOS10.3以上，默认是不能直接使用ssh通过wifi或者USB访问手机的，详情请参考<a href="https://www.jianshu.com/p/91e0c22a6ea7" target="_blank" rel="noopener">iPhone10.3.X越狱后SSH连接不上的问题（已解决）</a></p>
 <ul>
@@ -625,7 +625,7 @@
 <ul>
 <li>在登录之后，你可以更改你的密码：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root // 提示输入两次新密码即可修改</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root <span class="comment">// 提示输入两次新密码即可修改</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>成功后可查看手机文件目录</li>
 </ul>
@@ -635,18 +635,18 @@
 <li><p>usbmuxd是网上开源社区，貌似是国外牛人倾力打造的一个专门针对该功能开源库</p>
 <ul>
 <li><p>通过brew来安装（当然也可以自己去下源码手动安装，由于依赖项比较多，所以很繁琐）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install usbmuxd</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>usbmuxd</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>usbmuxd 自带工具iproxy，iproxy 可以快捷的操作连接iPhone等操作。由于Mac上只支持4位的端口号，所以需要把iPhone的默认端口22映射到Mac上，相当于建立一个Mac和iPhone之间的通道。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iproxy 7777 22</span><br><span class="line">// waiting for connection</span><br></pre></td></tr></table></figure>
+  <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iproxy <span class="number">7777</span> <span class="number">22</span></span><br><span class="line"><span class="comment">// waiting for connection</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>以上命令就是把当前连接设备的22端口(SSH端口)映射到电脑的7777端口，那么想和设备22端口通信，直接和本地的7777端口通信就可以了。</p>
 </li>
 <li><p>终端提示 <code>waiting for connection</code> ，表示这两个端口之间已经可以通信了，保留当前终端(如果关闭就停止端口之间的通信了)，新建另一个终端输入如下指令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 7777 root@127.0.0.1</span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-p</span> 7777 <span class="selector-tag">root</span>@<span class="keyword">127</span>.<span class="keyword">0</span>.<span class="keyword">0</span>.<span class="keyword">1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果是第一次使用USB连接手机，会提示如下信息，输入<code>yes</code>继续</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;[127.0.0.1]:7777 ([127.0.0.1]:7777)&apos; can&apos;t be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:rBkW26LHWZbqrbfOsrkSCeLN1gr3fADxIF5PWB8VXDI.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;[127.0.0.1]:7777&apos; (ECDSA) to the list of known hosts.</span><br></pre></td></tr></table></figure>
+  <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The authenticity <span class="keyword">of</span> host <span class="comment">'[127.0.0.1]:7777 ([127.0.0.1]:7777)' can't be established.</span></span><br><span class="line">ECDSA <span class="keyword">key</span> fingerprint <span class="keyword">is</span> SHA256:rBkW26LHWZbqrbfOsrkSCeLN1gr3fADxIF5PWB8VXDI.</span><br><span class="line">Are you sure you want <span class="keyword">to</span> <span class="keyword">continue</span> connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added <span class="comment">'[127.0.0.1]:7777' (ECDSA) to the list of known hosts.</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果没有修改过root密码，则输入默认<code>alpine</code>，修改过，则输入修改过密码，完成后即可连接上iPhone。</p>
 </li>
@@ -657,19 +657,19 @@
 <li><p>每次连接手机都需要输入密码比较麻烦，可以通过如下配置免ssh密码登陆</p>
 <ul>
 <li><p>如果本人是做iOS开发的，项目用到了GIT版本控制，一般都配置SSH密钥了。密钥已经存在了电脑的./ssh目录中，如果没有配置，那么可手动重新生成SSH密钥，如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -<span class="selector-tag">b</span> <span class="number">4096</span> -C <span class="string">"your_email"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>生成完成后，我们会在./ssh目录中发现id_rsa.pub公钥这个文件。<br>然后我们把它copy出来放到个人目录下，并重命名，比如：</p>
 </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /Users/SevenCho/.ssh/id_rsa.pub ~/authorized_keys</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp <span class="regexp">/Users/</span>SevenCho<span class="regexp">/.ssh/i</span>d_rsa.pub ~<span class="regexp">/authorized_keys</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>手动SSH进入设备中，或者通过<code>Filza</code>，查看是否存在var/root/.ssh目录，如果没有，我们手动创建下。可通过SSH连接后mkdir创建，或者<code>Filza</code>手动创建。</li>
 <li>创建后我们把authorized_keys拷贝到设备中，可利用SCP命令：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~/authorized_keys root@iphone ip:/var/root/.ssh // iphone ip 为你手机的ip地址</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~<span class="regexp">/authorized_keys root@iphone ip:/</span>var<span class="regexp">/root/</span>.ssh <span class="regexp">//</span> iphone ip 为你手机的ip地址</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后按正常连接步骤我们就可以直接SSH连接的时候不用输入密码了。</li>
 <li>这个时候，如果我们使用tweak打包时候，也不会再让我们输入SSH密码了。</li>
@@ -688,19 +688,19 @@
 <li><p>编译是由编译器完成的，所以我们首先要找到合适的编译器。关于目前Apple公司开源及很多大公司使用和维护的Clang编译器详细资料请看<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-clang/" target="_blank" rel="noopener">结构化编译器前端 Clang 介绍</a></p>
 <ul>
 <li><p>编写代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch helloworld.c // 新建c文件</span><br><span class="line">open helloworld.c  // 打开.c文件，编写测试代码，如下面代码：</span><br><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;                                                                                              </span><br><span class="line">int main()&#123;   </span><br><span class="line">       printf(&quot;Hello world !!!\n&quot;);   </span><br><span class="line">       return 0;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch helloworld.c <span class="comment">// 新建c文件</span></span><br><span class="line">open helloworld.c  <span class="comment">// 打开.c文件，编写测试代码，如下面代码：</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;                                                                                              </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;   </span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"Hello world !!!\n"</span>);   </span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>生成可执行文件</p>
 <ul>
 <li>生成可在iPhone平台运行的二进制可执行文件</li>
 <li>iOS的指令集参考文章结尾</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 格式：xcrun -sdk iphoneos clang -arch armv7s -o [目标文件名] [源文件名]</span><br><span class="line">xcrun -sdk iphoneos clang -arch armv7s -o helloworld helloworld.c</span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 格式：xcrun -sdk iphoneos clang -arch armv7s -o <span class="string">[目标文件名]</span> <span class="string">[源文件名]</span></span><br><span class="line">xcrun -sdk iphoneos clang -arch armv7s -o helloworld helloworld.c</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>传输可执行文件</p>
 <ul>
 <li><p>通过ssh传输本地文件到iPhone（服务器）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp /path/filename username@servername:/path/filename</span><br><span class="line">scp helloworld root@192.168.1.42:/helloworld</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> scp <span class="string">/path/filename</span> username@servername:<span class="string">/path/filename</span></span><br><span class="line">scp helloworld root@192.168.1.42:<span class="string">/helloworld</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -715,29 +715,29 @@
 <li><p>通过手机<code>MTerminal</code>，登陆进来root模式</p>
 </li>
 <li><p>进入usr/bin目录，执行下列命令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S scp</span><br><span class="line">chmod 777 scp</span><br></pre></td></tr></table></figure>
+  <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldid -S scp</span><br><span class="line">chmod <span class="number">777</span> scp</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进入usr/lib目录</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 libcrypto.0.9.8.dylib</span><br><span class="line">chmod 755 libcrypto.dylib</span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">chmod</span> 755 <span class="selector-tag">libcrypto</span><span class="selector-class">.0</span><span class="selector-class">.9</span><span class="selector-class">.8</span><span class="selector-class">.dylib</span></span><br><span class="line"><span class="selector-tag">chmod</span> 755 <span class="selector-tag">libcrypto</span><span class="selector-class">.dylib</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <center><img src="/uploads/assets/install_scp_manually.PNG" alt="iPhone_fileList"></center>
 </li>
 <li><p>将iPhone（服务器）文件传输到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp username@servername:/source/path/filename /des/path/filename</span><br><span class="line">scp root@192.168.1.42:/iphone/path/helloworld /mac/path/helloworld</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/<span class="regexp">/ scp username@servername:/source</span><span class="regexp">/path/filename</span> /des/path/filename</span><br><span class="line">scp root<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">42</span><span class="symbol">:/iphone/path/helloworld</span> /mac/path/helloworld</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>查看iPhone文件目录是否存在对应文件<code>helloworld</code>，在终端执行可执行文件</p>
 <ul>
 <li><p>传完可执行文件后, 此时可执行文件并没有权限, 所以要执行以下命令给权限:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x helloworld</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="keyword">a</span>+x helloworld</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>运行可执行文件 </p>
 <ul>
 <li>如果执行失败，报<code>Killed: 9</code>，可能是因为执行文件没有签名，使用<code>ldid -S helloworld</code>签名即可。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./helloworld</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./helloworld</span></span><br></pre></td></tr></table></figure>
 <p><img src="/uploads/assets/helloworld_executable_success.png" alt="helloworld_executable_failed"></p>
 </li>
 </ul>
@@ -750,7 +750,7 @@
 <li>千万要注意：删除某些安装的工具的时候有可能会把<code>Cydia</code>也给一起删除的。</li>
 <li>如果想重新使用Apple ID签名越狱, 输入Apple ID账号密码后遇到如下错误</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">provision.cpp:81</span><br><span class="line">ios/submitDevelopmentCSR =7460</span><br><span class="line">You already have a current IOS Development certificate or a pending certificate request.</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">provision<span class="selector-class">.cpp</span>:<span class="number">81</span></span><br><span class="line">ios/submitDevelopmentCSR =<span class="number">7460</span></span><br><span class="line">You already have <span class="selector-tag">a</span> current IOS Development certificate or <span class="selector-tag">a</span> pending certificate request.</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>此时需要删除上一个certificate，操作步骤：</p>
 <ul>
@@ -758,7 +758,7 @@
 <p><img src="/uploads/assets/Impactor_cer_revoke.png" alt="Cydia_Impactor"></p>
 </li>
 <li><p>如果revokeCertificates失败，提示如下错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">progress hpp：87_assert  false</span><br></pre></td></tr></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">progress </span>hpp：87_assert  false</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下载旧版本Impactor，如<code>Impactor_0.9.42</code>, 使用旧版本软件重新revokeCertificates</p>
 </li>
