@@ -555,13 +555,11 @@ pre code {
   padding-right: 10px;
   color: #869194;
   text-align: right;
-  background-color: #eff2f3;
 }
 .highlight .code pre {
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #f7f7f7;
 }
 .highlight .line {
   height: 20px;
@@ -2010,7 +2008,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6041ff;
+  background: #ba606b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2863,6 +2861,21 @@ pre {
 code,
 pre {
   border: 1px solid #d6d6d6;
+  background: rgba(117,190,246,0);
+}
+.highlight {
+  background: rgba(117,190,246,0.2);
+}
+.highlight,
+td {
+  background: rgba(117,190,246,0);
+}
+.highlight,
+gutter pre {
+  background: rgba(117,190,246,0.2);
+}
+table>tbody>tr:nth-of-type(odd) {
+  background: rgba(117,190,246,0);
 }
 .post-body p a {
   color: #0593d3;
@@ -2913,7 +2926,4 @@ span#inline-toc {
 *::-moz-selection {
   background-color: #75bef6;
   color: #fff;
-}
-.highlight {
-  background: #75bef6;
 }
