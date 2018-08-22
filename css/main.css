@@ -2010,7 +2010,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffe094;
+  background: #6041ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2913,4 +2913,7 @@ span#inline-toc {
 *::-moz-selection {
   background-color: #75bef6;
   color: #fff;
+}
+.highlight {
+  background: #75bef6;
 }
