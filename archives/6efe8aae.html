@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_mysql_download5.7.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql_start.png">
-<meta property="og:updated_time" content="2018-08-22T08:22:09.325Z">
+<meta property="og:updated_time" content="2018-08-22T08:33:15.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift开发服务端（一）：MySQL安装及配置">
 <meta name="twitter:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时候就已经折腾过了，照着别人的教程体验了一下Swift开发服务端，使用的是加拿">
@@ -520,16 +520,17 @@
 <li>取消root用户远程登录</li>
 <li>删除test库和对test库的访问权限</li>
 <li><p>刷新授权表使修改生效</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 安装安全配置向导</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 安装安全配置向导</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"></span><br><span class="line">VALIDATE PASSWORD PLUGIN can be used to <span class="built_in">test</span> passwords</span><br><span class="line">and improve security. It checks the strength of password</span><br><span class="line">and allows the users to <span class="built_in">set</span> only those passwords <span class="built_in">which</span> are</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD plugin?</span><br><span class="line"></span><br><span class="line">Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No: y</span><br><span class="line"></span><br><span class="line">There are three levels of password validation policy: // 密码安全策略</span><br><span class="line"></span><br><span class="line">LOW    Length &gt;= 8</span><br><span class="line">MEDIUM Length &gt;= 8, numeric, mixed <span class="keyword">case</span>, and special characters</span><br><span class="line">STRONG Length &gt;= 8, numeric, mixed <span class="keyword">case</span>, special characters and dictionary                  file</span><br><span class="line"></span><br><span class="line">Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0</span><br><span class="line">Please <span class="built_in">set</span> the password <span class="keyword">for</span> root here.</span><br><span class="line"></span><br><span class="line">New password:  // Root用户密码</span><br><span class="line"></span><br><span class="line">Re-enter new password: // 确认Root用户密码</span><br><span class="line"></span><br><span class="line">Estimated strength of the password: 50 </span><br><span class="line">Do you wish to <span class="built_in">continue</span> with the password provided?(Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) : y</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to <span class="built_in">log</span> into MySQL without having to have</span><br><span class="line">a user account created <span class="keyword">for</span> them. This is intended only <span class="keyword">for</span></span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line"><span class="string">'localhost'</span>. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">By default, MySQL comes with a database named <span class="string">'test'</span> that</span><br><span class="line">anyone can access. This is also intended only <span class="keyword">for</span> testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove <span class="built_in">test</span> database and access to it? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) : y</span><br><span class="line"> - Dropping <span class="built_in">test</span> database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"> - Removing privileges on <span class="built_in">test</span> database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y <span class="keyword">for</span> Yes, any other key <span class="keyword">for</span> No) : y</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">All <span class="keyword">done</span>!</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
-<li>登录mysql</li>
+<li><p>登录mysql</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot</span><br></pre></td></tr></table></figure>
 <h2 id="修改MySQL密码"><a href="#修改MySQL密码" class="headerlink" title="修改MySQL密码"></a>修改MySQL密码</h2><ul>
 <li>安装生成的密码是随机生成的字符串，我连自己设置的密码都记不住了，还TM记这个密码🌚。</li>
 </ul>
@@ -549,38 +550,28 @@
 <li><p>关闭mysql服务，可以在系统偏好设置关闭，也可以在终端执行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>进入mysql目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取管理员权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁止mysql验证功能，mysql会自动重启，偏好设置中的mysql状态会变成running</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysqld_safe --skip-grant-tables &amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>新开</code>一个终端窗口，进入mysql目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入如下两个指令执行并刷新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./mysql</span><br><span class="line">flush privileges; // 分号不要忘了</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改新密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> = password(<span class="string">'newPassword'</span>);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<pre><code>-  进入mysql目录
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/</span><br></pre></td></tr></table></figure>
-
-
-- 获取管理员权限
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-
-
-- 禁止mysql验证功能，mysql会自动重启，偏好设置中的mysql状态会变成running
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysqld_safe --skip-grant-tables &amp;</span><br></pre></td></tr></table></figure>
-
-
-- 新开一个终端窗口，进入mysql目录
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin/</span><br></pre></td></tr></table></figure>
-
-
-- 输入如下两个指令执行并刷新
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./mysql</span><br><span class="line">flush privileges; // 分号不要忘了</span><br></pre></td></tr></table></figure>
-
-
-- 修改新密码
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> = password(<span class="string">'newPassword'</span>);</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>[Assigning Account Passwords](<a href="https://dev.mysql.com/doc/refman/5.7/en/assigning-passwords.html）" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.7/en/assigning-passwords.html）</a></li>
 </ul>
 
