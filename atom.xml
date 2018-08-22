@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-07-19T03:44:50.494Z</updated>
+  <updated>2018-08-22T06:14:03.138Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于Hexo博客加载Live2D动画模型挂件</title>
+    <link href="https://sevencho.github.io/archives/cb206c67.html"/>
+    <id>https://sevencho.github.io/archives/cb206c67.html</id>
+    <published>2018-08-22T03:20:25.000Z</published>
+    <updated>2018-08-22T06:14:03.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;许多年之后你再看，骑快马飞奔的人和坐在牛背上慢悠悠赶路的人，一样老态龙钟回到村庄里，他们衰老的速度是一样的。时间才不管谁跑得多快多慢呢。&lt;/p&gt;
+&lt;p&gt;——刘亮程《一个人的村庄》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;
+      
+    
+    </summary>
+    
+      <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
+    
+      <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
+    
+      <category term="live2D" scheme="https://sevencho.github.io/tags/live2D/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS开发之Xcode10 Beta3升级Beta4编译错误</title>
@@ -592,33 +624,6 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="地图" scheme="https://sevencho.github.io/tags/%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Homebrew介绍</title>
-    <link href="https://sevencho.github.io/archives/4f2aa8f3.html"/>
-    <id>https://sevencho.github.io/archives/4f2aa8f3.html</id>
-    <published>2017-12-30T10:18:51.000Z</published>
-    <updated>2018-04-17T07:13:22.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;iOS开发工具之Homebrew篇&quot;&gt;&lt;a href=&quot;#iOS开发工具之Homebrew篇&quot; class=&quot;headerlink&quot; title=&quot;iOS开发工具之Homebrew篇&quot;&gt;&lt;/a&gt;iOS开发工具之Homebrew篇&lt;/h1&gt;&lt;h4 id=&quot;Homeb
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Homebrew" scheme="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/Homebrew/"/>
-    
-    
-      <category term="工具" scheme="https://sevencho.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Homebrew" scheme="https://sevencho.github.io/tags/Homebrew/"/>
     
   </entry>
   
