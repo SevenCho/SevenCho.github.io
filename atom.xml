@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-08-22T08:41:07.212Z</updated>
+  <updated>2018-08-23T01:09:24.137Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/6efe8aae.html"/>
     <id>https://sevencho.github.io/archives/6efe8aae.html</id>
     <published>2018-08-22T06:32:25.000Z</published>
-    <updated>2018-08-22T08:41:07.212Z</updated>
+    <updated>2018-08-23T01:09:24.137Z</updated>
     
     <summary type="html">
     
@@ -71,9 +71,9 @@
       <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
-    
       <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
     
       <category term="live2D" scheme="https://sevencho.github.io/tags/live2D/"/>
     
@@ -515,7 +515,7 @@
     <link href="https://sevencho.github.io/archives/b8f4bd70.html"/>
     <id>https://sevencho.github.io/archives/b8f4bd70.html</id>
     <published>2018-04-15T03:53:53.000Z</published>
-    <updated>2018-06-28T06:03:12.336Z</updated>
+    <updated>2018-08-22T10:10:10.916Z</updated>
     
     <summary type="html">
     
@@ -530,12 +530,10 @@
     
       <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
     
-      <category term="Hexo博客搭建" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
+      <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
     
-      <category term="整理" scheme="https://sevencho.github.io/tags/%E6%95%B4%E7%90%86/"/>
-    
-      <category term="Hexo博客搭建" scheme="https://sevencho.github.io/tags/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -544,7 +542,7 @@
     <link href="https://sevencho.github.io/archives/ed2e9abb.html"/>
     <id>https://sevencho.github.io/archives/ed2e9abb.html</id>
     <published>2018-02-15T05:43:17.000Z</published>
-    <updated>2018-04-18T01:17:51.000Z</updated>
+    <updated>2018-08-22T10:09:16.920Z</updated>
     
     <summary type="html">
     
@@ -563,8 +561,6 @@
     
       <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
     
-      <category term="敏捷开发" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
-    
     
       <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
@@ -575,7 +571,7 @@
     <link href="https://sevencho.github.io/archives/24e561e5.html"/>
     <id>https://sevencho.github.io/archives/24e561e5.html</id>
     <published>2018-01-18T10:04:05.000Z</published>
-    <updated>2018-07-09T01:46:00.329Z</updated>
+    <updated>2018-08-23T01:15:41.025Z</updated>
     
     <summary type="html">
     
@@ -588,8 +584,6 @@
     </summary>
     
       <category term="汇编" scheme="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
-    
-      <category term="汇编工具" scheme="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%96%E5%B7%A5%E5%85%B7/"/>
     
     
       <category term="汇编" scheme="https://sevencho.github.io/tags/%E6%B1%87%E7%BC%96/"/>
