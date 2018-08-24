@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="iOS, C, Object-C, Swift, Python" />
+  <meta name="keywords" content="服务器,Swift,Perfect," />
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="一只特立独行的CoderBoy🐶">
-<meta name="keywords" content="iOS, Object-C, Swift, Git, Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:url" content="https://sevencho.github.io/tags/Blog/index.html">
+<meta name="description" content="多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在时光中老的。 ——刘亮程《一个人的村庄》  简介 Perfect是一组完整、强大的工具箱、软件框架体系和Web应用服务器，可以在Linux和macOS (OS">
+<meta name="keywords" content="服务器,Swift,Perfect">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift开发服务端（三）：Perfect再次初体验">
+<meta property="og:url" content="https://sevencho.github.io/archives/f7d447dc.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="一只特立独行的CoderBoy🐶">
+<meta property="og:description" content="多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在时光中老的。 ——刘亮程《一个人的村庄》  简介 Perfect是一组完整、强大的工具箱、软件框架体系和Web应用服务器，可以在Linux和macOS (OS">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-24T09:41:09.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta name="twitter:description" content="一只特立独行的CoderBoy🐶">
+<meta name="twitter:title" content="Swift开发服务端（三）：Perfect再次初体验">
+<meta name="twitter:description" content="多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在时光中老的。 ——刘亮程《一个人的村庄》  简介 Perfect是一组完整、强大的工具箱、软件框架体系和Web应用服务器，可以在Linux和macOS (OS">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sevencho.github.io/tags/Blog/"/>
+  <link rel="canonical" href="https://sevencho.github.io/archives/f7d447dc.html"/>
 
 
 
 
 
-  <title>标签: Blog | 曹雪松de博客|CoderBoy's Blog</title>
+  <title>Swift开发服务端（三）：Perfect再次初体验 | 曹雪松de博客|CoderBoy's Blog</title>
   
 
 
@@ -151,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,82 +300,351 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Blog<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/f7d447dc.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/archives/cb206c67.html" itemprop="url">
-              
-                <span itemprop="name">关于Hexo博客加载Live2D动画模型挂件</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Swift开发服务端（三）：Perfect再次初体验</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-22T11:20:25+08:00"
-              content="2018-08-22" >
-          08-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:25:25+08:00">
+                2018-08-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,211
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/archives/b8f4bd70.html" itemprop="url">
-              
-                <span itemprop="name">Hexo博客搭建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-15T11:53:53+08:00"
-              content="2018-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <hr>
+<blockquote>
+<p>多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在时光中老的。</p>
+<p>——刘亮程《一个人的村庄》</p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>Perfect是一组完整、强大的工具箱、软件框架体系和Web应用服务器，可以在<code>Linux</code>和<code>macOS</code> (OS X)上使用。该软件体系为<code>Swift工程师</code>量身定制了一整套用于开发轻量、易维护、规模可扩展的<code>Web应用</code>及其它<code>REST服务</code>的解决方案，这样Swift工程师就可以实现同时在服务器和客户端上采用同一种语言开发软件项目。</li>
+<li><p>由于建立在一个高性能异步网络引擎基础上，Perfect还能够在<code>FastCGI</code>上运行，支持安全套接字加密（<code>SSL</code>）。该软件体系还包含很多其它互联网服务器所需要的特点，包括<code>WebSockets</code>和<code>iOS消息推送</code>，而且很快会有更多强大的功能支持。</p>
+</li>
+<li><p><a href="https://sevencho.github.io/archives/6efe8aae.html">Swift开发服务端（一）：MySQL安装及配置</a></p>
+</li>
+<li><a href="https://sevencho.github.io/archives/64bb63f1.html">Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</a></li>
+</ul>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ul>
+<li>有很多小伙伴肯定在想，我为什么会把第一次给了<code>Perfect</code>🌝，那是因为<code>Perfect</code>有官方中文文档，虽然不是非常完善的中文文档，但有胜于无，减少了入门的难度。</li>
+<li>什么，为什么叫再次初体验。那是因为上次的初体验不算。为什么不算、因为我说的🌚🌚。</li>
+<li>本篇完全基于Mac系统，为什么不基于上一篇安装的<code>Ubuntu</code>系统呢，因为相较于Mac，在<code>Ubuntu</code>下只是多了Swift安装环境配置和其他需要的服务安装，都特别简单，更重要的是我们需要使用到Xcode进行编码、编译。</li>
+<li><a href="https://www.perfect.org/docs/index_zh_CN.html" target="_blank" rel="noopener">Perfect官方文档在这里</a></li>
+</ul>
+<h2 id="Ubuntu安装Swift"><a href="#Ubuntu安装Swift" class="headerlink" title="Ubuntu安装Swift"></a>Ubuntu安装Swift</h2><ul>
+<li>关于在Ubuntu系统下载安装Swift，参考<a href="https://swift.org/download/#using-downloads" target="_blank" rel="noopener">Swift官方文档</a>，已经介绍的非常详细了。</li>
+<li>如果你不想看英文官方文档，好吧，那我就再总结（复制）一下：</li>
+</ul>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ul>
+<li>首先检查系统有没有安装Git，如果没有安装，直接使用包管理器安装：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<h3 id="安装Swift依赖组件"><a href="#安装Swift依赖组件" class="headerlink" title="安装Swift依赖组件"></a>安装Swift依赖组件</h3><ul>
+<li>确保您的系统上有最新的软件包列表：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装<code>Swift</code>必要的依赖组件，如<code>clang</code>和<code>Python</code>等。<ul>
+<li><code>openssh-server</code> 我们在安装Ubuntu一章中已经安装过，所以不用重复安装了。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang libicu-dev libpython2.7</span><br></pre></td></tr></table></figure>
+<h3 id="安装Swift"><a href="#安装Swift" class="headerlink" title="安装Swift"></a>安装Swift</h3><ul>
+<li>下载最新的<code>Swift二进制</code>文件，可以手动下载，也可以使用<code>wget</code>下载。<ul>
+<li>根据自己的Ubuntu系统版本和需要的swift版本选择，在<a href="https://swift.org/download/#releases" target="_blank" rel="noopener">这里下载</a>。</li>
+<li><code>.tar.gz</code>后缀的是工具链二进制文件 <code>.sig</code> 后缀的是数字签名文件。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你是<code>第一次</code>下载安装Swift包，需要将Swift的PGP密钥导入您的密钥环，密钥将用于验证下载的文件有无被被损坏或篡改。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://pool.sks-keyservers.net \</span><br><span class="line">      --recv-keys \</span><br><span class="line">      <span class="string">'7463 A81A 4B2E EA1B 551F  FBCF D441 C977 412B 37AD'</span> \</span><br><span class="line">      <span class="string">'1BE1 E29A 084C B305 F397  D62A 9F59 7F4D 21A5 6D5F'</span> \</span><br><span class="line">      <span class="string">'A3BA FD35 56A5 9079 C068  94BD 63BC 1CFE 91D3 06C6'</span> \</span><br><span class="line">      <span class="string">'5E4D F843 FB06 5D7F 7E24  FBA2 EF54 30F0 71E1 B235'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>导入密钥之后，下载对应Swift版本的签名文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证签名文件：<ul>
+<li>如果出现经过，可忽略；如果出现错误信息，就需要重新下载Swift二进制文件。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --verify swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成密钥和签名文件，现在就可以安装Swift。 执行以下命令来提取之前下载的二进制文件：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzf swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将Swift工具链添加到环境变量中，以便运行swift命令：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:<span class="string">"<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个命令只会将swift命令添加到当前shell会话路径中，如果要确保它在以后的会话中自动添加，要将其添加到.bashrc文件中。<ul>
+<li>打开 .bashrc 文件</li>
+<li>文件尾部添加环境变量</li>
+<li>保存退出</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc // 也可以使用nano</span><br><span class="line"><span class="built_in">export</span> PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:<span class="string">"<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在终端输入<code>swift</code>，如果输出<code>Welcome to Apple Swift version xxx</code>则表示安装swift成功。</li>
+</ul>
+<h2 id="Swift服务器"><a href="#Swift服务器" class="headerlink" title="Swift服务器"></a>Swift服务器</h2><h3 id="初始化Perfect项目"><a href="#初始化Perfect项目" class="headerlink" title="初始化Perfect项目"></a>初始化Perfect项目</h3><ul>
+<li>过完星期天，再接着😂😂</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
       
     </div>
+    
+    
+    
 
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/f7d447dc.html" title="Swift开发服务端（三）：Perfect再次初体验">https://sevencho.github.io/archives/f7d447dc.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/服务器/" rel="tag"><i class="fa fa-tag"></i> 服务器</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/Perfect/" rel="tag"><i class="fa fa-tag"></i> Perfect</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/64bb63f1.html" rel="next" title="Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置">
+                <i class="fa fa-chevron-left"></i> Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -382,6 +652,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -402,8 +676,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +773,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu安装Swift"><span class="nav-number">3.</span> <span class="nav-text">Ubuntu安装Swift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">3.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Swift依赖组件"><span class="nav-number">3.2.</span> <span class="nav-text">安装Swift依赖组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Swift"><span class="nav-number">3.3.</span> <span class="nav-text">安装Swift</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swift服务器"><span class="nav-number">4.</span> <span class="nav-text">Swift服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Perfect项目"><span class="nav-number">4.1.</span> <span class="nav-text">初始化Perfect项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -632,6 +931,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

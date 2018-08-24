@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-08-24T07:31:56.864Z</updated>
+  <updated>2018-08-24T09:41:09.064Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift开发服务端（三）：Perfect再次初体验</title>
+    <link href="https://sevencho.github.io/archives/f7d447dc.html"/>
+    <id>https://sevencho.github.io/archives/f7d447dc.html</id>
+    <published>2018-08-24T07:25:25.000Z</published>
+    <updated>2018-08-24T09:41:09.064Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="Perfect" scheme="https://sevencho.github.io/tags/Perfect/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</title>
@@ -595,30 +624,6 @@
     
     
       <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编初识（Mac)</title>
-    <link href="https://sevencho.github.io/archives/24e561e5.html"/>
-    <id>https://sevencho.github.io/archives/24e561e5.html</id>
-    <published>2018-01-18T10:04:05.000Z</published>
-    <updated>2018-08-23T01:15:41.025Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Decompile&quot;&gt;&lt;a href=&quot;#Decompile&quot; class=&quot;headerlink&quot; title=&quot;Decompile&quot;&gt;&lt;/a&gt;Decompile&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;class-dump安装方法&quot;&gt;&lt;a href=&quot;#class-
-      
-    
-    </summary>
-    
-      <category term="汇编" scheme="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
-    
-    
-      <category term="汇编" scheme="https://sevencho.github.io/tags/%E6%B1%87%E7%BC%96/"/>
     
   </entry>
   
