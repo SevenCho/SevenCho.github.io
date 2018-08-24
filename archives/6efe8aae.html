@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时候就已经折腾过了，照着别人的教程体验了一下Swift开发服务端，使用的是加拿">
+<meta name="description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
 <meta name="keywords" content="服务器,Swift,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift开发服务端（一）：MySQL安装及配置">
 <meta property="og:url" content="https://sevencho.github.io/archives/6efe8aae.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时候就已经折腾过了，照着别人的教程体验了一下Swift开发服务端，使用的是加拿">
+<meta property="og:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_mysql_selected5.7.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_mysql_download5.7.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql_start.png">
-<meta property="og:updated_time" content="2018-08-23T01:09:24.137Z">
+<meta property="og:updated_time" content="2018-08-24T01:58:06.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift开发服务端（一）：MySQL安装及配置">
-<meta name="twitter:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时候就已经折腾过了，照着别人的教程体验了一下Swift开发服务端，使用的是加拿">
+<meta name="twitter:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/server_mysql_selected5.7.png">
 
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,653
+                  1,687
                 </span>
               
 
@@ -441,7 +441,7 @@
       
         <hr>
 <blockquote>
-<p>经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。</p>
+<p>经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。</p>
 <p>——刘亮程《寒风吹彻》</p>
 </blockquote>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
@@ -680,6 +680,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/archives/64bb63f1.html" rel="prev" title="Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置">
+                Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -759,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -781,7 +785,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -871,7 +875,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">59.7k</span>
+    <span title="Site words total count">62.1k</span>
   
 </div>
 

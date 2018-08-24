@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-08-23T01:09:24.137Z</updated>
+  <updated>2018-08-24T07:31:44.857Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Swift开发服务端（一）：MySQL安装及配置</title>
-    <link href="https://sevencho.github.io/archives/6efe8aae.html"/>
-    <id>https://sevencho.github.io/archives/6efe8aae.html</id>
-    <published>2018-08-22T06:32:25.000Z</published>
-    <updated>2018-08-23T01:09:24.137Z</updated>
+    <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</title>
+    <link href="https://sevencho.github.io/archives/64bb63f1.html"/>
+    <id>https://sevencho.github.io/archives/64bb63f1.html</id>
+    <published>2018-08-24T01:56:25.000Z</published>
+    <updated>2018-08-24T07:31:44.857Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,41 @@
       
         &lt;hr&gt;
 &lt;blockquote&gt;
-&lt;p&gt;经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己。&lt;/p&gt;
-&lt;p&gt;——刘亮程《寒风吹彻》&lt;/p&gt;
-
+&lt;p&gt;故乡是一个人的羞涩处，也是一个人最大的隐秘。我把故乡隐藏在身后，单枪匹马去闯荡生活。我在世界的任何一个地方走动，居住和生活，那不是我的，我不会留下脚印。&lt;/p&gt;
+&lt;p&gt;——刘亮程《一个人的村庄》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="Linux" scheme="https://sevencho.github.io/tags/Linux/"/>
+    
+      <category term="Parallels Desktop" scheme="https://sevencho.github.io/tags/Parallels-Desktop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift开发服务端（一）：MySQL安装及配置</title>
+    <link href="https://sevencho.github.io/archives/6efe8aae.html"/>
+    <id>https://sevencho.github.io/archives/6efe8aae.html</id>
+    <published>2018-08-22T06:32:25.000Z</published>
+    <updated>2018-08-24T01:58:06.242Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都
       
     
     </summary>
@@ -587,37 +619,6 @@
     
     
       <category term="汇编" scheme="https://sevencho.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之地图篇(二)</title>
-    <link href="https://sevencho.github.io/archives/b3b6a999.html"/>
-    <id>https://sevencho.github.io/archives/b3b6a999.html</id>
-    <published>2018-01-11T01:15:45.000Z</published>
-    <updated>2018-06-28T06:08:33.087Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;绿蚁新醅酒，红泥小火炉。&lt;br&gt;晚来天欲雪，能饮一杯无？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;百度地图&quot;&gt;&lt;a href=&quot;#百度地图&quot; class=&quot;headerlink&quot; title=&quot;百度地图&quot;&gt;&lt;/a&gt;百度地图&lt;/
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="地图" scheme="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="地图" scheme="https://sevencho.github.io/tags/%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   

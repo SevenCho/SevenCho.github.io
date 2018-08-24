@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="HhBjw6NlG9jv92NsZi5oPfRaClxLx2ldt71WWPQEnMM" />
+<meta name="baidu-site-verification" content="GqAQCqMt8R" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="服务器,Swift,Linux,Parallels Desktop," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="故乡是一个人的羞涩处，也是一个人最大的隐秘。我把故乡隐藏在身后，单枪匹马去闯荡生活。我在世界的任何一个地方走动，居住和生活，那不是我的，我不会留下脚印。 ——刘亮程《一个人的村庄》  简介 Swift对Mac的原生支持就不用多说了，虽然是开源编程语言，但是有她亲爹苹果在后面支持，能不原生支持苹果系统🌝？ 好消息是Swift开源后支持Linux，我们可以在Linux上面使用Swift配置环境，">
+<meta name="keywords" content="服务器,Swift,Linux,Parallels Desktop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置">
+<meta property="og:url" content="https://sevencho.github.io/archives/64bb63f1.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="故乡是一个人的羞涩处，也是一个人最大的隐秘。我把故乡隐藏在身后，单枪匹马去闯荡生活。我在世界的任何一个地方走动，居住和生活，那不是我的，我不会留下脚印。 ——刘亮程《一个人的村庄》  简介 Swift对Mac的原生支持就不用多说了，虽然是开源编程语言，但是有她亲爹苹果在后面支持，能不原生支持苹果系统🌝？ 好消息是Swift开源后支持Linux，我们可以在Linux上面使用Swift配置环境，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_selected.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_convenience.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_%20manual.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_%20manual_imageSelected.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_%20manual_account.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_%20manual_destination.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_login.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_desktop.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_settings.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Install%20Parallels%20Tools%20option.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_diagnostics.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_settings_display.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/ubuntu_display_settings_.png">
+<meta property="og:updated_time" content="2018-08-24T07:31:44.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置">
+<meta name="twitter:description" content="故乡是一个人的羞涩处，也是一个人最大的隐秘。我把故乡隐藏在身后，单枪匹马去闯荡生活。我在世界的任何一个地方走动，居住和生活，那不是我的，我不会留下脚印。 ——刘亮程《一个人的村庄》  简介 Swift对Mac的原生支持就不用多说了，虽然是开源编程语言，但是有她亲爹苹果在后面支持，能不原生支持苹果系统🌝？ 好消息是Swift开源后支持Linux，我们可以在Linux上面使用Swift配置环境，">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/ubuntu_install_selected.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'CoderBoy'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/64bb63f1.html"/>
+
+
+
+
+
+  <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/64bb63f1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T09:56:25+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,397
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>故乡是一个人的羞涩处，也是一个人最大的隐秘。我把故乡隐藏在身后，单枪匹马去闯荡生活。我在世界的任何一个地方走动，居住和生活，那不是我的，我不会留下脚印。</p>
+<p>——刘亮程《一个人的村庄》</p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><code>Swift</code>对<code>Mac</code>的原生支持就不用多说了，虽然是开源编程语言，但是有她亲爹苹果在后面支持，能不原生支持苹果系统🌝？</li>
+<li>好消息是<code>Swift</code>开源后支持<code>Linux</code>，我们可以在<code>Linux</code>上面使用<code>Swift</code>配置环境，编写、编译、部署服务器了。</li>
+<li>本文将介绍如何通过使用<code>Parallels Desktop</code>虚拟机（以下简称PD），在<code>Mac</code>系统下安装<code>Ubuntu</code>系统级注意点。</li>
+<li><p>当然、你也可以直接安装一个<code>Linux</code>系统，或者在其他电脑安装<code>Linux</code>系统，全凭个人爱好。</p>
+</li>
+<li><p><a href="https://sevencho.github.io/archives/6efe8aae.html">Swift开发服务端（一）：MySQL安装及配置</a></p>
+</li>
+</ul>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ul>
+<li><code>PD</code>是一款相当强大且好用的虚拟机，可以安装<code>Android</code>、<code>Mac</code>、<code>windows</code>、以及比较常用的<code>Linux</code>系统（至于如何获取该软件，自己看着办😂）。</li>
+<li><code>PD</code>已经集成了上面系统的下载安装功能。<code>如果</code>你的网速比较快、而且磁盘空间也比较充裕的情况下，强烈推荐使用这种方式安装，完全适合像我这种比较懒的人。</li>
+<li>当然了，我是通过单独下载安装包的方式安装的，你问我为什么？当然是因为这样显得逼格比较高啊🌚。</li>
+<li>好吧，肯定很多小伙伴不相信，其实我自己都不相信emmm，主要是因为我使用公司的iMac、系统盘是后来加的SSD，容量没有多少了，所以只能手动安装到原来的1T机械硬盘里面了。</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="自动下载安装"><a href="#自动下载安装" class="headerlink" title="自动下载安装"></a>自动下载安装</h3><ul>
+<li>打开<code>PD</code>,选择需要安装的<code>Linux</code>，点击下一步：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_selected.png" alt="ubuntu_install_selected"></center>
+
+<ul>
+<li>点击下载按钮开始下载安装，没什么需要说的：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_convenience.png" alt="ubuntu_install_convenience"></center>
+
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><h4 id="下载Ubuntu安装包"><a href="#下载Ubuntu安装包" class="headerlink" title="下载Ubuntu安装包"></a>下载Ubuntu安装包</h4><ul>
+<li>在<a href="https://www.ubuntu.com/download/" target="_blank" rel="noopener">Ubuntu downloads</a>下载安装包。</li>
+<li>有桌面版和服务器版本，桌面版会比服务器版安装包大一些，多了一些界面元素。服务器版偏向于命令行操作，如何选择看个人爱好。<ul>
+<li>我是想顺便体验下<code>Ubuntu</code>系统，所以安装的是16.04的桌面版。</li>
+</ul>
+</li>
+</ul>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><ul>
+<li>打开<code>PD</code>,选择通过镜像文件安装，点击下一步：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_ manual.png" alt="ubuntu_install_ manual"></center>
+
+<ul>
+<li>可以手动选择文件路径，也可以将下载的安装包拖拽到当前的PD窗口放手就可以：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_ manual_imageSelected.png" alt="ubuntu_install_ manual_imageSelected"></center>
+
+<ul>
+<li>完成后选择需要安装的镜像文件，继续下一步，输入账号密码：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_ manual_account.png" alt="ubuntu_install_ manual_account"></center>
+
+<ul>
+<li>选择安装名称以及安装目录：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_install_ manual_destination.png" alt="ubuntu_install_ manual_destination"></center>
+
+<ul>
+<li>之后跟着提示一路确定就可以安装成功，进入登录界面，输入密码进入系统（我这里显示效果已经优化过，你安装完可能和我的有一些细微的差别，具体设置在下面）：</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_login.png" alt="ubuntu_login"></center><br><center><img src="/uploads/assets/ubuntu_desktop.png" alt="ubuntu_desktop"></center>
+
+<h4 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h4><ul>
+<li>如果有需要对虚拟机重新配置一些参数、如磁盘大小、内存大小、键盘、网络等等、都可以通过虚拟机窗口右上角的设置选项重新配置。</li>
+<li>也可以在虚拟机菜单里面找到该设置选项。</li>
+<li>所有修改都需要重新启动虚拟机才可以生效。</li>
+</ul>
+<center><img src="/uploads/assets/ubuntu_settings.png" alt="ubuntu_settings"></center>
+
+<h2 id="优化配置"><a href="#优化配置" class="headerlink" title="优化配置"></a>优化配置</h2><h3 id="Ubuntu全屏设置"><a href="#Ubuntu全屏设置" class="headerlink" title="Ubuntu全屏设置"></a>Ubuntu全屏设置</h3><ul>
+<li>默认安装完成后，Ubuntu窗口是无法适配全屏的，看着很难受。需要手动安装<code>Parallels Tools</code>。</li>
+<li><p>点击PD虚拟机的窗口右上角的黄色感叹号（第一次安装会有），或者从菜单选择<code>Install Parallels Tools</code>，然后根据提示一步步操作即可。</p>
+  <center><img src="/uploads/assets/Install Parallels Tools option.png" alt="Install Parallels Tools option"></center>
+</li>
+<li><p>如果安装不成功，可以手动安装</p>
+<ul>
+<li>打开<code>Ubuntu</code>的 <code>Terminal</code> （快捷键：<code>Ctrl + Option + T</code>）.</li>
+<li><p>切换到系统管理员权限:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su  // or su</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确保虚拟机的DVD驱动已经退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eject /dev/cdrom</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择PD菜单 <code>&gt; Devices &gt; CD/DVD &gt; Connect image</code>，选择 <code>/Applications/Parallels Desktop/Contents/Resources/Tools</code>目录下的<code>prl-tools-lin.iso</code>文件.</p>
+</li>
+<li><p>挂载<code>Parallels Tools</code>镜像到<code>Linux</code>虚拟机:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /media/cdrom</span><br><span class="line">mount /dev/cdrom /media/cdrom</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查镜像是否被成功挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls /media/cdrom</span><br><span class="line"></span><br><span class="line">// 输出信息</span><br><span class="line">install*  installer/  install-gui*  kmods/  tools/  version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到镜像文件目录下，执行安装包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/cdrom</span><br><span class="line">./install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ubuntu分辨率"><a href="#Ubuntu分辨率" class="headerlink" title="Ubuntu分辨率"></a>Ubuntu分辨率</h3><ul>
+<li>安装完成<code>Parallels Tools</code>后，系统的分辨率默认是Mac系统的最高分辨率，我的iMac分辨率是4K，导致显示内容被缩放的特别小，非常难受。</li>
+<li><p>更难受的是默认无法更改分辨率，本着<code>有条件要上，没条件创造条件也要上</code>的原则，找到了修改分辨率的方法：</p>
+<ul>
+<li>打开终端输入<code>xrandr</code>查看系统支持的分辨率，<code>*</code>标识正在使用的分辨率：</li>
+<li><p>打开系统诊断框，将可以选择勾选一些调试选项，也可以什么也不做，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xdiagnose</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点击应用，关闭诊断窗口</p>
+<center><img src="/uploads/assets/ubuntu_diagnostics.png" alt="ubuntu_diagnostics"></center>
+</li>
+<li><p>修改完成后需要重新启动虚拟机，可以在虚拟机菜单栏点击重启选项，也可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>Ubuntu</code>系统的设置菜单，进入<code>显示</code>设置，此时里面已经可以设置不同的分辨率了。但是我发现可以直接使用最高的分辨率，只需要修改<code>菜单和标题缩放比例</code>就可以使整个界面很干净通透的显示效果了。</p>
+<center><img src="/uploads/assets/ubuntu_settings_display.png" alt="ubuntu_settings_display"></center>
+
+<center><img src="/uploads/assets/ubuntu_display_settings_.png" alt="ubuntu_display_settings_"></center>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="系统文件修复"><a href="#系统文件修复" class="headerlink" title="系统文件修复"></a>系统文件修复</h3><ul>
+<li>由于Mac系统（突然断电或死机或未正常关闭）关闭或者虚拟机非正常关闭都可能会导致磁盘检测不能通过，无法正常进入Ubuntu系统：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dev/sda1: Inodes that were part of a corrupted orphan linked list found.</span><br><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY:; RUN fsck MANUALLY</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br><span class="line">modprobe: module ehci-orion not found <span class="keyword">in</span> modules.dep</span><br><span class="line"></span><br><span class="line">BusyBox v1.22.1 (Debian 1:1.22.0-9+deb8u1) built-in shell (ash)</span><br><span class="line">Enter <span class="string">'help'</span> <span class="keyword">for</span> a list of built-in commands.</span><br><span class="line"></span><br><span class="line">/bin/sh: can<span class="string">'t access tty; job control turned off</span></span><br><span class="line"><span class="string">(initramfs) _</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>解决方法</code>：输入下面指令后，按照提示一路回车（yes）操作后，会自动重启即可解决</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(initramfs) fsck -c /dev/sda1   // 修复对象取决于出错的对象，可以是一块磁盘或者一个VG</span><br></pre></td></tr></table></figure>
+<h3 id="root权限"><a href="#root权限" class="headerlink" title="root权限"></a>root权限</h3><ul>
+<li><code>sudo + 命令</code>，输入当前用户密码后以<code>root权限</code>执行命令，有时间限制且仅限当前命令。</li>
+<li><code>sudo -i</code>，输入当前用户密码后以root权限登录shell，无时间限制。使用<code>exit</code>或<code>logout</code>退出。</li>
+<li><code>su</code>，输入root账户的密码后切换到root身份，无时间限制。su用户名切换回其它用户。</li>
+<li><code>sudo su</code>，效果同su，只是不需要root的密码，而需要当前用户的密码。</li>
+</ul>
+<h3 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h3><ul>
+<li>Ubuntu的默认root密码是<code>随机</code>的，即每次开机都有一个新的root密码。</li>
+<li>如果需要设置root用户密码，命令如下：<ul>
+<li>会需要输入默认用户密码</li>
+<li>设置root用户密码</li>
+<li>确认root用户密码</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改成功后，需要root权限，执行<code>su root</code>命令，输入<code>root密码</code>就可以了。</li>
+</ul>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><h3 id="VIM方向键及删除键"><a href="#VIM方向键及删除键" class="headerlink" title="VIM方向键及删除键"></a>VIM方向键及删除键</h3><ul>
+<li>系统默认自带的vim方向键不能和Mac下一样自如的切换光标位置，会变成ABCD，而且删除键也失效。</li>
+<li><p><code>解决方法</code>：</p>
+<ul>
+<li><p>更新系统的包管理工具，<code>apt-get</code>是Linux自带的<code>包管理工具</code>，类似于Mac系统的<code>homebrew</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除系统自带的<code>vim</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove vim-common</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载安装新的<code>vim</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更多vim相关的知识<a href="https://sevencho.github.io/archives/1c40fe4d.html">传送门</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ssh远程连接"><a href="#ssh远程连接" class="headerlink" title="ssh远程连接"></a>ssh远程连接</h3><ul>
+<li>因为我们需要直接在本地电脑远程访问服务器如我们的虚拟机<code>Ubuntu</code>系统、传输文件等，此时就需要开启<code>ssh服务</code>，linux不同于Mac系统，默认是没有安装<code>ssh服务</code>的，需要我们自行下载安装。</li>
+<li><p>安装<code>ssh服务</code>，命令如下：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确认<code>ssh-server</code>是否启动</p>
+<ul>
+<li><p>如果存在<code>ssh-agent</code>和<code>sshd</code>说明已经开启成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有sshd，需要手动启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ssh-server</code>默认端口是<code>22</code>，可以通过SSH配置文件更改包括端口、是否允许root登录等设置, 配置文件目录如下，修改完成重启<code>ssh-server</code>即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 配置文件目录</span><br><span class="line">/etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">// 可通过vim修改</span><br><span class="line">sudo vi /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">// 重启</span><br><span class="line">sudo /etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于更多<code>ssh远程连接</code>以及<code>远程scp文件传输</code>，可以参考之前写的这篇文章的<a href="https://sevencho.github.io/archives/e38331a.html">SSH部分</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程登录报错"><a href="#远程登录报错" class="headerlink" title="远程登录报错"></a>远程登录报错</h3><ul>
+<li>在本地远程登录<code>linux 服务器</code>系统时，提示<code>Permission denied, please try again.</code> 。</li>
+<li><code>原因</code>：ssh服务默认没有开root用户的ssh权限。所以远程登录时默认下root用户是没有权限的。</li>
+<li><p><code>解决方法</code>：要修改root的ssh权限</p>
+<ul>
+<li>将<code>/etc/ssh/sshd_config</code>文件中<code>PermitRootLogin prohibit-password</code>注释掉（前面加<code>#</code>号）。</li>
+<li><p>添加 <code>PermitRootLogin Yes</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h3><ul>
+<li>若使用桌面可视化窗口，进入该待显示的文件目录，快捷键<code>ctrl + h</code>则显示隐藏文件。</li>
+<li>若使用命令行，则使用命令：<code>ls -a</code>显示所有文件，也包括隐藏文件。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://kb.parallels.com/121370" target="_blank" rel="noopener">Parallels Tools manual installation in Linux virtual machine</a></li>
+<li><a href="https://blog.csdn.net/md1688/article/details/80795097" target="_blank" rel="noopener">Mac使用parallels desktop安装 ubuntu 分辨率问题</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/64bb63f1.html" title="Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置">https://sevencho.github.io/archives/64bb63f1.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/服务器/" rel="tag"><i class="fa fa-tag"></i> 服务器</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/Parallels-Desktop/" rel="tag"><i class="fa fa-tag"></i> Parallels Desktop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/6efe8aae.html" rel="next" title="Swift开发服务端（一）：MySQL安装及配置">
+                <i class="fa fa-chevron-left"></i> Swift开发服务端（一）：MySQL安装及配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SevenCho" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动下载安装"><span class="nav-number">3.1.</span> <span class="nav-text">自动下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动安装"><span class="nav-number">3.2.</span> <span class="nav-text">手动安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Ubuntu安装包"><span class="nav-number">3.2.1.</span> <span class="nav-text">下载Ubuntu安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟机设置"><span class="nav-number">3.2.3.</span> <span class="nav-text">虚拟机设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化配置"><span class="nav-number">4.</span> <span class="nav-text">优化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu全屏设置"><span class="nav-number">4.1.</span> <span class="nav-text">Ubuntu全屏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu分辨率"><span class="nav-number">4.2.</span> <span class="nav-text">Ubuntu分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统文件修复"><span class="nav-number">4.3.</span> <span class="nav-text">系统文件修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root权限"><span class="nav-number">4.4.</span> <span class="nav-text">root权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置root密码"><span class="nav-number">4.5.</span> <span class="nav-text">设置root密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他问题"><span class="nav-number">5.</span> <span class="nav-text">其他问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VIM方向键及删除键"><span class="nav-number">5.1.</span> <span class="nav-text">VIM方向键及删除键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh远程连接"><span class="nav-number">5.2.</span> <span class="nav-text">ssh远程连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程登录报错"><span class="nav-number">5.3.</span> <span class="nav-text">远程登录报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示隐藏文件"><span class="nav-number">5.4.</span> <span class="nav-text">显示隐藏文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">62.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/lib/clipboard/clipboard.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
