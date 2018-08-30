@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="HhBjw6NlG9jv92NsZi5oPfRaClxLx2ldt71WWPQEnMM" />
+<meta name="baidu-site-verification" content="GqAQCqMt8R" />
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,攻防," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta name="keywords" content="iOS,攻防">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">
+<meta property="og:url" content="https://sevencho.github.io/archives/c12f47b1.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_test.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newObj.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newClass.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hook_wechat_effect.png">
+<meta property="og:updated_time" content="2018-08-30T09:16:07.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">
+<meta name="twitter:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_test.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'CoderBoy'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/c12f47b1.html"/>
+
+
+
+
+
+  <title>iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇) | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/c12f47b1.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-29T17:25:45+08:00">
+                2018-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">攻防</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,130
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p>从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。</p>
+<p>——刘亮程《寒风吹彻》</p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hybrid of Objective-C++ and JavaScript syntax through an interactive console that features syntax highlighting and tab completion.<br>(It also runs standalone on Android and Linux and provides access to Java, but without injection.)</p>
+</blockquote>
+<ul>
+<li><code>Cycript</code>是由<code>Cydia</code>创始人<code>Saurik</code>推出的一款脚本语言，<code>Cycript</code> 混合了<code>Objective-C</code>与<code>javascript</code>语法的解释器，这意味着我们能够在一个命令中用<code>Objective-C</code>或者<code>javascript</code>，甚至两者兼用。</li>
+<li>它能够注入正在运行的进程，能够在运行时修改应用的很多东西。</li>
+<li><p><a href="http://www.cycript.org/" target="_blank" rel="noopener">cycript官网</a></p>
+</li>
+<li><p>了解更多：</p>
+<ul>
+<li><a href="https://sevencho.github.io/archives/e38331a.html">iOS攻防（一）： iPhone手机越狱 &amp; SSH</a></li>
+<li><a href="https://sevencho.github.io/archives/bf5c1be0.html">iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用</a></li>
+<li><a href="https://sevencho.github.io/archives/4de69069.html">iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</a></li>
+<li><a href="https://sevencho.github.io/archives/8c50aab9.html">iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件</a></li>
+<li><a href="https://sevencho.github.io/archives/65ed9c65.html">iOS攻防（五）：使用Keychain-Dumper导出keychain数据</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Cycript安装"><a href="#Cycript安装" class="headerlink" title="Cycript安装"></a>Cycript安装</h2><ul>
+<li>安装Cycript有两种方式（手机需越狱）：</li>
+<li>方式一：直接在<code>Cydia</code>搜索<code>Cycript</code>安装，简单方便。</li>
+<li>方式二：通过Linux包管理器安装：<ul>
+<li>首先在手机上<code>Cydia</code>搜索安装 <code>APT 0.6 Transitional</code>包管理工具。</li>
+<li>使用<code>Terminal</code>（如果手机有安装）或者电脑SSH连接手机，通过包管理器安装<code>apt-get install cycript</code>。</li>
+</ul>
+</li>
+<li>终端输入<code>cycript</code>，出现 <code>cy#</code>提示符，说明已经成功启动了<code>Cycript</code>（需要SSH连接手机）。</li>
+<li>如果想要退出<code>Cycript</code>和断开远程登录：<ul>
+<li><code>Control + D</code>快捷键可以退出<code>Cycript</code></li>
+<li>终端输入<code>logout</code>可以断开手机远程登录</li>
+</ul>
+</li>
+</ul>
+<h2 id="Cycript基本用法"><a href="#Cycript基本用法" class="headerlink" title="Cycript基本用法"></a>Cycript基本用法</h2><h3 id="测试Cycript注入头条新闻"><a href="#测试Cycript注入头条新闻" class="headerlink" title="测试Cycript注入头条新闻"></a>测试Cycript注入头条新闻</h3><ul>
+<li>开始使用<code>Cycript</code>，注入一个正在运行（需要再前台）的程序。这里我们以今日头条为例。</li>
+<li>首先使用电脑终端通过<code>SSH</code>连接到手机，不知道如何使用<code>SSH</code>的请参考之前的文章，这里不再赘述。</li>
+<li>获取今日头条app的进程ID，建议清空后台应用，只保留需要hook的App在前台即可。<ul>
+<li><code>News</code>即为今日头条<code>进程名称</code>，如果想知道某个app在运行时候的进程名称，可以下载对应的应用安装包，解压缩找到<code>Payload</code>目录下的<code>xxx.app</code>，其中<code>xxx</code>包名即是进程名称，如微信是<code>WeChat</code>，网易云音乐是<code>NeteaseMusic</code>。</li>
+<li>在运行的进程中查找过滤我们需要的进程名称，命名如下： </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep News</span><br></pre></td></tr></table></figure>
+<ul>
+<li>成功之后，就可以看到今日头条应用进程的一些信息，如进程ID<code>9347</code>，进程的可执行文件路径等待。</li>
+<li>拿到进程ID后，我们就可以注入住这个进程，从而对应用为所欲为了😈，如何注入进程，命令如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cycript -p 9347 // 需要hook的程序打开到前台</span><br><span class="line">// cycript -p News</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时，我们可以简单测下下是否hook成功：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[UIApplication sharedApplication] setStatusBarHidden:YES] // 隐藏状态栏</span><br><span class="line">[[UIApplication sharedApplication] setStatusBarHidden:NO] // 显示状态栏</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/cycript_hock_test.png" alt="cycript_hock_test"></center>
+
+<h3 id="常用数据类型及类型判断"><a href="#常用数据类型及类型判断" class="headerlink" title="常用数据类型及类型判断"></a>常用数据类型及类型判断</h3><ul>
+<li>常用的数据类型（字符串、数组、字典、Bool， NSNumber）和我们在OC中使用的完全一样。</li>
+<li>类型判断使用<code>instanceof</code>，如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cy# @&quot;Hello World&quot; instanceof String</span><br><span class="line">true</span><br><span class="line">cy# @[1, 2, 3] instanceof Array</span><br><span class="line">true</span><br><span class="line">cy# @&quot;Hello World&quot; instanceof Array</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+<h3 id="字符串及数组截取"><a href="#字符串及数组截取" class="headerlink" title="字符串及数组截取"></a>字符串及数组截取</h3><ul>
+<li>字符串及数组截取操作，分别使用<code>substr</code>和<code>slice</code>。</li>
+<li>下标从<code>x</code>开始截取<code>y</code>个长度。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cy# @&quot;Hello World&quot;.substr(0, 5)</span><br><span class="line">&quot;Hello&quot;</span><br><span class="line">cy# @[1, 2, 3].slice(0, 2)</span><br><span class="line">[@1, @2]</span><br></pre></td></tr></table></figure>
+<h3 id="创建及获取对象"><a href="#创建及获取对象" class="headerlink" title="创建及获取对象"></a>创建及获取对象</h3><ul>
+<li>注入程序后，我们可以根据需要创建需要用到的对象，或者根据内存地址获取到内存中的对象。<ul>
+<li>创建对象和OC语法差别不大。</li>
+<li>根据内存地址获取对象，我们可以使用<code>#</code> 或者使用<code>Instance</code>。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 创建对象</span><br><span class="line">var view = [[UIView alloc] init]</span><br><span class="line">[new UIView init]</span><br><span class="line">// 获取对象</span><br><span class="line">#0x1719f9a0</span><br><span class="line">var same = new Instance(0x1719f9a0)</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/cycript_hock_newObj.png" alt="cycript_hock_newObj"></center>
+
+<h3 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h3><ul>
+<li>方法1： 简单基本获取方法。<ul>
+<li>直接在对象前面加个<code>*</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*controller（）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法2：方法一无法获取，就使用方法2</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[i for (i in *UIApp)]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法3：建议方法三，方法三能获取到更多</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function tryPrintIvars(a)&#123; var x=&#123;&#125;; for(i in *a)&#123; try&#123; x[i] = (*a)[i]; &#125; catch(e)&#123;&#125; &#125; return x; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类与增加分类"><a href="#类与增加分类" class="headerlink" title="类与增加分类"></a>类与增加分类</h3><ul>
+<li>类定义及使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@implementation MyClass : NSObject &#123;</span><br><span class="line">    int num;</span><br><span class="line">&#125;</span><br><span class="line">-(int)returnNum &#123;return this -&gt; num;&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/cycript_hock_newClass.png" alt="cycript_hock_newClass"></center>
+
+<ul>
+<li>增加分类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 定义</span><br><span class="line">@implementation NSObject (TestCategory)</span><br><span class="line">    - description &#123;return &quot;test&quot;&#125;</span><br><span class="line">    - (double)calculate:(float)num &#123;return num * 10;&#125;</span><br><span class="line">@end</span><br><span class="line">// 创建对象</span><br><span class="line">test = [new NSObject init]</span><br><span class="line">// 调用分类方法</span><br><span class="line">[test calculate:10]</span><br></pre></td></tr></table></figure>
+<h3 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 定义一个block</span><br><span class="line">cy# testBlock = ^ int (int value) &#123;return value * 10&#125;</span><br><span class="line"></span><br><span class="line">// 调用</span><br><span class="line">cy# testBlock(7)</span><br></pre></td></tr></table></figure>
+<h3 id="查找内存中的类信息"><a href="#查找内存中的类信息" class="headerlink" title="查找内存中的类信息"></a>查找内存中的类信息</h3><ul>
+<li>使用<code>choose()</code>函数可以查找到内存中对应传递进去的类，如查找今日头条首页中的图片控件<code>choose(UIImageView)</code></li>
+<li>输入信息如下（数据太多删除一部分），此时我们就可以通过<code>UIImageView</code>控件的内存地址获取到实例对象，修改对象的各种信息等等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[#&quot;&lt;UIImageView: 0x17112950; frame = (7.5 10; 11 6); clipsToBounds = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x17393410&gt;&gt;&quot;,#&quot;&lt;UIImageView: 0x17114090; frame = (0 0; 0 0); clipsToBounds = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x1736a500&gt;&gt;&quot;,#&quot;&lt;UIImageView: 0x171160a0; frame = (-5 0; 5 0); clipsToBounds = YES; opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x1736a4d0&gt;&gt;&quot;,#&quot;&lt;UIImageView: 0x17138d60; frame = (314.5 -39; 2.5 36); alpha = 0; opaque = NO; autoresize = LM; userInteractionEnabled = NO; layer = &lt;CALayer: 0x17145ad0&gt;&gt;&quot;,#&quot;&lt;SSThemedImageView: 0x1713b090; baseClass = UIImageView; frame = (0 0; 0 0); hidden = YES; opaque = NO; gestureRecognizers = &lt;NSArray: 0x1713b380&gt;; layer = &lt;CALayer: 0x17136fb0&gt;&gt;&quot;,......&quot;,#&quot;&lt;SSThemedImageView: 0x171687b0; baseClass = UIImageV</span><br></pre></td></tr></table></figure>
+<h3 id="打印视图层次结构"><a href="#打印视图层次结构" class="headerlink" title="打印视图层次结构"></a>打印视图层次结构</h3><ul>
+<li>如果我们想知道某个视图的层次结构信息，也可以不使用Reveal，使用下面指令查看整个层次的结构信息：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIApp.keyWindow.recursiveDescription().toString()</span><br></pre></td></tr></table></figure>
+<h3 id="获取某个类的所有内容"><a href="#获取某个类的所有内容" class="headerlink" title="获取某个类的所有内容"></a>获取某个类的所有内容</h3><ul>
+<li>我们可以打印出某个类的所有内容信息：<ul>
+<li>定义执行下面的函数</li>
+<li>定义后就可以获取指定类的信息，调用<code>printMethods(className, isa)</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function printMethods(className, isa) &#123; </span><br><span class="line">    var count = new new Type(&quot;I&quot;);</span><br><span class="line">    var classObj = (isa != undefined) ? objc_getClass(className)-&gt;isa :     </span><br><span class="line">    objc_getClass(className); </span><br><span class="line">    var methods = class_copyMethodList(classObj, count); </span><br><span class="line">    var methodsArray = [];</span><br><span class="line">    for(var i = 0; i &lt; *count; i++) &#123; </span><br><span class="line">        var method = methods[i]; </span><br><span class="line">        methodsArray.push(&#123;selector:method_getName(method),     </span><br><span class="line">        implementation:method_getImplementation(method)&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">        free(methods); </span><br><span class="line">        return methodsArray;</span><br><span class="line">&#125;</span><br><span class="line">printMethods(&quot;UIImageView&quot;, true)</span><br><span class="line">printMethods(&quot;TTArticleTabBarController&quot;, true)</span><br></pre></td></tr></table></figure>
+<h3 id="获取当前控制器"><a href="#获取当前控制器" class="headerlink" title="获取当前控制器"></a>获取当前控制器</h3><ul>
+<li>可以直接打印可见控制器，如果获取不到可用下面的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIApp.keyWindow.rootViewController.visibleViewController</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也打印出当前控制器名称及内存地址<ul>
+<li>定义执行下面的函数</li>
+<li>调用函数<code>var vc = currentVC()</code>，如输出信息<code>#&quot;&lt;TTArticleTabBarController: 0x17a5bc00&gt;&quot;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function currentVC() &#123;</span><br><span class="line">    var app = [UIApplication sharedApplication]  </span><br><span class="line">    var keyWindow = app.keyWindow  </span><br><span class="line">    var rootController = keyWindow.rootViewController  </span><br><span class="line">    var visibleController = rootController.visibleViewController  </span><br><span class="line">    if (!visibleController) &#123;</span><br><span class="line">       return rootController</span><br><span class="line">    &#125;</span><br><span class="line">    return visibleController.childViewControllers[0]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加载系统动态库"><a href="#加载系统动态库" class="headerlink" title="加载系统动态库"></a>加载系统动态库</h3><ul>
+<li>定义执行下面获取系统动态库的函数</li>
+<li>定义好后就可以调用函数如<code>loadFramework(&quot;UIKit&quot;)</code>，传递想要加载的框架名称加载对应的框架。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function loadFramework(fw) &#123; </span><br><span class="line">   var h=&quot;/System/Library/&quot;,t=&quot;Frameworks/&quot;+fw+&quot;.framework&quot;;</span><br><span class="line">   [[NSBundle bundleWithPath:h+t]||</span><br><span class="line">   [NSBundle bundleWithPath:h+&quot;Private&quot;+t] load];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="NSLog打印函数"><a href="#NSLog打印函数" class="headerlink" title="NSLog打印函数"></a>NSLog打印函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSLog_ = dlsym(RTLD_DEFAULT, &quot;NSLog&quot;)</span><br><span class="line">NSLog = function() &#123; </span><br><span class="line">   var types = &apos;v&apos;, args = [], count = arguments.length;</span><br><span class="line">   for (var i = 0; i != count; ++i) &#123;</span><br><span class="line">      types += &apos;@&apos;;</span><br><span class="line">      args.push(arguments[i]);</span><br><span class="line">  &#125; </span><br><span class="line">  new Functor(NSLog_, types).apply(null, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="CG…Make函数"><a href="#CG…Make函数" class="headerlink" title="CG…Make函数"></a>CG…Make函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cy# function CGPointMake(x, y) &#123; return &#123;x:x, y:y&#125;; &#125;</span><br><span class="line">cy# function CGSizeMake(w, h) &#123; return &#123;width:w, height:h&#125;; &#125;</span><br><span class="line">cy# function CGRectMake(x, y, w, h) &#123; return &#123;origin:CGPointMake(x,y), size:CGSizeake(w, h)&#125;; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Cycript一窥微信"><a href="#使用Cycript一窥微信" class="headerlink" title="使用Cycript一窥微信"></a>使用Cycript一窥微信</h2><ul>
+<li>这里综合上面的知识练练手：<ul>
+<li>修改微信登录界面按钮文字及背景颜色</li>
+<li>在登录界面弹出一个Alert弹框</li>
+<li>修改微信登录界面背景图片</li>
+</ul>
+</li>
+</ul>
+<h3 id="注入进程"><a href="#注入进程" class="headerlink" title="注入进程"></a>注入进程</h3><ul>
+<li>获取微信的进程ID，使用Cycript注入微信进程。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep WeChat</span><br><span class="line">cycript -p WeChat</span><br><span class="line">// cycript -p 进程ID // 替换为你的微信进程ID</span><br></pre></td></tr></table></figure>
+<h3 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h3><ul>
+<li>查看微信登录界面的层次结构</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIApp.keyWindow.recursiveDescription().toString()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出的层次结构信息：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">`&lt;iConsoleWindow: 0x14f6e420; baseClass = UIWindow; frame = (0 0; 320 568); gestureRecognizers = &lt;NSArray: 0x14f6dea0&gt;; layer = &lt;UIWindowLayer: 0x14f6e7a0&gt;&gt;</span><br><span class="line">   | &lt;UILayoutContainerView: 0x14e10510; frame = (0 0; 320 568); autoresize = W+H; gestureRecognizers = &lt;NSArray: 0x14e0cd60&gt;; layer = &lt;CALayer: 0x14e103d0&gt;&gt;</span><br><span class="line">   |    | &lt;UINavigationTransitionView: 0x14e0d370; frame = (0 0; 320 568); clipsToBounds = YES; autoresize = W+H; layer = &lt;CALayer: 0x14e0ddd0&gt;&gt;</span><br><span class="line">   |    |    | &lt;UIViewControllerWrapperView: 0x14f312e0; frame = (0 0; 320 568); autoresize = W+H; layer = &lt;CALayer: 0x14f31220&gt;&gt;</span><br><span class="line">   |    |    |    | &lt;UIView: 0x14e15e80; frame = (0 0; 320 568); autoresize = W+H; layer = &lt;CALayer: 0x14ef6410&gt;&gt;</span><br><span class="line">   |    |    |    |    | &lt;UIView: 0x160ce380; frame = (0 20; 320 633); autoresize = W; layer = &lt;CALayer: 0x160c5110&gt;&gt;</span><br><span class="line">   |    |    |    |    |    | &lt;UIImageView: 0x14f2bef0; frame = (0 -20; 320 568); opaque = NO; userInteractionEnabled = NO; layer = &lt;CALayer: 0x14f2bff0&gt;&gt;</span><br><span class="line">   |    |    |    |    | &lt;UIView: 0x160ce5b0; frame = (0 483; 320 65); autoresize = W+TM; layer = &lt;CALayer: 0x160ce690&gt;&gt;</span><br><span class="line">   |    |    |    |    |    | &lt;FixTitleColorButton: 0x160ce750; baseClass = UIButton; frame = (20 18; 130 47); clipsToBounds = YES; opaque = NO; autoresize = RM; layer = &lt;CALayer: 0x14f2c140&gt;&gt;</span><br><span class="line">   |    |    |    |    |    |    | &lt;UIButtonLabel: 0x160ce980; frame = (46.5 13; 37 21.5); text = <span class="string">'\u767b\u5f55'</span>; opaque = NO; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x160ceae0&gt;&gt;</span><br><span class="line">   |    |    |    |    |    |    |    | &lt;_UILabelContentLayer: 0x160cfc90&gt; (layer)</span><br><span class="line">   |    |    |    |    |    | &lt;FixTitleColorButton: 0x160ced10; baseClass = UIButton; frame = (170 18; 130 47); clipsToBounds = YES; opaque = NO; autoresize = LM; layer = &lt;CALayer: 0x160ceeb0&gt;&gt;</span><br><span class="line">   |    |    |    |    |    |    | &lt;UIButtonLabel: 0x14f2c5f0; frame = (46.5 13; 37 21.5); text = <span class="string">'\u6ce8\u518c'</span>; opaque = NO; userInteractionEnabled = NO; layer = &lt;_UILabelLayer: 0x14f2c750&gt;&gt;</span><br><span class="line">   |    |    |    |    |    |    |    | &lt;_UILabelContentLayer: 0x160d0cd0&gt; (layer)</span><br><span class="line">   |    |</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Command + F</code> 搜索<code>UIButton</code>，可以找到有两个UIButton对象，并且text属性是显示的Unicode编码（中文在里面显示的就是Unicode字符编码）。我们可以在在线的Unicode和中文互转网站转换一下，如<a href="http://www.atool.org/chinese2unicode.php" target="_blank" rel="noopener">这个网站</a>，可以看到对应的刚好就是界面上显示的<code>登录</code>和<code>注册</code>。</li>
+<li>我们就可以拿到每一个的对应的按钮对象，改变按钮显示文字：<ul>
+<li>如我拿到的登录按钮内存地址：<code>0x19c87130</code></li>
+<li>注册按钮内存地址：<code>0x19cd4470</code></li>
+<li>注意设置中文时需要将中文转为Unicode编码。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#0x19c87130.titleLabel.text = @&quot;\u52ab\u8d22&quot;  // \u52ab\u8d22 == &quot;劫财&quot;</span><br><span class="line">#0x19cd4470.titleLabel.text = @&quot;\u52ab\u8272&quot;  // \u52ab\u8272 == &quot;劫色&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="修改按钮文字背景颜色："><a href="#修改按钮文字背景颜色：" class="headerlink" title="修改按钮文字背景颜色："></a>修改按钮文字背景颜色：</h3><ul>
+<li>我们搜索上一步获取到的层次结构信息，可以找到叫<code>UIButtonLabel</code>的对象，修改按钮文字背景就是修改<code>UIButtonLabel</code>的背景颜色</li>
+<li>只需要根据<code>UIButtonLabel</code>地址修改即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#0x15f4f590.backgroundColor = [UIColor redColor]</span><br><span class="line">#0x15f4ffb0.backgroundColor = [UIColor greenColor]</span><br></pre></td></tr></table></figure>
+<h3 id="弹出一个Alert弹框"><a href="#弹出一个Alert弹框" class="headerlink" title="弹出一个Alert弹框"></a>弹出一个<code>Alert</code>弹框</h3><ul>
+<li>如果对方法签名不熟悉，可以在<code>Xcode</code>中打出来后拷贝进终端</li>
+<li>尽量不要有中文和表情</li>
+<li>也可以在系统桌面弹出，需要注入到系统的桌面进程<code>SBHomeScreenWindow</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var alert = [[UIAlertView alloc] initWithTitle:@&quot;Hack You&quot; message:@&quot;I&apos;ve hacked you&quot; delegate:nil cancelButtonTitle:@&quot;No pay&quot; otherButtonTitles:@&quot;Pay&quot;, nil];</span><br><span class="line">[alert show];</span><br></pre></td></tr></table></figure>
+<h3 id="修改微信登录界面背景图片"><a href="#修改微信登录界面背景图片" class="headerlink" title="修改微信登录界面背景图片"></a>修改微信登录界面背景图片</h3><ul>
+<li>如果我们想替换微信的某个图片，这里以登录界面背景为例子，只需要将我们自己的图片放在微信的某个目录下，如<code>Document</code>下，然后修改背景图片控件的图片即可。</li>
+<li><p>将图片放入对应的文档目录下：</p>
+<ul>
+<li>可以直接使用工具<code>iMazing</code>，也可以使用<code>scp</code>命令远程传输（越狱第一篇文章SS部分），看个人爱好。</li>
+</ul>
+</li>
+<li><p>获取微信的文档目录路径地址：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cy<span class="comment"># [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0]</span></span><br><span class="line"></span><br><span class="line">// 输出文档目录路径地址</span><br><span class="line"> <span class="comment">#"file:///var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/"</span></span><br><span class="line"> </span><br><span class="line"> // 图片加载路径地址</span><br><span class="line"> /var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 在层次结构信息中查找`UIImageView`即为背景图片控件，根据内存地址获取到图片对象，然后重新设置图片:</span><br><span class="line">    - 如我获取到的图片控件内存地址是`0x14706110`</span><br><span class="line">    - 我放在文档目录的替换图片为`wechat_testBg.jpg`</span><br><span class="line"></span><br><span class="line">```object-c</span><br><span class="line"> <span class="comment">#0x14706110.image = [UIImage imageWithContentsOfFile:@"/var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Docments/wechat_testBg.jpg"]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>综合效果图（没修改文字背景颜色）</li>
+</ul>
+<center><img src="/uploads/assets/cycript_hook_wechat_effect.png" alt="cycript_hook_wechat_effect"></center>
+
+<ul>
+<li>其他好玩的大家可以自行测试：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 截屏</span><br><span class="line">cy# var shot = [SBScreenShotter sharedInstance]</span><br><span class="line">cy# [shot saveScreenshot:YES]</span><br><span class="line"></span><br><span class="line">// 隐藏桌面</span><br><span class="line">cy# UIApp.keyWindow // 获取SBHomeScreenWindow对象地址，SBHomeScreenWindow就是桌面Window</span><br><span class="line">cy# screen = #0xxxxxxxxxx(上一步获取到的内存地址) </span><br><span class="line"></span><br><span class="line">cy# screen.hidden = YES // 隐藏</span><br><span class="line">cy# screen.hidden = NO // 显示</span><br><span class="line"></span><br><span class="line">// 改变手机的背景色</span><br><span class="line">cy# screen.backgroundColor = [UIColor redColor]</span><br><span class="line"></span><br><span class="line">// 设置badge</span><br><span class="line">cy# [[UIApplication sharedApplication] setApplicationIconBadgeNumber:100]</span><br></pre></td></tr></table></figure>
+<h2 id="防"><a href="#防" class="headerlink" title="防"></a>防</h2><ul>
+<li>通过一系列文章的介绍及实战，可以看到我们的App面临的安全问题是多么的可怕，也意识到保护app数据的重要性。</li>
+<li>但是既然知道了这么多可能导致不安全的点，就要做好相应的防，保护重要数据不被攻击者使用<code>Cycript</code>或者<code>Runtime</code>修改，这里有一篇文章对如何防范介绍的很详细，大家可以<a href="http://www.cocoachina.com/ios/20150511/11801.html" target="_blank" rel="noopener">参考下</a>。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.cycript.org/manual/#4dd1ca6b-2bd5-48e4-a0ee-06b0947880f5" target="_blank" rel="noopener">Cycript Manual</a></li>
+<li><a href="https://www.jianshu.com/p/bb65b76c1b4b" target="_blank" rel="noopener">iOS逆向-用Cycript进行运行时分析(微信应用)</a></li>
+<li><a href="https://www.jianshu.com/p/7c41b03c9eb3" target="_blank" rel="noopener">iOS逆向工程（4）Cycript脚本语言使用与实战</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+    
+    </div>
+
+    <div>
+     
+     
+
+     
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    曹雪松
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/c12f47b1.html" title="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">https://sevencho.github.io/archives/c12f47b1.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/攻防/" rel="tag"><i class="fa fa-tag"></i> 攻防</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/f7d447dc.html" rel="next" title="Swift开发服务端（三）：Perfect再次初体验">
+                <i class="fa fa-chevron-left"></i> Swift开发服务端（三）：Perfect再次初体验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SevenCho" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript安装"><span class="nav-number">2.</span> <span class="nav-text">Cycript安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript基本用法"><span class="nav-number">3.</span> <span class="nav-text">Cycript基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试Cycript注入头条新闻"><span class="nav-number">3.1.</span> <span class="nav-text">测试Cycript注入头条新闻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型及类型判断"><span class="nav-number">3.2.</span> <span class="nav-text">常用数据类型及类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串及数组截取"><span class="nav-number">3.3.</span> <span class="nav-text">字符串及数组截取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建及获取对象"><span class="nav-number">3.4.</span> <span class="nav-text">创建及获取对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象信息"><span class="nav-number">3.5.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类与增加分类"><span class="nav-number">3.6.</span> <span class="nav-text">类与增加分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block"><span class="nav-number">3.7.</span> <span class="nav-text">Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找内存中的类信息"><span class="nav-number">3.8.</span> <span class="nav-text">查找内存中的类信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印视图层次结构"><span class="nav-number">3.9.</span> <span class="nav-text">打印视图层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取某个类的所有内容"><span class="nav-number">3.10.</span> <span class="nav-text">获取某个类的所有内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前控制器"><span class="nav-number">3.11.</span> <span class="nav-text">获取当前控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载系统动态库"><span class="nav-number">3.12.</span> <span class="nav-text">加载系统动态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog打印函数"><span class="nav-number">3.13.</span> <span class="nav-text">NSLog打印函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CG…Make函数"><span class="nav-number">3.14.</span> <span class="nav-text">CG…Make函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Cycript一窥微信"><span class="nav-number">4.</span> <span class="nav-text">使用Cycript一窥微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入进程"><span class="nav-number">4.1.</span> <span class="nav-text">注入进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次结构"><span class="nav-number">4.2.</span> <span class="nav-text">层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改按钮文字背景颜色："><span class="nav-number">4.3.</span> <span class="nav-text">修改按钮文字背景颜色：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出一个Alert弹框"><span class="nav-number">4.4.</span> <span class="nav-text">弹出一个Alert弹框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改微信登录界面背景图片"><span class="nav-number">4.5.</span> <span class="nav-text">修改微信登录界面背景图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防"><span class="nav-number">5.</span> <span class="nav-text">防</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">71.3k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/lib/clipboard/clipboard.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

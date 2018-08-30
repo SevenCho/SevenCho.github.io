@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-08-24T09:41:53.299Z</updated>
+  <updated>2018-08-30T09:16:07.413Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)</title>
+    <link href="https://sevencho.github.io/archives/c12f47b1.html"/>
+    <id>https://sevencho.github.io/archives/c12f47b1.html</id>
+    <published>2018-08-29T09:25:45.000Z</published>
+    <updated>2018-08-30T09:16:07.413Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。&lt;/p&gt;
+&lt;p&gt;——刘亮程《寒风吹彻》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 i
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Swift开发服务端（三）：Perfect再次初体验</title>
     <link href="https://sevencho.github.io/archives/f7d447dc.html"/>
     <id>https://sevencho.github.io/archives/f7d447dc.html</id>
     <published>2018-08-24T07:25:25.000Z</published>
-    <updated>2018-08-24T09:41:53.299Z</updated>
+    <updated>2018-08-27T08:44:55.273Z</updated>
     
     <summary type="html">
     
@@ -239,7 +271,7 @@
     <link href="https://sevencho.github.io/archives/65ed9c65.html"/>
     <id>https://sevencho.github.io/archives/65ed9c65.html</id>
     <published>2018-07-10T07:54:45.000Z</published>
-    <updated>2018-07-10T09:43:18.401Z</updated>
+    <updated>2018-08-29T09:32:31.804Z</updated>
     
     <summary type="html">
     
@@ -271,7 +303,7 @@
     <link href="https://sevencho.github.io/archives/8c50aab9.html"/>
     <id>https://sevencho.github.io/archives/8c50aab9.html</id>
     <published>2018-07-09T01:25:45.000Z</published>
-    <updated>2018-07-10T08:44:54.167Z</updated>
+    <updated>2018-08-29T09:32:16.673Z</updated>
     
     <summary type="html">
     
@@ -303,7 +335,7 @@
     <link href="https://sevencho.github.io/archives/4de69069.html"/>
     <id>https://sevencho.github.io/archives/4de69069.html</id>
     <published>2018-07-06T07:47:45.000Z</published>
-    <updated>2018-07-09T08:51:17.058Z</updated>
+    <updated>2018-08-29T09:31:56.377Z</updated>
     
     <summary type="html">
     
@@ -335,7 +367,7 @@
     <link href="https://sevencho.github.io/archives/bf5c1be0.html"/>
     <id>https://sevencho.github.io/archives/bf5c1be0.html</id>
     <published>2018-07-05T10:27:45.000Z</published>
-    <updated>2018-07-09T08:51:36.757Z</updated>
+    <updated>2018-08-29T09:31:26.882Z</updated>
     
     <summary type="html">
     
@@ -595,35 +627,6 @@
       <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
     
       <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>敏捷开发</title>
-    <link href="https://sevencho.github.io/archives/ed2e9abb.html"/>
-    <id>https://sevencho.github.io/archives/ed2e9abb.html</id>
-    <published>2018-02-15T05:43:17.000Z</published>
-    <updated>2018-08-22T10:09:16.920Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;春日游，杏花吹满头。&lt;br&gt;陌上谁家年少足风流？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;传统的软件开发模式需要经历问题评估、计划解决方案、设计系统架构、开发代码、测试、部署和使用系统、维护解决方案等过程。&lt;/li&gt;
-&lt;li
-      
-    
-    </summary>
-    
-      <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
-    
-    
-      <category term="敏捷开发" scheme="https://sevencho.github.io/tags/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   

@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/keyChain_chmod_read.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/keyChain_dumper.png">
-<meta property="og:updated_time" content="2018-07-10T09:43:18.401Z">
+<meta property="og:updated_time" content="2018-08-29T09:32:31.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（五）：使用Keychain-Dumper导出keychain数据">
 <meta name="twitter:description" content="生为冰山，就该淡淡地爱海流、爱风，并且在偶然接触时，全心全意地爱另一块冰山。 ——王小波 《似水柔情》  简介 根据苹果的介绍，iOS设备中的Keychain是一个安全的存储容器，可以用来为不同应用保存敏感信息比如用户名，密码，网络密码，认证令牌。苹果自己用keychain来保存Wi-Fi网络密码，VPN凭证等等。它是一个在所有app之外的sqlite数据库。 keychain可以说是系统里唯">
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  755
+                  831
                 </span>
               
 
@@ -458,7 +458,16 @@
 <li><code>keychain</code>可以说是系统里唯一可以做到安全可靠存储应用敏感数据并且可以在应用卸载或重新安装时仍然保留其数据的地方。当使用itunes进行数据备份时，每个应用程序在keychain里的数据都会得到备份,而且备份的数据是经过加密的。</li>
 <li>鉴于keychain的这些特性，使得它成为开发者存储应用敏感数据的首选，应用程序常见的敏感数据通常有密码，秘钥等等。</li>
 <li>但是，以上所讨论的安全仅限于手机不越狱为前提！！如果手机越狱我们可以使用<code>Keychain-Dumper</code>获取到<code>KeyChain</code>中的所有数据，不知道是算幸运还是不幸。</li>
-<li>所有资料文件&amp;工具<a href="https://github.com/SevenCho/BlogRepo" target="_blank" rel="noopener">在这里</a></li>
+<li><p>所有资料文件&amp;工具<a href="https://github.com/SevenCho/BlogRepo" target="_blank" rel="noopener">在这里</a></p>
+</li>
+<li><p>了解更多：</p>
+<ul>
+<li><a href="https://sevencho.github.io/archives/e38331a.html">iOS攻防（一）： iPhone手机越狱 &amp; SSH</a></li>
+<li><a href="https://sevencho.github.io/archives/bf5c1be0.html">iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用</a></li>
+<li><a href="https://sevencho.github.io/archives/4de69069.html">iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</a></li>
+<li><a href="https://sevencho.github.io/archives/8c50aab9.html">iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="KeyChain数据库权限"><a href="#KeyChain数据库权限" class="headerlink" title="KeyChain数据库权限"></a>KeyChain数据库权限</h2><h3 id="KeyChain数据库"><a href="#KeyChain数据库" class="headerlink" title="KeyChain数据库"></a>KeyChain数据库</h3><ul>
 <li>所有存储在<code>KeyChain</code>中的数据，实际上是保存在一个<code>keychain-2.db</code>的数据库中。</li>
@@ -696,7 +705,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -808,7 +817,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.3k</span>
+    <span title="Site words total count">71.3k</span>
   
 </div>
 

@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iPhone_support_sdk.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header_file.png">
-<meta property="og:updated_time" content="2018-07-10T08:44:54.167Z">
+<meta property="og:updated_time" content="2018-08-29T09:32:16.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件">
 <meta name="twitter:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,396
+                  2,456
                 </span>
               
 
@@ -461,7 +461,15 @@
 <li><code>class-dump</code>是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的<code>runtime</code>的特性，将存储在<code>mach-O</code>文件中的类/分类/协议等头文件信息提取出来并生产.h文件。</li>
 <li>从AppStore下载的App是被苹果加密过的，可执行文件被套上了一层保护壳， 而<code>class-dump</code>无法作用于加密过的App。 在这种情况下，想要获取头文件，需要先解密App的可执行文件，俗称“砸壳”。 <code>dumpdecrypted</code>就是由越狱社区的知名人士<code>Stefan Esser</code>出品的一款砸壳工具，被广泛运用在iOS逆向工程研究中。</li>
 <li>注意：如果不砸壳，直接使用<code>class-dump</code>现在已经无法dump出头文件的（之前可以dump出头文件但是是加密的），只会生成一个<code>CDStructures.h</code>文件.</li>
-<li>所有资料文件&amp;工具在<a href="https://github.com/SevenCho/BlogRepo" target="_blank" rel="noopener">这里</a></li>
+<li><p>所有资料文件&amp;工具在<a href="https://github.com/SevenCho/BlogRepo" target="_blank" rel="noopener">这里</a></p>
+</li>
+<li><p>了解更多：</p>
+<ul>
+<li><a href="https://sevencho.github.io/archives/e38331a.html">iOS攻防（一）： iPhone手机越狱 &amp; SSH</a></li>
+<li><a href="https://sevencho.github.io/archives/bf5c1be0.html">iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用</a></li>
+<li><a href="https://sevencho.github.io/archives/4de69069.html">iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="class-dump"><a href="#class-dump" class="headerlink" title="class-dump"></a>class-dump</h2><h3 id="下载安装class-dump"><a href="#下载安装class-dump" class="headerlink" title="下载安装class-dump"></a>下载安装class-dump</h3><ul>
 <li>关于的<code>class-dump</code>详细安装方法，请<a href="https://sevencho.github.io/archives/24e561e5.html">点击这里</a></li>
@@ -826,7 +834,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -938,7 +946,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.3k</span>
+    <span title="Site words total count">71.3k</span>
   
 </div>
 
