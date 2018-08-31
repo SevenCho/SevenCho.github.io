@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/keyChain_chmod_read.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/keyChain_dumper.png">
-<meta property="og:updated_time" content="2018-08-29T09:32:31.804Z">
+<meta property="og:updated_time" content="2018-08-31T08:56:01.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（五）：使用Keychain-Dumper导出keychain数据">
 <meta name="twitter:description" content="生为冰山，就该淡淡地爱海流、爱风，并且在偶然接触时，全心全意地爱另一块冰山。 ——王小波 《似水柔情》  简介 根据苹果的介绍，iOS设备中的Keychain是一个安全的存储容器，可以用来为不同应用保存敏感信息比如用户名，密码，网络密码，认证令牌。苹果自己用keychain来保存Wi-Fi网络密码，VPN凭证等等。它是一个在所有app之外的sqlite数据库。 keychain可以说是系统里唯">
@@ -481,7 +481,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /private/var/Keychains/</span><br><span class="line"></span><br><span class="line">chmod +r keychain-2.db</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /private/var/Keychains/</span><br><span class="line"></span><br><span class="line">chmod +r keychain-2.db</span><br></pre></td></tr></table></figure>
 <center><img src="/uploads/assets/keyChain_chmod_read.png" alt="keyChain_chmod_read"></center>
 
 <h2 id="Keychain-Dumper"><a href="#Keychain-Dumper" class="headerlink" title="Keychain-Dumper"></a>Keychain-Dumper</h2><h3 id="下载安装Keychain-Dumper"><a href="#下载安装Keychain-Dumper" class="headerlink" title="下载安装Keychain-Dumper"></a>下载安装Keychain-Dumper</h3><ul>
@@ -491,22 +491,22 @@
 <li>将下载的<code>Keychain-Dumper</code>文件夹内的<code>keychain_dumper</code>可执行文件传输至手机指定路径，如我放在手机<code>/bin</code>目录下</li>
 <li>可以使用电脑助手，也可以使用指令操作如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> // 退出SSH连接手机</span><br><span class="line"></span><br><span class="line">scp ~/Desktop/Keychain-Dumper/keychain_dumper root@192.168.1.60:/bin/keychain_dumper</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit // 退出SSH连接手机</span><br><span class="line"></span><br><span class="line">scp ~/Desktop/Keychain-Dumper/keychain_dumper root@192.168.1.60:/bin/keychain_dumper</span><br></pre></td></tr></table></figure>
 <h4 id="导出KeyChain数据"><a href="#导出KeyChain数据" class="headerlink" title="导出KeyChain数据"></a>导出KeyChain数据</h4><ul>
 <li><p>使用SSH连接手机，进入Root目录</p>
 </li>
 <li><p>可以直接执行上一步传输的可执行文件，会在终端直接输出<code>dumper</code>的<code>KeyChain</code>内容。</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./keychain_dumper</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./keychain_dumper</span><br></pre></td></tr></table></figure>
 <ul>
 <li>也可以执行上一步传输的可执行文件，并导出为txt文本方便查看</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/keychain_dumper &gt; keychain-export.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/keychain_dumper &gt; keychain-export.txt</span><br></pre></td></tr></table></figure>
 <ul>
 <li>将导出的文本文件，传输至电脑上查看, 可以使用电脑助手，也可以使用命令操作如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /bin</span><br><span class="line">scp root@192.168.1.60:keychain-export.txt ~/Desktop/keychain-export.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /bin</span><br><span class="line">scp root@192.168.1.60:keychain-export.txt ~/Desktop/keychain-export.txt</span><br></pre></td></tr></table></figure>
 <center><img src="/uploads/assets/keyChain_dumper.png" alt="keyChain_dumper"></center>
 
 <ul>
