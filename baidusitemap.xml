@@ -4,8 +4,52 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/d3400f8e.html</loc>
+    <lastmod>2018-08-31T03:02:53.197Z</lastmod>
+    <data>
+        <display>
+        <title>记一次iOS使用XTEA微型加密算法</title>
+        <pubTime>2018-08-31T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>XTEA</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/8e3becb8.html</loc>
+    <lastmod>2018-08-31T02:20:29.463Z</lastmod>
+    <data>
+        <display>
+        <title>记一次Hexo博客部署缓慢的解决办法</title>
+        <pubTime>2018-08-30T01:25:25.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/c12f47b1.html</loc>
-    <lastmod>2018-08-30T09:16:14.988Z</lastmod>
+    <lastmod>2018-08-31T01:31:48.415Z</lastmod>
     <data>
         <display>
         <title>iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)</title>

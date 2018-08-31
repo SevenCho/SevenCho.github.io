@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newObj.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newClass.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hook_wechat_effect.png">
-<meta property="og:updated_time" content="2018-08-30T09:16:14.988Z">
+<meta property="og:updated_time" content="2018-08-31T01:31:48.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">
 <meta name="twitter:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,130
+                  3,265
                 </span>
               
 
@@ -652,6 +652,10 @@
 <li>其他好玩的大家可以自行测试：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 截屏</span><br><span class="line">cy# var shot = [SBScreenShotter sharedInstance]</span><br><span class="line">cy# [shot saveScreenshot:YES]</span><br><span class="line"></span><br><span class="line">// 隐藏桌面</span><br><span class="line">cy# UIApp.keyWindow // 获取SBHomeScreenWindow对象地址，SBHomeScreenWindow就是桌面Window</span><br><span class="line">cy# screen = #0xxxxxxxxxx(上一步获取到的内存地址) </span><br><span class="line"></span><br><span class="line">cy# screen.hidden = YES // 隐藏</span><br><span class="line">cy# screen.hidden = NO // 显示</span><br><span class="line"></span><br><span class="line">// 改变手机的背景色</span><br><span class="line">cy# screen.backgroundColor = [UIColor redColor]</span><br><span class="line"></span><br><span class="line">// 设置badge</span><br><span class="line">cy# [[UIApplication sharedApplication] setApplicationIconBadgeNumber:100]</span><br></pre></td></tr></table></figure>
+<h2 id="福利"><a href="#福利" class="headerlink" title="福利"></a>福利</h2><ul>
+<li>如果感觉上面一些函数比较复杂，不想每次都去敲一次，那么福利来了，<code>MJRefresh</code>作者将一些Cycript实现的一些实用函数封装成一个脚本放在<code>GitHub</code>上面，基本上囊括了我们上面的那些，还有一些其他的比较常用的函数。</li>
+<li>需要的小伙伴们可以直接去<a href="https://github.com/CoderMJLee/mjcript" target="_blank" rel="noopener">在这里下载</a>，至于如何使用大家看文档就可以了，比较简单，都是中文就没必要我在转述一遍了。</li>
+</ul>
 <h2 id="防"><a href="#防" class="headerlink" title="防"></a>防</h2><ul>
 <li>通过一系列文章的介绍及实战，可以看到我们的App面临的安全问题是多么的可怕，也意识到保护app数据的重要性。</li>
 <li>但是既然知道了这么多可能导致不安全的点，就要做好相应的防，保护重要数据不被攻击者使用<code>Cycript</code>或者<code>Runtime</code>修改，这里有一篇文章对如何防范介绍的很详细，大家可以<a href="http://www.cocoachina.com/ios/20150511/11801.html" target="_blank" rel="noopener">参考下</a>。</li>
@@ -767,6 +771,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/archives/8e3becb8.html" rel="prev" title="记一次Hexo博客部署缓慢的解决办法">
+                记一次Hexo博客部署缓慢的解决办法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -846,7 +854,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -868,7 +876,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -924,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript安装"><span class="nav-number">2.</span> <span class="nav-text">Cycript安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript基本用法"><span class="nav-number">3.</span> <span class="nav-text">Cycript基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试Cycript注入头条新闻"><span class="nav-number">3.1.</span> <span class="nav-text">测试Cycript注入头条新闻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型及类型判断"><span class="nav-number">3.2.</span> <span class="nav-text">常用数据类型及类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串及数组截取"><span class="nav-number">3.3.</span> <span class="nav-text">字符串及数组截取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建及获取对象"><span class="nav-number">3.4.</span> <span class="nav-text">创建及获取对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象信息"><span class="nav-number">3.5.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类与增加分类"><span class="nav-number">3.6.</span> <span class="nav-text">类与增加分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block"><span class="nav-number">3.7.</span> <span class="nav-text">Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找内存中的类信息"><span class="nav-number">3.8.</span> <span class="nav-text">查找内存中的类信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印视图层次结构"><span class="nav-number">3.9.</span> <span class="nav-text">打印视图层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取某个类的所有内容"><span class="nav-number">3.10.</span> <span class="nav-text">获取某个类的所有内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前控制器"><span class="nav-number">3.11.</span> <span class="nav-text">获取当前控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载系统动态库"><span class="nav-number">3.12.</span> <span class="nav-text">加载系统动态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog打印函数"><span class="nav-number">3.13.</span> <span class="nav-text">NSLog打印函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CG…Make函数"><span class="nav-number">3.14.</span> <span class="nav-text">CG…Make函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Cycript一窥微信"><span class="nav-number">4.</span> <span class="nav-text">使用Cycript一窥微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入进程"><span class="nav-number">4.1.</span> <span class="nav-text">注入进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次结构"><span class="nav-number">4.2.</span> <span class="nav-text">层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改按钮文字背景颜色："><span class="nav-number">4.3.</span> <span class="nav-text">修改按钮文字背景颜色：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出一个Alert弹框"><span class="nav-number">4.4.</span> <span class="nav-text">弹出一个Alert弹框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改微信登录界面背景图片"><span class="nav-number">4.5.</span> <span class="nav-text">修改微信登录界面背景图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防"><span class="nav-number">5.</span> <span class="nav-text">防</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript安装"><span class="nav-number">2.</span> <span class="nav-text">Cycript安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cycript基本用法"><span class="nav-number">3.</span> <span class="nav-text">Cycript基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试Cycript注入头条新闻"><span class="nav-number">3.1.</span> <span class="nav-text">测试Cycript注入头条新闻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用数据类型及类型判断"><span class="nav-number">3.2.</span> <span class="nav-text">常用数据类型及类型判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串及数组截取"><span class="nav-number">3.3.</span> <span class="nav-text">字符串及数组截取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建及获取对象"><span class="nav-number">3.4.</span> <span class="nav-text">创建及获取对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象信息"><span class="nav-number">3.5.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类与增加分类"><span class="nav-number">3.6.</span> <span class="nav-text">类与增加分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block"><span class="nav-number">3.7.</span> <span class="nav-text">Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找内存中的类信息"><span class="nav-number">3.8.</span> <span class="nav-text">查找内存中的类信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印视图层次结构"><span class="nav-number">3.9.</span> <span class="nav-text">打印视图层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取某个类的所有内容"><span class="nav-number">3.10.</span> <span class="nav-text">获取某个类的所有内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前控制器"><span class="nav-number">3.11.</span> <span class="nav-text">获取当前控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载系统动态库"><span class="nav-number">3.12.</span> <span class="nav-text">加载系统动态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog打印函数"><span class="nav-number">3.13.</span> <span class="nav-text">NSLog打印函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CG…Make函数"><span class="nav-number">3.14.</span> <span class="nav-text">CG…Make函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Cycript一窥微信"><span class="nav-number">4.</span> <span class="nav-text">使用Cycript一窥微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入进程"><span class="nav-number">4.1.</span> <span class="nav-text">注入进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次结构"><span class="nav-number">4.2.</span> <span class="nav-text">层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改按钮文字背景颜色："><span class="nav-number">4.3.</span> <span class="nav-text">修改按钮文字背景颜色：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出一个Alert弹框"><span class="nav-number">4.4.</span> <span class="nav-text">弹出一个Alert弹框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改微信登录界面背景图片"><span class="nav-number">4.5.</span> <span class="nav-text">修改微信登录界面背景图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#福利"><span class="nav-number">5.</span> <span class="nav-text">福利</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防"><span class="nav-number">6.</span> <span class="nav-text">防</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -958,7 +966,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.3k</span>
+    <span title="Site words total count">73.7k</span>
   
 </div>
 

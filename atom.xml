@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-08-30T09:16:14.988Z</updated>
+  <updated>2018-08-31T03:02:53.197Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -17,11 +17,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>记一次iOS使用XTEA微型加密算法</title>
+    <link href="https://sevencho.github.io/archives/d3400f8e.html"/>
+    <id>https://sevencho.github.io/archives/d3400f8e.html</id>
+    <published>2018-08-31T01:25:25.000Z</published>
+    <updated>2018-08-31T03:02:53.197Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;许多年后有一股寒风，从我自以为火热温暖的从未被寒冷侵入的内心深处阵阵袭来时，我才发现穿再厚的棉衣也没用了。生命本身有一个冬天，它已经来临。&lt;/p&gt;
+&lt;p&gt;——刘亮程《寒风吹彻》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="XTEA" scheme="https://sevencho.github.io/tags/XTEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次Hexo博客部署缓慢的解决办法</title>
+    <link href="https://sevencho.github.io/archives/8e3becb8.html"/>
+    <id>https://sevencho.github.io/archives/8e3becb8.html</id>
+    <published>2018-08-30T01:25:25.000Z</published>
+    <updated>2018-08-31T02:20:29.463Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;况且，一个人要活的真实就难免不把别人的一生当一场戏。看不见的岁月是可怕的。&lt;/p&gt;
+&lt;p&gt;——刘亮程《一个人的村庄》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlin
+      
+    
+    </summary>
+    
+      <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)</title>
     <link href="https://sevencho.github.io/archives/c12f47b1.html"/>
     <id>https://sevencho.github.io/archives/c12f47b1.html</id>
     <published>2018-08-29T09:25:45.000Z</published>
-    <updated>2018-08-30T09:16:14.988Z</updated>
+    <updated>2018-08-31T01:31:48.415Z</updated>
     
     <summary type="html">
     
@@ -569,64 +629,6 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="蓝牙" scheme="https://sevencho.github.io/tags/%E8%93%9D%E7%89%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之地图篇(三):历史轨迹记录</title>
-    <link href="https://sevencho.github.io/archives/b47045de.html"/>
-    <id>https://sevencho.github.io/archives/b47045de.html</id>
-    <published>2018-04-20T14:31:26.000Z</published>
-    <updated>2018-06-28T06:03:14.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;月落乌啼霜满天，江枫渔火对愁眠。&lt;br&gt;姑苏城外寒山寺，夜半钟声到客船。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="地图" scheme="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="地图" scheme="https://sevencho.github.io/tags/%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客搭建</title>
-    <link href="https://sevencho.github.io/archives/b8f4bd70.html"/>
-    <id>https://sevencho.github.io/archives/b8f4bd70.html</id>
-    <published>2018-04-15T03:53:53.000Z</published>
-    <updated>2018-08-22T10:10:10.916Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;之前在学习编程和开始工作的时候，也都有整理和写笔记的习惯，笔记一直是使用Gitbook编辑整理和同步的，也有想搭建一个自己的博客但是又因为自己太懒散，而且感觉搭建博客比较复杂，所以就一直没有付诸行动；直到最近偶然看到介绍使用Hexo + 
-      
-    
-    </summary>
-    
-      <category term="整理" scheme="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
-    
-    
-      <category term="Blog" scheme="https://sevencho.github.io/tags/Blog/"/>
-    
-      <category term="Hexo" scheme="https://sevencho.github.io/tags/Hexo/"/>
     
   </entry>
   
