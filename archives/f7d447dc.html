@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/mysql_t-user.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/mysql_t-note.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_register_test.png">
-<meta property="og:updated_time" content="2018-08-27T08:44:55.273Z">
+<meta property="og:updated_time" content="2018-08-31T08:46:33.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift开发服务端（三）：Perfect再次初体验">
 <meta name="twitter:description" content="多少年后当眼前的一切成为结局，时间改变了我，改变了村里的一切。整个老掉的一代人，坐在黄昏里感叹岁月流逝、沧桑巨变。没人知道有些东西是被我改变的。在时间经过这个小村庄的时候，我帮了时间的忙，让该变的一切都有了变迁。我老的时候，我会说：我是在时光中老的。 ——刘亮程《一个人的村庄》  简介 Perfect是一组完整、强大的工具箱、软件框架体系和Web应用服务器，可以在Linux和macOS (OS">
@@ -475,18 +475,18 @@
 <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><ul>
 <li>首先检查系统有没有安装Git，如果没有安装，直接使用包管理器安装：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
 <h3 id="安装Swift依赖组件"><a href="#安装Swift依赖组件" class="headerlink" title="安装Swift依赖组件"></a>安装Swift依赖组件</h3><ul>
 <li>确保您的系统上的包管理器是最新的：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装<code>Swift</code>必要的依赖组件，如<code>clang</code>和<code>Python</code>等。<ul>
 <li><code>openssh-server</code> 我们在安装Ubuntu一章中已经安装过，所以不用重复安装了。</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang libicu-dev libpython2.7</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install clang libicu-dev libpython2.7</span><br></pre></td></tr></table></figure>
 <h3 id="安装Swift"><a href="#安装Swift" class="headerlink" title="安装Swift"></a>安装Swift</h3><ul>
 <li>下载最新的<code>Swift二进制</code>文件，可以手动下载，也可以使用<code>wget</code>下载。<ul>
 <li>根据自己的Ubuntu系统版本和需要的swift版本选择，在<a href="https://swift.org/download/#releases" target="_blank" rel="noopener">这里下载</a>。</li>
@@ -494,30 +494,30 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果你是<code>第一次</code>下载安装Swift包，需要将Swift的PGP密钥导入您的密钥环，密钥将用于验证下载的文件有无被被损坏或篡改。</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://pool.sks-keyservers.net \</span><br><span class="line">      --recv-keys \</span><br><span class="line">      <span class="string">'7463 A81A 4B2E EA1B 551F  FBCF D441 C977 412B 37AD'</span> \</span><br><span class="line">      <span class="string">'1BE1 E29A 084C B305 F397  D62A 9F59 7F4D 21A5 6D5F'</span> \</span><br><span class="line">      <span class="string">'A3BA FD35 56A5 9079 C068  94BD 63BC 1CFE 91D3 06C6'</span> \</span><br><span class="line">      <span class="string">'5E4D F843 FB06 5D7F 7E24  FBA2 EF54 30F0 71E1 B235'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://pool.sks-keyservers.net \</span><br><span class="line">      --recv-keys \</span><br><span class="line">      '7463 A81A 4B2E EA1B 551F  FBCF D441 C977 412B 37AD' \</span><br><span class="line">      '1BE1 E29A 084C B305 F397  D62A 9F59 7F4D 21A5 6D5F' \</span><br><span class="line">      'A3BA FD35 56A5 9079 C068  94BD 63BC 1CFE 91D3 06C6' \</span><br><span class="line">      '5E4D F843 FB06 5D7F 7E24  FBA2 EF54 30F0 71E1 B235'</span><br></pre></td></tr></table></figure>
 <ul>
 <li>导入密钥之后，下载对应Swift版本的签名文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://swift.org/builds/swift-4.0-release/ubuntu1604/swift-4.0-RELEASE/swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
 <ul>
 <li>验证签名文件：<ul>
 <li>如果出现警告信息，可忽略；如果出现错误信息，就需要重新下载Swift二进制文件。</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --verify swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --verify swift-4.0-RELEASE-ubuntu16.04.tar.gz.sig</span><br></pre></td></tr></table></figure>
 <ul>
 <li>安装完成密钥和签名文件，现在就可以安装Swift。 执行以下命令来提取之前下载的二进制文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzf swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzf swift-4.0-RELEASE-ubuntu16.04.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
 <li>将Swift工具链添加到环境变量中，以便运行swift命令：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:<span class="string">"<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:"$&#123;PATH&#125;"</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这个命令只会将swift命令添加到<code>当前shell会话</code>路径中，如果要确保它在以后的会话中自动添加，要将其添加到<code>.bashrc</code>文件中。<ul>
 <li>打开 <code>.bashrc</code> 文件</li>
@@ -526,7 +526,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc // 也可以使用nano</span><br><span class="line"><span class="built_in">export</span> PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:<span class="string">"<span class="variable">$&#123;PATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc // 也可以使用nano</span><br><span class="line">export PATH=swift-4.0-RELEASE-ubuntu16.04/usr/bin:"$&#123;PATH&#125;"</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在终端输入<code>swift</code>，如果输出<code>Welcome to Apple Swift version xxx</code>则表示安装swift成功。</li>
 </ul>
@@ -599,7 +599,7 @@
 <ul>
 <li>然后直接编译运行，就可以看到控制台输出：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Starting HTTP server localhost on 0.0.0.0:8181</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Starting HTTP server localhost on 0.0.0.0:8181</span><br></pre></td></tr></table></figure>
 <ul>
 <li>此时就已经开了一个本地端口<code>8181</code>的服务，直接在浏览器输入上述地址及端口，就可以看到令人兴奋的<code>Hello, world!</code>了。</li>
 </ul>
@@ -612,33 +612,33 @@
 <li>将<code>iNoteServer</code>目录初始化为一个<code>Git仓库</code>。</li>
 <li>创建<code>Package.swift</code>文件，该文件是用Swift包管理器（SPM）管理依赖需要的，用来管理整个项目的依赖。我们可以使用Xcode打开该文件，编辑添加需要的项目依赖。如：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import PackageDescription</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> versions = Version(0,0,0)..&lt;Version(10,0,0)</span><br><span class="line"><span class="built_in">let</span> urls = [</span><br><span class="line">    <span class="string">"https://github.com/PerfectlySoft/Perfect-HTTPServer.git"</span>, // 最基本的服务器核心依赖</span><br><span class="line">    <span class="string">"https://github.com/PerfectlySoft/Perfect-MySQL.git"</span>, // MySQL服务器</span><br><span class="line">    <span class="string">"https://github.com/PerfectlySoft/Perfect-Logger.git"</span>, // 日志处理库</span><br><span class="line">    <span class="string">"https://github.com/PerfectlySoft/Perfect-RequestLogger.git"</span> // 请求日志处理库</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> package = Package(</span><br><span class="line">    name: <span class="string">"iNoteServer"</span>,</span><br><span class="line">    targets: [],</span><br><span class="line">    dependencies: urls.map &#123; .Package(url: <span class="variable">$0</span>, versions: versions) &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import PackageDescription</span><br><span class="line"></span><br><span class="line">let versions = Version(0,0,0)..&lt;Version(10,0,0)</span><br><span class="line">let urls = [</span><br><span class="line">    "https://github.com/PerfectlySoft/Perfect-HTTPServer.git", // 最基本的服务器核心依赖</span><br><span class="line">    "https://github.com/PerfectlySoft/Perfect-MySQL.git", // MySQL服务器</span><br><span class="line">    "https://github.com/PerfectlySoft/Perfect-Logger.git", // 日志处理库</span><br><span class="line">    "https://github.com/PerfectlySoft/Perfect-RequestLogger.git" // 请求日志处理库</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">let package = Package(</span><br><span class="line">    name: "iNoteServer",</span><br><span class="line">    targets: [],</span><br><span class="line">    dependencies: urls.map &#123; .Package(url: $0, versions: versions) &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>回到终端，创建<code>Sources</code>目录，该目录用于存放我们自己写的项目源代码。</li>
 <li>创建一个程序入口文件，并在空文件中插入一个打印函数：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'print("hello world!")'</span> &gt;&gt; Sources/main.swift</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 'print("hello world!")' &gt;&gt; Sources/main.swift</span><br></pre></td></tr></table></figure>
 <h4 id="配置处理项目依赖-1"><a href="#配置处理项目依赖-1" class="headerlink" title="配置处理项目依赖"></a>配置处理项目依赖</h4><ul>
 <li>项目依赖已经配置完成，此时需要处理项目依赖并生成可执行文件：</li>
 <li>处理过程会在终端输出对应的信息，时间长短取决于在<code>Package.swift</code>文件中配置的依赖库多少及每个库大小。</li>
 <li>生成的可执行文件在项目的根目录的<code>debug目录</code>下。</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift build</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift build</span><br></pre></td></tr></table></figure>
 <ul>
 <li>默认是生成的Debug版本的可执行文件，如果是正式部署服务器的可执行文件，可使用如下指令生成发布版本可执行文件：</li>
 <li>生成的可执行文件在项目的根目录的<code>release目录</code>下。</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift build -c release</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift build -c release</span><br></pre></td></tr></table></figure>
 <center><img src="/uploads/assets/perfect_server_init.png" alt="perfect_server_init"></center>
 
 <ul>
 <li>一般很快就可以处理完成，处理完成就会在终端输出信息可以看到生成了一个由项目名称命名的可执行文件，根据提示信息执行对应的可执行文件，就可以输出我们的打印信息了：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./build/debug/iNoteServer // debug模式</span><br><span class="line">./build/release/iNoteServer // release模式</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./build/debug/iNoteServer // debug模式</span><br><span class="line">./build/release/iNoteServer // release模式</span><br></pre></td></tr></table></figure>
 <ul>
 <li>可以使用Swift包管理器创建一个<code>xxx.xcodeproj</code>文件用于使用Xcode来管理和编辑调试项目，执行下面的指令，生成Xcode项目管理文件：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift package generate-xcodeproj</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift package generate-xcodeproj</span><br></pre></td></tr></table></figure>
 <center><img src="/uploads/assets/perfect_server_generate.png" alt="perfect_server_generate"></center>
 
 <ul>
@@ -648,7 +648,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(PROJECT_DIR)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">(PROJECT_DIR)</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果添加新的项目依赖库后只需要重新<code>swift build</code> 或者 <code>swift build -c release</code>等待完成即可。</li>
 <li>如果添加新的依赖后出现未知错误，可尝试删除项目根目录下的<code>xxx.xcodeproj</code>文件，然后使用<code>swift package generate-xcodeproj</code>重新生成项目文件即可。</li>
@@ -726,7 +726,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Starting HTTP server  on 0.0.0.0:8181</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[INFO] Starting HTTP server  on 0.0.0.0:8181</span><br></pre></td></tr></table></figure>
 <ul>
 <li>例如我们测试，用户名<code>西门抽血</code>，密码<code>1234567</code>进行注册，因为之前我们在数据库中手动添加了一条相同记录，所以注册结果如下图：接口调用成功，服务器返回注册失败信息。<center><img src="/uploads/assets/server_register_test.png" alt="server_register_test"></center>
 
