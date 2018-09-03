@@ -307,8 +307,7 @@ hr {
 blockquote {
   padding: 0 15px;
   color: #666;
-  border-left: 5px solid #75bef6;
-  background-color: rgba(117,190,246,0.15);
+  border-left: 4px solid rgba(117,190,246,0.75);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -2011,7 +2010,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #12401a;
+  background: #ffffa4;
 }
 .links-of-blogroll {
   font-size: 13px;
