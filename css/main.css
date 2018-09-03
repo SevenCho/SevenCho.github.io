@@ -307,7 +307,12 @@ hr {
 blockquote {
   padding: 0 15px;
   color: #666;
-  border-left: 7px solid #defbde;
+  border-left: 5px solid #75bef6;
+  background-color: rgba(117,190,246,0.2);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 blockquote cite::before {
   content: "-";
@@ -2008,7 +2013,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #497fe9;
+  background: #a6ee1d;
 }
 .links-of-blogroll {
   font-size: 13px;
