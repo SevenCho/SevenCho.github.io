@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j123aaj20qk0ni3zy.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/7cc829d3gw1en76j1l9k0j20hk0no407.jpg">
 <meta property="og:image" content="http://nvie.com/img/pdf@2x.png">
-<meta property="og:updated_time" content="2018-06-29T05:50:43.867Z">
+<meta property="og:updated_time" content="2018-09-03T02:39:26.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&lt;译&gt;一个成功的分支模型">
 <meta name="twitter:description" content="我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。——王小波《爱你就像爱生命》  前言 本文翻译自“A successful Git branching model” 英文原文请点击此处查看  正文 在这篇文章中，我将展示我一年前曾经介绍过的用于我部分项目（无论是在工作还是私人）的开发模">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,860
+                  3,859
                 </span>
               
 
@@ -571,11 +571,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;Fixed severe production problem&quot;</span><br><span class="line">[hotfix-1.2.1 abbe5d6] Fixed severe production problem</span><br><span class="line">5 files changed, 32 insertions(+), 17 deletions(-)</span><br></pre></td></tr></table></figure>
 <h4 id="结束hotfix分支"><a href="#结束hotfix分支" class="headerlink" title="结束hotfix分支"></a>结束hotfix分支</h4><ul>
 <li>完成工作后，解决掉的bug代码需要合并回master分支，但同时也需要合并到develop分支，目的是保证在下一版中该bug已经被解决。这多么像release分支啊。</li>
-<li>首先，对master分支进行合并更新，然后打tag</li>
+<li>首先，对master分支进行合并更新，然后打tag<ul>
+<li>备注:你可以使用-s or -u <key>参数为你的tag设置标签签名。</key></li>
+</ul>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &apos;master&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br><span class="line">$ git tag -a 1.2.1</span><br></pre></td></tr></table></figure>
-<pre><code>- 备注:你可以使用-s or -u &lt;key&gt;参数为你的tag设置标签签名。
-</code></pre><ul>
+<ul>
 <li>紧接着，在develop分支合并bugfix代码</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout develop</span><br><span class="line">Switched to branch &apos;develop&apos;</span><br><span class="line">$ git merge --no-ff hotfix-1.2.1</span><br><span class="line">Merge made by recursive.</span><br><span class="line">(Summary of changes)</span><br></pre></td></tr></table></figure>
