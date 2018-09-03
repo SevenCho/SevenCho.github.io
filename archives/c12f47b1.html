@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta name="description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》">
 <meta name="keywords" content="iOS,攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">
 <meta property="og:url" content="https://sevencho.github.io/archives/c12f47b1.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta property="og:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_test.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newObj.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_newClass.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/cycript_hook_wechat_effect.png">
-<meta property="og:updated_time" content="2018-08-31T08:43:42.604Z">
+<meta property="og:updated_time" content="2018-09-03T03:35:52.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)">
-<meta name="twitter:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》  简介 Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hy">
+<meta name="twitter:description" content="从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。 ——刘亮程《寒风吹彻》">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/cycript_hock_test.png">
 
 
@@ -455,6 +455,7 @@
 <p>从那个夜晚我懂得了隐藏温暖——在凛冽的寒风中，身体中那点温暖节俭地用于此后多年的爱情和生活。我的亲人说我是个很冷的人，不是的，我把仅有的温暖全给了你们。</p>
 <p>——刘亮程《寒风吹彻》</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
 <p>Cycript allows developers to explore and modify running applications on either iOS or Mac OS X using a hybrid of Objective-C++ and JavaScript syntax through an interactive console that features syntax highlighting and tab completion.<br>(It also runs standalone on Android and Linux and provides access to Java, but without injection.)</p>
 </blockquote>
@@ -642,7 +643,7 @@
 <li><p>获取微信的文档目录路径地址：</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">cy#</span><span class="bash"> [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0]</span></span><br><span class="line"></span><br><span class="line">// 输出文档目录路径地址</span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="string">"file:///var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/"</span></span></span><br><span class="line"> </span><br><span class="line"> // 图片加载路径地址</span><br><span class="line"> /var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 在层次结构信息中查找`UIImageView`即为背景图片控件，根据内存地址获取到图片对象，然后重新设置图片:</span><br><span class="line">    - 如我获取到的图片控件内存地址是`0x14706110`</span><br><span class="line">    - 我放在文档目录的替换图片为`wechat_testBg.jpg`</span><br><span class="line"></span><br><span class="line">```objc</span><br><span class="line"><span class="meta"> #</span><span class="bash">0x14706110.image = [UIImage imageWithContentsOfFile:@<span class="string">"/var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Docments/wechat_testBg.jpg"</span>]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">cy#</span> [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0]</span><br><span class="line"></span><br><span class="line">// 输出文档目录路径地址</span><br><span class="line"><span class="meta"> #</span>"file:///var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/"</span><br><span class="line"> </span><br><span class="line"> // 图片加载路径地址</span><br><span class="line"> /var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Documents/</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 在层次结构信息中查找`UIImageView`即为背景图片控件，根据内存地址获取到图片对象，然后重新设置图片:</span><br><span class="line">    - 如我获取到的图片控件内存地址是`0x14706110`</span><br><span class="line">    - 我放在文档目录的替换图片为`wechat_testBg.jpg`</span><br><span class="line"></span><br><span class="line">```objc</span><br><span class="line"><span class="meta"> #</span>0x14706110.image = [UIImage imageWithContentsOfFile:@"/var/mobile/Containers/Data/Application/8B12B9B9-06BE-49C2-ADC2-96BB1C4F5E79/Docments/wechat_testBg.jpg"]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>综合效果图（没修改文字背景颜色）</li>
 </ul>
@@ -966,7 +967,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.8k</span>
+    <span title="Site words total count">73.9k</span>
   
 </div>
 

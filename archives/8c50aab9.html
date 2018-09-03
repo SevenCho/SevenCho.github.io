@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
+<meta name="description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》">
 <meta name="keywords" content="iOS,攻防">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件">
 <meta property="og:url" content="https://sevencho.github.io/archives/8c50aab9.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
+<meta property="og:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/dump_wechat.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/dump_wechat_file.png">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/iPhone_support_sdk.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/wechat_dump_iOS_header_file.png">
-<meta property="og:updated_time" content="2018-08-31T08:56:29.679Z">
+<meta property="og:updated_time" content="2018-09-03T03:44:35.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS攻防（四）：使用Dumpdecrypted 砸壳 &amp; class-dump 导出头文件">
-<meta name="twitter:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》  简介 class-dump是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的runtime的特性，将存储在mach-O文件中的类/分类/协议等头文件信息提取出来并生产.h文件。 从AppStore下载的App是被苹">
+<meta name="twitter:description" content="我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。 ——王小波《似水流年》">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/dump_wechat.png">
 
 
@@ -457,6 +457,7 @@
 <p>我向来不怕得罪朋友，因为既是朋友，就不怕得罪，不能得罪的就不是朋友，这是我的一贯作风。由这一点你也可猜出，我的朋友为什么这么少。</p>
 <p>——王小波《似水流年》</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
 <li><code>class-dump</code>是用来dump目标对象的头文件信息的工具。它利用Objective-C语言的<code>runtime</code>的特性，将存储在<code>mach-O</code>文件中的类/分类/协议等头文件信息提取出来并生产.h文件。</li>
 <li>从AppStore下载的App是被苹果加密过的，可执行文件被套上了一层保护壳， 而<code>class-dump</code>无法作用于加密过的App。 在这种情况下，想要获取头文件，需要先解密App的可执行文件，俗称“砸壳”。 <code>dumpdecrypted</code>就是由越狱社区的知名人士<code>Stefan Esser</code>出品的一款砸壳工具，被广泛运用在iOS逆向工程研究中。</li>
@@ -946,7 +947,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.8k</span>
+    <span title="Site words total count">73.9k</span>
   
 </div>
 

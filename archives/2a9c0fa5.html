@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》  实际项目中的不同风格用法参考常用的写法用RAC替代 控件赋值也可以这么样用（类似于cell中设置）12345678910111213141516RAC(self.textLabel, text) = RACObserve(self, city.cityName); // 直接给label文字赋值RAC(self.imgV">
+<meta name="description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》">
 <meta name="keywords" content="iOS,RAC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发ReactiveCocoa（七）：开发中常见用法">
 <meta property="og:url" content="https://sevencho.github.io/archives/2a9c0fa5.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》  实际项目中的不同风格用法参考常用的写法用RAC替代 控件赋值也可以这么样用（类似于cell中设置）12345678910111213141516RAC(self.textLabel, text) = RACObserve(self, city.cityName); // 直接给label文字赋值RAC(self.imgV">
+<meta property="og:description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-10T11:21:38.983Z">
+<meta property="og:updated_time" content="2018-09-03T03:44:51.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发ReactiveCocoa（七）：开发中常见用法">
-<meta name="twitter:description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》  实际项目中的不同风格用法参考常用的写法用RAC替代 控件赋值也可以这么样用（类似于cell中设置）12345678910111213141516RAC(self.textLabel, text) = RACObserve(self, city.cityName); // 直接给label文字赋值RAC(self.imgV">
+<meta name="twitter:description" content="危楼高百尺，手可摘星辰。不敢高声语，恐惊天上人。 ——李白《夜宿山寺》">
 
 
 
@@ -450,6 +450,7 @@
 <p>危楼高百尺，手可摘星辰。<br>不敢高声语，恐惊天上人。</p>
 <p>——李白《夜宿山寺》</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="实际项目中的不同风格用法"><a href="#实际项目中的不同风格用法" class="headerlink" title="实际项目中的不同风格用法"></a>实际项目中的不同风格用法</h2><p><a href="http://www.tuicool.com/articles/YfABrm" target="_blank" rel="noopener">参考常用的写法用RAC替代</a></p>
 <h3 id="控件赋值也可以这么样用（类似于cell中设置）"><a href="#控件赋值也可以这么样用（类似于cell中设置）" class="headerlink" title="控件赋值也可以这么样用（类似于cell中设置）"></a>控件赋值也可以这么样用（类似于cell中设置）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RAC(<span class="keyword">self</span>.textLabel, text) = RACObserve(<span class="keyword">self</span>, city.cityName); <span class="comment">// 直接给label文字赋值</span></span><br><span class="line">RAC(<span class="keyword">self</span>.imgView, image) = [[[RACObserve(<span class="keyword">self</span>, city.thumbnailData)  <span class="comment">// 直接给imageView 赋值</span></span><br><span class="line">    ignore:<span class="literal">nil</span>]</span><br><span class="line">    map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123; <span class="comment">// 转换图片</span></span><br><span class="line">    <span class="keyword">return</span> [[[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:value];</span><br><span class="line">       </span><br><span class="line">        [subscriber sendNext:image];</span><br><span class="line">        [subscriber sendCompleted];</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;]</span><br><span class="line"></span><br><span class="line">    subscribeOn:[RACScheduler scheduler]]</span><br><span class="line">    deliverOn:[RACScheduler mainThreadScheduler]]; <span class="comment">// 主线程更新</span></span><br><span class="line">&#125;]</span><br><span class="line">switchToLatest];</span><br></pre></td></tr></table></figure>
 <h3 id="转模型也可以这么用"><a href="#转模型也可以这么用" class="headerlink" title="转模型也可以这么用"></a>转模型也可以这么用</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)initSearchSubscrition &#123;</span><br><span class="line">[[<span class="keyword">self</span>.searchSignal deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(RACTuple *jsonSearchResult) &#123;</span><br><span class="line">     <span class="built_in">NSDictionary</span> *response;</span><br><span class="line">     <span class="keyword">if</span> (jsonSearchResult.count) &#123;</span><br><span class="line">        response = jsonSearchResult.first;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">NSArray</span> *rawArray = response[<span class="string">@"geoNames"</span>];</span><br><span class="line">     <span class="keyword">self</span>.cities = [[[rawArray.rac_sequence <span class="comment">// 获取的数据转rac_sequence (里面都是信号)</span></span><br><span class="line">     map:^<span class="keyword">id</span>(<span class="built_in">NSDictionary</span> *rawDic) &#123; <span class="comment">// 转模型</span></span><br><span class="line">         <span class="built_in">NSMutableDictionary</span> *dic = [(<span class="built_in">NSDictionary</span> *)rawDic mutableCopy];</span><br><span class="line">         City *city = [<span class="built_in">MTLJSONAdapter</span> modelOfClass:City.class fromJSONDictionary:dic error:<span class="literal">nil</span>];</span><br><span class="line">         [<span class="keyword">self</span> downloadImageForCity:city];</span><br><span class="line">     <span class="keyword">return</span> city;</span><br><span class="line">     &#125;] array] mutableCopy]; <span class="comment">// 放进数组中 并拷贝新生成一份</span></span><br><span class="line">     &#125;];</span><br><span class="line">     [<span class="keyword">self</span>.searchSignal subscribeError:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">     <span class="keyword">self</span>.statusMessage = <span class="string">@"offLine"</span>;</span><br><span class="line"> &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -762,7 +763,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.8k</span>
+    <span title="Site words total count">73.9k</span>
   
 </div>
 

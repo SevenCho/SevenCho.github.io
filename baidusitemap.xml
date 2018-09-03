@@ -4,16 +4,76 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/33f710d8.html</loc>
-    <lastmod>2018-09-03T02:42:24.813Z</lastmod>
+    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
+    <lastmod>2018-09-03T03:54:16.127Z</lastmod>
     <data>
         <display>
-        <title><译>一个成功的分支模型</title>
-        <pubTime>2018-06-25T09:27:45.000Z</pubTime>
+        <title>汇编初识（Mac)</title>
+        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
+        
+        <tag>汇编</tag>
+         
+         
+           
+             
+              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/c9e6c86c.html</loc>
+    <lastmod>2018-09-03T03:53:49.501Z</lastmod>
+    <data>
+        <display>
+        <title>LLDB介绍</title>
+        <pubTime>2017-12-30T10:11:08.000Z</pubTime>
+        
+        <tag>LLDB</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/4f2aa8f3.html</loc>
+    <lastmod>2018-09-03T03:53:48.027Z</lastmod>
+    <data>
+        <display>
+        <title>Homebrew介绍</title>
+        <pubTime>2017-12-30T10:18:51.000Z</pubTime>
+        
+        <tag>Homebrew</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/9b9b2c59.html</loc>
+    <lastmod>2018-09-03T03:53:40.788Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之AppStore篇</title>
+        <pubTime>2016-10-26T01:15:45.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>git</tag>
+        <tag>App Store</tag>
          
          
            
@@ -26,8 +86,341 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
+    <lastmod>2018-09-03T03:53:13.070Z</lastmod>
+    <data>
+        <display>
+        <title>VIM介绍</title>
+        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
+        
+        <tag>VIM</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/e016e61f.html</loc>
+    <lastmod>2018-09-03T03:45:22.225Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发多Target（一）：新建Target</title>
+        <pubTime>2017-01-25T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Multi Target</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/2e7b1d7b.html</loc>
+    <lastmod>2018-09-03T03:45:22.216Z</lastmod>
+    <data>
+        <display>
+        <title>创建自己的CocoaPods公有库</title>
+        <pubTime>2018-06-27T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>CocoaPods</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/8b316e8d.html</loc>
+    <lastmod>2018-09-03T03:45:21.372Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（四）：Flattenmap和Map</title>
+        <pubTime>2016-02-15T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/53929de4.html</loc>
+    <lastmod>2018-09-03T03:45:16.365Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（六）：冷信号与热信号</title>
+        <pubTime>2016-02-25T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/a972913f.html</loc>
+    <lastmod>2018-09-03T03:45:12.889Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（五）：RAC底层bind</title>
+        <pubTime>2016-02-21T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/fec44934.html</loc>
+    <lastmod>2018-09-03T03:45:07.623Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（三）：RACMulticastConnection</title>
+        <pubTime>2016-02-07T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/fd0d6f33.html</loc>
+    <lastmod>2018-09-03T03:45:04.687Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发中碎片知识整理</title>
+        <pubTime>2015-11-05T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>碎片</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/63f63348.html</loc>
+    <lastmod>2018-09-03T03:45:00.423Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（二）：RACCommand篇</title>
+        <pubTime>2016-02-05T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/48d913e0.html</loc>
+    <lastmod>2018-09-03T03:44:54.765Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（一）：介绍</title>
+        <pubTime>2016-01-25T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/2a9c0fa5.html</loc>
+    <lastmod>2018-09-03T03:44:51.119Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发ReactiveCocoa（七）：开发中常见用法</title>
+        <pubTime>2016-03-05T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>RAC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/4edead15.html</loc>
+    <lastmod>2018-09-03T03:44:44.672Z</lastmod>
+    <data>
+        <display>
+        <title>关于App版本号命名规则</title>
+        <pubTime>2015-10-12T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>App Version</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/c7624e77.html</loc>
+    <lastmod>2018-09-03T03:44:41.849Z</lastmod>
+    <data>
+        <display>
+        <title>iOS逆向笔记（二）：iOS二进制文件类型</title>
+        <pubTime>2018-07-10T11:54:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>逆向笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="逆向笔记" url="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/971c1db6.html</loc>
+    <lastmod>2018-09-03T03:44:37.945Z</lastmod>
+    <data>
+        <display>
+        <title>iOS逆向笔记（一）：iOS目录结构 & 文件权限</title>
+        <pubTime>2018-07-10T08:54:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>逆向笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="逆向笔记" url="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/8c50aab9.html</loc>
-    <lastmod>2018-08-31T08:56:29.679Z</lastmod>
+    <lastmod>2018-09-03T03:44:35.280Z</lastmod>
     <data>
         <display>
         <title>iOS攻防（四）：使用Dumpdecrypted 砸壳 & class-dump 导出头文件</title>
@@ -52,7 +445,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/65ed9c65.html</loc>
-    <lastmod>2018-08-31T08:56:01.736Z</lastmod>
+    <lastmod>2018-09-03T03:44:30.733Z</lastmod>
     <data>
         <display>
         <title>iOS攻防（五）：使用Keychain-Dumper导出keychain数据</title>
@@ -76,8 +469,33 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/bf5c1be0.html</loc>
+    <lastmod>2018-09-03T03:44:26.277Z</lastmod>
+    <data>
+        <display>
+        <title>iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用</title>
+        <pubTime>2018-07-05T10:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>攻防</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="攻防" url="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/4de69069.html</loc>
-    <lastmod>2018-08-31T08:55:16.229Z</lastmod>
+    <lastmod>2018-09-03T03:44:21.913Z</lastmod>
     <data>
         <display>
         <title>iOS攻防（三）：配置使用Reveal工具逆向别人的App UI界面</title>
@@ -101,8 +519,30 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/fd0d6f33.html</loc>
+    <lastmod>2018-09-03T03:44:17.266Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发工具Xcode快捷键及相关知识整理</title>
+        <pubTime>2015-10-07T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>碎片</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/feadc9a.html</loc>
-    <lastmod>2018-08-31T08:54:17.553Z</lastmod>
+    <lastmod>2018-09-03T03:44:14.419Z</lastmod>
     <data>
         <display>
         <title>iOS开发之Xcode10 Beta3升级Beta4编译错误</title>
@@ -123,23 +563,329 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/6efe8aae.html</loc>
-    <lastmod>2018-08-31T08:47:22.604Z</lastmod>
+    <loc>https://sevencho.github.io/archives/9f7da62.html</loc>
+    <lastmod>2018-09-03T03:44:11.542Z</lastmod>
     <data>
         <display>
-        <title>Swift开发服务端（一）：MySQL安装及配置</title>
-        <pubTime>2018-08-22T06:32:25.000Z</pubTime>
+        <title>iOS开发中常用发的宏定义</title>
+        <pubTime>2015-10-15T04:27:45.000Z</pubTime>
         
-        <tag>服务器</tag>
+        <tag>iOS</tag>
          
-        <tag>Swift</tag>
-         
-        <tag>MySQL</tag>
+        <tag>App Version</tag>
          
          
            
              
-              <breadCrumb title="服务器" url="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b8f4bd70.html</loc>
+    <lastmod>2018-09-03T03:43:37.552Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客搭建</title>
+        <pubTime>2018-04-15T03:53:53.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/ed2e9abb.html</loc>
+    <lastmod>2018-09-03T03:43:15.400Z</lastmod>
+    <data>
+        <display>
+        <title>敏捷开发</title>
+        <pubTime>2018-02-15T05:43:17.000Z</pubTime>
+        
+        <tag>敏捷开发</tag>
+         
+         
+           
+             
+              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b3b6a999.html</loc>
+    <lastmod>2018-09-03T03:43:11.148Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(二)</title>
+        <pubTime>2018-01-11T01:15:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/bd3ad682.html</loc>
+    <lastmod>2018-09-03T03:43:05.713Z</lastmod>
+    <data>
+        <display>
+        <title>iOS蓝牙开发之外设篇</title>
+        <pubTime>2016-04-27T03:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>蓝牙</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/a46fbeec.html</loc>
+    <lastmod>2018-09-03T03:43:02.293Z</lastmod>
+    <data>
+        <display>
+        <title>iOS蓝牙开发之中心设备篇</title>
+        <pubTime>2016-05-27T03:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>蓝牙</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b05dc691.html</loc>
+    <lastmod>2018-09-03T03:42:59.449Z</lastmod>
+    <data>
+        <display>
+        <title>iOS蓝牙开发之iBeacon篇(二)</title>
+        <pubTime>2018-04-27T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>蓝牙</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/1f6c5df3.html</loc>
+    <lastmod>2018-09-03T03:42:56.231Z</lastmod>
+    <data>
+        <display>
+        <title>iOS蓝牙开发之iBeacon篇(一)</title>
+        <pubTime>2018-04-27T03:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>蓝牙</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/1c8732fb.html</loc>
+    <lastmod>2018-09-03T03:42:52.865Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(一)</title>
+        <pubTime>2018-01-10T01:15:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/b47045de.html</loc>
+    <lastmod>2018-09-03T03:42:48.245Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之地图篇(三):历史轨迹记录</title>
+        <pubTime>2018-04-20T14:31:26.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>地图</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/ed90488b.html</loc>
+    <lastmod>2018-09-03T03:42:43.511Z</lastmod>
+    <data>
+        <display>
+        <title><译>最佳的iOS开发技巧及小窍门</title>
+        <pubTime>2018-06-21T07:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>xCode</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/33f710d8.html</loc>
+    <lastmod>2018-09-03T03:42:33.865Z</lastmod>
+    <data>
+        <display>
+        <title><译>一个成功的分支模型</title>
+        <pubTime>2018-06-25T09:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/e38331a.html</loc>
+    <lastmod>2018-09-03T03:42:25.877Z</lastmod>
+    <data>
+        <display>
+        <title>iOS攻防（一）： iPhone手机越狱 & SSH</title>
+        <pubTime>2018-06-29T07:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>攻防</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="攻防" url="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/9c6697bb.html</loc>
+    <lastmod>2018-09-03T03:42:16.450Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发多Target（二）：复制Target</title>
+        <pubTime>2017-01-25T12:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Multi Target</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>
@@ -148,7 +894,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/64bb63f1.html</loc>
-    <lastmod>2018-08-31T08:46:50.358Z</lastmod>
+    <lastmod>2018-09-03T03:35:54.077Z</lastmod>
     <data>
         <display>
         <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</title>
@@ -174,7 +920,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/f7d447dc.html</loc>
-    <lastmod>2018-08-31T08:46:33.460Z</lastmod>
+    <lastmod>2018-09-03T03:35:54.059Z</lastmod>
     <data>
         <display>
         <title>Swift开发服务端（三）：Perfect再次初体验</title>
@@ -197,8 +943,32 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/6efe8aae.html</loc>
+    <lastmod>2018-09-03T03:35:54.050Z</lastmod>
+    <data>
+        <display>
+        <title>Swift开发服务端（一）：MySQL安装及配置</title>
+        <pubTime>2018-08-22T06:32:25.000Z</pubTime>
+        
+        <tag>服务器</tag>
+         
+        <tag>Swift</tag>
+         
+        <tag>MySQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/c12f47b1.html</loc>
-    <lastmod>2018-08-31T08:43:42.604Z</lastmod>
+    <lastmod>2018-09-03T03:35:52.515Z</lastmod>
     <data>
         <display>
         <title>iOS攻防（六）：使用Cycript一窥运行程序的神秘面纱(入门篇)</title>
@@ -222,200 +992,8 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/d3400f8e.html</loc>
-    <lastmod>2018-08-31T08:26:58.220Z</lastmod>
-    <data>
-        <display>
-        <title>记一次iOS使用XTEA微型加密算法</title>
-        <pubTime>2018-08-31T01:25:25.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>XTEA</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/8e3becb8.html</loc>
-    <lastmod>2018-08-31T07:26:48.371Z</lastmod>
-    <data>
-        <display>
-        <title>记一次Hexo博客部署缓慢的解决办法</title>
-        <pubTime>2018-08-30T01:25:25.000Z</pubTime>
-        
-        <tag>Blog</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/bf5c1be0.html</loc>
-    <lastmod>2018-08-29T09:31:26.882Z</lastmod>
-    <data>
-        <display>
-        <title>iOS攻防（二）：窃取用户的通讯录信息 & 偷窥用户安装应用列表 & Netcat使用</title>
-        <pubTime>2018-07-05T10:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>攻防</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="攻防" url="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/24e561e5.html</loc>
-    <lastmod>2018-08-23T01:15:41.025Z</lastmod>
-    <data>
-        <display>
-        <title>汇编初识（Mac)</title>
-        <pubTime>2018-01-18T10:04:05.000Z</pubTime>
-        
-        <tag>汇编</tag>
-         
-         
-           
-             
-              <breadCrumb title="汇编" url="https://sevencho.github.io/categories/%E6%B1%87%E7%BC%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/4f2aa8f3.html</loc>
-    <lastmod>2018-08-23T01:14:18.019Z</lastmod>
-    <data>
-        <display>
-        <title>Homebrew介绍</title>
-        <pubTime>2017-12-30T10:18:51.000Z</pubTime>
-        
-        <tag>Homebrew</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/c9e6c86c.html</loc>
-    <lastmod>2018-08-23T01:14:04.891Z</lastmod>
-    <data>
-        <display>
-        <title>LLDB介绍</title>
-        <pubTime>2017-12-30T10:11:08.000Z</pubTime>
-        
-        <tag>LLDB</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/1c40fe4d.html</loc>
-    <lastmod>2018-08-23T01:13:51.717Z</lastmod>
-    <data>
-        <display>
-        <title>VIM介绍</title>
-        <pubTime>2017-11-11T10:20:46.000Z</pubTime>
-        
-        <tag>VIM</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="https://sevencho.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/b8f4bd70.html</loc>
-    <lastmod>2018-08-22T10:10:10.916Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客搭建</title>
-        <pubTime>2018-04-15T03:53:53.000Z</pubTime>
-        
-        <tag>Blog</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/ed2e9abb.html</loc>
-    <lastmod>2018-08-22T10:09:16.920Z</lastmod>
-    <data>
-        <display>
-        <title>敏捷开发</title>
-        <pubTime>2018-02-15T05:43:17.000Z</pubTime>
-        
-        <tag>敏捷开发</tag>
-         
-         
-           
-             
-              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://sevencho.github.io/archives/cb206c67.html</loc>
-    <lastmod>2018-08-22T08:22:09.326Z</lastmod>
+    <lastmod>2018-09-03T03:35:16.794Z</lastmod>
     <data>
         <display>
         <title>关于Hexo博客加载Live2D动画模型挂件</title>
@@ -438,266 +1016,16 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/2a9c0fa5.html</loc>
-    <lastmod>2018-07-10T11:21:38.983Z</lastmod>
+    <loc>https://sevencho.github.io/archives/d3400f8e.html</loc>
+    <lastmod>2018-09-03T03:31:25.062Z</lastmod>
     <data>
         <display>
-        <title>iOS开发ReactiveCocoa（七）：开发中常见用法</title>
-        <pubTime>2016-03-05T12:27:45.000Z</pubTime>
+        <title>记一次iOS使用XTEA微型加密算法</title>
+        <pubTime>2018-08-31T01:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/c7624e77.html</loc>
-    <lastmod>2018-07-10T11:10:33.050Z</lastmod>
-    <data>
-        <display>
-        <title>iOS逆向笔记（二）：iOS二进制文件类型</title>
-        <pubTime>2018-07-10T11:54:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>逆向笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="逆向笔记" url="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/48d913e0.html</loc>
-    <lastmod>2018-07-10T11:10:23.610Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（一）：介绍</title>
-        <pubTime>2016-01-25T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/fec44934.html</loc>
-    <lastmod>2018-07-10T11:10:18.569Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（三）：RACMulticastConnection</title>
-        <pubTime>2016-02-07T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/63f63348.html</loc>
-    <lastmod>2018-07-10T11:10:14.962Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（二）：RACCommand篇</title>
-        <pubTime>2016-02-05T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/a972913f.html</loc>
-    <lastmod>2018-07-10T11:10:10.524Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（五）：RAC底层bind</title>
-        <pubTime>2016-02-21T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/53929de4.html</loc>
-    <lastmod>2018-07-10T11:10:06.429Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（六）：冷信号与热信号</title>
-        <pubTime>2016-02-25T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/8b316e8d.html</loc>
-    <lastmod>2018-07-10T11:10:03.111Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发ReactiveCocoa（四）：Flattenmap和Map</title>
-        <pubTime>2016-02-15T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>RAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="RAC" url="https://sevencho.github.io/categories/iOS/RAC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/971c1db6.html</loc>
-    <lastmod>2018-07-10T09:43:18.401Z</lastmod>
-    <data>
-        <display>
-        <title>iOS逆向笔记（一）：iOS目录结构 & 文件权限</title>
-        <pubTime>2018-07-10T08:54:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>逆向笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="逆向笔记" url="https://sevencho.github.io/categories/iOS/%E9%80%86%E5%90%91%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/e38331a.html</loc>
-    <lastmod>2018-07-10T08:47:56.885Z</lastmod>
-    <data>
-        <display>
-        <title>iOS攻防（一）： iPhone手机越狱 & SSH</title>
-        <pubTime>2018-06-29T07:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>攻防</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="攻防" url="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/9b9b2c59.html</loc>
-    <lastmod>2018-07-04T07:41:44.248Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之AppStore篇</title>
-        <pubTime>2016-10-26T01:15:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>App Store</tag>
+        <tag>XTEA</tag>
          
          
            
@@ -710,355 +1038,27 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/9f7da62.html</loc>
-    <lastmod>2018-07-04T07:41:15.649Z</lastmod>
+    <loc>https://sevencho.github.io/archives/8e3becb8.html</loc>
+    <lastmod>2018-09-03T03:31:24.261Z</lastmod>
     <data>
         <display>
-        <title>iOS开发中常用发的宏定义</title>
-        <pubTime>2015-10-15T04:27:45.000Z</pubTime>
+        <title>记一次Hexo博客部署缓慢的解决办法</title>
+        <pubTime>2018-08-30T01:25:25.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>Blog</tag>
          
-        <tag>App Version</tag>
+        <tag>Hexo</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+              <breadCrumb title="整理" url="https://sevencho.github.io/categories/%E6%95%B4%E7%90%86/"/>
           
         </display>
     </data>
     </url>
 
     
-  <url>
-    <loc>https://sevencho.github.io/archives/fd0d6f33.html</loc>
-    <lastmod>2018-07-04T06:00:57.779Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发工具Xcode快捷键及相关知识整理</title>
-        <pubTime>2015-10-07T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>碎片</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/fd0d6f33.html</loc>
-    <lastmod>2018-07-04T05:56:53.983Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发中碎片知识整理</title>
-        <pubTime>2015-11-05T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>碎片</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/4edead15.html</loc>
-    <lastmod>2018-07-04T05:56:53.982Z</lastmod>
-    <data>
-        <display>
-        <title>关于App版本号命名规则</title>
-        <pubTime>2015-10-12T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>App Version</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/9c6697bb.html</loc>
-    <lastmod>2018-07-03T12:01:20.897Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发多Target（二）：复制Target</title>
-        <pubTime>2017-01-25T12:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>Multi Target</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/e016e61f.html</loc>
-    <lastmod>2018-07-03T12:01:20.896Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发多Target（一）：新建Target</title>
-        <pubTime>2017-01-25T09:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>Multi Target</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/ed90488b.html</loc>
-    <lastmod>2018-06-29T10:22:18.176Z</lastmod>
-    <data>
-        <display>
-        <title><译>最佳的iOS开发技巧及小窍门</title>
-        <pubTime>2018-06-21T07:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>xCode</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/2e7b1d7b.html</loc>
-    <lastmod>2018-06-29T07:10:35.773Z</lastmod>
-    <data>
-        <display>
-        <title>创建自己的CocoaPods公有库</title>
-        <pubTime>2018-06-27T09:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>CocoaPods</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/b3b6a999.html</loc>
-    <lastmod>2018-06-28T06:08:33.087Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(二)</title>
-        <pubTime>2018-01-11T01:15:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/1c8732fb.html</loc>
-    <lastmod>2018-06-28T06:07:31.020Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(一)</title>
-        <pubTime>2018-01-10T01:15:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/b47045de.html</loc>
-    <lastmod>2018-06-28T06:03:14.925Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之地图篇(三):历史轨迹记录</title>
-        <pubTime>2018-04-20T14:31:26.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>地图</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/a46fbeec.html</loc>
-    <lastmod>2018-05-09T09:18:16.750Z</lastmod>
-    <data>
-        <display>
-        <title>iOS蓝牙开发之中心设备篇</title>
-        <pubTime>2016-05-27T03:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>蓝牙</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/bd3ad682.html</loc>
-    <lastmod>2018-05-09T09:14:11.601Z</lastmod>
-    <data>
-        <display>
-        <title>iOS蓝牙开发之外设篇</title>
-        <pubTime>2016-04-27T03:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>蓝牙</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/b05dc691.html</loc>
-    <lastmod>2018-05-02T01:56:22.587Z</lastmod>
-    <data>
-        <display>
-        <title>iOS蓝牙开发之iBeacon篇(二)</title>
-        <pubTime>2018-04-27T09:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>蓝牙</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/1f6c5df3.html</loc>
-    <lastmod>2018-04-28T05:49:41.468Z</lastmod>
-    <data>
-        <display>
-        <title>iOS蓝牙开发之iBeacon篇(一)</title>
-        <pubTime>2018-04-27T03:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>蓝牙</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-             
-              <breadCrumb title="蓝牙" url="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
     

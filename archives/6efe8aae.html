@@ -86,22 +86,22 @@
 
 
 
-<meta name="description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
+<meta name="description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》">
 <meta name="keywords" content="服务器,Swift,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift开发服务端（一）：MySQL安装及配置">
 <meta property="og:url" content="https://sevencho.github.io/archives/6efe8aae.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
+<meta property="og:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_mysql_selected5.7.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/server_mysql_download5.7.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/systemPerferences_mysql_start.png">
-<meta property="og:updated_time" content="2018-08-31T08:47:22.604Z">
+<meta property="og:updated_time" content="2018-09-03T03:35:54.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift开发服务端（一）：MySQL安装及配置">
-<meta name="twitter:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》  简介 最近想重新折腾一下Swift的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时">
+<meta name="twitter:description" content="经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。 ——刘亮程《寒风吹彻》">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/server_mysql_selected5.7.png">
 
 
@@ -444,6 +444,7 @@
 <p>经过许多个冬天之后，我才渐渐明白自己再躲不过雪，无论我蜷缩在屋子里，还是远在冬天的另一个地方，纷纷扬扬的雪，都会落在我正经历的一段岁月里。当一个人的岁月像荒野一样敞开时，他便无法照管好自己，落在一个人一生中的雪，我们不能全部看见，每个人都在自己的生命中，孤独地过冬。</p>
 <p>——刘亮程《寒风吹彻》</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
 <li>最近想重新折腾一下<code>Swift</code>的服务端开发，为什么说是重新折腾呢？因为我在年初（大概是1月份）的时候就已经折腾过了，照着别人的教程体验了一下<code>Swift</code>开发服务端，使用的是加拿大的一个开发小组孵化的开源服务端框架<code>Perfect</code>。</li>
 <li>但是，体验完就尘封了，一如之前的Swift学习，间歇性的😂。而且那时候还没真正用<code>Swift</code>开发过项目，所以对一些<code>Swift</code>的高级语法和特性还不是很熟悉，所以，这个锅是<code>Swift</code>的，我不背🌚🌚。</li>
@@ -875,7 +876,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">73.8k</span>
+    <span title="Site words total count">73.9k</span>
   
 </div>
 
