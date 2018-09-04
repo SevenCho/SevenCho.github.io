@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #665bff;
+  background: #ff57ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2777,6 +2777,14 @@ blockquote.question {
   background-color: #e3f2fd;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+  margin-bottom: 20px;
+}
+blockquote {
+  color: #666;
+  padding: 10px 20px;
+  border-left: 4px solid #bf1827;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   margin-bottom: 20px;
 }
 span#inline-toc {
