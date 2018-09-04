@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/ed90488b.html</loc>
+    <lastmod>2018-09-04T06:16:18.249Z</lastmod>
+    <data>
+        <display>
+        <title><译>最佳的iOS开发技巧及小窍门</title>
+        <pubTime>2018-06-21T07:27:45.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>xCode</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/14534beb.html</loc>
+    <lastmod>2018-09-04T06:13:01.088Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结</title>
+        <pubTime>2018-09-03T11:58:45.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Blog" url="https://sevencho.github.io/categories/Blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/8e3becb8.html</loc>
     <lastmod>2018-09-04T03:07:49.886Z</lastmod>
     <data>
@@ -56,28 +100,6 @@
         <display>
         <title>Hexo博客搭建</title>
         <pubTime>2018-04-15T03:53:53.000Z</pubTime>
-        
-        <tag>Blog</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Blog" url="https://sevencho.github.io/categories/Blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/14534beb.html</loc>
-    <lastmod>2018-09-04T03:07:26.914Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结</title>
-        <pubTime>2018-09-03T11:58:45.000Z</pubTime>
         
         <tag>Blog</tag>
          
@@ -863,28 +885,6 @@
           
              
               <breadCrumb title="地图" url="https://sevencho.github.io/categories/iOS/%E5%9C%B0%E5%9B%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/ed90488b.html</loc>
-    <lastmod>2018-09-03T03:42:43.511Z</lastmod>
-    <data>
-        <display>
-        <title><译>最佳的iOS开发技巧及小窍门</title>
-        <pubTime>2018-06-21T07:27:45.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>xCode</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>
