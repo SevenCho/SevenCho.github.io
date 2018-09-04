@@ -496,11 +496,11 @@
 <li><h4 id="Facebook-开源的-lldb-插件-Chisel"><a href="#Facebook-开源的-lldb-插件-Chisel" class="headerlink" title="Facebook 开源的 lldb 插件 Chisel."></a>Facebook 开源的 lldb 插件 Chisel.</h4></li>
 <li><h5 id="1、Chisel-使用-homebrew-来安装，如果你没有安装homebrew"><a href="#1、Chisel-使用-homebrew-来安装，如果你没有安装homebrew" class="headerlink" title="1、Chisel 使用 homebrew 来安装，如果你没有安装homebrew"></a>1、Chisel 使用 homebrew 来安装，如果你没有安装homebrew</h5></li>
 </ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>update</span><br><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>chisel</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install chisel</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h5 id="2、安装完成按照安装日志上的提示，在-lldbinit文件中添加一行，没有则新建。-提示类似如下："><a href="#2、安装完成按照安装日志上的提示，在-lldbinit文件中添加一行，没有则新建。-提示类似如下：" class="headerlink" title="2、安装完成按照安装日志上的提示，在~/.lldbinit文件中添加一行，没有则新建。 提示类似如下："></a>2、安装完成按照安装日志上的提示，在<code>~/.lldbinit</code>文件中添加一行，没有则新建。 提示类似如下：</h5></li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Caveats</span><br><span class="line"><span class="builtin-name">Add</span> the following line <span class="keyword">to</span> ~/.lldbinit <span class="keyword">to</span> load chisel when Xcode launches:</span><br><span class="line">command<span class="built_in"> script </span>import /usr/local/opt/chisel/libexec/fblldb.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Caveats</span><br><span class="line">Add the following line to ~/.lldbinit to load chisel when Xcode launches:</span><br><span class="line">command script import /usr/local/opt/chisel/libexec/fblldb.py</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h5 id="3、然后重启Xcode"><a href="#3、然后重启Xcode" class="headerlink" title="3、然后重启Xcode"></a>3、然后重启Xcode</h5></li>
 </ul>
@@ -741,7 +741,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -903,7 +905,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">220k</span>
+    <span title="站点总字数">221k</span>
   
 
   

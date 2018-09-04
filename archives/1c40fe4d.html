@@ -521,7 +521,7 @@
 <li><p>a) 进入vi</p>
 <ul>
 <li><p>在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi myfile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi myfile</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -544,7 +544,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">: <span class="keyword">w</span> filename // （输入 「<span class="keyword">w</span> filename」将文章以指定的文件名filename保存）</span><br><span class="line"></span><br><span class="line">: <span class="keyword">wq</span> // (输入「<span class="keyword">wq</span>」，存盘并退出<span class="keyword">vi</span>)</span><br><span class="line"></span><br><span class="line">: q! // (输入q!， 不存盘强制退出<span class="keyword">vi</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">: w filename // （输入 「w filename」将文章以指定的文件名filename保存）</span><br><span class="line"></span><br><span class="line">: wq // (输入「wq」，存盘并退出vi)</span><br><span class="line"></span><br><span class="line">: q! // (输入q!， 不存盘强制退出vi)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="3、命令行模式（command-mode）功能键"><a href="#3、命令行模式（command-mode）功能键" class="headerlink" title="3、命令行模式（command mode）功能键"></a>3、命令行模式（command mode）功能键</h3></li>
 <li><p>1）. 插入模式</p>
@@ -689,11 +689,11 @@
 <li><p>1、下表列出命令模式下的一些键的功能：</p>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">h 左移光标一个字符</span><br><span class="line">h 左移光标一个字符</span><br><span class="line">k 光标上移一行</span><br><span class="line">j 光标下移一行</span><br><span class="line">^ 光标移动至行首</span><br><span class="line">0 数字“0”，光标移至文章的开头</span><br><span class="line">G 光标移至文章的最后</span><br><span class="line"><span class="meta">$</span><span class="bash"> 光标移动至行尾</span></span><br><span class="line">Ctrl+f 向前翻屏</span><br><span class="line">Ctrl+b 向后翻屏</span><br><span class="line">Ctrl+d 向前翻半屏</span><br><span class="line">Ctrl+u 向后翻半屏</span><br><span class="line">i 在光标位置前插入字符</span><br><span class="line">a 在光标所在位置的后一个字符开始增加</span><br><span class="line">o 插入新的一行，从行首开始输入</span><br><span class="line">ESC 从输入状态退至命令状态</span><br><span class="line">x 删除光标后面的字符</span><br><span class="line"><span class="meta">#</span><span class="bash">x 删除光标后的＃个字符</span></span><br><span class="line">X (大写X) 删除光标前面的字符</span><br><span class="line"><span class="meta">#</span><span class="bash">X 删除光标前面的<span class="comment">#个字符</span></span></span><br><span class="line">dd 删除光标所在的行</span><br><span class="line"><span class="meta">#</span><span class="bash">dd 删除从光标所在行数的<span class="comment">#行</span></span></span><br><span class="line">yw 复制光标所在位置的一个字</span><br><span class="line"><span class="meta">#</span><span class="bash"> yw复制光标所在位置的<span class="comment">#个字</span></span></span><br><span class="line">yy 复制光标所在位置的一行</span><br><span class="line"><span class="meta">#</span><span class="bash">yy 复制从光标所在行数的<span class="comment">#行</span></span></span><br><span class="line">p 粘贴</span><br><span class="line">u 取消操作</span><br><span class="line">cw 更改光标所在位置的一个字</span><br><span class="line"><span class="meta">#</span><span class="bash">cw 更改光标所在位置的<span class="comment">#个字</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">h 左移光标一个字符</span><br><span class="line">h 左移光标一个字符</span><br><span class="line">k 光标上移一行</span><br><span class="line">j 光标下移一行</span><br><span class="line">^ 光标移动至行首</span><br><span class="line">0 数字“0”，光标移至文章的开头</span><br><span class="line">G 光标移至文章的最后</span><br><span class="line">$ 光标移动至行尾</span><br><span class="line">Ctrl+f 向前翻屏</span><br><span class="line">Ctrl+b 向后翻屏</span><br><span class="line">Ctrl+d 向前翻半屏</span><br><span class="line">Ctrl+u 向后翻半屏</span><br><span class="line">i 在光标位置前插入字符</span><br><span class="line">a 在光标所在位置的后一个字符开始增加</span><br><span class="line">o 插入新的一行，从行首开始输入</span><br><span class="line">ESC 从输入状态退至命令状态</span><br><span class="line">x 删除光标后面的字符</span><br><span class="line">#x 删除光标后的＃个字符</span><br><span class="line">X (大写X) 删除光标前面的字符</span><br><span class="line">#X 删除光标前面的#个字符</span><br><span class="line">dd 删除光标所在的行</span><br><span class="line">#dd 删除从光标所在行数的#行</span><br><span class="line">yw 复制光标所在位置的一个字</span><br><span class="line"># yw复制光标所在位置的#个字</span><br><span class="line">yy 复制光标所在位置的一行</span><br><span class="line">#yy 复制从光标所在行数的#行</span><br><span class="line">p 粘贴</span><br><span class="line">u 取消操作</span><br><span class="line">cw 更改光标所在位置的一个字</span><br><span class="line">#cw 更改光标所在位置的#个字</span><br></pre></td></tr></table></figure>
 <ul>
 <li>2、下表列出行命令模式下的一些指令</li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w filename 储存正在编辑的文件为filename</span><br><span class="line">wq filename 储存正在编辑的文件为filename，并退出vi</span><br><span class="line">q! 放弃所有修改，退出vi</span><br><span class="line"><span class="keyword">set</span> nu 显示行号</span><br><span class="line">/或? 查找，在/后输入要查找的内容</span><br><span class="line">n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与<span class="comment">?</span>联用）继续查找，直到找到为止</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w filename 储存正在编辑的文件为filename</span><br><span class="line">wq filename 储存正在编辑的文件为filename，并退出vi</span><br><span class="line">q! 放弃所有修改，退出vi</span><br><span class="line">set nu 显示行号</span><br><span class="line">/或? 查找，在/后输入要查找的内容</span><br><span class="line">n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="对于第一次用vi，有几点注意要提醒一下："><a href="#对于第一次用vi，有几点注意要提醒一下：" class="headerlink" title="对于第一次用vi，有几点注意要提醒一下："></a>对于第一次用vi，有几点注意要提醒一下：</h4></li>
 <li><p>1、用vi打开文件后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。</p>
@@ -900,7 +900,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1062,7 +1064,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">220k</span>
+    <span title="站点总字数">221k</span>
   
 
   
