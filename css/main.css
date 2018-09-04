@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff57ff;
+  background: #45eb69;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2716,8 +2716,8 @@ embed {
   display: inline-block;
 }
 code {
-  color: #ff7600;
-  background: #fbf7f8;
+  color: #bf1827;
+  background: #c9e1f6;
   margin: 2px;
 }
 .highlight,
@@ -2757,10 +2757,10 @@ table>tbody>tr:nth-of-type(odd) {
   border-bottom: 1px solid #fc6423;
 }
 pre .addition {
-  background: #e6ffed;
+  background: #88cd7f;
 }
 pre .deletion {
-  background: #ffeef0;
+  background: #bf1827;
 }
 .highlight figcaption {
   margin: 0em;
@@ -2781,11 +2781,10 @@ blockquote.question {
 }
 blockquote {
   color: #666;
-  padding: 10px 20px;
+  padding: 0px 20px;
   border-left: 4px solid #bf1827;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-bottom: 20px;
 }
 span#inline-toc {
   display: inline-block;
