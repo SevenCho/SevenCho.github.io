@@ -287,6 +287,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -295,6 +303,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -465,25 +496,25 @@
 <li>英文原文请<a href="https://developerinsider.co/best-ios-development-tips-and-tricks/" target="_blank" rel="noopener">点击此处查看</a></li>
 <li>译者注：文中部分功能涉及到视频演示，视频来源YouTube，需科学上网方可观看。</li>
 </ul>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。"><a href="#1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。" class="headerlink" title="1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。"></a>1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES</span><br></pre></td></tr></table></figure>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。"><a href="#1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。" class="headerlink" title="1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。"></a>1、如果你想知道项目的确切构建时间，请用下面指令开启Xcode的相关功能。</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com<span class="selector-class">.apple</span><span class="selector-class">.dt</span><span class="selector-class">.Xcode</span> ShowBuildOperationDuration -bool YES</span><br></pre></td></tr></table></figure>
 <p><img src="https://github.com/developerinsider/developer-insider-content/blob/master/POST/iOS/TipsAndTricks/BuildTime.png?raw=true" alt="enjoy"></p>
 <h3 id="2、-提升你Swift项目的构建时间"><a href="#2、-提升你Swift项目的构建时间" class="headerlink" title="2、 提升你Swift项目的构建时间"></a>2、 提升你Swift项目的构建时间</h3><ul>
 <li>在Xcode 9.2的发布说明中提到一个可以提升Swift项目构建时间的功能（处于实验阶段），使用<code>buildsystemscheduleinherentlyparallelcommandclutly</code>用户默认值启用。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode BuildSystemScheduleInherentlyParallelCommandsExclusively -bool NO</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com<span class="selector-class">.apple</span><span class="selector-class">.dt</span><span class="selector-class">.Xcode</span> BuildSystemScheduleInherentlyParallelCommandsExclusively -bool NO</span><br></pre></td></tr></table></figure>
 <ul>
 <li>提示：根据发布说明这是一个试验阶段的功能，会导致构建阶段内存消耗增加。</li>
 </ul>
 <h3 id="3、模拟器和Xcode在全屏模式下共存"><a href="#3、模拟器和Xcode在全屏模式下共存" class="headerlink" title="3、模拟器和Xcode在全屏模式下共存"></a>3、模拟器和Xcode在全屏模式下共存</h3><ul>
 <li>能在全屏模式下同时使用Xcode和iOS模拟器，可能是我在Xcode9最喜欢的一个功能。你只需要在终端执行下面的指令开启</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.iphonesimulator AllowFullscreenMode -bool YES</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com<span class="selector-class">.apple</span><span class="selector-class">.iphonesimulator</span> AllowFullscreenMode -bool YES</span><br></pre></td></tr></table></figure>
 <iframe width="840" height="472" src="https://www.youtube.com/embed/YFPUgQpUmuE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <ul>
 <li>如果你想使用更多的模拟器的秘密功能，请开启苹果隐藏的内部菜单栏，你需要在用户根目录创建一个名字为<code>AppleInternal</code>的空文件夹，然后执行下面指令重启模拟器即可。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /AppleInternal</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /AppleInternal</span><br></pre></td></tr></table></figure>
 <ul>
 <li>新的菜单栏就会出现<br><img src="https://github.com/developerinsider/developer-insider-content/blob/master/POST/iOS/TipsAndTricks/SimulatorInternal.png?raw=true" alt="simulator_newMenu"></li>
 </ul>
@@ -491,11 +522,11 @@
 <li>你可以使用<code>xcrun command-line</code>工具截取模拟屏幕快照或者录制模拟器屏幕视频。</li>
 <li>录制视频请执行下面指令</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl io booted recordVideo &lt;文件名&gt;.&lt;文件后缀&gt;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl io booted recordVideo <span class="tag">&lt;<span class="name">文件名</span>&gt;</span>.<span class="tag">&lt;<span class="name">文件后缀</span>&gt;</span>.</span><br></pre></td></tr></table></figure>
 <ul>
 <li>例如：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl io booted recordVideo appvideo.mov</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">xcrun</span> simctl io <span class="keyword">booted </span>recordVideo appvideo.<span class="keyword">mov</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>快捷键<code>control + c</code>停止视频录制，录制的适配文件默认会在当前目录保存。</li>
 </ul>
@@ -507,24 +538,24 @@
 <ul>
 <li>然而你也可以使用下面<code>simctl</code>命令做一些和图片/视频文件相似的事情。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl addmedia booted &lt;PATH TO FILE&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">xcrun</span> simctl <span class="keyword">addmedia </span><span class="keyword">booted </span>&lt;PATH TO FILE&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="6、使用指纹sudo"><a href="#6、使用指纹sudo" class="headerlink" title="6、使用指纹sudo"></a>6、使用指纹sudo</h3><ul>
 <li>如果你想使用指纹作为你Macbook Pro执行sudo时的密码，请编辑<code>/etc/pam.d/sudo</code>文件将下面一行添加在文件上面。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth sufficient pam_tid.so</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">auth</span> <span class="selector-tag">sufficient</span> <span class="selector-tag">pam_tid</span><span class="selector-class">.so</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>现在你可以使用指纹执行sudo了。</li>
 </ul>
 <h3 id="7、使用声音通知调试你的自动布局约束"><a href="#7、使用声音通知调试你的自动布局约束" class="headerlink" title="7、使用声音通知调试你的自动布局约束"></a>7、使用声音通知调试你的自动布局约束</h3><ul>
 <li>这将是一个非常好的方式去调试自动布局约束，仅仅在启动的时候传递<code>UIConstraintBasedLayoutPlaySoundOnUnsatisfiable</code>参数，当约束在运行时出现糟糕情况的时候就会播放声音。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-_UIConstraintBasedLayoutPlaySoundOnUnsatisfiable YES</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span><span class="string">_UIConstraintBasedLayoutPlaySoundOnUnsatisfiable</span> <span class="literal">YES</span></span><br></pre></td></tr></table></figure>
 <iframe width="840" height="472" src="https://www.youtube.com/embed/G_fuCXMChp8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <h3 id="8、移除Xcode中无效的模拟器"><a href="#8、移除Xcode中无效的模拟器" class="headerlink" title="8、移除Xcode中无效的模拟器"></a>8、移除Xcode中无效的模拟器</h3><ul>
 <li>这个小命令将移除Xcode中所有无效的模拟器，所谓无效是指对<code>xcode-select</code>无效的Xcode版本。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl delete unavailable</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun simctl <span class="keyword">delete</span> unavailable</span><br></pre></td></tr></table></figure>
 <h4 id="你最喜欢的功能是什么？请告诉我。"><a href="#你最喜欢的功能是什么？请告诉我。" class="headerlink" title="你最喜欢的功能是什么？请告诉我。"></a>你最喜欢的功能是什么？请告诉我。</h4>
       
     </div>
@@ -689,7 +720,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -884,7 +915,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">211k</span>
+    <span title="站点总字数">220k</span>
   
 
   
@@ -1030,6 +1061,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
