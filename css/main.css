@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #45eb69;
+  background: #ffa2af;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2757,10 +2757,10 @@ table>tbody>tr:nth-of-type(odd) {
   border-bottom: 1px solid #fc6423;
 }
 pre .addition {
-  background: #88cd7f;
+  background: #cdffd8;
 }
 pre .deletion {
-  background: #bf1827;
+  background: #ffdce0;
 }
 .highlight figcaption {
   margin: 0em;
