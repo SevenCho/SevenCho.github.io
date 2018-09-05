@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffa2af;
+  background: #857012;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2109,7 +2109,7 @@ pre .javascript .function {
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: #ff0000;
+  color: #808080;
 }
 .powered-by,
 .theme-info {
@@ -2714,6 +2714,14 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.header {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/uploads/assets/background_minions.jpg") no-repeat;
+  background-size: cover;
+  background-color: #000;
+  background-position: center;
+  width: 100%;
+  display: table;
 }
 code {
   color: #bf1827;

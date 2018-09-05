@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/14534beb.html</loc>
+    <lastmod>2018-09-05T08:28:22.658Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结</title>
+        <pubTime>2018-09-03T11:58:45.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Blog" url="https://sevencho.github.io/categories/Blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/d3400f8e.html</loc>
     <lastmod>2018-09-04T09:02:30.178Z</lastmod>
     <data>
@@ -19,28 +41,6 @@
            
              
               <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/14534beb.html</loc>
-    <lastmod>2018-09-04T08:24:46.373Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结</title>
-        <pubTime>2018-09-03T11:58:45.000Z</pubTime>
-        
-        <tag>Blog</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Blog" url="https://sevencho.github.io/categories/Blog/"/>
           
         </display>
     </data>
