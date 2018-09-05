@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffd287;
+  background: #8fff22;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2737,6 +2737,9 @@ embed {
 }
 .menu .menu-item a:hover {
   border-bottom-color: #bf1827;
+}
+.btn {
+  font-family: HanziPen SC, Hannotate SC, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 code {
   color: #bf1827;
