@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8fff22;
+  background: #45ffba;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2716,11 +2716,11 @@ embed {
   display: inline-block;
 }
 .site-title {
-  font-size: 23px;
+  font-size: 21px;
   font-weight: bold;
 }
 .site-subtitle {
-  font-size: 18px;
+  font-size: 16px;
 }
 .menu {
   margin-top: 20px;
@@ -2733,10 +2733,13 @@ embed {
   border-radius: initial;
 }
 .menu .menu-item a {
-  font-size: 15px;
+  font-size: 14px;
 }
 .menu .menu-item a:hover {
   border-bottom-color: #bf1827;
+}
+.post-title-link::before {
+  background-color: #bf1827;
 }
 .btn {
   font-family: HanziPen SC, Hannotate SC, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
