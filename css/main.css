@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #45ffba;
+  background: #ff59cd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2715,6 +2715,9 @@ embed {
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
 }
+.posts-expand .post-title-link {
+  color: #333;
+}
 .site-title {
   font-size: 21px;
   font-weight: bold;
@@ -2737,9 +2740,6 @@ embed {
 }
 .menu .menu-item a:hover {
   border-bottom-color: #bf1827;
-}
-.post-title-link::before {
-  background-color: #bf1827;
 }
 .btn {
   font-family: HanziPen SC, Hannotate SC, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
