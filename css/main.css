@@ -1974,7 +1974,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff59cd;
+  background: #e8ff4e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2715,9 +2715,6 @@ embed {
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
 }
-.posts-expand .post-title-link {
-  color: #333;
-}
 .site-title {
   font-size: 21px;
   font-weight: bold;
@@ -2736,10 +2733,16 @@ embed {
   border-radius: initial;
 }
 .menu .menu-item a {
-  font-size: 14px;
+  font-size: 13.5px;
 }
 .menu .menu-item a:hover {
   border-bottom-color: #bf1827;
+}
+.posts-expand .post-title-link {
+  color: #333;
+}
+.posts-expand .post-title-link:hover {
+  color: #bf1827;
 }
 .btn {
   font-family: HanziPen SC, Hannotate SC, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -2801,7 +2804,7 @@ pre .deletion {
   color: #ddecf6;
 }
 blockquote.question {
-  color: #555;
+  color: #333;
   border-left: 4px solid #1098ad;
   background-color: #e3f2fd;
   border-top-right-radius: 3px;
@@ -2810,7 +2813,7 @@ blockquote.question {
 }
 blockquote {
   font-family: HanziPen SC, Hannotate SC, Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-  color: #666;
+  color: #444;
   padding: 0px 20px;
   border-left: 4px solid #bf1827;
   border-top-right-radius: 5px;
