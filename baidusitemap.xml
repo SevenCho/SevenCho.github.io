@@ -4,6 +4,140 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/55fb9a70.html</loc>
+    <lastmod>2018-09-07T03:42:09.143Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之UIApplication & UIWindow & 创建单例</title>
+        <pubTime>2014-10-15T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>UIApplication</tag>
+         
+        <tag>UIWindow</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/f571ec2e.html</loc>
+    <lastmod>2018-09-07T03:42:09.142Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之APP的启动过程及生命周期相关</title>
+        <pubTime>2014-10-12T02:12:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/5a324ffa.html</loc>
+    <lastmod>2018-09-07T03:42:09.141Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之KVO和KVC常用方法</title>
+        <pubTime>2014-09-05T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>KVC</tag>
+         
+        <tag>KVO</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/f9786cb4.html</loc>
+    <lastmod>2018-09-07T03:37:06.822Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发常用控件之UITableView</title>
+        <pubTime>2014-10-07T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>UITableView</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/44d78c0d.html</loc>
+    <lastmod>2018-09-07T03:37:00.250Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发常用控件之UIScrollView</title>
+        <pubTime>2014-10-02T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>UIScrollView</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/a1e080e.html</loc>
+    <lastmod>2018-09-07T03:36:48.006Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之关于浅拷贝和深拷贝</title>
+        <pubTime>2014-09-15T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>copy</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/14534beb.html</loc>
     <lastmod>2018-09-06T07:10:16.109Z</lastmod>
     <data>

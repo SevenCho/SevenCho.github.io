@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="UITableView可以说是iOS开发中最常用的控件之一了，常用于展示表单及列表类数据。">
+<meta name="keywords" content="iOS,UITableView">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发常用控件之UITableView">
+<meta property="og:url" content="https://sevencho.github.io/archives/f9786cb4.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="UITableView可以说是iOS开发中最常用的控件之一了，常用于展示表单及列表类数据。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/tableViewCell的创建方式2.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/tableViewCell的创建方式1.png">
+<meta property="og:updated_time" content="2018-09-07T03:37:06.822Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发常用控件之UITableView">
+<meta name="twitter:description" content="UITableView可以说是iOS开发中最常用的控件之一了，常用于展示表单及列表类数据。">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/tableViewCell的创建方式2.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/f9786cb4.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发常用控件之UITableView | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/f9786cb4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发常用控件之UITableView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-10-07 09:25:25" itemprop="dateCreated datePublished" datetime="2014-10-07T09:25:25+08:00">2014-10-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>UITableView可以说是iOS开发中最常用的控件之一了，常用于展示表单及列表类数据。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="UITableView"><a href="#UITableView" class="headerlink" title="UITableView"></a>UITableView</h2><h3 id="如何展示数据"><a href="#如何展示数据" class="headerlink" title="如何展示数据"></a>如何展示数据</h3><h4 id="设置数据源对象"><a href="#设置数据源对象" class="headerlink" title="设置数据源对象"></a>设置数据源对象</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.tableView.dataSource = <span class="keyword">self</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="数据源对象要遵守协议"><a href="#数据源对象要遵守协议" class="headerlink" title="数据源对象要遵守协议"></a>数据源对象要遵守协议</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">UITableViewDataSource</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="实现数据源方法"><a href="#实现数据源方法" class="headerlink" title="实现数据源方法"></a>实现数据源方法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多少组数据</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一组有多少行数据</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一行显示什么内容</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一组的头部</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一组的尾部</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForFooterInSection:(<span class="built_in">NSInteger</span>)section</span><br></pre></td></tr></table></figure>
+<h3 id="tableView的常见设置"><a href="#tableView的常见设置" class="headerlink" title="tableView的常见设置"></a>tableView的常见设置</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置每一行cell的高度</span></span><br><span class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置每一组头部的高度</span></span><br><span class="line"><span class="keyword">self</span>.tableView.sectionHeaderHeight = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置每一组尾部的高度</span></span><br><span class="line"><span class="keyword">self</span>.tableView.sectionFooterHeight = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置分割线颜色</span></span><br><span class="line"><span class="keyword">self</span>.tableView.separatorColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"><span class="comment">// 设置分割线样式</span></span><br><span class="line"><span class="keyword">self</span>.tableView.separatorStyle = <span class="built_in">UITableViewCellSeparatorStyleNone</span>;</span><br><span class="line"><span class="comment">// 设置表头控件</span></span><br><span class="line"><span class="keyword">self</span>.tableView.tableHeaderView = [[<span class="built_in">UISwitch</span> alloc] init];</span><br><span class="line"><span class="comment">// 设置表尾控件</span></span><br><span class="line"><span class="keyword">self</span>.tableView.tableFooterView = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeContactAdd</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置右边索引文字的颜色</span></span><br><span class="line"><span class="keyword">self</span>.tableView.sectionIndexColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"><span class="comment">// 设置右边索引文字的背景色</span></span><br><span class="line"><span class="keyword">self</span>.tableView.sectionIndexBackgroundColor = [<span class="built_in">UIColor</span> blackColor];</span><br></pre></td></tr></table></figure>
+<h2 id="UITableViewCell"><a href="#UITableViewCell" class="headerlink" title="UITableViewCell"></a>UITableViewCell</h2><h3 id="UITableViewCell的常见设置"><a href="#UITableViewCell的常见设置" class="headerlink" title="UITableViewCell的常见设置"></a>UITableViewCell的常见设置</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置右边的指示样式</span></span><br><span class="line">cell.accessoryType = <span class="built_in">UITableViewCellAccessoryDisclosureIndicator</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置右边的指示控件</span></span><br><span class="line">cell.accessoryView = [[<span class="built_in">UISwitch</span> alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置cell的选中样式</span></span><br><span class="line">cell.selectionStyle = <span class="built_in">UITableViewCellSelectionStyleNone</span>;</span><br><span class="line"><span class="comment">// backgroundView优先级 &gt; backgroundColor</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置背景色</span></span><br><span class="line">cell.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置背景view</span></span><br><span class="line"><span class="built_in">UIView</span> *bg = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">bg.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">cell.backgroundView = bg;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置选中的背景view</span></span><br><span class="line"><span class="built_in">UIView</span> *selectedBg = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">selectedBg.backgroundColor = [<span class="built_in">UIColor</span> purpleColor];</span><br><span class="line">cell.selectedBackgroundView = selectedBg;</span><br></pre></td></tr></table></figure>
+<h3 id="cell的循环利用"><a href="#cell的循环利用" class="headerlink" title="cell的循环利用"></a>cell的循环利用</h3><h4 id="传统的写法"><a href="#传统的写法" class="headerlink" title="传统的写法"></a>传统的写法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 每当有一个cell要进入视野范围内，就会调用一次</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"wine"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.先去缓存池中查找可循环利用的cell</span></span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.如果缓存池中没有可循环利用的cell</span></span><br><span class="line">    <span class="keyword">if</span> (!cell) &#123;</span><br><span class="line">        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:ID];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.设置数据</span></span><br><span class="line">    cell.textLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%zd行的数据"</span>, indexPath.row];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="新的写法（注册cell）"><a href="#新的写法（注册cell）" class="headerlink" title="新的写法（注册cell）"></a>新的写法（注册cell）</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *ID = <span class="string">@"wine"</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册某个重用标识 对应的 Cell类型</span></span><br><span class="line">    [<span class="keyword">self</span>.tableView registerClass:[<span class="built_in">UITableViewCell</span> <span class="keyword">class</span>] forCellReuseIdentifier:ID];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.先去缓存池中查找可循环利用的cell</span></span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.设置数据</span></span><br><span class="line">    cell.textLabel.text = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%zd行的数据"</span>, indexPath.row];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="cell的高度的新的计算方式"><a href="#cell的高度的新的计算方式" class="headerlink" title="cell的高度的新的计算方式"></a>cell的高度的新的计算方式</h3><ul>
+<li>iOS8新增加预估高度(self-sizing)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 告诉tableView所有cell的高度是自动计算的（根据设置的约束）</span></span><br><span class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="built_in">UITableViewAutomaticDimension</span>;</span><br><span class="line"><span class="comment">// 设置一个预估值</span></span><br><span class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">44</span> ; <span class="comment">//44为任意值</span></span><br></pre></td></tr></table></figure>
+<h3 id="自定义下划线"><a href="#自定义下划线" class="headerlink" title="自定义下划线"></a>自定义下划线</h3><ul>
+<li>不需要去掉原来的下划线，就可以实现在有内容的时候，下面显示出下划线，没有内容的地方不会出现下划线。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加分割线的取巧方法</span></span><br><span class="line"><span class="keyword">self</span>.tableView.tableFooterView = [[<span class="built_in">UIView</span> alloc] init];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>另一种自定义下滑线的方式就是在cell最下面自定义一个高度为1的UIView，这种方法需要去掉原来的下划线。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去掉自带的分割线</span></span><br><span class="line"><span class="keyword">self</span>.tableView.separatorStyle = <span class="built_in">UITableViewCellSeparatorStyleNone</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="如何利用xib封装一个cell"><a href="#如何利用xib封装一个cell" class="headerlink" title="如何利用xib封装一个cell"></a>如何利用xib封装一个cell</h3><ul>
+<li>新建一个xib文件描述一个cell的内部结构</li>
+<li>新建一个新的类(继承自UITableViewCell)</li>
+<li>新建类的类名最好跟xib的文件名保持一致</li>
+<li>将xib中的控件 和自定义的类 进行连线</li>
+<li>提供一个类方法快速返回一个创建好的自定义的view(屏蔽从xib加载这个过程)</li>
+</ul>
+<center><img src="/uploads/assets/tableViewCell的创建方式2.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="通过代码自定义cell-cell的高度不一致"><a href="#通过代码自定义cell-cell的高度不一致" class="headerlink" title="通过代码自定义cell(cell的高度不一致)"></a>通过代码自定义cell(cell的高度不一致)</h3><ul>
+<li>新建一个继承自UITableViewCell的类</li>
+<li>重写<code>initWithStyle:reuseIdentifier:</code>方法添加所有需要显示的子控件(不需要设置子控件的数据和frame,子控件要添加到contentView中)进行子控件一次性的属性设置(有些属性只需要设置一次, 比如字体\固定的图片)</li>
+<li>提供2个模型 <ul>
+<li>数据模型: 存放文字数据\图片数据</li>
+<li>frame模型: 存放数据模型\所有子控件的frame\cell的高度</li>
+</ul>
+</li>
+<li>cell拥有一个frame模型(不要直接拥有数据模型) (重写set方法)</li>
+<li>重写frame模型属性的setter方法: 在这个方法中设置子控件的显示数据和frame</li>
+<li>frame模型数据的初始化已经采取懒加载的方式(每一个cell对应的frame模型数据只加载一次)</li>
+</ul>
+<center><img src="/uploads/assets/tableViewCell的创建方式1.png" alt="hack_appList_result_failed"></center>
+
+<h2 id="数据刷新"><a href="#数据刷新" class="headerlink" title="数据刷新"></a>数据刷新</h2><ul>
+<li>添加数据</li>
+<li>删除数据</li>
+<li>更改数据</li>
+</ul>
+<h3 id="全局刷新方法-最常用"><a href="#全局刷新方法-最常用" class="headerlink" title="全局刷新方法(最常用)"></a>全局刷新方法(最常用)</h3><ul>
+<li>屏幕上的所有可视的cell都会刷新一遍</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.tableView reloadData];</span><br></pre></td></tr></table></figure>
+<h3 id="局部刷新方法"><a href="#局部刷新方法" class="headerlink" title="局部刷新方法"></a>局部刷新方法</h3><ul>
+<li>添加数据</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *indexPaths = @[[<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">0</span> inSection:<span class="number">0</span>],</span><br><span class="line">                        [<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">1</span> inSection:<span class="number">0</span>]];</span><br><span class="line">[<span class="keyword">self</span>.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:<span class="built_in">UITableViewRowAnimationRight</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除数据</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *indexPaths = @[[<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">0</span> inSection:<span class="number">0</span>],</span><br><span class="line">                        [<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">1</span> inSection:<span class="number">0</span>]];</span><br><span class="line">[<span class="keyword">self</span>.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:<span class="built_in">UITableViewRowAnimationMiddle</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新数据（没有添加和删除数据，仅仅是修改已经存在的数据）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *indexPaths = @[[<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">0</span> inSection:<span class="number">0</span>],</span><br><span class="line">                        [<span class="built_in">NSIndexPath</span> indexPathForRow:<span class="number">1</span> inSection:<span class="number">0</span>]];</span><br><span class="line">[<span class="keyword">self</span>.tableView relaodRowsAtIndexPaths:indexPaths withRowAnimation:<span class="built_in">UITableViewRowAnimationMiddle</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="左滑出现删除按钮"><a href="#左滑出现删除按钮" class="headerlink" title="左滑出现删除按钮"></a>左滑出现删除按钮</h3><ul>
+<li>需要实现tableView的代理方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  只要实现了这个方法，左滑出现Delete按钮的功能就有了</span></span><br><span class="line"><span class="comment"> *  点击了“左滑出现的Delete按钮”会调用这个方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 删除模型</span></span><br><span class="line">    [<span class="keyword">self</span>.wineArray removeObjectAtIndex:indexPath.row];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 刷新</span></span><br><span class="line">    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:<span class="built_in">UITableViewRowAnimationLeft</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  修改Delete按钮文字为“删除”</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">@"删除"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="左滑出现N个按钮"><a href="#左滑出现N个按钮" class="headerlink" title="左滑出现N个按钮"></a>左滑出现N个按钮</h3><ul>
+<li>需要实现tableView的代理方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  只要实现了这个方法，左滑出现按钮的功能就有了</span></span><br><span class="line"><span class="comment"> (一旦左滑出现了N个按钮，tableView就进入了编辑模式, tableView.editing = YES)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  左滑cell时出现什么按钮</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView editActionsForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UITableViewRowAction</span> *action0 = [<span class="built_in">UITableViewRowAction</span> rowActionWithStyle:<span class="built_in">UITableViewRowActionStyleNormal</span> title:<span class="string">@"关注"</span> handler:^(<span class="built_in">UITableViewRowAction</span> *action, <span class="built_in">NSIndexPath</span> *indexPath) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"点击了关注"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 收回左滑出现的按钮(退出编辑模式)</span></span><br><span class="line">        tableView.editing = <span class="literal">NO</span>;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UITableViewRowAction</span> *action1 = [<span class="built_in">UITableViewRowAction</span> rowActionWithStyle:<span class="built_in">UITableViewRowActionStyleDefault</span> title:<span class="string">@"删除"</span> handler:^(<span class="built_in">UITableViewRowAction</span> *action, <span class="built_in">NSIndexPath</span> *indexPath) &#123;</span><br><span class="line">        [<span class="keyword">self</span>.wineArray removeObjectAtIndex:indexPath.row];</span><br><span class="line">        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:<span class="built_in">UITableViewRowAnimationAutomatic</span>];</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> @[action1, action0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="进入编辑模式"><a href="#进入编辑模式" class="headerlink" title="进入编辑模式"></a>进入编辑模式</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// self.tabelView.editing = YES;</span></span><br><span class="line">[<span class="keyword">self</span>.tableView setEditing:<span class="literal">YES</span> animated:<span class="literal">YES</span>];</span><br><span class="line"><span class="comment">// 默认情况下，进入编辑模式时，左边会出现一排红色的“减号”按钮</span></span><br></pre></td></tr></table></figure>
+<h3 id="在编辑模式中多选"><a href="#在编辑模式中多选" class="headerlink" title="在编辑模式中多选"></a>在编辑模式中多选</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编辑模式的时候可以多选</span></span><br><span class="line"><span class="keyword">self</span>.tableView.allowsMultipleSelectionDuringEditing = <span class="literal">YES</span>;</span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">[<span class="keyword">self</span>.tableView setEditing:<span class="literal">YES</span> animated:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得选中的所有行</span></span><br><span class="line"><span class="keyword">self</span>.tableView.indexPathsForSelectedRows;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/f9786cb4.html" title="iOS开发常用控件之UITableView">https://sevencho.github.io/archives/f9786cb4.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/UITableView/" rel="tag"><i class="fa fa-tag"></i> UITableView</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/44d78c0d.html" rel="next" title="iOS开发常用控件之UIScrollView">
+                <i class="fa fa-chevron-left"></i> iOS开发常用控件之UIScrollView
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/f571ec2e.html" rel="prev" title="iOS开发之APP的启动过程及生命周期相关">
+                iOS开发之APP的启动过程及生命周期相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UITableView"><span class="nav-number">1.</span> <span class="nav-text">UITableView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何展示数据"><span class="nav-number">1.1.</span> <span class="nav-text">如何展示数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置数据源对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">设置数据源对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据源对象要遵守协议"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据源对象要遵守协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现数据源方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">实现数据源方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tableView的常见设置"><span class="nav-number">1.2.</span> <span class="nav-text">tableView的常见设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITableViewCell"><span class="nav-number">2.</span> <span class="nav-text">UITableViewCell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITableViewCell的常见设置"><span class="nav-number">2.1.</span> <span class="nav-text">UITableViewCell的常见设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cell的循环利用"><span class="nav-number">2.2.</span> <span class="nav-text">cell的循环利用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统的写法"><span class="nav-number">2.2.1.</span> <span class="nav-text">传统的写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新的写法（注册cell）"><span class="nav-number">2.2.2.</span> <span class="nav-text">新的写法（注册cell）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cell的高度的新的计算方式"><span class="nav-number">2.3.</span> <span class="nav-text">cell的高度的新的计算方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义下划线"><span class="nav-number">2.4.</span> <span class="nav-text">自定义下划线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何利用xib封装一个cell"><span class="nav-number">2.5.</span> <span class="nav-text">如何利用xib封装一个cell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过代码自定义cell-cell的高度不一致"><span class="nav-number">2.6.</span> <span class="nav-text">通过代码自定义cell(cell的高度不一致)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据刷新"><span class="nav-number">3.</span> <span class="nav-text">数据刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局刷新方法-最常用"><span class="nav-number">3.1.</span> <span class="nav-text">全局刷新方法(最常用)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部刷新方法"><span class="nav-number">3.2.</span> <span class="nav-text">局部刷新方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左滑出现删除按钮"><span class="nav-number">3.3.</span> <span class="nav-text">左滑出现删除按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左滑出现N个按钮"><span class="nav-number">3.4.</span> <span class="nav-text">左滑出现N个按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入编辑模式"><span class="nav-number">3.5.</span> <span class="nav-text">进入编辑模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在编辑模式中多选"><span class="nav-number">3.6.</span> <span class="nav-text">在编辑模式中多选</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">246k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

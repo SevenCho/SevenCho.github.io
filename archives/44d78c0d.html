@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="iOS,UIScrollView">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发常用控件之UIScrollView">
+<meta property="og:url" content="https://sevencho.github.io/archives/44d78c0d.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/常用属性值参考.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/代理关系图.png">
+<meta property="og:updated_time" content="2018-09-07T03:37:00.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发常用控件之UIScrollView">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/常用属性值参考.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/44d78c0d.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发常用控件之UIScrollView | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/44d78c0d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发常用控件之UIScrollView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-10-02 09:25:25" itemprop="dateCreated datePublished" datetime="2014-10-02T09:25:25+08:00">2014-10-02</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><img src="/uploads/assets/常用属性值参考.png" alt="hack_appList_result_failed"></center>
+
+<a id="more"></a>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGPoint</span> contentOffset;</span><br><span class="line"><span class="comment">// 这个属性用来表示UIScrollView滚动的位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGSize</span> contentSize;</span><br><span class="line"><span class="comment">// 这个属性用来表示UIScrollView内容的尺寸，滚动范围（能滚多远）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UIEdgeInsets</span> contentInset;</span><br><span class="line"><span class="comment">// 这个属性能够在UIScrollView的4周增加额外的滚动区域</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> bounces;</span><br><span class="line"><span class="comment">// 设置UIScrollView是否需要弹簧效果</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">getter</span>=isScrollEnabled) <span class="built_in">BOOL</span> scrollEnabled;</span><br><span class="line"><span class="comment">// 设置UIScrollView是否能滚动</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> showsHorizontalScrollIndicator;</span><br><span class="line"><span class="comment">// 是否显示水平滚动条</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> showsVerticalScrollIndicator;</span><br><span class="line"><span class="comment">// 是否显示垂直滚动条</span></span><br></pre></td></tr></table></figure>
+<h3 id="UIScrollView的使用步骤"><a href="#UIScrollView的使用步骤" class="headerlink" title="UIScrollView的使用步骤"></a>UIScrollView的使用步骤</h3><ul>
+<li>创建UIScrollView</li>
+<li>给UIScrollView添加子控件</li>
+<li>要想UIScrollView可以滚动,必须设置UIScrollView的滚动范围</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置滚动范围</span></span><br><span class="line"><span class="keyword">self</span>.scrollview.contentSize = <span class="built_in">CGSizeMake</span>(<span class="number">500</span>, <span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li><p>千万不要使用<code>subviews</code>来获取UIScrollview中的子控件。</p>
+<ul>
+<li>因为subviews中包含了UIScrollview中的<code>滚动条</code>，而且滚动条的<code>顺序是不确定</code>的。</li>
+</ul>
+</li>
+<li><p>默认情况下只要UIScrollview可以滚动, 就有弹簧效果</p>
+<ul>
+<li><code>bounces</code>属性用于设置UIScrollview是否有回弹效果</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.scrollview.bounces = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>注意</code>: <code>alwaysBounceXXX</code>属性主要用于设置UIScrollview没有设置contentSize的情况<ul>
+<li>如果UIScrollview已经设置了contentSize，那么YES和NO没有区别</li>
+<li>alwaysBounceXXX应用场景: 下拉刷新</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.scrollview.alwaysBounceVertical = <span class="literal">YES</span>;</span><br><span class="line"><span class="keyword">self</span>.scrollview.alwaysBounceHorizontal = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置滚动条的样式和控制滚动条的显示</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 样式</span></span><br><span class="line"><span class="keyword">self</span>.scrollview.indicatorStyle = <span class="built_in">UIScrollViewIndicatorStyleWhite</span>;</span><br><span class="line"><span class="comment">// 是否显示</span></span><br><span class="line"><span class="keyword">self</span>.scrollview.showsHorizontalScrollIndicator = <span class="literal">NO</span>;</span><br><span class="line"><span class="keyword">self</span>.scrollview.showsVerticalScrollIndicator = <span class="literal">NO</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="contentOffset"><a href="#contentOffset" class="headerlink" title="contentOffset"></a>contentOffset</h2><ul>
+<li>只要点击了控制器的view系统就会自动调用下面方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.修改UIScrollview的contentOffset属性</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    // contentOffset就是用于设置内容的滚动偏移位</span></span><br><span class="line"><span class="comment">    // 规律: 移动的距离 =  "控件的左上角" - "内容的左上角"</span></span><br><span class="line"><span class="comment">    // x等于负数 --&gt; 右边移动</span></span><br><span class="line"><span class="comment">    // x等于整数 --&gt; 左边移动</span></span><br><span class="line"><span class="comment">    // y等于负数 --&gt; 下边移动</span></span><br><span class="line"><span class="comment">    // y等于整数 --&gt; 上边移动</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    // -100 = "控件的左上角" - "内容的左上角"</span></span><br><span class="line"><span class="comment">    // 100 = "控件的左上角" - "内容的左上角"</span></span><br><span class="line"><span class="comment">//    self.scrollview.contentOffset = CGPointMake(-100, 0);</span></span><br><span class="line"><span class="comment">//    self.scrollview.contentOffset = CGPointMake(100, 0);</span></span><br><span class="line"><span class="comment">//    self.scrollview.contentOffset = CGPointMake(0, -100);</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">self</span>.scrollview.contentOffset = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p><center><img src="/uploads/assets/代理关系图.png" alt="hack_appList_result_failed"></center></p>
+<ul>
+<li>UIScrollView停止”拖拽”时调用<ul>
+<li><code>注意</code>：停止拖拽并不代表停止滚动,也就是说UIScrollView滚动是有惯性的\在scrollViewDidEndDragging方法中,是没有办法准确的监听到UIScrollView什么时候停止滚动。</li>
+<li><code>decelerate</code>等于YES代表有惯性, 会继续滚动; 如果等于NO代表没有惯性，会停止滚动。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s = %d"</span>, __func__, decelerate);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断是否有惯性,如果没有惯性手动调用scrollViewDidEndDecelerating告知已经完全停止滚动</span></span><br><span class="line">    <span class="keyword">if</span> (decelerate == <span class="literal">NO</span>) &#123;</span><br><span class="line">        [<span class="keyword">self</span> scrollViewDidEndDecelerating:scrollView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UIScrollView停止”减速”时调用<ul>
+<li>scrollViewDidEndDecelerating不一定会调用, 只有scrollView有惯性的时候才会调用</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __func__);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"停止滚动"</span>);</span><br><span class="line">    <span class="keyword">self</span>.iv.alpha = <span class="number">1.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UIScrollview缩放"><a href="#UIScrollview缩放" class="headerlink" title="UIScrollview缩放"></a>UIScrollview缩放</h2><ul>
+<li><p>步骤:</p>
+<ul>
+<li>成为UIScrollview的代理, 通过代理方法告诉UIScrollview要缩放哪一个子控件</li>
+<li>设置子控件最大和最小的缩放比例</li>
+</ul>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><code>viewForZoomingInScrollView</code> : 返回需要缩放的子控件</li>
+<li><code>scrollViewDidZoom</code>: 只要子控件被缩放了就会调用(调用频率非常高)</li>
+<li><code>scrollViewDidEndZooming</code>: 缩放完毕时掉用</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何保证被缩放的子控件永远居中"><a href="#如何保证被缩放的子控件永远居中" class="headerlink" title="如何保证被缩放的子控件永远居中"></a>如何保证被缩放的子控件永远居中</h3><ul>
+<li>只要子控件的contentSize小于UIScrollview的宽高时才需要缩放</li>
+</ul>
+<h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.判断contentSize的宽高, 是否小于UIScrollView的frame的size</span></span><br><span class="line">   <span class="keyword">if</span> (scrollView.contentSize.width &lt; scrollView.bounds.size.width) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">self</span>.iv1.center = <span class="built_in">CGPointMake</span>(scrollView.bounds.size.width * <span class="number">0.5</span>, scrollView.bounds.size.height * <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (scrollView.contentSize.height &lt; scrollView.bounds.size.height) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">self</span>.iv1.center = <span class="built_in">CGPointMake</span>(scrollView.bounds.size.width * <span class="number">0.5</span>, scrollView.bounds.size.height * <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.判断contentSize的宽高, 是否小于UIScrollView的frame的size</span></span><br><span class="line">   <span class="keyword">if</span> (scrollView.contentSize.width &lt; scrollView.bounds.size.width) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 计算X的值</span></span><br><span class="line">       <span class="built_in">CGFloat</span> x =  (scrollView.contentSize.width * <span class="number">0.5</span>) + ((scrollView.bounds.size.width - scrollView.contentSize.width) * <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 重新设置center</span></span><br><span class="line">       <span class="keyword">self</span>.iv1.center = <span class="built_in">CGPointMake</span>(x, <span class="keyword">self</span>.iv1.center.y);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (scrollView.contentSize.height &lt; scrollView.bounds.size.height) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 计算Y的值</span></span><br><span class="line">       <span class="built_in">CGFloat</span> y =  (scrollView.contentSize.height * <span class="number">0.5</span>) + ((scrollView.bounds.size.height - scrollView.contentSize.height) * <span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 重新设置center</span></span><br><span class="line">       <span class="keyword">self</span>.iv1.center = <span class="built_in">CGPointMake</span>(<span class="keyword">self</span>.iv1.center.x, y);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第三种-对第二种方法进行简化"><a href="#第三种-对第二种方法进行简化" class="headerlink" title="第三种 (对第二种方法进行简化)"></a>第三种 (对第二种方法进行简化)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> x = scrollView.contentSize.width &lt; scrollView.bounds.size.width ? (scrollView.bounds.size.width - scrollView.contentSize.width) * <span class="number">0.5</span> : <span class="number">0.0</span>;</span><br><span class="line">   <span class="built_in">CGFloat</span> y = scrollView.contentSize.height &lt; scrollView.bounds.size.height ? (scrollView.bounds.size.height - scrollView.contentSize.height) * <span class="number">0.5</span> : <span class="number">0.0</span>;</span><br><span class="line">   <span class="keyword">self</span>.iv1.center = <span class="built_in">CGPointMake</span>(scrollView.contentSize.width * <span class="number">0.5</span> + x, scrollView.contentSize.height * <span class="number">0.5</span> + y);</span><br></pre></td></tr></table></figure>
+<h2 id="图片轮播器"><a href="#图片轮播器" class="headerlink" title="图片轮播器"></a>图片轮播器</h2><ul>
+<li>如何分页 : <code>pagingEnabled = YES</code></li>
+<li>分页的原理: 是根据UIScrollview的宽度或者高度来分页</li>
+</ul>
+<ul>
+<li>UIPageControl<ul>
+<li><code>numberOfPages</code> : 设置总页码</li>
+<li><code>currentPage</code>: 设置当前页码</li>
+<li><code>pageIndicatorTintColor</code>: 设置其它页码的颜色</li>
+<li><code>currentPageIndicatorTintColor</code> : 设置当前页码的颜色</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义页码"><a href="#自定义页码" class="headerlink" title="自定义页码"></a>自定义页码</h3><ul>
+<li>利用KVC给UIPageControl设置页码图片(私有属性)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[pageControl setValue:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"current"</span>] forKeyPath:<span class="string">@"_currentPageImage"</span>];</span><br><span class="line">    [pageControl setValue:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"other"</span>] forKeyPath:<span class="string">@"_pageImage"</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听UIPageControl的点击<ul>
+<li>由于UIPageControl继承于UIControl, 所以通过addTargt来监听</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[pageControl addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(nextPage) forControlEvents:<span class="built_in">UIControlEventValueChanged</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="切换页码"><a href="#切换页码" class="headerlink" title="切换页码"></a>切换页码</h3><ul>
+<li>滚动完毕之后再切换</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDragging:(<span class="built_in">UIScrollView</span> *)scrollView willDecelerate:(<span class="built_in">BOOL</span>)decelerate</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 判断是否有惯性, 如果没有就手动调用scrollViewDidEndDecelerating</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">NO</span> == decelerate) &#123;</span><br><span class="line">        [<span class="keyword">self</span> scrollViewDidEndDecelerating:scrollView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有有惯性才会调用</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidEndDecelerating:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.动态计算当前的页码</span></span><br><span class="line">    <span class="comment">// 页码 = UIScrollView的偏移位 / UIScrollView的宽度</span></span><br><span class="line">    <span class="keyword">int</span> page = scrollView.contentOffset.x / scrollView.bounds.size.width;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"page = %d"</span>, page);</span><br><span class="line">    <span class="comment">// 2.设置当前的页码</span></span><br><span class="line">    <span class="keyword">self</span>.pageControl.currentPage = page;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实时切换 （原理相同 实现方式不同的方法）</li>
+</ul>
+<ul>
+<li>方式1</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只要滚动就会调用</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)scrollView</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"%s", __func__);</span></span><br><span class="line">    <span class="comment">// 1.动态计算当前的页码</span></span><br><span class="line">    <span class="comment">// 页码 = UIScrollView的偏移位 / UIScrollView的宽度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> page = scrollView.contentOffset.x / scrollView.bounds.size.width;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"page = %f"</span>, page + <span class="number">0.5</span>);</span><br><span class="line">    <span class="comment">// 2.设置当前的页码</span></span><br><span class="line">    <span class="keyword">self</span>.pageControl.currentPage = (<span class="keyword">int</span>)(page + <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方式2</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当正在滚动的时候就会调用代理的方法</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewDidScroll:(<span class="built_in">UIScrollView</span> *)imageScrollView&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据滚动的位置计算出当前的页数</span></span><br><span class="line">    <span class="built_in">CGFloat</span> scrollViewW = <span class="keyword">self</span>.imageScrollView.frame.size.width;</span><br><span class="line">    <span class="keyword">int</span> page = (imageScrollView.contentOffset.x + scrollViewW * <span class="number">0.5</span>) / scrollViewW;</span><br><span class="line">    <span class="keyword">self</span>.pageControl.currentPage = page;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="NSTimer的使用"><a href="#NSTimer的使用" class="headerlink" title="NSTimer的使用"></a>NSTimer的使用</h2><ul>
+<li>作用: 可以让系统每隔一段时间执行指定对象的指定方法</li>
+<li>注意:<ul>
+<li>间隔时间是不准确的</li>
+<li>只要通过scheduledTimerWithTimeInterval创建出来的Timer,就会被RUNLOOP强引用, 所以如果通过属性保存使用weak</li>
+<li>只要调用了NSTimer的invalidate方法, 那么定时器就不能使用了, 想要使用必须重新创建</li>
+<li>如何主线程正在处理其它操作, 那么NSTimer不会执行<ul>
+<li>默认NSTimer是NSDefaultRunLoopMode模式</li>
+<li>要想在主线程处理其它操作的时候也处理NSTimer, 那么必须把NSTiemr在RunLoop中的模式改为NSRunLoopCommonModes<h3 id="开启定时器"><a href="#开启定时器" class="headerlink" title="开启定时器"></a>开启定时器</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">NSTimer</span> *timer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一个自动开始执行任务的定时器</span></span><br><span class="line"><span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">2.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(nextPage:) userInfo:<span class="string">@"123"</span> repeats:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改NSTimer在NSRunLoop中的模式：NSRunLoopCommonModes</span></span><br><span class="line"><span class="comment">// 主线程不管在处理什么操作，都会抽时间处理NSTimer</span></span><br><span class="line">[[<span class="built_in">NSRunLoop</span> mainRunLoop] addTimer:<span class="keyword">self</span>.timer forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 开启定时器(方式2)</span></span><br><span class="line">    <span class="comment">// 设置定时器的开始时间为过去的某一个时间, 也就意味着立刻开始</span></span><br><span class="line"><span class="comment">//    [self.timer setFireDate:[NSDate distantPast]];</span></span><br><span class="line"><span class="comment">// 设置定时器从当前时间之后两秒才开始执行</span></span><br><span class="line">    [<span class="keyword">self</span>.timer setFireDate:[<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">2.0</span>]];</span><br></pre></td></tr></table></figure>
+<h3 id="关闭定时器-销毁"><a href="#关闭定时器-销毁" class="headerlink" title="关闭定时器(销毁)"></a>关闭定时器(销毁)</h3><ul>
+<li>这种的性能不好 每次都要重启</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.timer invalidate];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>暂停定时器(可以采用这种)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 设置timer的开始时间为 遥远的未来 4001</span></span><br><span class="line"><span class="comment">//    NSLog(@"%@", [NSDate distantFuture]);</span></span><br><span class="line">    [<span class="keyword">self</span>.timer setFireDate:[<span class="built_in">NSDate</span> distantFuture]];</span><br></pre></td></tr></table></figure>
+<h2 id="封装的思想"><a href="#封装的思想" class="headerlink" title="封装的思想"></a>封装的思想</h2><ul>
+<li>只要发现控制器知道得太多,就要考虑重构代码</li>
+<li>只要发现一个效果很多地方都需要使用, 就要考虑封装</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/44d78c0d.html" title="iOS开发常用控件之UIScrollView">https://sevencho.github.io/archives/44d78c0d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/UIScrollView/" rel="tag"><i class="fa fa-tag"></i> UIScrollView</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/a1e080e.html" rel="next" title="iOS开发之关于浅拷贝和深拷贝">
+                <i class="fa fa-chevron-left"></i> iOS开发之关于浅拷贝和深拷贝
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/f9786cb4.html" rel="prev" title="iOS开发常用控件之UITableView">
+                iOS开发常用控件之UITableView <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用属性"><span class="nav-number">1.</span> <span class="nav-text">常用属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIScrollView的使用步骤"><span class="nav-number">1.1.</span> <span class="nav-text">UIScrollView的使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">1.2.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#contentOffset"><span class="nav-number">2.</span> <span class="nav-text">contentOffset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理"><span class="nav-number">3.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIScrollview缩放"><span class="nav-number">4.</span> <span class="nav-text">UIScrollview缩放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何保证被缩放的子控件永远居中"><span class="nav-number">4.1.</span> <span class="nav-text">如何保证被缩放的子控件永远居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种"><span class="nav-number">4.1.1.</span> <span class="nav-text">第一种</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种"><span class="nav-number">4.1.2.</span> <span class="nav-text">第二种</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三种-对第二种方法进行简化"><span class="nav-number">4.1.3.</span> <span class="nav-text">第三种 (对第二种方法进行简化)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片轮播器"><span class="nav-number">5.</span> <span class="nav-text">图片轮播器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义页码"><span class="nav-number">5.1.</span> <span class="nav-text">自定义页码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换页码"><span class="nav-number">5.2.</span> <span class="nav-text">切换页码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSTimer的使用"><span class="nav-number">6.</span> <span class="nav-text">NSTimer的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开启定时器"><span class="nav-number">6.1.</span> <span class="nav-text">开启定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭定时器-销毁"><span class="nav-number">6.2.</span> <span class="nav-text">关闭定时器(销毁)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装的思想"><span class="nav-number">7.</span> <span class="nav-text">封装的思想</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">246k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
