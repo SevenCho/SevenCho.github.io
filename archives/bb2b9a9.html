@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+<meta name="keywords" content="iOS,Event,Recognizer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之事件响应及处理">
+<meta property="og:url" content="https://sevencho.github.io/archives/bb2b9a9.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_1.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_3.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Picture1.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/手势识别状态变化示意图.png">
+<meta property="og:updated_time" content="2018-09-07T08:19:19.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之事件响应及处理">
+<meta name="twitter:description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/bb2b9a9.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之事件响应及处理 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/bb2b9a9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之事件响应及处理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-12-17 09:25:25" itemprop="dateCreated datePublished" datetime="2014-12-17T09:25:25+08:00">2014-12-17</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">17 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>荷叶生时春恨生，荷叶枯时秋恨成。<br>深知身在情长在，怅望江头江水声。</p>
+<p>李商隐 《暮秋独游曲江》<br><a id="more"></a></p>
+</blockquote>
+<h2 id="响应者对象"><a href="#响应者对象" class="headerlink" title="响应者对象"></a>响应者对象</h2><ul>
+<li>在iOS中不是任何对象都能处理事件，只有继承了<code>UIResponder</code>的对象才能接收并处理事件。我们称之为“<code>响应者对象</code>”</li>
+<li><code>UIApplication</code>、<code>UIViewController</code>、<code>UIView</code>都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件</li>
+<li>UIResponder内部提供了以下方法来处理事件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 触摸事件</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加速计事件</span></span><br><span class="line">- (<span class="keyword">void</span>)motionBegan:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)motionEnded:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)motionCancelled:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 远程控制事件</span></span><br><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触摸事件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一根或者多根手指开始触摸view，系统会自动调用view的下面方法</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一根或者多根手指在view上移动，系统会自动调用view的下面方法（随着手指的移动，会持续调用该方法）</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一根或者多根手指离开view，系统会自动调用view的下面方法</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触摸结束前，某个系统事件(例如电话呼入)会打断触摸过程，系统会自动调用view的下面方法</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提示：touches中存放的都是UITouch对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="UITouch"><a href="#UITouch" class="headerlink" title="UITouch"></a>UITouch</h2><ul>
+<li>当用户用一根触摸屏幕时，会创建一个与手指相关联的UITouch对象： 一根手指对应一个UITouch对象</li>
+<li>UITouch的作用：<ul>
+<li>保存着跟手指相关的信息，比如触摸的位置、时间、阶段</li>
+<li>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</li>
+<li>当手指离开屏幕时，系统会销毁相应的UITouch对象</li>
+</ul>
+</li>
+<li>提示：iPhone开发中，要避免使用双击事件！</li>
+</ul>
+<h3 id="UITouch的属性"><a href="#UITouch的属性" class="headerlink" title="UITouch的属性"></a>UITouch的属性</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 触摸产生时所处的窗口</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIWindow</span>    *window;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触摸产生时所处的视图</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>      *view;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 短时间内点按屏幕的次数，可以根据tapCount判断单击、双击或更多的点击</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span>          tapCount;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 记录了触摸事件产生或变化时的时间，单位是秒</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前触摸事件所处的状态</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br></pre></td></tr></table></figure>
+<h3 id="UITouch的方法"><a href="#UITouch的方法" class="headerlink" title="UITouch的方法"></a>UITouch的方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line"><span class="comment">// 返回值表示触摸在view上的位置</span></span><br><span class="line"><span class="comment">// 这里返回的位置是针对view的坐标系的（以view的左上角为原点(0, 0)）</span></span><br><span class="line"><span class="comment">// 调用时传入的view参数为nil的话，返回的是触摸点在UIWindow的位置</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line"><span class="comment">// 该方法记录了前一个触摸点的位置</span></span><br></pre></td></tr></table></figure>
+<h2 id="UIEvent"><a href="#UIEvent" class="headerlink" title="UIEvent"></a>UIEvent</h2><ul>
+<li>每产生一个事件，就会产生一个<code>UIEvent</code>对象</li>
+<li><code>UIEvent</code>：称为事件对象，记录事件产生的时刻和类型</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 常见属性</span></span><br><span class="line"><span class="comment">// 事件类型</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件产生的时间</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）</span></span><br></pre></td></tr></table></figure>
+<h3 id="touches和event参数"><a href="#touches和event参数" class="headerlink" title="touches和event参数"></a>touches和event参数</h3><ul>
+<li>一次完整的触摸过程，会经历3个状态：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">触摸开始：- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">触摸移动：- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">触摸结束：- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">触摸取消（可能会经历）：- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4个触摸事件处理方法中，都有<code>NSSet *touches</code>和<code>UIEvent *event</code>两个参数<br>一次完整的触摸过程中，只会产生一个事件对象，4个触摸方法都是同一个event参数</li>
+<li>如果两根手指同时触摸一个view，那么view只会调用一次<code>touchesBegan:withEvent:</code>方法，<code>touches</code>参数中装着2个UITouch对象</li>
+<li>如果这两根手指一前一后分开触摸同一个view，那么view会分别调用2次<code>touchesBegan:withEvent:</code>方法，并且每次调用时的touches参数中只包含一个UITouch对象</li>
+<li>根据touches中UITouch的个数可以判断出是单点触摸还是多点触摸</li>
+</ul>
+<h1 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h1><ul>
+<li><p>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中</p>
+</li>
+<li><p>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）</p>
+</li>
+<li><p>主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步</p>
+</li>
+<li><p>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理</p>
+</li>
+</ul>
+<h2 id="事件的产生和传递-1"><a href="#事件的产生和传递-1" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h2><ul>
+<li>触摸事件的传递是从父控件传递到子控件</li>
+</ul>
+<center><img src="/uploads/assets/Snip20150815_1.png" alt="hack_appList_result_failed"></center>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">点击了绿色的view：</span><br><span class="line"><span class="built_in">UIApplication</span> -&gt; <span class="built_in">UIWindow</span> -&gt; 白色 -&gt; 绿色</span><br><span class="line">点击了蓝色的view：</span><br><span class="line"><span class="built_in">UIApplication</span> -&gt; <span class="built_in">UIWindow</span> -&gt; 白色 -&gt; 橙色 -&gt; 蓝色</span><br><span class="line">点击了黄色的view：</span><br><span class="line"><span class="built_in">UIApplication</span> -&gt; <span class="built_in">UIWindow</span> -&gt; 白色 -&gt; 橙色 -&gt; 蓝色 -&gt; 黄色</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>如果父控件不能接收触摸事件，那么子控件就不可能接收到触摸事件 </li>
+<li><p>如何找到最合适的控件来处理事件？(步骤如下)</p>
+<ul>
+<li>自己是否能接收触摸事件？</li>
+<li>触摸点是否在自己身上？</li>
+<li>从后往前遍历子控件，重复前面的两个步骤</li>
+<li>如果没有符合条件的子控件，那么就自己最适合处理</li>
+</ul>
+</li>
+<li><p><code>注意</code>: 从后往前遍历子控件–”后”是表示数组里最外面的,即是显示在最前面的控件.(比如subviews[0]即是最前面的–是UIWindow)</p>
+</li>
+</ul>
+<h3 id="UIView不接收触摸事件的三种情况"><a href="#UIView不接收触摸事件的三种情况" class="headerlink" title="UIView不接收触摸事件的三种情况"></a>UIView不接收触摸事件的三种情况</h3><ul>
+<li>提示：UIImageView的userInteractionEnabled默认就是NO，因此UIImageView以及它的子控件默认是不能接收触摸事件的</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不接收用户交互</span></span><br><span class="line">userInteractionEnabled = <span class="literal">NO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏</span></span><br><span class="line">hidden = <span class="literal">YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 透明</span></span><br><span class="line">alpha = <span class="number">0.0</span> ~ <span class="number">0.01</span></span><br></pre></td></tr></table></figure>
+<h2 id="响应者链条"><a href="#响应者链条" class="headerlink" title="响应者链条"></a>响应者链条</h2><center><img src="/uploads/assets/Snip20150815_3.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="事件的处理过程-详细"><a href="#事件的处理过程-详细" class="headerlink" title="事件的处理过程(详细)"></a>事件的处理过程(详细)</h3><ul>
+<li>用户点击屏幕后产生的一个触摸事件，经过一些列的传递过程后，会找到最合适的视图控件来处理这个事件</li>
+<li>找到最合适的视图控件后，就会调用控件的touches方法来作具体的事件处理</li>
+<li>这些touches方法的默认做法是将事件顺着响应者链条向上传递，将事件交给上一个响应者进行处理</li>
+</ul>
+<h3 id="响应者链条示意图-gt"><a href="#响应者链条示意图-gt" class="headerlink" title="响应者链条示意图&gt;"></a>响应者链条示意图&gt;</h3><center><img src="/uploads/assets/Picture1.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="响应者链的事件传递过程"><a href="#响应者链的事件传递过程" class="headerlink" title="响应者链的事件传递过程"></a>响应者链的事件传递过程</h3><ul>
+<li>如果view的控制器存在，就传递给控制器；如果控制器不存在，则将其传递给它的父视图</li>
+<li>在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理</li>
+<li>如果window对象也不处理，则其将事件或消息传递给UIApplication对象</li>
+<li>如果UIApplication也不能处理该事件或消息，则将其丢弃</li>
+</ul>
+<h2 id="手势识别"><a href="#手势识别" class="headerlink" title="手势识别"></a>手势识别</h2><ul>
+<li>添加手势的方式<ul>
+<li>代码创建,添加监听(方法)</li>
+<li>storyboard的里面拖手势,添加监听(拖线(手势方法))</li>
+</ul>
+</li>
+</ul>
+<center><img src="/uploads/assets/手势识别状态变化示意图.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="监听触摸事件"><a href="#监听触摸事件" class="headerlink" title="监听触摸事件"></a>监听触摸事件</h3><ul>
+<li>如果想监听一个view上面的触摸事件，之前的做法是<br>自定义一个view</li>
+<li>实现view的touches方法，在方法内部实现具体处理代码</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>通过touches方法监听view触摸事件，有很明显的几个缺点<ul>
+<li>必须得自定义view</li>
+<li>由于是在view内部的touches方法中监听触摸事件，因此默认情况下，无法让其他外界对象监听view的触摸事件，不容易区分用户的具体手势行为</li>
+</ul>
+</li>
+<li>iOS 3.2之后，苹果推出了手势识别功能（Gesture Recognizer），在触摸事件处理方面，大大简化了开发者的开发难度</li>
+</ul>
+<h3 id="UIGestureRecognizer"><a href="#UIGestureRecognizer" class="headerlink" title="UIGestureRecognizer"></a>UIGestureRecognizer</h3><ul>
+<li>为了完成手势识别，必须借助于手势识别器–<code>UIGestureRecognizer</code></li>
+<li>利用<code>UIGestureRecognizer</code>，能轻松识别用户在某个view上面做的一些常见手势</li>
+<li><code>UIGestureRecognizer</code>是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UITapGestureRecognizer</span>(敲击)</span><br><span class="line"><span class="built_in">UIPinchGestureRecognizer</span>(捏合，用于缩放)</span><br><span class="line"><span class="built_in">UIPanGestureRecognizer</span>(拖拽)</span><br><span class="line"><span class="built_in">UISwipeGestureRecognizer</span>(轻扫)</span><br><span class="line"><span class="built_in">UIRotationGestureRecognizer</span>(旋转)</span><br><span class="line"><span class="built_in">UILongPressGestureRecognizer</span>(长按)</span><br></pre></td></tr></table></figure>
+<h4 id="UITapGestureRecognizer"><a href="#UITapGestureRecognizer" class="headerlink" title="UITapGestureRecognizer"></a>UITapGestureRecognizer</h4><ul>
+<li>每一个手势识别器的用法都差不多，比如<code>UITapGestureRecognizer</code>的使用步骤如下</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 手指敲击手势</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tap</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建手势识别器点击对象</span></span><br><span class="line">    <span class="built_in">UITapGestureRecognizer</span> *tap = [[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didTap)];</span><br><span class="line">    <span class="comment">// 点击次数</span></span><br><span class="line">    tap.numberOfTapsRequired = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// 点击手指数(需要几根手指操作)</span></span><br><span class="line">    tap.numberOfTouchesRequired = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 设置代理</span></span><br><span class="line">    tap.delegate = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span>.iconView addGestureRecognizer:tap];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  是否接收处理点击事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldReceiveTouch:(<span class="built_in">UITouch</span> *)touch</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGPoint</span> point = [touch locationInView:touch.view];</span><br><span class="line">    <span class="comment">// 可以在这里面确定点击的范围(在哪个范围作出回应)</span></span><br><span class="line">    <span class="keyword">if</span> (point.x &lt;= <span class="keyword">self</span>.iconView.frame.size.width * <span class="number">0.5</span>) &#123; <span class="comment">// 控制图片只有一半点击有反应</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="UILongPressGestureRecognizer"><a href="#UILongPressGestureRecognizer" class="headerlink" title="UILongPressGestureRecognizer"></a>UILongPressGestureRecognizer</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)demo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建长按手势识别器</span></span><br><span class="line">    <span class="built_in">UILongPressGestureRecognizer</span> *longPress = [[<span class="built_in">UILongPressGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didLongPress)];</span><br><span class="line">    <span class="comment">// 设置长按多久生效</span></span><br><span class="line">    longPress.minimumPressDuration = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// 设置长按的时候的生效的一个范围(在这个范围内才能执行)</span></span><br><span class="line">    longPress.allowableMovement = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">// 添加到图片</span></span><br><span class="line">    [<span class="keyword">self</span>.iconView addGestureRecognizer:longPress];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="UISwipeGestureRecognizer"><a href="#UISwipeGestureRecognizer" class="headerlink" title="UISwipeGestureRecognizer"></a>UISwipeGestureRecognizer</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认图片是不能交互的</span></span><br><span class="line"><span class="keyword">self</span>.iconView.userInteractionEnabled = <span class="literal">YES</span>;</span><br><span class="line"><span class="comment">// 创建轻扫手势识别器</span></span><br><span class="line"><span class="built_in">UISwipeGestureRecognizer</span> *swip = [[<span class="built_in">UISwipeGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didSwipe)];</span><br><span class="line"><span class="comment">// 轻扫的方向(默认是从右边轻扫)</span></span><br><span class="line">swip.direction = <span class="built_in">UISwipeGestureRecognizerDirectionLeft</span>;</span><br><span class="line"><span class="comment">// 添加到图片</span></span><br><span class="line">[<span class="keyword">self</span>.iconView addGestureRecognizer:swip];</span><br></pre></td></tr></table></figure>
+<h4 id="UIRotationGestureRecognizer"><a href="#UIRotationGestureRecognizer" class="headerlink" title="UIRotationGestureRecognizer"></a>UIRotationGestureRecognizer</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)rotationGesture</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建旋转手势识别器</span></span><br><span class="line">    <span class="built_in">UIRotationGestureRecognizer</span> *rotate = [[<span class="built_in">UIRotationGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didRotation:)];</span><br><span class="line">    rotate.delegate = <span class="keyword">self</span>;</span><br><span class="line">    [<span class="keyword">self</span>.iconView addGestureRecognizer:rotate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didRotation:(<span class="built_in">UIRotationGestureRecognizer</span> *)rotate&#123;</span><br><span class="line">    <span class="comment">// 旋转的角度和手势旋转的角度一样</span></span><br><span class="line">    <span class="keyword">self</span>.iconView.transform = <span class="built_in">CGAffineTransformRotate</span>(<span class="keyword">self</span>.iconView.transform, rotate.rotation);</span><br><span class="line"><span class="meta">#warning 这个很重要!!!</span></span><br><span class="line">    rotate.rotation = <span class="number">0</span>; <span class="comment">// 不把旋转角度清零的话 直接累加上去 旋转幅度非常大</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="UIPinchGestureRecognizer"><a href="#UIPinchGestureRecognizer" class="headerlink" title="UIPinchGestureRecognizer"></a>UIPinchGestureRecognizer</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)pinchGesture</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建捏合手势识别器</span></span><br><span class="line">    <span class="built_in">UIPinchGestureRecognizer</span> *pinch = [[<span class="built_in">UIPinchGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didPinch:)];</span><br><span class="line">    pinch.delegate = <span class="keyword">self</span>;</span><br><span class="line">    <span class="comment">// 添加</span></span><br><span class="line">    [<span class="keyword">self</span>.iconView addGestureRecognizer:pinch];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  手指捏合后调用的方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)didPinch:(<span class="built_in">UIPinchGestureRecognizer</span> *)pinch&#123;</span><br><span class="line">    <span class="comment">// 缩放的倍数和手指捏合的倍数相同</span></span><br><span class="line">    <span class="keyword">self</span>.iconView.transform = <span class="built_in">CGAffineTransformScale</span>(<span class="keyword">self</span>.iconView.transform, pinch.scale, pinch.scale);</span><br><span class="line"><span class="meta">#warning 这个很重要!!!</span></span><br><span class="line">    <span class="comment">// 缩放倍数重置为1</span></span><br><span class="line">    pinch.scale = <span class="number">1</span>; <span class="comment">// 这一步很重要 必须要写,不然图片缩放的倍数会累加 幅度很大!!!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="UIPanGestureRecognizer"><a href="#UIPanGestureRecognizer" class="headerlink" title="UIPanGestureRecognizer"></a>UIPanGestureRecognizer</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建拖拽手势</span></span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(didPan:)];</span><br><span class="line">    [<span class="keyword">self</span>.iconView addGestureRecognizer:pan];</span><br><span class="line">- (<span class="keyword">void</span>)didPan:(<span class="built_in">UIPanGestureRecognizer</span> *)pan&#123;</span><br><span class="line">    <span class="comment">// 拖拽的位置</span></span><br><span class="line">    <span class="built_in">CGPoint</span> panPoint = [pan translationInView:pan.view];</span><br><span class="line">    <span class="comment">// 图片的中心点</span></span><br><span class="line">    <span class="built_in">CGPoint</span> center = <span class="keyword">self</span>.iconView.center;</span><br><span class="line">    <span class="comment">// 图片移动的距离就等于拖拽的距离</span></span><br><span class="line">    center.x += panPoint.x;</span><br><span class="line">    center.y += panPoint.y;</span><br><span class="line">    <span class="comment">// 重新赋值给图片的中心点</span></span><br><span class="line">    <span class="keyword">self</span>.iconView.center = center;</span><br><span class="line">    <span class="comment">// 清空移动的距离 防止累加后移动幅度过大(一定要清空)</span></span><br><span class="line">    [pan setTranslation:<span class="built_in">CGPointZero</span> inView:pan.view];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="手势识别的状态"><a href="#手势识别的状态" class="headerlink" title="手势识别的状态"></a>手势识别的状态</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIGestureRecognizerState</span>) &#123;</span><br><span class="line">    <span class="comment">// 没有触摸事件发生，所有手势识别的默认状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStatePossible</span>,</span><br><span class="line">    <span class="comment">// 一个手势已经开始但尚未改变或者完成时</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateBegan</span>,</span><br><span class="line">    <span class="comment">// 手势状态改变</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateChanged</span>,</span><br><span class="line">    <span class="comment">// 手势完成</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateEnded</span>,</span><br><span class="line">    <span class="comment">// 手势取消，恢复至Possible状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateCancelled</span>,</span><br><span class="line">    <span class="comment">// 手势失败，恢复至Possible状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateFailed</span>,</span><br><span class="line">    <span class="comment">// 识别到手势识别</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateRecognized</span> = <span class="built_in">UIGestureRecognizerStateEnded</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="手势的注意点"><a href="#手势的注意点" class="headerlink" title="手势的注意点"></a>手势的注意点</h3><ul>
+<li>手势默认不能一次添加多个手势,一次添加多个手势只能识别一个(最后添加那个手势),但是可以创建多个手势,这样才能识别多个手势.</li>
+<li>Simultaneously (同时地,同步地)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  默认一次只能执行一个手势,设置这个可以一次执行多个手势操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)otherGestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/bb2b9a9.html" title="iOS开发之事件响应及处理">https://sevencho.github.io/archives/bb2b9a9.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Event/" rel="tag"><i class="fa fa-tag"></i> Event</a>
+          
+            <a href="/tags/Recognizer/" rel="tag"><i class="fa fa-tag"></i> Recognizer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/434e49e7.html" rel="next" title="iOS开发之Quartz2D入门">
+                <i class="fa fa-chevron-left"></i> iOS开发之Quartz2D入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/85b4c34d.html" rel="prev" title="iOS开发常用控件之UIWebView">
+                iOS开发常用控件之UIWebView <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者对象"><span class="nav-number">1.</span> <span class="nav-text">响应者对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITouch"><span class="nav-number">2.</span> <span class="nav-text">UITouch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的属性"><span class="nav-number">2.1.</span> <span class="nav-text">UITouch的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的方法"><span class="nav-number">2.2.</span> <span class="nav-text">UITouch的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIEvent"><span class="nav-number">3.</span> <span class="nav-text">UIEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touches和event参数"><span class="nav-number">3.1.</span> <span class="nav-text">touches和event参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件的产生和传递"><span class="nav-number"></span> <span class="nav-text">事件的产生和传递</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的产生和传递-1"><span class="nav-number">1.</span> <span class="nav-text">事件的产生和传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView不接收触摸事件的三种情况"><span class="nav-number">1.2.</span> <span class="nav-text">UIView不接收触摸事件的三种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者链条"><span class="nav-number">2.</span> <span class="nav-text">响应者链条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的处理过程-详细"><span class="nav-number">2.1.</span> <span class="nav-text">事件的处理过程(详细)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链条示意图-gt"><span class="nav-number">2.2.</span> <span class="nav-text">响应者链条示意图&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链的事件传递过程"><span class="nav-number">2.3.</span> <span class="nav-text">响应者链的事件传递过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手势识别"><span class="nav-number">3.</span> <span class="nav-text">手势识别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监听触摸事件"><span class="nav-number">3.1.</span> <span class="nav-text">监听触摸事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIGestureRecognizer"><span class="nav-number">3.3.</span> <span class="nav-text">UIGestureRecognizer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UITapGestureRecognizer"><span class="nav-number">3.3.1.</span> <span class="nav-text">UITapGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UILongPressGestureRecognizer"><span class="nav-number">3.3.2.</span> <span class="nav-text">UILongPressGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UISwipeGestureRecognizer"><span class="nav-number">3.3.3.</span> <span class="nav-text">UISwipeGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIRotationGestureRecognizer"><span class="nav-number">3.3.4.</span> <span class="nav-text">UIRotationGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPinchGestureRecognizer"><span class="nav-number">3.3.5.</span> <span class="nav-text">UIPinchGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPanGestureRecognizer"><span class="nav-number">3.3.6.</span> <span class="nav-text">UIPanGestureRecognizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势识别的状态"><span class="nav-number">3.4.</span> <span class="nav-text">手势识别的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势的注意点"><span class="nav-number">3.5.</span> <span class="nav-text">手势的注意点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">299k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="远书归梦两悠悠，只有空床敌素秋。阶下青苔与红树，雨中寥落月中愁。 李商隐 《端居》">
+<meta name="keywords" content="iOS,storyboard,ViewController">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之常用控制器及多控制器管理">
+<meta property="og:url" content="https://sevencho.github.io/archives/c2b85789.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="远书归梦两悠悠，只有空床敌素秋。阶下青苔与红树，雨中寥落月中愁。 李商隐 《端居》">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/控制器view加载.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/生命周期方法.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/内存警告处理.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150805_7.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150805_6.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150805_8.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/segue跳转之前.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150805_9.png">
+<meta property="og:updated_time" content="2018-09-07T08:47:53.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之常用控制器及多控制器管理">
+<meta name="twitter:description" content="远书归梦两悠悠，只有空床敌素秋。阶下青苔与红树，雨中寥落月中愁。 李商隐 《端居》">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/控制器view加载.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/c2b85789.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之常用控制器及多控制器管理 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/c2b85789.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之常用控制器及多控制器管理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-10-25 09:25:25" itemprop="dateCreated datePublished" datetime="2014-10-25T09:25:25+08:00">2014-10-25</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>远书归梦两悠悠，只有空床敌素秋。<br>阶下青苔与红树，雨中寥落月中愁。</p>
+<p>李商隐 《端居》<br><a id="more"></a></p>
+</blockquote>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><h3 id="控制器View的加载"><a href="#控制器View的加载" class="headerlink" title="控制器View的加载"></a>控制器View的加载</h3><center><img src="/uploads/assets/控制器view加载.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="控制器的生命周期"><a href="#控制器的生命周期" class="headerlink" title="控制器的生命周期"></a>控制器的生命周期</h3><center><img src="/uploads/assets/生命周期方法.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="内存警告的时候的整个循环的流程图"><a href="#内存警告的时候的整个循环的流程图" class="headerlink" title="内存警告的时候的整个循环的流程图"></a>内存警告的时候的整个循环的流程图</h3><center><img src="/uploads/assets/内存警告处理.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="控制器常见的创建方式有以下几种"><a href="#控制器常见的创建方式有以下几种" class="headerlink" title="控制器常见的创建方式有以下几种"></a>控制器常见的创建方式有以下几种</h3><h4 id="通过storyboard创建"><a href="#通过storyboard创建" class="headerlink" title="通过storyboard创建"></a>通过storyboard创建</h4><ul>
+<li>先加载storyboard文件（Test是storyboard的文件名）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Test"</span> bundle:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接着初始化storyboard中的控制器</li>
+<li>初始化“初始控制器”（箭头所指的控制器）</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XSViewController *vc = [storyboard instantiateInitialViewController];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 通过一个标识初始化对应的控制器</span></span><br><span class="line">XSViewController *XS = [storyboard instantiateViewControllerWithIdentifier:@”vc<span class="string">"];</span></span><br></pre></td></tr></table></figure>
+<h4 id="直接创建"><a href="#直接创建" class="headerlink" title="直接创建"></a>直接创建</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XSViewController *XS = [[XSViewController alloc] init];</span><br></pre></td></tr></table></figure>
+<h4 id="指定xib文件来创建"><a href="#指定xib文件来创建" class="headerlink" title="指定xib文件来创建"></a>指定xib文件来创建</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 通过Xib创建的控制器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过xib去加载控制器</span></span><br><span class="line"><span class="comment">// 1.首先创建一个Xib文件</span></span><br><span class="line"><span class="comment">// 2.Xib文件需要拖一个View描述控制器的View</span></span><br><span class="line"><span class="comment">// 3.需要把Xib上的View与控制器连线，设置Xib的File'owner为控制器</span></span><br><span class="line">ViewController *vc = [[ViewController alloc] initWithNibName:<span class="string">@"VC"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建根控制器</span></span><br><span class="line">XSViewController *vc = [[XSViewController alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// init底层会自动调用initWithNibName</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>假设通过Xib创建XSViewController控制器对象<ul>
+<li>如果nibName为nil,首先会去查找<code>XSView.xib</code>,如果有，就会去加载<code>XSView.xib</code>描述的控制器的view</li>
+<li>如果没有找到，就会去找<code>XSViewController.xib</code>,如果有，也会去加载</li>
+<li>都没有找到，就会生成一个空的view<ul>
+<li>空的view是几乎透明的,但不是完全透明的</li>
+<li>相当于<code>[UIColor clearColor]</code>;可以穿透过去,但是完全透明就不能够穿透</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>控制器的view是延迟加载的：用到时再加载UIView(只用于UIViewController或者子控制器)<ul>
+<li>可以用<code>isViewLoaded</code>方法判断一个UIViewController的view是否已经被加载</li>
+<li>控制器的view加载完毕就会调用viewDidLoad方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="UINavigationController"><a href="#UINavigationController" class="headerlink" title="UINavigationController"></a>UINavigationController</h2><ul>
+<li>为了便于管理控制器，iOS提供了2个比较特殊的控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UINavigationController</span>(导航控制器)</span><br><span class="line"><span class="built_in">UITabBarController</span>(QQ,微信,淘宝等)</span><br></pre></td></tr></table></figure>
+<h3 id="UINavigationController的使用步骤"><a href="#UINavigationController的使用步骤" class="headerlink" title="UINavigationController的使用步骤"></a>UINavigationController的使用步骤</h3><ul>
+<li>初始化UINavigationController</li>
+<li>设置UIWindow的rootViewController为UINavigationController</li>
+<li>根据具体情况，通过push方法添加对应个数的子控制器</li>
+</ul>
+<h3 id="UINavigationController的子控制器"><a href="#UINavigationController的子控制器" class="headerlink" title="UINavigationController的子控制器"></a>UINavigationController的子控制器</h3><ul>
+<li>UINavigationController 以<code>栈</code>的形式保存子控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span> *viewControllers;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSArray</span> *childViewControllers;</span><br></pre></td></tr></table></figure>
+<h3 id="控制器出入栈的常用的集中方法"><a href="#控制器出入栈的常用的集中方法" class="headerlink" title="控制器出入栈的常用的集中方法"></a>控制器出入栈的常用的集中方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用push方法能将某个控制器压入栈</span></span><br><span class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated;</span><br><span class="line"><span class="comment">// 使用pop方法可以移除控制器 将栈顶的控制器移除</span></span><br><span class="line">- (<span class="built_in">UIViewController</span> *)popViewControllerAnimated:(<span class="built_in">BOOL</span>)animated;</span><br><span class="line"><span class="comment">// 回到指定的子控制器</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)popToViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated;</span><br><span class="line"><span class="comment">// 回到根控制器（栈底控制器）</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)popToRootViewControllerAnimated:(<span class="built_in">BOOL</span>)animated;</span><br></pre></td></tr></table></figure>
+<h3 id="如何修改导航栏的内容"><a href="#如何修改导航栏的内容" class="headerlink" title="如何修改导航栏的内容"></a>如何修改导航栏的内容</h3><ul>
+<li>显示在我们眼前的永远是栈订控制器</li>
+<li>导航栏的内容由栈顶控制器的navigationItem属性决定</li>
+<li>导航控制器是以栈的形式先进后出后进先出(是以数组的形式存储的 数组就是以栈的形式存储的)</li>
+<li>导航栏返回按钮的文字是由上一个控制器决定的(特例)</li>
+</ul>
+<h3 id="UINavigationItem有以下属性影响着导航栏的内容"><a href="#UINavigationItem有以下属性影响着导航栏的内容" class="headerlink" title="UINavigationItem有以下属性影响着导航栏的内容"></a>UINavigationItem有以下属性影响着导航栏的内容</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左上角的返回按钮</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *backBarButtonItem;</span><br><span class="line"><span class="comment">// 中间的标题视图</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>          *titleView;</span><br><span class="line"><span class="comment">// 中间的标题文字</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)   <span class="built_in">NSString</span>        *title;</span><br><span class="line"><span class="comment">// 左上角的视图</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *leftBarButtonItem;</span><br><span class="line"><span class="comment">// 右上角的视图</span></span><br><span class="line"><span class="built_in">UIBarButtonItem</span> *rightBarButtonItem</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *rightBarButtonItem;</span><br></pre></td></tr></table></figure>
+<h3 id="Segue的属性"><a href="#Segue的属性" class="headerlink" title="Segue的属性"></a>Segue的属性</h3><ul>
+<li>每一个Segue对象，都有3个属性</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 唯一标识</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSString</span> *identifier;</span><br><span class="line"><span class="comment">// 来源控制器</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">id</span> sourceViewController;</span><br><span class="line"><span class="comment">// 目标控制器</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">id</span> destinationViewController;</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/Snip20150805_7.png" alt="hack_appList_result_failed"></center><br><center><img src="/uploads/assets/Snip20150805_6.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="Segue的类型"><a href="#Segue的类型" class="headerlink" title="Segue的类型"></a>Segue的类型</h3><ul>
+<li><code>自动型</code>：点击某个控件后（比如按钮），自动执行Segue，自动完成界面跳转</li>
+<li><code>手动型</code>：需要通过写代码手动执行Segue，才能完成界面跳转</li>
+</ul>
+<h3 id="设置导航控制器的导航栏的主题"><a href="#设置导航控制器的导航栏的主题" class="headerlink" title="设置导航控制器的导航栏的主题"></a>设置导航控制器的导航栏的主题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 只会在系统第一次用这类的时候调用(只会调用一次)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">+ (<span class="keyword">void</span>)initialize&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.设置导航栏主题样式</span></span><br><span class="line">    <span class="built_in">UINavigationBar</span> *navBar = [<span class="built_in">UINavigationBar</span> appearance];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.1.设置导航栏背景图片</span></span><br><span class="line">    <span class="built_in">NSString</span> *navImageName = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (ios7) &#123;</span><br><span class="line">        navImageName = <span class="string">@"NavBar64"</span>;</span><br><span class="line">        navBar.tintColor = [<span class="built_in">UIColor</span> whiteColor]; <span class="comment">// 设置导航栏的返回按钮颜色为白色</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123; <span class="comment">// ios6</span></span><br><span class="line">        navImageName = <span class="string">@"NavBar"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [navBar setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:navImageName] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.2.设置导航栏的字体颜色为白色</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *attrButes = @&#123;</span><br><span class="line">     <span class="built_in">NSForegroundColorAttributeName</span> : [<span class="built_in">UIColor</span> whiteColor],</span><br><span class="line">     <span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">18</span>]</span><br><span class="line">    &#125;;</span><br><span class="line">    [navBar setTitleTextAttributes:attrButes];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>以后看到系统自带的类带有item,就是苹果提供的模型<ul>
+<li><code>UINavigationItem</code> : 设置导航条内容(她不是控件 是模型)</li>
+<li><code>UIBarButtonItem</code> : 设置导航条上按钮的内容 (模型)</li>
+</ul>
+</li>
+</ul>
+<h2 id="UITabBarController"><a href="#UITabBarController" class="headerlink" title="UITabBarController"></a>UITabBarController</h2><ul>
+<li>跟UINavigationController类似，UITabBarController也可以轻松地管理多个控制器，轻松完成控制器之间的切换，典型例子就是QQ、微信等应用.</li>
+<li>UITabBarController的使用步骤<ul>
+<li>初始化UITabBarController</li>
+<li>设置UIWindow的rootViewController为UITabBarController</li>
+<li>根据具体情况，通过addChildViewController方法添加对应个数的子控制器</li>
+</ul>
+</li>
+</ul>
+<h3 id="UITabBarController添加控制器的方式有2种"><a href="#UITabBarController添加控制器的方式有2种" class="headerlink" title="UITabBarController添加控制器的方式有2种"></a>UITabBarController添加控制器的方式有2种</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 添加单个子控制器</span><br><span class="line">- (<span class="keyword">void</span>)addChildViewController:(<span class="built_in">UIViewController</span> *)childController;</span><br><span class="line"></span><br><span class="line"> - 设置子控制器数组</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span> *viewControllers;</span><br></pre></td></tr></table></figure>
+<h3 id="UITabBarController注意点"><a href="#UITabBarController注意点" class="headerlink" title="UITabBarController注意点"></a>UITabBarController注意点</h3><ul>
+<li>如果UITabBarController有N个子控制器，那么UITabBar内部就会有N个UITabBarButton作为子控件</li>
+<li>UITabBarButton里面显示什么内容，由对应子控制器的tabBarItem属性决定<center><img src="/uploads/assets/Snip20150805_8.png" alt="hack_appList_result_failed"></center>
+
+</li>
+</ul>
+<h2 id="多控制器管理"><a href="#多控制器管理" class="headerlink" title="多控制器管理"></a>多控制器管理</h2><h3 id="segue跳转之前会调用的方法"><a href="#segue跳转之前会调用的方法" class="headerlink" title="segue跳转之前会调用的方法"></a>segue跳转之前会调用的方法</h3><center><img src="/uploads/assets/segue跳转之前.png" alt="hack_appList_result_failed"></center>
+
+<h2 id="Modal"><a href="#Modal" class="headerlink" title="Modal"></a>Modal</h2><ul>
+<li>除了push之外，还有另外一种控制器的切换方式，那就是<code>Modal</code> (能用push的尽量用push实现,公司有特殊需求可以用modal)</li>
+<li><code>任何控制器</code>都能通过Modal的形式展示出来</li>
+<li>Modal的默认效果：新控制器从屏幕的最底部往上钻，直到盖住之前的控制器为止</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以Modal的形式展示控制器</span></span><br><span class="line">- (<span class="keyword">void</span>)presentViewController:(<span class="built_in">UIViewController</span> *)viewControllerToPresent animated: (<span class="built_in">BOOL</span>)flag completion:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭当初Modal出来的控制器</span></span><br><span class="line">- (<span class="keyword">void</span>)dismissViewControllerAnimated: (<span class="built_in">BOOL</span>)flag completion: (<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion;</span><br></pre></td></tr></table></figure>
+<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><ul>
+<li>modal出谁,谁就能dismiss</li>
+<li>谁modal,谁也可以dismiss</li>
+<li>dismissViewController 永远移除最后显示的控制器</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li>如果一个控制器的View显示到屏幕上,这个控制器一定不能被销毁(要被强引用).</li>
+<li>谁modal谁就强引用modal出来的控制器</li>
+</ul>
+<h3 id="多控制器-管理"><a href="#多控制器-管理" class="headerlink" title="多控制器 管理"></a>多控制器 管理</h3><h4 id="UIWindow"><a href="#UIWindow" class="headerlink" title="UIWindow"></a>UIWindow</h4><ul>
+<li>主窗口的概念</li>
+<li>新建UIWindow<h4 id="UIViewController"><a href="#UIViewController" class="headerlink" title="UIViewController"></a>UIViewController</h4></li>
+<li>控制器的创建方式</li>
+<li>控制器view的创建方式</li>
+<li>view的懒加载</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loadView、viewDidLoad、viewDidUnload、didReceiveMemoryWarning</span><br></pre></td></tr></table></figure>
+<h4 id="UINavigationController-1"><a href="#UINavigationController-1" class="headerlink" title="UINavigationController"></a>UINavigationController</h4><ul>
+<li>通过非storyboard方式 <ul>
+<li>创建导航控制器</li>
+<li>设置UIWindow的根控制器</li>
+<li>push 1个、2个、3个 子控制器</li>
+<li>解释push的原理(栈、导航控制器的管理过程)</li>
+<li>栈底、栈顶控制器的概念</li>
+<li>如何设置导航栏上面的内容、返回文字的设置</li>
+<li>pop的方法使用</li>
+<li>push和addChild、viewControllers和childViewController的关系</li>
+</ul>
+</li>
+<li>通过storyboard方式 </li>
+</ul>
+<h4 id="多控制器的数据的传递方式-两种-顺传和逆传"><a href="#多控制器的数据的传递方式-两种-顺传和逆传" class="headerlink" title="多控制器的数据的传递方式(两种):顺传和逆传"></a>多控制器的数据的传递方式(两种):顺传和逆传</h4><ul>
+<li><p><code>顺传</code></p>
+<ul>
+<li>控制器的跳转方向: A  C</li>
+<li>数据的传递方向 : A  C</li>
+<li>数据的传递方式 :</li>
+<li>在A的prepareForSegue:sender:方法中根据segue参数取得destinationViewController, 也就是控制器C,直接给控制器C传递数据(要在C的viewDidLoad方法中取得数据,来赋值给界面上的UI控件)</li>
+</ul>
+</li>
+<li><p><code>逆传</code></p>
+<ul>
+<li>控制器的跳转方向: A  C</li>
+<li>数据的传递方向 : C  A</li>
+<li>数据的传递方式:</li>
+<li>让A成为C的代理,在C中调用A的代理方法,通过代理方法的参数传递数据给A</li>
+</ul>
+</li>
+</ul>
+<h2 id="App主流UI框架结构"><a href="#App主流UI框架结构" class="headerlink" title="App主流UI框架结构"></a>App主流UI框架结构</h2><center><img src="/uploads/assets/Snip20150805_9.png" alt="hack_appList_result_failed"></center>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/c2b85789.html" title="iOS开发之常用控制器及多控制器管理">https://sevencho.github.io/archives/c2b85789.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/storyboard/" rel="tag"><i class="fa fa-tag"></i> storyboard</a>
+          
+            <a href="/tags/ViewController/" rel="tag"><i class="fa fa-tag"></i> ViewController</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/55fb9a70.html" rel="next" title="iOS开发之UIApplication & UIWindow & 创建单例">
+                <i class="fa fa-chevron-left"></i> iOS开发之UIApplication & UIWindow & 创建单例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/3c64aa6c.html" rel="prev" title="iOS开发之常用数据存储方式">
+                iOS开发之常用数据存储方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器"><span class="nav-number">1.</span> <span class="nav-text">控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器View的加载"><span class="nav-number">1.1.</span> <span class="nav-text">控制器View的加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器的生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">控制器的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存警告的时候的整个循环的流程图"><span class="nav-number">1.3.</span> <span class="nav-text">内存警告的时候的整个循环的流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器常见的创建方式有以下几种"><span class="nav-number">1.4.</span> <span class="nav-text">控制器常见的创建方式有以下几种</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过storyboard创建"><span class="nav-number">1.4.1.</span> <span class="nav-text">通过storyboard创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接创建"><span class="nav-number">1.4.2.</span> <span class="nav-text">直接创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定xib文件来创建"><span class="nav-number">1.4.3.</span> <span class="nav-text">指定xib文件来创建</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINavigationController"><span class="nav-number">2.</span> <span class="nav-text">UINavigationController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationController的使用步骤"><span class="nav-number">2.1.</span> <span class="nav-text">UINavigationController的使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationController的子控制器"><span class="nav-number">2.2.</span> <span class="nav-text">UINavigationController的子控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器出入栈的常用的集中方法"><span class="nav-number">2.3.</span> <span class="nav-text">控制器出入栈的常用的集中方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何修改导航栏的内容"><span class="nav-number">2.4.</span> <span class="nav-text">如何修改导航栏的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationItem有以下属性影响着导航栏的内容"><span class="nav-number">2.5.</span> <span class="nav-text">UINavigationItem有以下属性影响着导航栏的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segue的属性"><span class="nav-number">2.6.</span> <span class="nav-text">Segue的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segue的类型"><span class="nav-number">2.7.</span> <span class="nav-text">Segue的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置导航控制器的导航栏的主题"><span class="nav-number">2.8.</span> <span class="nav-text">设置导航控制器的导航栏的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">2.9.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITabBarController"><span class="nav-number">3.</span> <span class="nav-text">UITabBarController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITabBarController添加控制器的方式有2种"><span class="nav-number">3.1.</span> <span class="nav-text">UITabBarController添加控制器的方式有2种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITabBarController注意点"><span class="nav-number">3.2.</span> <span class="nav-text">UITabBarController注意点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多控制器管理"><span class="nav-number">4.</span> <span class="nav-text">多控制器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#segue跳转之前会调用的方法"><span class="nav-number">4.1.</span> <span class="nav-text">segue跳转之前会调用的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modal"><span class="nav-number">5.</span> <span class="nav-text">Modal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规律"><span class="nav-number">5.1.</span> <span class="nav-text">规律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">5.2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多控制器-管理"><span class="nav-number">5.3.</span> <span class="nav-text">多控制器 管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIWindow"><span class="nav-number">5.3.1.</span> <span class="nav-text">UIWindow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIViewController"><span class="nav-number">5.3.2.</span> <span class="nav-text">UIViewController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UINavigationController-1"><span class="nav-number">5.3.3.</span> <span class="nav-text">UINavigationController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多控制器的数据的传递方式-两种-顺传和逆传"><span class="nav-number">5.3.4.</span> <span class="nav-text">多控制器的数据的传递方式(两种):顺传和逆传</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App主流UI框架结构"><span class="nav-number">6.</span> <span class="nav-text">App主流UI框架结构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">299k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

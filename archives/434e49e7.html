@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="宣室求贤访逐臣，贾生才调更无伦。可怜夜半虚前席，不问苍生问鬼神。 李商隐 《贾生》">
+<meta name="keywords" content="iOS,Quartz2D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之Quartz2D入门">
+<meta property="og:url" content="https://sevencho.github.io/archives/434e49e7.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:description" content="宣室求贤访逐臣，贾生才调更无伦。可怜夜半虚前席，不问苍生问鬼神。 李商隐 《贾生》">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150806_1.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150806_2.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150806_3.png">
+<meta property="og:updated_time" content="2018-09-07T07:58:59.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之Quartz2D入门">
+<meta name="twitter:description" content="宣室求贤访逐臣，贾生才调更无伦。可怜夜半虚前席，不问苍生问鬼神。 李商隐 《贾生》">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/Snip20150806_1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/434e49e7.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之Quartz2D入门 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/434e49e7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之Quartz2D入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-12-07 09:25:25" itemprop="dateCreated datePublished" datetime="2014-12-07T09:25:25+08:00">2014-12-07</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">14k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">25 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>宣室求贤访逐臣，贾生才调更无伦。<br>可怜夜半虚前席，不问苍生问鬼神。</p>
+<p>李商隐 《贾生》<br><a id="more"></a></p>
+</blockquote>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><ul>
+<li><code>Quartz 2D</code>是一个二维绘图引擎，同时支持iOS和Mac系统</li>
+<li><p><code>Quartz 2D</code>能完成的工作</p>
+<ul>
+<li>绘制图形 : 线条\三角形\矩形\圆\弧等</li>
+<li>绘制文字</li>
+<li>绘制\生成图片(图像)</li>
+<li>读取\生成PDF</li>
+<li>截图\裁剪图片</li>
+<li>自定义UI控件</li>
+<li>… …</li>
+</ul>
+</li>
+<li><p><code>drawRect</code>:方法的使用</p>
+<ul>
+<li>常见图形的绘制：线条、多边形、圆</li>
+<li>绘图状态的设置：文字颜色、线宽等</li>
+<li>图形上下文状态的保存与恢复（图形上下文栈）</li>
+<li>图片裁剪</li>
+<li>截图</li>
+</ul>
+</li>
+</ul>
+<h3 id="图形上下文"><a href="#图形上下文" class="headerlink" title="图形上下文"></a>图形上下文</h3><ul>
+<li>图形上下文（<code>GraphicsContext</code>）：是一个<code>CGContextRef</code>类型的数据</li>
+<li><p>图形上下文的作用：</p>
+<ul>
+<li>保存绘图信息、绘图状态</li>
+<li>决定绘制的输出目标（绘制到什么地方去？）（输出目标可以是PDF文件、Bitmap或者显示器的窗口上）<center><img src="/uploads/assets/Snip20150806_1.png" alt="hack_appList_result_failed"></center>
+</li>
+</ul>
+</li>
+<li><p>相同的一套绘图序列，指定不同的GraphicsContext，就可将相同的图像绘制到不同的目标上</p>
+</li>
+<li>Quartz2D提供了以下几种类型的Graphics Context：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Bitmap Graphics Context</span><br><span class="line">PDF Graphics Context</span><br><span class="line">Window Graphics Context</span><br><span class="line">Layer Graphics Context</span><br><span class="line">Printer Graphics Context</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/Snip20150806_2.png" alt="hack_appList_result_failed"></center>
+
+<h3 id="如何利用Quartz2D自定义view？（自定义UI控件）"><a href="#如何利用Quartz2D自定义view？（自定义UI控件）" class="headerlink" title="如何利用Quartz2D自定义view？（自定义UI控件）"></a>如何利用Quartz2D自定义view？（自定义UI控件）</h3><ul>
+<li><p>如何利用<code>Quartz2D</code>绘制东西到view上？</p>
+<ul>
+<li>首先，得有图形上下文，因为它能保存绘图信息，并且决定着绘制到什么地方去</li>
+<li>其次，那个图形上下文必须跟view相关联，才能将内容绘制到view上面</li>
+</ul>
+</li>
+<li><p>为什么要实现<code>drawRect:</code>方法才能绘图到view上？</p>
+<ul>
+<li>因为在<code>drawRect:</code>方法中才能取得跟view相关联的图形上下文</li>
+</ul>
+</li>
+<li><p><code>drawRect:</code>方法在什么时候被调用？</p>
+<ul>
+<li>当view第一次显示到屏幕上时（被加到UIWindow上显示出来）<br>调用view的setNeedsDisplay或者setNeedsDisplayInRect:时</li>
+</ul>
+</li>
+</ul>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>Quartz2D的API是纯C语言的</li>
+<li>Quartz2D的API来自于Core Graphics框架</li>
+<li>数据类型和函数基本都以CG作为前缀</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGContextRef</span></span><br><span class="line"><span class="built_in">CGPathRef</span></span><br><span class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<h2 id="常用属性方法"><a href="#常用属性方法" class="headerlink" title="常用属性方法"></a>常用属性方法</h2><ul>
+<li><code>drawRect:</code>中取得的上下文<ul>
+<li>在<code>drawRect:</code>方法中取得上下文后，就可以绘制东西到view上</li>
+<li>View内部有个layer（图层）属性，drawRect:方法中取得的是一个<code>Layer GraphicsContext</code>，因此，绘制的东西其实是绘制到view的layer上去了</li>
+<li>View之所以能显示东西，完全是因为它内部的layer</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义view的步骤"><a href="#自定义view的步骤" class="headerlink" title="自定义view的步骤"></a>自定义view的步骤</h3><ul>
+<li>新建一个类，继承自UIView</li>
+<li>实现<code>- (void)drawRect:(CGRect)rect</code>方法，然后在这个方法中</li>
+<li>取得跟当前view相关联的图形上下文</li>
+<li>绘制相应的图形内容</li>
+<li>利用图形上下文将绘制的所有内容渲染显示到view上面</li>
+</ul>
+<h3 id="Quartz2D绘图"><a href="#Quartz2D绘图" class="headerlink" title="Quartz2D绘图"></a>Quartz2D绘图</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法只会在第一次加载的时候调用 不能的手动调用</span></span><br><span class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.画圆</span></span><br><span class="line">    <span class="built_in">CGContextAddArc</span>(ctx, <span class="number">125</span>, <span class="number">125</span>, <span class="keyword">self</span>.radius, <span class="number">0</span>, M_PI * <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    [[<span class="built_in">UIColor</span> redColor] set]; <span class="comment">// 设置颜色</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.渲染</span></span><br><span class="line">    <span class="built_in">CGContextFillPath</span>(ctx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重绘实现简单动画"><a href="#重绘实现简单动画" class="headerlink" title="重绘实现简单动画"></a>重绘实现简单动画</h3><ul>
+<li><code>CADisplayLink</code>定时器</li>
+<li>如果每隔一段时间重绘,一般不会使用NSTimer</li>
+<li>每次屏幕刷新的时候才会触发,每秒屏幕刷新60次,即1秒触发60次</li>
+<li>每次刷新的时候就重绘一次<ul>
+<li><code>setNeedsDisplay:</code>重绘,给当前控件绑定一个刷新的标识,每次屏幕刷新其实就是重绘</li>
+<li>每次屏幕自动刷新60次,每次刷新的时候只会把当前需要刷新的view重绘</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重绘(会删除上一次的绘制信息)</span></span><br><span class="line">   [<span class="keyword">self</span> setNeedsDisplay];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)awakeFromNib</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 添加定时器(适合时间间隔比较小得情况) 重绘实现动画</span></span><br><span class="line"><span class="built_in">CADisplayLink</span> *link =  [<span class="built_in">CADisplayLink</span> displayLinkWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(setNeedsDisplay)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到主运行循环,才会触发这个定时器</span></span><br><span class="line">[link addToRunLoop:[<span class="built_in">NSRunLoop</span> mainRunLoop] forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.dogY += <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">self</span>.dogY1 += <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.dogY &gt; rect.size.height) &#123;</span><br><span class="line">        <span class="keyword">self</span>.dogY = <span class="number">-128</span>;</span><br><span class="line">        <span class="keyword">self</span>.dogY1 = <span class="number">-128</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 画dog</span></span><br><span class="line">    <span class="built_in">UIImage</span> *dog = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"dog"</span>];</span><br><span class="line">    [dog drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">50</span>, <span class="keyword">self</span>.dogY)];</span><br><span class="line">    <span class="comment">// 画dog1</span></span><br><span class="line">    <span class="built_in">UIImage</span> *dog1 = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"dog1"</span>];</span><br><span class="line">    [dog1 drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">150</span>, <span class="keyword">self</span>.dogY1)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常用拼接路径的函数"><a href="#常用拼接路径的函数" class="headerlink" title="常用拼接路径的函数"></a>常用拼接路径的函数</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建一个起点</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextMoveToPoint</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加新的线段到某个点</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddLineToPoint</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个矩形</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddRect</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGRect</span> rect)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个椭圆</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddEllipseInRect</span>(<span class="built_in">CGContextRef</span> context, <span class="built_in">CGRect</span> rect)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一个圆弧</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</span><br><span class="line">  <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</span><br></pre></td></tr></table></figure>
+<h3 id="常用绘制路径的函数"><a href="#常用绘制路径的函数" class="headerlink" title="常用绘制路径的函数"></a>常用绘制路径的函数</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Mode参数决定绘制的模式</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextDrawPath</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGPathDrawingMode</span> mode)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制空心路径</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextStrokePath</span>(<span class="built_in">CGContextRef</span> c)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制实心路径</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextFillPath</span>(<span class="built_in">CGContextRef</span> c)</span><br><span class="line"></span><br><span class="line">提示：一般以<span class="built_in">CGContextDraw</span>、<span class="built_in">CGContextStroke</span>、<span class="built_in">CGContextFill</span>开头的函数，都是用来绘制路径的</span><br></pre></td></tr></table></figure>
+<h3 id="图形上下文栈的操作"><a href="#图形上下文栈的操作" class="headerlink" title="图形上下文栈的操作"></a>图形上下文栈的操作</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将当前的上下文copy一份,保存到栈顶(那个栈叫做”图形上下文栈”)</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextSaveGState</span>(<span class="built_in">CGContextRef</span> c)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将栈顶的上下文出栈,替换掉当前的上下文</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextRestoreGState</span>(<span class="built_in">CGContextRef</span> c)</span><br></pre></td></tr></table></figure>
+<h3 id="矩阵操作"><a href="#矩阵操作" class="headerlink" title="矩阵操作"></a>矩阵操作</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用矩阵操作，能让绘制到上下文中的所有路径一起发生变化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 缩放</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextScaleCTM</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 旋转</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextRotateCTM</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> angle)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 平移</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextTranslateCTM</span>(<span class="built_in">CGContextRef</span> c, <span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty)</span><br></pre></td></tr></table></figure>
+<h3 id="图片水印"><a href="#图片水印" class="headerlink" title="图片水印"></a>图片水印</h3><ul>
+<li>有时候，在手机客户端app中也需要用到水印技术<ul>
+<li>比如，用户拍完照片后，可以在照片上打个水印，标识这个图片是属于哪个用户的</li>
+</ul>
+</li>
+<li>实现方式：利用<code>Quartz2D</code>，将水印（文字、LOGO）画到图片的右下角</li>
+<li>核心代码</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启一个基于位图的图形上下文</span><br><span class="line"><span class="keyword">void</span>  <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="built_in">CGSize</span> size, <span class="built_in">BOOL</span> opaque, <span class="built_in">CGFloat</span> scale)</span><br><span class="line"></span><br><span class="line">从上下文中取得图片（<span class="built_in">UIImage</span>）</span><br><span class="line"><span class="built_in">UIImage</span>* <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line">结束基于位图的图形上下文</span><br><span class="line"><span class="keyword">void</span>  <span class="built_in">UIGraphicsEndImageContext</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="图片裁剪"><a href="#图片裁剪" class="headerlink" title="图片裁剪"></a>图片裁剪</h3><ul>
+<li>有时候需要把一张普通的图片刻意裁剪成圆形</li>
+</ul>
+<center><img src="/uploads/assets/Snip20150806_3.png" alt="hack_appList_result_failed"></center>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 核心代码</span></span><br><span class="line"><span class="keyword">void</span> <span class="built_in">CGContextClip</span>(<span class="built_in">CGContextRef</span> c)</span><br><span class="line"><span class="comment">// 将当前上下所绘制的路径裁剪出来（超出这个裁剪区域的都不能显示）</span></span><br></pre></td></tr></table></figure>
+<h3 id="屏幕截图"><a href="#屏幕截图" class="headerlink" title="屏幕截图"></a>屏幕截图</h3><ul>
+<li>有时候需要截取屏幕上的某一块内容：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 核心代码</span></span><br><span class="line">- (<span class="keyword">void</span>)renderInContext:(<span class="built_in">CGContextRef</span>)ctx;</span><br><span class="line">调用某个view的layer的renderInContext:方法即可</span><br></pre></td></tr></table></figure>
+<h3 id="贝塞尔曲线应用"><a href="#贝塞尔曲线应用" class="headerlink" title="贝塞尔曲线应用"></a>贝塞尔曲线应用</h3><ul>
+<li>矩形</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">200</span>, <span class="number">200</span>) cornerRadius:<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">[path stroke];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>椭圆</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">200</span>, <span class="number">200</span>)];</span><br><span class="line"></span><br><span class="line">[path stroke];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>圆弧</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// center:圆心</span></span><br><span class="line"><span class="comment">// radius:半径</span></span><br><span class="line"><span class="comment">// startAngle:起始角度</span></span><br><span class="line"><span class="comment">// endAngle:结束角度</span></span><br><span class="line"><span class="comment">// clockwise: YES:顺时针 NO:逆时针</span></span><br><span class="line"><span class="built_in">CGPoint</span> center = <span class="built_in">CGPointMake</span>(rect.size.width * <span class="number">0.5</span>, rect.size.height * <span class="number">0.5</span>);</span><br><span class="line"><span class="built_in">CGFloat</span> radius = rect.size.width * <span class="number">0.5</span> * <span class="number">0.5</span>;</span><br><span class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:center radius:radius startAngle:<span class="number">0</span> endAngle:M_PI clockwise:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line">[path stroke];</span><br></pre></td></tr></table></figure>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><h3 id="绘制图片的注意点"><a href="#绘制图片的注意点" class="headerlink" title="绘制图片的注意点"></a>绘制图片的注意点</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绘制图片</span></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"阿狸头像"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// drawAtPoint:默认绘制的图片跟图片本身一样</span></span><br><span class="line">[image drawAtPoint:<span class="built_in">CGPointZero</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// drawInRect:默认绘制的图片跟控件一样,拉伸跟控件一样大</span></span><br><span class="line">[image drawInRect:rect];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置裁剪区域的代码必须要在绘制之前</span></span><br><span class="line"><span class="comment">// 设置裁剪区域,超出裁剪区域的部分会被裁剪掉</span></span><br><span class="line"><span class="built_in">UIRectClip</span>(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Pattern:平铺</span></span><br><span class="line">[image drawAsPatternInRect:rect];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速的填充一个矩形</span></span><br><span class="line"><span class="built_in">UIRectFill</span>(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 超出控件的部分会被裁剪掉</span></span><br><span class="line">    <span class="comment">// 绘图的时候,绘制的内容不能超过当前控件</span></span><br></pre></td></tr></table></figure>
+<h3 id="绘制文字的注意点"><a href="#绘制文字的注意点" class="headerlink" title="绘制文字的注意点"></a>绘制文字的注意点</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文字</span></span><br><span class="line"><span class="built_in">NSString</span> *str = <span class="string">@"hello world hello world hello world"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Attributes:可以给文字添加属性,富文本,字体,颜色,空心,阴影...</span></span><br><span class="line"><span class="comment">// 用一个字典去描述文本属性</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *strAttr = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字典,字典内容 是 一个key对应一个value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字体</span></span><br><span class="line">strAttr[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">50</span>];</span><br><span class="line"><span class="comment">// 颜色</span></span><br><span class="line">strAttr[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 描边</span></span><br><span class="line">strAttr[<span class="built_in">NSStrokeWidthAttributeName</span>] = @<span class="number">1</span>;</span><br><span class="line">strAttr[<span class="built_in">NSStrokeColorAttributeName</span>] = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阴影</span></span><br><span class="line"><span class="built_in">NSShadow</span> *shadow = [[<span class="built_in">NSShadow</span> alloc] init];</span><br><span class="line">shadow.shadowOffset = <span class="built_in">CGSizeMake</span>(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">shadow.shadowColor = [<span class="built_in">UIColor</span> yellowColor];</span><br><span class="line">shadow.shadowBlurRadius = <span class="number">5</span>;</span><br><span class="line">strAttr[<span class="built_in">NSShadowAttributeName</span>] = shadow;</span><br><span class="line"></span><br><span class="line"><span class="comment">// drawAtPoint不会自动换行</span></span><br><span class="line"><span class="comment">//    [str drawAtPoint:CGPointZero withAttributes:strAttr];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// drawInRect可以自动换行</span></span><br><span class="line">[str drawInRect:<span class="keyword">self</span>.bounds withAttributes:strAttr];</span><br></pre></td></tr></table></figure>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><ul>
+<li>使用含有“<code>Create</code>”或“<code>Copy</code>”的函数创建的对象，使用完后必须释放，否则将导致内存泄露</li>
+<li>使用不含有“<code>Create</code>”或“<code>Copy</code>”的函数获取的对象，则不需要释放</li>
+<li>如果<code>retain</code>了一个对象，不再使用时，需要将其<code>release</code>掉</li>
+<li>可以使用<code>Quartz 2D</code>的函数来指定<code>retain</code>和<code>release</code>一个对象。例如，如果创建了一个<code>CGColorSpace</code>对象，则使用函数<code>CGColorSpaceRetain</code>和<code>CGColorSpaceRelease</code>来retain和`release对象。</li>
+<li>也可以使用<code>Core Foundation</code>的CFRetain<code>和</code>CFRelease`。注意不能传递NULL值给这些函数</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create\copy\retain ---&gt; release (出现这些关键字就需要手动管理内存)</span></span><br><span class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// (调用oc的方法的时候不需要获取上下文)</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.先创建一个路径</span></span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> linePath = <span class="built_in">CGPathCreateMutable</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.拼接路径</span></span><br><span class="line">    <span class="built_in">CGPathMoveToPoint</span>(linePath, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGPathAddLineToPoint</span>(linePath, <span class="literal">NULL</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.添加路径到上下文</span></span><br><span class="line">    <span class="built_in">CGContextAddPath</span>(ctx, linePath);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> circlePath = <span class="built_in">CGPathCreateMutable</span>();</span><br><span class="line">    <span class="built_in">CGPathAddArc</span>(circlePath, <span class="literal">NULL</span>, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI * <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGContextAddPath</span>(ctx, circlePath);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.渲染</span></span><br><span class="line">    <span class="built_in">CGContextStrokePath</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 路径的内存管理</span></span><br><span class="line">    <span class="built_in">CGPathRelease</span>(linePath);</span><br><span class="line">    <span class="built_in">CGPathRelease</span>(circlePath);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 颜色空间的内存管路</span></span><br><span class="line">    <span class="built_in">CGColorSpaceRef</span> cs = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</span><br><span class="line">    <span class="built_in">CGColorSpaceRelease</span>(cs);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 也可以统一使用这个管理内存</span></span><br><span class="line"><span class="comment">//    CFRelease(linePath);</span></span><br><span class="line"><span class="comment">//    CFRelease(circlePath);</span></span><br><span class="line"><span class="comment">//    CFRelease(cs);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="给UIImage添加分类"><a href="#给UIImage添加分类" class="headerlink" title="给UIImage添加分类"></a>给UIImage添加分类</h2><h3 id="添加水印"><a href="#添加水印" class="headerlink" title="添加水印"></a>添加水印</h3><h4 id="分类的-h文件"><a href="#分类的-h文件" class="headerlink" title="分类的.h文件"></a>分类的.h文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UIImage</span> (<span class="title">XSWaterMark</span>)</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)waterMarkImgaeWithBg:(<span class="built_in">NSString</span> *)bg water:(<span class="built_in">NSString</span> *)logo;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="分类的-m文件"><a href="#分类的-m文件" class="headerlink" title="分类的.m文件"></a>分类的.m文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSWaterMark.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIImage</span> (<span class="title">XSWaterMark</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)waterMarkImgaeWithBg:(<span class="built_in">NSString</span> *)bg water:(<span class="built_in">NSString</span> *)logo&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.创建背景图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *bgImage = [<span class="built_in">UIImage</span> imageNamed:bg];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.开启(创建)基于位图的上下文</span></span><br><span class="line">    <span class="comment">// 上下文 : 基于位图(bitmap) , 所有的东西需要绘制到一张新的图片上去</span></span><br><span class="line">    <span class="comment">// size : 新图片的尺寸</span></span><br><span class="line">    <span class="comment">// BOOL opaque : Yes 是不透明 NO表示透明(一般都用不透明) scale:一般不用缩放 0.0</span></span><br><span class="line">    <span class="comment">// 这行代码过后.就相当于常见一张新的bitmap,也就是新的UIImage对象</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(bgImage.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.画出背景图片到上下文中</span></span><br><span class="line">    [bgImage drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, bgImage.size.width, bgImage.size.height)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.创建logo图片 画logo图片到上下文中去</span></span><br><span class="line">    <span class="built_in">UIImage</span> *logoImage = [<span class="built_in">UIImage</span> imageNamed:logo];</span><br><span class="line">    <span class="built_in">CGFloat</span> margin = <span class="number">5</span>; <span class="comment">// logo和边框的间隙</span></span><br><span class="line">    <span class="built_in">CGFloat</span> scale = <span class="number">0.5</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> logoW = logoImage.size.width * scale;</span><br><span class="line">    <span class="built_in">CGFloat</span> logoH = logoImage.size.height * scale;</span><br><span class="line">    <span class="built_in">CGFloat</span> logoX = bgImage.size.width - logoW + margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> logoY = bgImage.size.height - logoH - margin;</span><br><span class="line">    [logoImage drawInRect:<span class="built_in">CGRectMake</span>(logoX, logoY, logoW, logoH)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5.获取上下文中生成的新的图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *waterImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6.结束上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> waterImage;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSWaterMark.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *iconView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.返回水印图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *waterImage = [<span class="built_in">UIImage</span> waterMarkImgaeWithBg:<span class="string">@"bg"</span> water:<span class="string">@"logo"</span>];</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 2.显示图片到view中</span></span><br><span class="line">    <span class="keyword">self</span>.iconView.image = waterImage;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.将图片压缩为二进制的数据信息</span></span><br><span class="line">    <span class="built_in">NSData</span> *data = <span class="built_in">UIImagePNGRepresentation</span>(waterImage);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.写入数据到沙盒document文件夹中</span></span><br><span class="line">    <span class="comment">// 4.1.获取写入的沙盒文档路径</span></span><br><span class="line">    <span class="built_in">NSString</span> *path = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:<span class="string">@"new.png"</span>];</span><br><span class="line">    <span class="comment">// 4.2.写入数据</span></span><br><span class="line">    [data writeToFile:path atomically:<span class="literal">YES</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印沙盒的位置</span></span><br><span class="line">    <span class="comment">// NSLog(@"%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="圆形切图"><a href="#圆形切图" class="headerlink" title="圆形切图"></a>圆形切图</h3><h4 id="分类的-h文件-1"><a href="#分类的-h文件-1" class="headerlink" title="分类的.h文件"></a>分类的.h文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UIImage</span> (<span class="title">XSImageClipToCircle</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)clipImageWithName:(<span class="built_in">NSString</span> *)name BorderWidth:(<span class="built_in">CGFloat</span>)borderWidth borderColor:(<span class="built_in">UIColor</span> *)color;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="分类的-m文件-1"><a href="#分类的-m文件-1" class="headerlink" title="分类的.m文件"></a>分类的.m文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSImageClipToCircle.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIImage</span> (<span class="title">XSImageClipToCircle</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)clipImageWithName:(<span class="built_in">NSString</span> *)name BorderWidth:(<span class="built_in">CGFloat</span>)borderWidth borderColor:(<span class="built_in">UIColor</span> *)color&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 加载原图</span></span><br><span class="line">    <span class="built_in">UIImage</span> *oldImage = [<span class="built_in">UIImage</span> imageNamed:name];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.开启上下文</span></span><br><span class="line"><span class="comment">//    CGFloat border = 3; // 图片距离边框的边距</span></span><br><span class="line">    <span class="built_in">CGFloat</span> imageW = oldImage.size.width + <span class="number">2</span> * borderWidth;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageH = oldImage.size.height + <span class="number">2</span> * borderWidth;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="built_in">CGSizeMake</span>(imageW, imageH), <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.取得上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.画最外面的框的圆</span></span><br><span class="line">    [color set]; <span class="comment">// 圆环颜色为白色</span></span><br><span class="line">    <span class="built_in">CGFloat</span> bigCircleRadius = imageW * <span class="number">0.5</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> bigCircleX = bigCircleRadius;</span><br><span class="line">    <span class="built_in">CGFloat</span> bigCircleY = bigCircleRadius;</span><br><span class="line">    <span class="built_in">CGContextAddArc</span>(ctx, bigCircleX, bigCircleY, bigCircleRadius, <span class="number">0</span>, M_PI * <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGContextFillPath</span>(ctx); <span class="comment">// 画出最外面的大圆</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.最里面的小圆(和大圆是同心圆)</span></span><br><span class="line">    <span class="built_in">CGFloat</span> smallCircleRadius = bigCircleRadius - borderWidth;</span><br><span class="line">    <span class="built_in">CGFloat</span> smallCircleX = bigCircleX;</span><br><span class="line">    <span class="built_in">CGFloat</span> smallCircleY = bigCircleY;</span><br><span class="line">    <span class="built_in">CGContextAddArc</span>(ctx, smallCircleX, smallCircleY, smallCircleRadius, <span class="number">0</span>, M_PI * <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 4.1.裁剪</span></span><br><span class="line">    <span class="built_in">CGContextClip</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5.画图片到小圆里</span></span><br><span class="line">    <span class="built_in">CGFloat</span> clipImageX = borderWidth;</span><br><span class="line">    <span class="built_in">CGFloat</span> clipImageY = borderWidth;</span><br><span class="line">    <span class="built_in">CGFloat</span> clipImageW = oldImage.size.width;</span><br><span class="line">    <span class="built_in">CGFloat</span> clipImageH = oldImage.size.height;</span><br><span class="line">    [oldImage drawInRect:<span class="built_in">CGRectMake</span>(clipImageX, clipImageY, clipImageW, clipImageH)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6.取得新的图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *clipImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 7.结束上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> clipImage;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSImageClipToCircle.h"</span></span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *iconView;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line">    </span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.返回裁剪的图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *clipImage = [<span class="built_in">UIImage</span> clipImageWithName:<span class="string">@"me"</span> BorderWidth:<span class="number">2</span> borderColor:[<span class="built_in">UIColor</span> whiteColor]];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.显示图片</span></span><br><span class="line">    <span class="keyword">self</span>.iconView.image = clipImage;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3.新图片压缩为二进制数据</span></span><br><span class="line">    <span class="built_in">NSData</span> *data = <span class="built_in">UIImagePNGRepresentation</span>(clipImage);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4.写入数据到document文件夹中</span></span><br><span class="line">    <span class="built_in">NSString</span> *path = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:<span class="string">@"clip.png"</span>];</span><br><span class="line">    </span><br><span class="line">[data writeToFile:path atomically:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="截屏"><a href="#截屏" class="headerlink" title="截屏"></a>截屏</h3><h4 id="分类的-h文件-2"><a href="#分类的-h文件-2" class="headerlink" title="分类的.h文件"></a>分类的.h文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UIImage</span> (<span class="title">XSCaptureScreen</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)captureWithView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="分类的-m文件-2"><a href="#分类的-m文件-2" class="headerlink" title="分类的.m文件"></a>分类的.m文件</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSCaptureScreen.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIImage</span> (<span class="title">XSCaptureScreen</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)captureWithView:(<span class="built_in">UIView</span> *)view&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.开启上下文(和控制器view一样尺寸)</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(view.bounds.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.将控制器view渲染到上下文中</span></span><br><span class="line">    [view.layer renderInContext:ctx];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.获取新的图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *captureImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5.结束上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> captureImage;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-2"><a href="#使用-2" class="headerlink" title="使用"></a>使用</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"UIImage+XSCaptureScreen.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *cyanView;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)CaptureBtnClick;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  点击截屏调用的方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)CaptureBtnClick &#123;</span><br><span class="line"></span><br><span class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1.截图</span></span><br><span class="line">        <span class="built_in">UIImage</span> *captureImage = [<span class="built_in">UIImage</span> captureWithView:<span class="keyword">self</span>.cyanView];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.写入数据</span></span><br><span class="line">        <span class="built_in">NSData</span> *data = <span class="built_in">UIImagePNGRepresentation</span>(captureImage);</span><br><span class="line">        <span class="built_in">NSString</span> *path = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:<span class="string">@"captureImage.png"</span>];</span><br><span class="line">        [data writeToFile:path atomically:<span class="literal">YES</span>];</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/434e49e7.html" title="iOS开发之Quartz2D入门">https://sevencho.github.io/archives/434e49e7.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/Quartz2D/" rel="tag"><i class="fa fa-tag"></i> Quartz2D</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/31ba9d29.html" rel="next" title="iOS开发之了解屏幕适配">
+                <i class="fa fa-chevron-left"></i> iOS开发之了解屏幕适配
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/bb2b9a9.html" rel="prev" title="iOS开发之事件响应及处理">
+                iOS开发之事件响应及处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本介绍"><span class="nav-number">1.</span> <span class="nav-text">基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图形上下文"><span class="nav-number">1.1.</span> <span class="nav-text">图形上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何利用Quartz2D自定义view？（自定义UI控件）"><span class="nav-number">1.2.</span> <span class="nav-text">如何利用Quartz2D自定义view？（自定义UI控件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意点"><span class="nav-number">1.3.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用属性方法"><span class="nav-number">2.</span> <span class="nav-text">常用属性方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义view的步骤"><span class="nav-number">2.1.</span> <span class="nav-text">自定义view的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quartz2D绘图"><span class="nav-number">2.2.</span> <span class="nav-text">Quartz2D绘图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重绘实现简单动画"><span class="nav-number">2.3.</span> <span class="nav-text">重绘实现简单动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用拼接路径的函数"><span class="nav-number">2.4.</span> <span class="nav-text">常用拼接路径的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用绘制路径的函数"><span class="nav-number">2.5.</span> <span class="nav-text">常用绘制路径的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形上下文栈的操作"><span class="nav-number">2.6.</span> <span class="nav-text">图形上下文栈的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵操作"><span class="nav-number">2.7.</span> <span class="nav-text">矩阵操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片水印"><span class="nav-number">2.8.</span> <span class="nav-text">图片水印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片裁剪"><span class="nav-number">2.9.</span> <span class="nav-text">图片裁剪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕截图"><span class="nav-number">2.10.</span> <span class="nav-text">屏幕截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贝塞尔曲线应用"><span class="nav-number">2.11.</span> <span class="nav-text">贝塞尔曲线应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点-1"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制图片的注意点"><span class="nav-number">3.1.</span> <span class="nav-text">绘制图片的注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制文字的注意点"><span class="nav-number">3.2.</span> <span class="nav-text">绘制文字的注意点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">4.</span> <span class="nav-text">内存管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给UIImage添加分类"><span class="nav-number">5.</span> <span class="nav-text">给UIImage添加分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加水印"><span class="nav-number">5.1.</span> <span class="nav-text">添加水印</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-h文件"><span class="nav-number">5.1.1.</span> <span class="nav-text">分类的.h文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-m文件"><span class="nav-number">5.1.2.</span> <span class="nav-text">分类的.m文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">5.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#圆形切图"><span class="nav-number">5.2.</span> <span class="nav-text">圆形切图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-h文件-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">分类的.h文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-m文件-1"><span class="nav-number">5.2.2.</span> <span class="nav-text">分类的.m文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-1"><span class="nav-number">5.2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#截屏"><span class="nav-number">5.3.</span> <span class="nav-text">截屏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-h文件-2"><span class="nav-number">5.3.1.</span> <span class="nav-text">分类的.h文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类的-m文件-2"><span class="nav-number">5.3.2.</span> <span class="nav-text">分类的.m文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-2"><span class="nav-number">5.3.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">299k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>
