@@ -119,22 +119,22 @@
 
 
 
-  <meta name="description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+  <meta name="description" content="凄凉宝剑篇，羁泊欲穷年。黄叶仍风雨，青楼自管弦。新知遭薄俗，旧好隔良缘。心断新丰酒，销愁斗几千。 李商隐 《风雨》">
 <meta name="keywords" content="iOS,Event,Recognizer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发之事件响应及处理">
 <meta property="og:url" content="https://sevencho.github.io/archives/bb2b9a9.html">
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
-<meta property="og:description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+<meta property="og:description" content="凄凉宝剑篇，羁泊欲穷年。黄叶仍风雨，青楼自管弦。新知遭薄俗，旧好隔良缘。心断新丰酒，销愁斗几千。 李商隐 《风雨》">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_1.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_3.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/Picture1.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/手势识别状态变化示意图.png">
-<meta property="og:updated_time" content="2018-09-07T08:19:19.514Z">
+<meta property="og:updated_time" content="2018-09-07T09:21:59.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之事件响应及处理">
-<meta name="twitter:description" content="荷叶生时春恨生，荷叶枯时秋恨成。深知身在情长在，怅望江头江水声。 李商隐 《暮秋独游曲江》">
+<meta name="twitter:description" content="凄凉宝剑篇，羁泊欲穷年。黄叶仍风雨，青楼自管弦。新知遭薄俗，旧好隔良缘。心断新丰酒，销愁斗几千。 李商隐 《风雨》">
 <meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/Snip20150815_1.png">
 
 
@@ -489,8 +489,8 @@
 
       
         <blockquote>
-<p>荷叶生时春恨生，荷叶枯时秋恨成。<br>深知身在情长在，怅望江头江水声。</p>
-<p>李商隐 《暮秋独游曲江》<br><a id="more"></a></p>
+<p>凄凉宝剑篇，羁泊欲穷年。<br>黄叶仍风雨，青楼自管弦。<br>新知遭薄俗，旧好隔良缘。<br>心断新丰酒，销愁斗几千。</p>
+<p>李商隐 《风雨》<br><a id="more"></a></p>
 </blockquote>
 <h2 id="响应者对象"><a href="#响应者对象" class="headerlink" title="响应者对象"></a>响应者对象</h2><ul>
 <li>在iOS中不是任何对象都能处理事件，只有继承了<code>UIResponder</code>的对象才能接收并处理事件。我们称之为“<code>响应者对象</code>”</li>
@@ -529,17 +529,13 @@
 <li>如果这两根手指一前一后分开触摸同一个view，那么view会分别调用2次<code>touchesBegan:withEvent:</code>方法，并且每次调用时的touches参数中只包含一个UITouch对象</li>
 <li>根据touches中UITouch的个数可以判断出是单点触摸还是多点触摸</li>
 </ul>
-<h1 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h1><ul>
-<li><p>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中</p>
-</li>
-<li><p>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）</p>
-</li>
-<li><p>主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步</p>
-</li>
-<li><p>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理</p>
-</li>
+<h3 id="触摸事件的产生和传递"><a href="#触摸事件的产生和传递" class="headerlink" title="触摸事件的产生和传递"></a>触摸事件的产生和传递</h3><ul>
+<li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中</li>
+<li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）</li>
+<li>主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步</li>
+<li>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理</li>
 </ul>
-<h2 id="事件的产生和传递-1"><a href="#事件的产生和传递-1" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h2><ul>
+<h2 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h2><ul>
 <li>触摸事件的传递是从父控件传递到子控件</li>
 </ul>
 <center><img src="/uploads/assets/Snip20150815_1.png" alt="hack_appList_result_failed"></center>
@@ -982,7 +978,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者对象"><span class="nav-number">1.</span> <span class="nav-text">响应者对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITouch"><span class="nav-number">2.</span> <span class="nav-text">UITouch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的属性"><span class="nav-number">2.1.</span> <span class="nav-text">UITouch的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的方法"><span class="nav-number">2.2.</span> <span class="nav-text">UITouch的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIEvent"><span class="nav-number">3.</span> <span class="nav-text">UIEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touches和event参数"><span class="nav-number">3.1.</span> <span class="nav-text">touches和event参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件的产生和传递"><span class="nav-number"></span> <span class="nav-text">事件的产生和传递</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的产生和传递-1"><span class="nav-number">1.</span> <span class="nav-text">事件的产生和传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView不接收触摸事件的三种情况"><span class="nav-number">1.2.</span> <span class="nav-text">UIView不接收触摸事件的三种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者链条"><span class="nav-number">2.</span> <span class="nav-text">响应者链条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的处理过程-详细"><span class="nav-number">2.1.</span> <span class="nav-text">事件的处理过程(详细)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链条示意图-gt"><span class="nav-number">2.2.</span> <span class="nav-text">响应者链条示意图&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链的事件传递过程"><span class="nav-number">2.3.</span> <span class="nav-text">响应者链的事件传递过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手势识别"><span class="nav-number">3.</span> <span class="nav-text">手势识别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监听触摸事件"><span class="nav-number">3.1.</span> <span class="nav-text">监听触摸事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIGestureRecognizer"><span class="nav-number">3.3.</span> <span class="nav-text">UIGestureRecognizer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UITapGestureRecognizer"><span class="nav-number">3.3.1.</span> <span class="nav-text">UITapGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UILongPressGestureRecognizer"><span class="nav-number">3.3.2.</span> <span class="nav-text">UILongPressGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UISwipeGestureRecognizer"><span class="nav-number">3.3.3.</span> <span class="nav-text">UISwipeGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIRotationGestureRecognizer"><span class="nav-number">3.3.4.</span> <span class="nav-text">UIRotationGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPinchGestureRecognizer"><span class="nav-number">3.3.5.</span> <span class="nav-text">UIPinchGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPanGestureRecognizer"><span class="nav-number">3.3.6.</span> <span class="nav-text">UIPanGestureRecognizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势识别的状态"><span class="nav-number">3.4.</span> <span class="nav-text">手势识别的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势的注意点"><span class="nav-number">3.5.</span> <span class="nav-text">手势的注意点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者对象"><span class="nav-number">1.</span> <span class="nav-text">响应者对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITouch"><span class="nav-number">2.</span> <span class="nav-text">UITouch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的属性"><span class="nav-number">2.1.</span> <span class="nav-text">UITouch的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch的方法"><span class="nav-number">2.2.</span> <span class="nav-text">UITouch的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIEvent"><span class="nav-number">3.</span> <span class="nav-text">UIEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touches和event参数"><span class="nav-number">3.1.</span> <span class="nav-text">touches和event参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#触摸事件的产生和传递"><span class="nav-number">3.2.</span> <span class="nav-text">触摸事件的产生和传递</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的产生和传递"><span class="nav-number">4.</span> <span class="nav-text">事件的产生和传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">4.1.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView不接收触摸事件的三种情况"><span class="nav-number">4.2.</span> <span class="nav-text">UIView不接收触摸事件的三种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应者链条"><span class="nav-number">5.</span> <span class="nav-text">响应者链条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的处理过程-详细"><span class="nav-number">5.1.</span> <span class="nav-text">事件的处理过程(详细)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链条示意图-gt"><span class="nav-number">5.2.</span> <span class="nav-text">响应者链条示意图&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者链的事件传递过程"><span class="nav-number">5.3.</span> <span class="nav-text">响应者链的事件传递过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手势识别"><span class="nav-number">6.</span> <span class="nav-text">手势识别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监听触摸事件"><span class="nav-number">6.1.</span> <span class="nav-text">监听触摸事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">6.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIGestureRecognizer"><span class="nav-number">6.3.</span> <span class="nav-text">UIGestureRecognizer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UITapGestureRecognizer"><span class="nav-number">6.3.1.</span> <span class="nav-text">UITapGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UILongPressGestureRecognizer"><span class="nav-number">6.3.2.</span> <span class="nav-text">UILongPressGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UISwipeGestureRecognizer"><span class="nav-number">6.3.3.</span> <span class="nav-text">UISwipeGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIRotationGestureRecognizer"><span class="nav-number">6.3.4.</span> <span class="nav-text">UIRotationGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPinchGestureRecognizer"><span class="nav-number">6.3.5.</span> <span class="nav-text">UIPinchGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIPanGestureRecognizer"><span class="nav-number">6.3.6.</span> <span class="nav-text">UIPanGestureRecognizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势识别的状态"><span class="nav-number">6.4.</span> <span class="nav-text">手势识别的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势的注意点"><span class="nav-number">6.5.</span> <span class="nav-text">手势的注意点</span></a></li></ol></li></ol></div>
             
 
           </div>
