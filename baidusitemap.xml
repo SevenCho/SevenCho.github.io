@@ -4,12 +4,34 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/85b4c34d.html</loc>
+    <lastmod>2018-09-07T07:18:07.122Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发常用控件之UIWebView</title>
+        <pubTime>2015-03-18T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>UIWebView</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/371821f9.html</loc>
-    <lastmod>2018-09-07T07:07:58.436Z</lastmod>
+    <lastmod>2018-09-07T07:18:07.121Z</lastmod>
     <data>
         <display>
         <title>iOS开发之网页的基本概念</title>
-        <pubTime>2017-10-26T01:47:22.000Z</pubTime>
+        <pubTime>2015-03-20T01:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -27,35 +49,13 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/3c64aa6c.html</loc>
-    <lastmod>2018-09-07T06:47:47.173Z</lastmod>
+    <lastmod>2018-09-07T07:15:12.390Z</lastmod>
     <data>
         <display>
         <title>iOS开发之常用数据存储方式</title>
         <pubTime>2014-10-27T01:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/85b4c34d.html</loc>
-    <lastmod>2018-09-07T06:46:03.818Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发常用控件之UIWebView</title>
-        <pubTime>2017-10-26T01:47:22.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>UIWebView</tag>
          
          
            
