@@ -4,8 +4,56 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/69e9b43d.html</loc>
+    <lastmod>2018-09-10T02:36:17.368Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之核心动画（二）：常用动画类及方法介绍</title>
+        <pubTime>2015-01-10T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>CAAnimation</tag>
+         
+        <tag>CALayer</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://sevencho.github.io/archives/4bdf0e86.html</loc>
+    <lastmod>2018-09-10T02:34:42.029Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之核心动画（一）：了解核心动画及CALayer常用方法介绍</title>
+        <pubTime>2015-01-07T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>CAAnimation</tag>
+         
+        <tag>CALayer</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/bb2b9a9.html</loc>
-    <lastmod>2018-09-07T09:21:59.198Z</lastmod>
+    <lastmod>2018-09-07T09:22:06.637Z</lastmod>
     <data>
         <display>
         <title>iOS开发之事件响应及处理</title>
