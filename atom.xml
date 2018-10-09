@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-10-09T06:46:48.028Z</updated>
+  <updated>2018-10-09T08:42:41.317Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/3a74c3e3.html"/>
     <id>https://sevencho.github.io/archives/3a74c3e3.html</id>
     <published>2018-09-28T11:58:45.000Z</published>
-    <updated>2018-10-09T06:46:48.028Z</updated>
+    <updated>2018-10-09T08:42:41.317Z</updated>
     
     <summary type="html">
     
@@ -29,38 +29,18 @@
     
     </summary>
     
-      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
     
-    
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
     
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Swift项目版本4.0迁移4.2记录</title>
-    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
-    <id>https://sevencho.github.io/archives/dd5e907.html</id>
-    <published>2018-09-21T11:58:45.000Z</published>
-    <updated>2018-10-08T12:21:36.833Z</updated>
+      <category term="iPhone X" scheme="https://sevencho.github.io/tags/iPhone-X/"/>
     
-    <summary type="html">
+      <category term="iPhone XS" scheme="https://sevencho.github.io/tags/iPhone-XS/"/>
     
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
-&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
-&lt;/blockquote&gt;
+      <category term="iPhone XR" scheme="https://sevencho.github.io/tags/iPhone-XR/"/>
     
-    </summary>
-    
-      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
-    
-    
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+      <category term="iPhone XS Max" scheme="https://sevencho.github.io/tags/iPhone-XS-Max/"/>
     
   </entry>
   
@@ -69,7 +49,7 @@
     <link href="https://sevencho.github.io/archives/a9b5807a.html"/>
     <id>https://sevencho.github.io/archives/a9b5807a.html</id>
     <published>2018-09-21T11:58:45.000Z</published>
-    <updated>2018-10-09T05:57:48.417Z</updated>
+    <updated>2018-10-09T08:43:05.582Z</updated>
     
     <summary type="html">
     
@@ -77,6 +57,32 @@
 &lt;blockquote&gt;
 &lt;p&gt;在那时候，那些东西不转身就正面背面都领受到了月光，我不回头就看见了过往。&lt;/p&gt;
 &lt;p&gt;–刘亮程《今生今世的证据》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="静态库" scheme="https://sevencho.github.io/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift项目版本4.0迁移4.2记录</title>
+    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
+    <id>https://sevencho.github.io/archives/dd5e907.html</id>
+    <published>2018-09-21T11:58:45.000Z</published>
+    <updated>2018-10-09T08:39:22.261Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
+&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

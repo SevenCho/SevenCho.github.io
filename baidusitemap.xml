@@ -4,21 +4,21 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/3a74c3e3.html</loc>
-    <lastmod>2018-10-09T06:46:48.028Z</lastmod>
+    <loc>https://sevencho.github.io/archives/a9b5807a.html</loc>
+    <lastmod>2018-10-09T08:43:05.582Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之新一代iPhone三剑客适配指北</title>
-        <pubTime>2018-09-28T11:58:45.000Z</pubTime>
+        <title>iOS开发之关于静态库制作及注意点</title>
+        <pubTime>2018-09-21T11:58:45.000Z</pubTime>
         
-        <tag>Swift</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>静态库</tag>
          
          
            
              
-              <breadCrumb title="Swift" url="https://sevencho.github.io/categories/Swift/"/>
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>
@@ -26,21 +26,27 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/a9b5807a.html</loc>
-    <lastmod>2018-10-09T05:57:48.417Z</lastmod>
+    <loc>https://sevencho.github.io/archives/3a74c3e3.html</loc>
+    <lastmod>2018-10-09T08:42:41.317Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之关于静态库制作及注意点</title>
-        <pubTime>2018-09-21T11:58:45.000Z</pubTime>
+        <title>iOS开发之新一代iPhone三剑客适配指北</title>
+        <pubTime>2018-09-28T11:58:45.000Z</pubTime>
         
-        <tag>Swift</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>iPhone X</tag>
+         
+        <tag>iPhone XS</tag>
+         
+        <tag>iPhone XR</tag>
+         
+        <tag>iPhone XS Max</tag>
          
          
            
              
-              <breadCrumb title="Swift" url="https://sevencho.github.io/categories/Swift/"/>
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>
@@ -49,7 +55,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/dd5e907.html</loc>
-    <lastmod>2018-10-08T12:21:36.833Z</lastmod>
+    <lastmod>2018-10-09T08:39:22.261Z</lastmod>
     <data>
         <display>
         <title>Swift项目版本4.0迁移4.2记录</title>
