@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-09-06T07:10:16.109Z</updated>
+  <updated>2018-10-09T06:46:48.028Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发之新一代iPhone三剑客适配指北</title>
+    <link href="https://sevencho.github.io/archives/3a74c3e3.html"/>
+    <id>https://sevencho.github.io/archives/3a74c3e3.html</id>
+    <published>2018-09-28T11:58:45.000Z</published>
+    <updated>2018-10-09T06:46:48.028Z</updated>
+    
+    <summary type="html">
+    
+      &lt;center&gt;&lt;img src=&quot;/uploads/assets/compatibility_profile.png&quot; alt=&quot;compatibility_profile&quot;&gt;&lt;/center&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift项目版本4.0迁移4.2记录</title>
+    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
+    <id>https://sevencho.github.io/archives/dd5e907.html</id>
+    <published>2018-09-21T11:58:45.000Z</published>
+    <updated>2018-10-08T12:21:36.833Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
+&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之关于静态库制作及注意点</title>
+    <link href="https://sevencho.github.io/archives/a9b5807a.html"/>
+    <id>https://sevencho.github.io/archives/a9b5807a.html</id>
+    <published>2018-09-21T11:58:45.000Z</published>
+    <updated>2018-10-09T05:57:48.417Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在那时候，那些东西不转身就正面背面都领受到了月光，我不回头就看见了过往。&lt;/p&gt;
+&lt;p&gt;–刘亮程《今生今世的证据》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结</title>
@@ -479,83 +553,6 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="CocoaPods" scheme="https://sevencho.github.io/tags/CocoaPods/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&lt;译&gt;一个成功的分支模型</title>
-    <link href="https://sevencho.github.io/archives/33f710d8.html"/>
-    <id>https://sevencho.github.io/archives/33f710d8.html</id>
-    <published>2018-06-25T09:27:45.000Z</published>
-    <updated>2018-09-03T03:42:33.865Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我是个俗气至顶的人，见山是山，见海是海，见花便是花。唯独见了你，云海开始翻涌，江潮开始澎湃，昆虫的小触须挠着全世界的痒。你无需开口，我和天地万物便通通奔向你。&lt;br&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="git" scheme="https://sevencho.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&lt;译&gt;最佳的iOS开发技巧及小窍门</title>
-    <link href="https://sevencho.github.io/archives/ed90488b.html"/>
-    <id>https://sevencho.github.io/archives/ed90488b.html</id>
-    <published>2018-06-21T07:27:45.000Z</published>
-    <updated>2018-09-04T06:16:18.249Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我选择沉默的主要原因之一：从话语中，你很少能学到人性，从沉默中却能。假如还想学得更多，那就要继续一声不吭 。&lt;br&gt;——王小波《沉默的大多数》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="xCode" scheme="https://sevencho.github.io/tags/xCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS蓝牙开发之iBeacon篇(二)</title>
-    <link href="https://sevencho.github.io/archives/b05dc691.html"/>
-    <id>https://sevencho.github.io/archives/b05dc691.html</id>
-    <published>2018-04-27T09:27:45.000Z</published>
-    <updated>2018-09-03T03:42:59.449Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想再一瞬间变成天上半明半暗的云。我来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。&lt;br&gt;——王小波《黄金时代》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="蓝牙" scheme="https://sevencho.github.io/categories/iOS/%E8%93%9D%E7%89%99/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="蓝牙" scheme="https://sevencho.github.io/tags/%E8%93%9D%E7%89%99/"/>
     
   </entry>
   
