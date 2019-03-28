@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2019-03-28T08:38:37.530Z</updated>
+  <updated>2019-03-28T08:39:12.687Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sevencho.github.io/archives/67c8fe48.html"/>
     <id>https://sevencho.github.io/archives/67c8fe48.html</id>
     <published>2019-03-27T07:20:52.000Z</published>
-    <updated>2019-03-28T08:38:37.530Z</updated>
+    <updated>2019-03-28T08:39:12.687Z</updated>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="https://sevencho.github.io/archives/c6d2cc27.html"/>
     <id>https://sevencho.github.io/archives/c6d2cc27.html</id>
     <published>2019-03-21T09:58:52.000Z</published>
-    <updated>2019-03-28T08:33:52.335Z</updated>
+    <updated>2019-03-28T08:39:12.689Z</updated>
     
     <summary type="html">
     
@@ -95,32 +95,6 @@
   </entry>
   
   <entry>
-    <title>Swift项目版本4.0迁移4.2记录</title>
-    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
-    <id>https://sevencho.github.io/archives/dd5e907.html</id>
-    <published>2018-09-21T11:58:45.000Z</published>
-    <updated>2018-10-09T08:39:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
-&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iOS开发之关于静态库制作及注意点</title>
     <link href="https://sevencho.github.io/archives/a9b5807a.html"/>
     <id>https://sevencho.github.io/archives/a9b5807a.html</id>
@@ -147,15 +121,41 @@
   </entry>
   
   <entry>
+    <title>Swift项目版本4.0迁移4.2记录</title>
+    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
+    <id>https://sevencho.github.io/archives/dd5e907.html</id>
+    <published>2018-09-21T11:58:45.000Z</published>
+    <updated>2018-10-09T08:39:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
+&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS开发之使用JenKins &amp; fastlane 实现自动打包及持续集成</title>
     <link href="https://sevencho.github.io/archives/56d26041.html"/>
     <id>https://sevencho.github.io/archives/56d26041.html</id>
     <published>2018-09-18T11:58:45.000Z</published>
-    <updated>2019-03-28T04:26:02.402Z</updated>
+    <updated>2019-03-28T09:10:58.048Z</updated>
     
     <summary type="html">
     
-      &lt;center&gt;&lt;img src=&quot;/uploads/assets/Continuous-integration-with-docker.png&quot; alt=&quot;integration-with-docker&quot;&gt;&lt;/center&gt;&lt;br&gt;
+      &lt;center&gt;&lt;img src=&quot;/uploads/assets/Continuous-integration-with-docker.png&quot; alt=&quot;integration-with-docker&quot;&gt;&lt;/center&gt;
     
     </summary>
     
@@ -296,9 +296,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
-    
       <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
     
       <category term="Perfect" scheme="https://sevencho.github.io/tags/Perfect/"/>
     
@@ -324,9 +324,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
-    
       <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
     
       <category term="Linux" scheme="https://sevencho.github.io/tags/Linux/"/>
     
@@ -354,9 +354,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
-    
       <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
     
       <category term="MySQL" scheme="https://sevencho.github.io/tags/MySQL/"/>
     

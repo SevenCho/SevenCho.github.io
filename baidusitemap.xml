@@ -4,21 +4,23 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/67c8fe48.html</loc>
-    <lastmod>2019-03-28T08:38:37.530Z</lastmod>
+    <loc>https://sevencho.github.io/archives/56d26041.html</loc>
+    <lastmod>2019-03-28T09:10:58.048Z</lastmod>
     <data>
         <display>
-        <title>Mac 安装Android Studio 及环境变量配置</title>
-        <pubTime>2019-03-27T07:20:52.000Z</pubTime>
+        <title>iOS开发之使用JenKins & fastlane 实现自动打包及持续集成</title>
+        <pubTime>2018-09-18T11:58:45.000Z</pubTime>
         
-        <tag>Android Studio</tag>
+        <tag>iOS</tag>
          
-        <tag>Android</tag>
+        <tag>JenKins</tag>
+         
+        <tag>fastlane</tag>
          
          
            
              
-              <breadCrumb title="Android" url="https://sevencho.github.io/categories/Android/"/>
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>
@@ -27,7 +29,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/c6d2cc27.html</loc>
-    <lastmod>2019-03-28T08:33:52.335Z</lastmod>
+    <lastmod>2019-03-28T08:39:12.689Z</lastmod>
     <data>
         <display>
         <title>微信小程序入坑</title>
@@ -46,23 +48,21 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/56d26041.html</loc>
-    <lastmod>2019-03-28T04:26:02.402Z</lastmod>
+    <loc>https://sevencho.github.io/archives/67c8fe48.html</loc>
+    <lastmod>2019-03-28T08:39:12.687Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之使用JenKins & fastlane 实现自动打包及持续集成</title>
-        <pubTime>2018-09-18T11:58:45.000Z</pubTime>
+        <title>Mac 安装Android Studio 及环境变量配置</title>
+        <pubTime>2019-03-27T07:20:52.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>Android Studio</tag>
          
-        <tag>JenKins</tag>
-         
-        <tag>fastlane</tag>
+        <tag>Android</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+              <breadCrumb title="Android" url="https://sevencho.github.io/categories/Android/"/>
           
         </display>
     </data>
@@ -127,9 +127,9 @@
         <title>Swift项目版本4.0迁移4.2记录</title>
         <pubTime>2018-09-21T11:58:45.000Z</pubTime>
         
-        <tag>iOS</tag>
-         
         <tag>Swift</tag>
+         
+        <tag>iOS</tag>
          
          
            
@@ -214,6 +214,32 @@
 
     
   <url>
+    <loc>https://sevencho.github.io/archives/31ba9d29.html</loc>
+    <lastmod>2018-09-07T09:12:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发之了解屏幕适配</title>
+        <pubTime>2014-11-12T01:25:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>Autoresizing</tag>
+         
+        <tag>Autolayout</tag>
+         
+        <tag>Sizeclass</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://sevencho.github.io/archives/c2b85789.html</loc>
     <lastmod>2018-09-07T09:12:08.000Z</lastmod>
     <data>
@@ -248,32 +274,6 @@
         <tag>iOS</tag>
          
         <tag>Quartz2D</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://sevencho.github.io/archives/31ba9d29.html</loc>
-    <lastmod>2018-09-07T09:12:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发之了解屏幕适配</title>
-        <pubTime>2014-11-12T01:25:25.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-        <tag>Autoresizing</tag>
-         
-        <tag>Autolayout</tag>
-         
-        <tag>Sizeclass</tag>
          
          
            
@@ -350,18 +350,18 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/55fb9a70.html</loc>
+    <loc>https://sevencho.github.io/archives/5a324ffa.html</loc>
     <lastmod>2018-09-07T03:42:09.000Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之UIApplication & UIWindow & 创建单例</title>
-        <pubTime>2014-10-15T01:25:25.000Z</pubTime>
+        <title>iOS开发之KVO和KVC常用方法</title>
+        <pubTime>2014-09-05T01:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>UIApplication</tag>
+        <tag>KVC</tag>
          
-        <tag>UIWindow</tag>
+        <tag>KVO</tag>
          
          
            
@@ -394,18 +394,18 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/5a324ffa.html</loc>
+    <loc>https://sevencho.github.io/archives/55fb9a70.html</loc>
     <lastmod>2018-09-07T03:42:09.000Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之KVO和KVC常用方法</title>
-        <pubTime>2014-09-05T01:25:25.000Z</pubTime>
+        <title>iOS开发之UIApplication & UIWindow & 创建单例</title>
+        <pubTime>2014-10-15T01:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
          
-        <tag>KVC</tag>
+        <tag>UIApplication</tag>
          
-        <tag>KVO</tag>
+        <tag>UIWindow</tag>
          
          
            
@@ -1463,18 +1463,20 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/6efe8aae.html</loc>
+    <loc>https://sevencho.github.io/archives/64bb63f1.html</loc>
     <lastmod>2018-09-03T03:35:54.000Z</lastmod>
     <data>
         <display>
-        <title>Swift开发服务端（一）：MySQL安装及配置</title>
-        <pubTime>2018-08-22T06:32:25.000Z</pubTime>
+        <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</title>
+        <pubTime>2018-08-24T01:56:25.000Z</pubTime>
         
-        <tag>Swift</tag>
-         
         <tag>服务器</tag>
          
-        <tag>MySQL</tag>
+        <tag>Swift</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Parallels Desktop</tag>
          
          
            
@@ -1494,9 +1496,9 @@
         <title>Swift开发服务端（三）：Perfect再次初体验</title>
         <pubTime>2018-08-24T07:25:25.000Z</pubTime>
         
-        <tag>Swift</tag>
-         
         <tag>服务器</tag>
+         
+        <tag>Swift</tag>
          
         <tag>Perfect</tag>
          
@@ -1511,20 +1513,18 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/64bb63f1.html</loc>
+    <loc>https://sevencho.github.io/archives/6efe8aae.html</loc>
     <lastmod>2018-09-03T03:35:54.000Z</lastmod>
     <data>
         <display>
-        <title>Swift开发服务端（二）：使用Parallels Desktop虚拟机安装Ubuntu系统及相关配置</title>
-        <pubTime>2018-08-24T01:56:25.000Z</pubTime>
+        <title>Swift开发服务端（一）：MySQL安装及配置</title>
+        <pubTime>2018-08-22T06:32:25.000Z</pubTime>
         
-        <tag>Swift</tag>
-         
         <tag>服务器</tag>
          
-        <tag>Linux</tag>
+        <tag>Swift</tag>
          
-        <tag>Parallels Desktop</tag>
+        <tag>MySQL</tag>
          
          
            
