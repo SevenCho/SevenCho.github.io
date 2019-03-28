@@ -133,7 +133,9 @@
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/staticLibrary_compare.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/staticLibrary_buildActive.png">
 <meta property="og:image" content="https://sevencho.github.io/uploads/assets/staticLibrary_architecturesCompare.png">
-<meta property="og:updated_time" content="2018-10-09T08:43:05.582Z">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/staticLibrary_bitcode_enable.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/staticLibrary_bitcode_enable_successful.png">
+<meta property="og:updated_time" content="2018-11-21T08:35:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之关于静态库制作及注意点">
 <meta name="twitter:description" content="在那时候，那些东西不转身就正面背面都领受到了月光，我不回头就看见了过往。 –刘亮程《今生今世的证据》">
@@ -456,7 +458,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.2k</span>
+                <span title="本文字数">2.7k</span>
               
 
               
@@ -470,7 +472,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -589,6 +591,28 @@
 <ul>
 <li>合成完成会生成一个新的.a静态库，将该.a静态库和头文件一起提供给调用者即可。</li>
 </ul>
+<h4 id="关于静态库上架"><a href="#关于静态库上架" class="headerlink" title="关于静态库上架"></a>关于静态库上架</h4><ul>
+<li>如果项目中导入了<code>.a</code>静态库且上架需要开启<code>Bitcode</code>选项，那么静态库就需要支持<code>Bitcode</code>才可以，否则打包上架会遇到如下问题：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld: bitcode bundle could not be generated because &apos;xxx.a(xxx.o)&apos; was built without full bitcode.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>让静态库支持，需要在编译生成静态库文件前进行下面两步配置</p>
+<ul>
+<li>需要在<code>Build Settings</code> 中设置<code>Enable Bitcode</code>选项为<code>Yes</code>（默认是开启状态）。</li>
+<li><p>在<code>Build Settings</code>的<code>Other C Flags</code> 添加<code>-fembed-bitcode</code>参数。</p>
+<center><img src="/uploads/assets/staticLibrary_bitcode_enable.png" alt="staticLibrary_architecturesCompare"></center>
+</li>
+</ul>
+</li>
+<li><p>检查生成的静态库文件是否支持<code>Bitcode</code>，请使用如下指令：</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">otool -arch armv7 -l libBLECrypto.a </span><br><span class="line">或者</span><br><span class="line">otool -arch arm64 -l libBLECrypto.a</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Command + F</code>搜索bitcode字段，如果存在<code>sectname</code>为bitcode的字段且对应的<code>size不是0x0000000000000001</code>，说明静态库支持<code>Bitcode</code>。</li>
+</ul>
+<center><img src="/uploads/assets/staticLibrary_bitcode_enable_successful.png" alt="staticLibrary_architecturesCompare"></center>
+
 <h3 id="framework静态库"><a href="#framework静态库" class="headerlink" title="framework静态库"></a>framework静态库</h3><ul>
 <li>用到了再补充🌝🌚。</li>
 </ul>
@@ -675,8 +699,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/dd5e907.html" rel="next" title="Swift项目版本4.0迁移4.2记录">
-                <i class="fa fa-chevron-left"></i> Swift项目版本4.0迁移4.2记录
+              <a href="/archives/56d26041.html" rel="next" title="iOS开发之使用JenKins & fastlane 实现自动打包及持续集成">
+                <i class="fa fa-chevron-left"></i> iOS开发之使用JenKins & fastlane 实现自动打包及持续集成
               </a>
             
           </div>
@@ -685,8 +709,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/archives/3a74c3e3.html" rel="prev" title="iOS开发之新一代iPhone三剑客适配指北">
-                iOS开发之新一代iPhone三剑客适配指北 <i class="fa fa-chevron-right"></i>
+              <a href="/archives/dd5e907.html" rel="prev" title="Swift项目版本4.0迁移4.2记录">
+                Swift项目版本4.0迁移4.2记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -761,7 +785,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -798,7 +822,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -917,7 +945,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">53</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -974,7 +1012,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于库"><span class="nav-number">2.</span> <span class="nav-text">关于库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a静态库"><span class="nav-number">2.1.</span> <span class="nav-text">.a静态库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#库文件生成"><span class="nav-number">2.1.1.</span> <span class="nav-text">库文件生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境及平台处理"><span class="nav-number">2.1.2.</span> <span class="nav-text">环境及平台处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态库合并"><span class="nav-number">2.1.3.</span> <span class="nav-text">静态库合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#framework静态库"><span class="nav-number">2.2.</span> <span class="nav-text">framework静态库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于库"><span class="nav-number">2.</span> <span class="nav-text">关于库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a静态库"><span class="nav-number">2.1.</span> <span class="nav-text">.a静态库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#库文件生成"><span class="nav-number">2.1.1.</span> <span class="nav-text">库文件生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境及平台处理"><span class="nav-number">2.1.2.</span> <span class="nav-text">环境及平台处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态库合并"><span class="nav-number">2.1.3.</span> <span class="nav-text">静态库合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于静态库上架"><span class="nav-number">2.1.4.</span> <span class="nav-text">关于静态库上架</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#framework静态库"><span class="nav-number">2.2.</span> <span class="nav-text">framework静态库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a></li></ol></div>
             
 
           </div>
@@ -994,7 +1032,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1008,7 +1046,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">329k</span>
+    <span title="站点总字数">351k</span>
   
 
   

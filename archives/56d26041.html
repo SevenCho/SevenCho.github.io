@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="iOS,JenKins,fastlane">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之使用JenKins &amp; fastlane 实现自动打包及持续集成">
+<meta property="og:url" content="https://sevencho.github.io/archives/56d26041.html">
+<meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/Continuous-integration-with-docker.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_install_successful.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_pwd.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_install_plugins.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_first_admin.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/brew_install_jenkins.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_create_task.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_task_config_general.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_ssh.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_git.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_trigger.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_build_env.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_build.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/jenkins_build_completion.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_workflow.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_init.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_selection.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_generated.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_generated_notes.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_selection.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_snapshot_init.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_snapshotHelper.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_snapshotHelper_bridge.png">
+<meta property="og:image" content="https://sevencho.github.io/uploads/assets/fastlane_snapshot_successful.png">
+<meta property="og:updated_time" content="2019-03-28T04:26:02.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之使用JenKins &amp; fastlane 实现自动打包及持续集成">
+<meta name="twitter:image" content="https://sevencho.github.io/uploads/assets/Continuous-integration-with-docker.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="曹雪松de博客|CoderBoy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://sevencho.github.io/archives/56d26041.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之使用JenKins & fastlane 实现自动打包及持续集成 | 曹雪松de博客|CoderBoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">曹雪松de博客|CoderBoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技术宅 iOS开发 美剧控</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sevencho.github.io/archives/56d26041.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="曹雪松">
+      <meta itemprop="description" content="一只特立独行的CoderBoy🐶">
+      <meta itemprop="image" content="/uploads/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="曹雪松de博客|CoderBoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之使用JenKins & fastlane 实现自动打包及持续集成
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-18 19:58:45" itemprop="dateCreated datePublished" datetime="2018-09-18T19:58:45+08:00">2018-09-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">17k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">31 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><img src="/uploads/assets/Continuous-integration-with-docker.png" alt="integration-with-docker"></center><br><a id="more"></a><br><br>—<br>&gt; 枯藤老树昏鸦，小桥流水人家，古道西风瘦马。<br>&gt; 夕阳西下，断肠人在天涯。<br>&gt;<br>&gt; ——马致远《天净沙·秋思》<br><br>## 简介<br>&gt; 持续集成是一种软件开发实践：许多团队频繁地集成他们的工作，每位成员通常进行日常集成，进而每天会有多种集成。每个集成会由自动的构建（包括测试）来尽可能快地检测错误。<br>&gt; 许多团队发现这种方法可以显著的减少集成问题并且可以使团队开发更加快捷。<br><br>- 这里有一篇关于持续集成的详细介绍<a href="https://martinfowler.com/articles/continuousIntegration.html" target="_blank" rel="noopener">Continuous Integration</a><br>- 以及对持续集成好处的总结<a href="https://apiumtech.com/blog/top-benefits-of-continuous-integration-2/" target="_blank" rel="noopener">Top benefits of continuous integration</a><br><br>- 虽然我们很多开发者一直用持续集成，但是就像是开发者账号一样，可能进公司就已经完善了，你只需要使用就可以，从来没有自己亲自动手搭一套持续集成的及打包的环境。刚好最近手头的工作不忙了，然后就忍不住想折腾，随将折腾的过程及踩的坑记录于此。<br><br>## Jenkins<br>- Jenkins是一款由Java编写的开源的持续集成工具。<br>- 提供了一种易于使用的持续集成系统，使开发者从繁杂的集成中解脱出来，专注于更为重要的业务逻辑实现上。同时 Jenkins 能实施监控集成中存在的错误，提供详细的日志文件和提醒功能，还能用图表的形式形象地展示项目构建的趋势和稳定性。<br><br>### Jenkins安装<br>- Jenkins本身是基于java语言开发的，所以安装Jenkins之前，要保证你的电脑有java的jdk，请自行去<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">这里</a>下载对系统安装即可。<br>- 关于Jenkins的安装有两种方式，一种是直接下载安装包安装，一种是使用包管理工具安装。<br><br>#### 安装包<br>- 通过安装包安装，首先需要去<a href="https://jenkins.io/download/" target="_blank" rel="noopener">这里</a>下载指定的安装包，如<code>jenkins-2.138.1.pkg</code>，双击安装即可，根据提示下一步。<br>- 注意的地方在<code>安装类型</code>这一步，选择<code>自定义</code>，然后取消 <code>start at boot as“jenkins”</code>选项，之后一直根据提示就可以安装成功。<br><br><center><img src="/uploads/assets/jenkins_install_successful.png" alt="jenkins_install_successful"></center>
+
+<ul>
+<li>安装完成后应该会自动打开一个jenkins的密码页面，如果没有自动打开，请在终端输入如下指令：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open /Applications/Jenkins/jenkins.war</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据提示需要将<code>/Users/Shared/Jenkins/Home/secrets/</code>目录下<code>initialAdminPassword</code>文件中的密码输入到输入框中，但是我们会发现<code>secrets</code>目录是没有权限访问的，此时就需要在<code>secrets</code>文件夹右键显示简介，然后把<code>所有人</code>的权限设置为<code>可读</code>，如果<code>initialAdminPassword</code>还是无法访问，依然需要将它权限设置为可读，直接打开获取密码或者使用如下指令：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /Users/Shared/Jenkins/Home/secrets/initialAdminPassword</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入密码登录</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_pwd.png" alt="jenkins_pwd"></center>
+
+<ul>
+<li>输入密码之后就可以根据提示，先安装推荐的一些插件：</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_install_plugins.png" alt="jenkins_install_plugins"></center>
+
+<ul>
+<li>完成之后就可以根据提示，创建一个管理员账号：</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_first_admin.png" alt="jenkins_first_admin"></center>
+
+
+<h4 id="homebrew（推荐）"><a href="#homebrew（推荐）" class="headerlink" title="homebrew（推荐）"></a>homebrew（推荐）</h4><ul>
+<li>使用homebrew安装是比较推荐的一种安装方式，因为直接使用安装包默认会安装在<code>/Users/Shared/Jenkins/</code>目录下，后续使用可能会出现各种权限问题，所以推荐使用homebrew的安装方式，不仅简单，而且是安装在用户目录下，后续比较省事少折腾。</li>
+<li>在终端输入如下指令，等待安装完成即可：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jenkins</span><br></pre></td></tr></table></figure>
+<center><img src="/uploads/assets/brew_install_jenkins.png" alt="brew_install_jenkins"></center>
+
+<ul>
+<li>安装完成，直接在终端输入下面指令启动<code>Jenkins</code>：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jenkins</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动完成后就可以通过<code>http://localhost:8080/</code>访问Jenkins管理界面。</li>
+<li>默认端口为<code>8080</code>，如果出现端口冲突需要修改端口（如：8888）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write /Library/Preferences/org.jenkins-ci httpPort 8888</span><br></pre></td></tr></table></figure>
+<ul>
+<li>之后就和安装包安装一样，需要安装一些默认推荐的插件。</li>
+</ul>
+<h4 id="Jenkins卸载"><a href="#Jenkins卸载" class="headerlink" title="Jenkins卸载"></a>Jenkins卸载</h4><ul>
+<li>使用 Jenkins 的<code>pkg安装包</code>默认安装位置为<code>/Users/Shared/Jenkins/</code>目录，后续会遇到莫名其妙的权限问题，主要原因还是对原理不是很熟悉。</li>
+<li>所以如果已经使用<code>pkg安装包</code>安装过需要卸载：进入 <code>/Library/Application Support/Jenkins/</code> 目录下双击执行<code>Uninstall.command</code>文件卸载即可。</li>
+</ul>
+<h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><ul>
+<li>插件安装目录在系<code>统管理-&gt;管理插件</code>的<code>可选插件</code>中。</li>
+<li>首先需要安装源码管理的git插件，因为我们公司是使用<code>GitLab</code>管理代码，所有需要先安装<code>GitLab Plugin</code>和<code>Gitlab Hook Plugin</code>这两个插件。</li>
+<li>需要使用Xcode编译环境，安装<code>Xcode integration</code>插件。</li>
+<li>为了管理打包证书，需要安装<code>Keychains and Provisioning Profiles Management</code>插件。</li>
+</ul>
+<h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
+<li><p>准备就绪之后就可以构建一个项目了，一个项目就是一个任务，所以我们先新建一个任务。</p>
+<center><img src="/uploads/assets/jenkins_create_task.png" alt="jenkins_create_task"></center>
+</li>
+<li><p>新建完一个任务后，就可以进入任务配置界面。</p>
+</li>
+</ul>
+<h4 id="General"><a href="#General" class="headerlink" title="General"></a>General</h4><ul>
+<li>项目描述信息，根据项目选填。</li>
+<li>主要配置一下构建保留的天数和数量信息。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_task_config_general.png" alt="jenkins_task_config_general"></center>
+
+<h4 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h4><ul>
+<li>由于现在我们用到的是<code>GitLab</code>，先配置<code>SSH Key</code>，在Jenkins的证书管理中添加SSH用于获取拉取项目的权限。</li>
+<li>在Jenkins管理页面，选择“<code>Credentials</code>”，然后选择“<code>Global credentials (unrestricted)</code>”，点击“<code>Add Credentials</code>”，如下图所示，我们填写自己的SSH信息，然后点击“Save”，这样就把SSH添加到Jenkins的全局域中去了。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_ssh.png" alt="jenkins_ssh"></center>
+
+<ul>
+<li>然后在git源码管理界面输入项目的仓库地址，并选择上一步配置的证书；选择每次打包的源码的分支，默认是指定主分支。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_git.png" alt="jenkins_git"></center>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh://git@192.168.0.28:30001/KYDW_301/iOS_KYDW_301.git</span><br></pre></td></tr></table></figure>
+<h4 id="构建触发器"><a href="#构建触发器" class="headerlink" title="构建触发器"></a>构建触发器</h4><ul>
+<li>主要用于自动测试流程相关的，用到后再详细研究相关功能及设置，常用触发方式有以下几种。<ul>
+<li>远程触发，使用地址+token的方式触发。</li>
+<li>Poll SCM (poll source code management) 轮询源码管理，需要设置源码的路径才能起到轮询的效果。一般设置为类似结果： <code>0/5 * * * *</code> 每5分钟轮询一次。</li>
+<li>设置定时触发，如设置为类似： <code>00 20 * * *</code> 每天 20点执行定时build 。。</li>
+</ul>
+</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_trigger.png" alt="jenkins_trigger"></center>
+
+<h4 id="构建环境"><a href="#构建环境" class="headerlink" title="构建环境"></a>构建环境</h4><ul>
+<li>iOS打包需要签名文件和证书，所以勾选<code>Keychains and Code Signing Identities</code>和<code>Mobile Provisioning Profiles</code>。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_build_env.png" alt="jenkins_build_env"></center>
+
+<ul>
+<li>这里我们需要用到Jenkins的插件，进入<code>系统管理</code>页面，选择<code>Keychains and Provisioning Profiles Management</code>。</li>
+<li><p>进入<code>Keychains and Provisioning Profiles Management</code>页面，点击<code>浏览</code>按钮，分别上传自己的<code>keychain</code>和<code>证书</code>。上传成功后，我们再为keychain指明签名文件的名称，最后添加<code>Add Code Signing Identity</code>。</p>
+<ul>
+<li>这里需要的Keychain，并不是cer证书文件。</li>
+<li>这个Keychain其实在<code>/Users/管理员用户名/Library/keychains/login.keychain</code>，当把这个Keychain设置好了之后，Jenkins会把这个Keychain拷贝到<code>/Users/Shared/Jenkins/Library/keychains</code>这里，(Library是隐藏文件)。</li>
+<li>Provisioning Profiles文件也直接拷贝到<code>/Users/Shared/Jenkins/Library/MobileDevice</code>文件目录下。</li>
+</ul>
+</li>
+<li><p>证书和签名文件在Jenkins中配置好后，接下来回到项目构建环境界面选择对应的证书和签名文件。</p>
+</li>
+</ul>
+<h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><ul>
+<li>根据自己的需要，选择不同的构建步骤。</li>
+<li>已经默认有很多可用的脚本，可根据需要选择，也可以自定义添加一系列的构建步骤，一个一个的执行。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_build.png" alt="jenkins_build"></center>
+
+<h4 id="构建后操作"><a href="#构建后操作" class="headerlink" title="构建后操作"></a>构建后操作</h4><ul>
+<li>构建完成后执行的操作，如上传到App Store Connect、内部测试使用、发邮件通知等等。</li>
+<li>可根据需要添加多个构建步骤。</li>
+</ul>
+<center><img src="/uploads/assets/jenkins_build_completion.png" alt="jenkins_build_completion"></center>
+
+<h2 id="fastlane"><a href="#fastlane" class="headerlink" title="fastlane"></a>fastlane</h2><ul>
+<li>对于小团队，不像大公司那样对产品的测试和发布有专门的测试人员，按照严格的程序执行，所以使用<code>fastlane</code>搭建一个轻量级的一键导出安装包及自动化发布的平台会是一个不错的选择。</li>
+<li>我们传统使用XCode打包<code>Product ——&gt;Archive ——&gt;Upload to AppStore / Export</code>，需要手动一步步选择、等待、最后导出安装包（想想就麻烦）；使用自动打包命令只需在终端输入相应的指令，然后就可以喝着咖啡等待<code>导出ipa安装包</code>成功，或者自动发布到<code>测试平台</code>（蒲公英或者fir.im）和<code>App Store</code>即可，省工、省时、省力，省心。</li>
+</ul>
+<h3 id="关于自动打包-amp-发布"><a href="#关于自动打包-amp-发布" class="headerlink" title="关于自动打包&amp;发布"></a>关于自动打包&amp;发布</h3><ul>
+<li>自动打包可用的选项：<ul>
+<li>将<code>xcodebuild</code>命令封装成一套shell执行脚本，需要打包时候执行即可。</li>
+<li>使用<code>Python</code>封装一套自动打包指令。</li>
+<li>使用<code>fastlane</code>搭建自动打包发布平台。</li>
+</ul>
+</li>
+</ul>
+<h3 id="关于fastlane"><a href="#关于fastlane" class="headerlink" title="关于fastlane"></a>关于fastlane</h3><ul>
+<li><code>fastlane</code>是用<code>Ruby</code>实现的一套自动化命令工具集。可以自动导出ipa包，自动发布测试平台或App Store，甚至简单配置后可以自动截取上架的预览图及自动提交审核。</li>
+<li>同时<code>fastlane</code>是适用于<code>Android</code>和<code>iOS</code>两个平台的。</li>
+</ul>
+<center><img src="/uploads/assets/fastlane_workflow.png" alt="fastlane_workflow"></center>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>因为<code>fastlane</code>是基于<code>Ruby</code>实现，首先需要安装<code>Ruby</code>，Mac系统是自带<code>Ruby</code>的，可以在终端输入如下命令查看<code>Ruby</code>版本：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检查 <code>Xcode</code> 命令行工具是否安装，在终端输入如下命令：<ul>
+<li>如果未安装命令行工具，终端会自动开始安装。</li>
+<li>如果提示<code>command line tools are already installed, use &quot;Software Update&quot; to install updates.</code>说明已经安装过。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装fastlane，在终端输入如下命令：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install fastlane -NV</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果使用homebrew的用户，推荐使用这种方式安装：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install fastlane</span><br></pre></td></tr></table></figure>
+<h3 id="fastlane-配置"><a href="#fastlane-配置" class="headerlink" title="fastlane 配置"></a>fastlane 配置</h3><ul>
+<li><p>安装好fastlane后，就可以针对不同的项目配置fastlane。</p>
+</li>
+<li><p>首先，终端<code>cd</code>进入需要配置自动化流程的项目的根目录，在终端输入如下命令：</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane init</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行初始化命令后，默认提供了一共4种的常用的自动化配置，选择任何一种都可以，我们都可以再进行自定义：<ul>
+<li>1、自动截取屏幕作为预览图（需要配合 UITest ）；</li>
+<li>2、发布发布 TestFlight 测试包；</li>
+<li>3、发布到 App Store；</li>
+<li>4、自定义自动化脚本配置；</li>
+</ul>
+</li>
+</ul>
+<center><img src="/uploads/assets/fastlane_init.png" alt="fastlane_init"></center>
+
+<ul>
+<li><p>如，我们默认选择发布到 App Store 的选项，</p>
+<center><img src="/uploads/assets/fastlane_selection.png" alt="fastlane_selection"></center>
+
+<ul>
+<li>此步骤会提示输入 Apple ID 账号和密码，如果开启了双重验证还需要输入验证码。</li>
+<li>如果项目还未在 苹果开发者网站配置过，会提示是否需要在苹果开发者网站创建对应的应用，可以输入<code>n</code>不要自动创建项目。</li>
+<li>提示是否建立和 App store 连接，也直接输入<code>n</code>。</li>
+</ul>
+</li>
+<li><p>然后等待配置完成即可。</p>
+</li>
+</ul>
+<center><img src="/uploads/assets/fastlane_generated.png" alt="fastlane_generated"></center><br><center><img src="/uploads/assets/fastlane_generated_notes.png" alt="fastlane_generated_notes"></center>
+
+<ul>
+<li><p>安装完成后，项目的根目录会多一个名为<code>fastlane</code>的目录，该文件下有两个文件：</p>
+<ul>
+<li><code>Appfile</code>：用来配置项目相关的应用信息，如<code>app_identifier</code>，<code>apple_id</code>和<code>team_id</code>的信息。</li>
+<li><code>Fastfile</code>：用来管理和创建的所有自定义的自动化lane步骤，lane可以理解为 fastlane 的执行脚本，一个Fastfile 里可以编写任意个lane，每个lane都可以独立运行，也可以嵌套运行。</li>
+</ul>
+</li>
+<li><p>例如，我们定义一个自动打内测包的lane，这样就不需要每次打测试包的时候选环境，选签名证书，然后Xcode一步步导出了：</p>
+</li>
+<li>具体每个字段的意思请参考注释和官方文档。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在所有操作之前需要做的事情 例如安装项目依赖库 同`pod install`</span></span><br><span class="line">before_all do</span><br><span class="line">    # cocoapods</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  displayName = "KYPetNearby" # 导出的包名</span><br><span class="line">  archiveTime = Time.new.strftime("%Y%m%d%H%M%S") # 包名_20181229161646</span><br><span class="line"></span><br><span class="line">  desc "Archive and export an Ad-Hoc ipa package"</span><br><span class="line">  lane :adhoc do # 打adhoc包 （此lane动作名称 用于触发对应流程）</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> build_app 和 gym 都是 build_ios_app的别名</span></span><br><span class="line">  build_app(</span><br><span class="line">    workspace: "KYPetNearby.xcworkspace",</span><br><span class="line">    scheme: "KYPetNearby", # 工程下要打包的项目,如果一个工程有多个项目则用[项目1,项目2]</span><br><span class="line">    clean: true, # 在构建前先clean</span><br><span class="line">    silent: true, # 终端不显示不需要的信息 默认是false</span><br><span class="line">    include_bitcode: false, # 是否包含bitcode</span><br><span class="line">    configuration: "Release", # 打包配置</span><br><span class="line">    export_method: "ad-hoc", # 指定打包所使用的输出方式，app-store, ad-hoc, package, enterprise, development, developer-id，即xcodebuild的method参数</span><br><span class="line">    output_directory: './Archive', # 打包后的 ipa 文件存放的目录 (项目根目录)</span><br><span class="line">    # output_directory:"/Users/⁨sevencho⁩/Desktop/Archive" # 打包后的 ipa 文件存放的目录 (桌面)</span><br><span class="line">    output_name: "#&#123;displayName&#125;_adhoc_#&#123;archiveTime&#125;",  # ipa 文件名</span><br><span class="line">    export_options: &#123;</span><br><span class="line">      method: "ad-hoc",</span><br><span class="line">      # 指定打包的项目对应的描述文件 格式如下</span><br><span class="line">      provisioningProfiles: &#123; </span><br><span class="line">        "com.xxxx.KYPetNearby" =&gt; "Seven_adHoc_distribution",</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    )</span><br><span class="line"><span class="meta">  #</span><span class="bash"> pgyer(api_key: <span class="string">"api key"</span>, user_key: <span class="string">"user key"</span>, update_description: <span class="string">"正在将安装包上传到蒲公英"</span>) <span class="comment">#上传到蒲公英</span></span></span><br><span class="line"><span class="meta">  #</span><span class="bash"> firim(firim_api_token: [firim_api_token]) <span class="comment">#上传到firim</span></span></span><br><span class="line">	puts("-------------------------------------------------")</span><br><span class="line">	puts("------------ 构建并导出Ad-Hoc ipa成功 -------------")</span><br><span class="line">	puts("-------------------------------------------------")</span><br><span class="line">  end</span><br><span class="line">  </span><br><span class="line"><span class="meta">  #</span><span class="bash"> 所有动作完成之后的流程</span></span><br><span class="line">  after_all do |lane|</span><br><span class="line">    # This block is called, only if the executed lane was successful</span><br><span class="line">    # slack(</span><br><span class="line">    #   message: "Successfully deployed new App Update."</span><br><span class="line">    # )</span><br><span class="line">  end</span><br><span class="line"><span class="meta">  #</span><span class="bash"> 出现错误触发的流程</span></span><br><span class="line">  error do |lane, exception|</span><br><span class="line">    slack(</span><br><span class="line">      message: exception.message,</span><br><span class="line">      success: false</span><br><span class="line">    )</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
+<h3 id="多-Target-配置"><a href="#多-Target-配置" class="headerlink" title="多 Target 配置"></a>多 Target 配置</h3><ul>
+<li>注意点，需要在xcode开发工具中scheme管理界面将<code>scheme</code>的<code>shared</code>勾选上。</li>
+<li>上面的只是基本的针对项目单 Target 的配置，但是如果有多个 Target 那么就需要额外的配置，具体如下:</li>
+</ul>
+<h4 id="配置-env-文件"><a href="#配置-env-文件" class="headerlink" title="配置.env 文件"></a>配置.env 文件</h4><ul>
+<li>工程里面有几个traget，需要创建几个<code>.env</code>。</li>
+<li>该文件中主要就是自定义临时变量，供 <code>Appfile</code>, <code>Deliverfile</code>和 <code>Fastfile</code>使用。</li>
+<li>其他配置文件可通过 <code>ENV[&#39;自定义字段名称&#39;]</code> 来读取变量值。</li>
+<li>fastlane 调用时，通过添加参数 <code>--env</code>来指定待读取的 <code>.env 文件</code>，或者再包装一层自定义的lane来调用对应环境的lane脚本。</li>
+<li><p>如 我们有2个target，分别是<code>KYAnimalLocation</code> 和<code>KYAnimalLocationInternational</code>，那么需要创建两个 .env文件，可以在终端进入项目根目录，使用如下指令创建：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .env.KYAnimalLocation</span><br><span class="line">touch .env.KYAnimalLocationInternational</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>- `.env`文件的配置参考如下
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> APP唯一标识符</span></span><br><span class="line">APP_IDENTIFIER = "你项目的标识"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 苹果开发者账号</span></span><br><span class="line">APPLE_ID = "你的苹果开发者账号"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 苹果开发者帐号密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> FASTLANE_PASSWORD = <span class="string">"xxxxxx"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> App Store Connect Team ID</span></span><br><span class="line">ITC_TEAM_ID = "xxxxxx"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Developer Portal Team ID</span></span><br><span class="line">TEAM_ID = "xxxxxx"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 自动提交审核</span></span><br><span class="line">SUBMIT_FOR_REVIEW = false</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 审核通过后立刻发布</span></span><br><span class="line">AUTOMATIC_RELEASE = false</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> WORKSPACE名称</span></span><br><span class="line">WORKSPACE_NAME = "xxx.xcworkspace"</span><br><span class="line"><span class="meta">#</span><span class="bash"> SCHEME名称</span></span><br><span class="line">SCHEME_NAME = "当前的target名称 xxx"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 截图SCHEME名称</span></span><br><span class="line">SNAPSHOT_SCHEME_NAME = "xxxUITests"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 发布签名证书描述文件名称</span></span><br><span class="line">PROVISIONINGPROFILES_DISTRIBUTION_NAME = "发布证书描述文件名称"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开发签名证书描述文件名称</span></span><br><span class="line">PROVISIONINGPROFILES_DEVELOPMENT_NAME = "开发证书描述文件名称"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 内测签名证书描述文件名称</span></span><br><span class="line">PROVISIONINGPROFILES_ADHOC_NAME = "adhoc证书描述文件名称"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> APP元数据及截图存放路径</span></span><br><span class="line">METADATA_PATH = "./fastlane/KYAnimalLocation/metadata"</span><br><span class="line">SCREENSHOTS_PATH = "./fastlane/KYAnimalLocation/screenshots"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> APP元数据及截图下载时，直接覆盖原有数据，不询问</span></span><br><span class="line">DELIVER_FORCE_OVERWRITE = true</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 发布版本号</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> APP_VERSION_RELEASE = <span class="string">"2.1.0"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新版本修改记录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> RELEASE_NOTES = <span class="string">"1) 升级测试第一行\n2) 升级测试第二行"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 蒲公英 更新描述</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> PGY_UPDATE_DESCRIPTION = <span class="string">"fastlane自动打包上传测试"</span></span></span><br></pre></td></tr></table></figure>
+</code></pre><h4 id="Appfile"><a href="#Appfile" class="headerlink" title="Appfile"></a>Appfile</h4><ul>
+<li><p>此时的配置就比较简单了，直接根据变量名称获取对应的参数即可。</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> The bundle identifier of your app</span></span><br><span class="line">app_identifier ENV['APP_IDENTIFIER']</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Your Apple email address</span></span><br><span class="line">apple_id ENV['APPLE_ID'] </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> App Store Connect Team ID</span></span><br><span class="line">itc_team_id ENV['ITC_TEAM_ID'] </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Developer Portal Team ID</span></span><br><span class="line">team_id ENV['TEAM_ID']</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="配置-Deliverfile文件"><a href="#配置-Deliverfile文件" class="headerlink" title="配置 Deliverfile文件"></a>配置 Deliverfile文件</h4><ul>
+<li>在<code>fastlane目录</code>下创建一个<code>Deliverfile</code>文件</li>
+<li><p>用于配置自动打包发布 App 到 iTunes Connect 时候的配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> The Deliverfile allows you to store various App Store Connect metadata</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> For more information, check out the docs</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> https://docs.fastlane.tools/actions/deliver/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The bundle identifier of your app</span></span><br><span class="line">app_identifier ENV['APP_IDENTIFIER']</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> your Apple ID user</span></span><br><span class="line">username ENV['APPLE_ID']</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 元数据的路径</span></span><br><span class="line">metadata_path ENV['METADATA_PATH']</span><br><span class="line">screenshots_path ENV['SCREENSHOTS_PATH']</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载 metadata 及 screenshots 时直接覆盖，不询问</span></span><br><span class="line">force true</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 不覆盖 iTunes Connect原有截图</span></span><br><span class="line">skip_screenshots ENV['SKIP_SCREENSHOTS']</span><br><span class="line"><span class="meta">#</span><span class="bash"> 自动提交审核</span></span><br><span class="line">submit_for_review ENV['SUBMIT_FOR_REVIEW']</span><br><span class="line"><span class="meta">#</span><span class="bash"> 审核通过后立刻发布</span></span><br><span class="line">automatic_release ENV['AUTOMATIC_RELEASE']</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> App store 中待发布的 App 版本，若每个 target 的版本号不同，可以通过.env 文件来分别定义</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> app_version ENV[<span class="string">'APP_RELEASE_VERSION'</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新版本修改记录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> release_notes(&#123;</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   <span class="string">"en-US"</span> =&gt; <span class="string">"1) upgrade test line 1\n2) upgreade test line 2"</span>,</span></span><br><span class="line"><span class="meta">#</span><span class="bash">    <span class="string">"zh-Hans"</span> =&gt; <span class="string">"1) 升级测试第一行\n2) 升级测试第二行"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> App 加密算法使用情况及广告相关配置</span></span><br><span class="line">submission_information(&#123;</span><br><span class="line">    # Export Compliance</span><br><span class="line">    export_compliance_available_on_french_store: "false",</span><br><span class="line">    export_compliance_contains_proprietary_cryptography: "false",</span><br><span class="line">    export_compliance_contains_third_party_cryptography: "false",</span><br><span class="line">    export_compliance_is_exempt: "false",</span><br><span class="line">    export_compliance_uses_encryption: "false",</span><br><span class="line">    export_compliance_app_type: nil,</span><br><span class="line">    export_compliance_encryption_updated: "false",</span><br><span class="line">    export_compliance_compliance_required: "false",</span><br><span class="line">    export_compliance_platform: "ios",</span><br><span class="line"></span><br><span class="line">    content_rights_contains_third_party_content: "false", # 是否包含，显示，访问第三方内容</span><br><span class="line">    content_rights_has_rights: "false",</span><br><span class="line"></span><br><span class="line">    # Advertising Identifier 广告标识符</span><br><span class="line">    add_id_info_limits_tracking: "false",</span><br><span class="line">    add_id_info_serves_ads: "false",</span><br><span class="line">    add_id_info_tracks_action: "false",</span><br><span class="line">    add_id_info_tracks_install: "false",</span><br><span class="line">    add_id_info_uses_idfa: "false"</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>- 此时，我们之前针对单项目写死的一些参数，就可以从`.env` 中加载了
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">desc "Archive and export an Ad-Hoc ipa package"</span><br><span class="line">  lane :adhoc do # 打adhoc包的动作名称</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> build_app 和 gym 都是 build_ios_app的别名</span></span><br><span class="line">  build_app(</span><br><span class="line">    workspace: "KYAnimalLocation.xcworkspace",</span><br><span class="line">    scheme: ENV['SCHEME_NAME'], # 工程下要打包的项目,如果一个工程有多个项目则用[项目1,项目2]</span><br><span class="line">    clean: true, # 在构建前先clean</span><br><span class="line">    silent: true, # 终端不显示不需要的信息 默认是false</span><br><span class="line">    include_bitcode: false, # 是否包含bitcode</span><br><span class="line">    configuration: "Release", # 打包配置</span><br><span class="line">    export_method: "ad-hoc", # 指定打包所使用的输出方式，app-store, ad-hoc, package, enterprise, development, developer-id，即xcodebuild的method参数</span><br><span class="line">    output_directory: './Archive', # 打包后的 ipa 文件存放的目录 (项目根目录) 桌面："/Users/⁨sevencho⁩/Desktop/Archive"</span><br><span class="line">    output_name: "#&#123;ENV['SCHEME_NAME']&#125;_adhoc_#&#123;archiveTime&#125;",  # ipa 文件名</span><br><span class="line">    export_options: &#123;</span><br><span class="line">      method: "ad-hoc",</span><br><span class="line">      provisioningProfiles: &#123; </span><br><span class="line">        ENV['APP_IDENTIFIER'] =&gt; ENV['PROVISIONINGPROFILES_ADHOC_NAME'],</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    )</span><br><span class="line"><span class="meta">  #</span><span class="bash"> pgyer(api_key: <span class="string">"api key"</span>, user_key: <span class="string">"user key"</span>, update_description: <span class="string">"正在将安装包上传到蒲公英"</span>) <span class="comment">#上传到蒲公英</span></span></span><br><span class="line"><span class="meta">  #</span><span class="bash"> firim(firim_api_token: [firim_api_token]) <span class="comment">#上传到firim</span></span></span><br><span class="line">	puts("-------------------------------------------------")</span><br><span class="line">	puts("------------ 构建并导出Ad-Hoc ipa成功 -------------")</span><br><span class="line">	puts("-------------------------------------------------")</span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
+
+
+### 自动化构建
+</code></pre><ul>
+<li>配置好相关的自动化动作工作流，我们就可以在终端输入指令执行了，例如根据我们配置的自动打测试包lane开始自动打包，只需要终端进入项目根目录，输入 <code>fastlane adhoc</code> 等待完成即可。</li>
+</ul>
+<center><img src="/uploads/assets/fastlane_selection.png" alt="fastlane_selection"></center>
+
+<h3 id="双重验证问题"><a href="#双重验证问题" class="headerlink" title="双重验证问题"></a>双重验证问题</h3><ul>
+<li><p>如果我们的账号开启了双重验证，那么需要配置专属密码，否则每次打包都需要中断输入验证码，影响体验。</p>
+<ul>
+<li>首先在苹果账号管理界面生成一个专属的用于自动化构建的密码<code>APP-SPECIFIC PASSWORDS</code>。<a href="https://appleid.apple.com/account/manage" target="_blank" rel="noopener">网址在这里</a>。</li>
+<li>将生成的专属密码通过环境变量<code>FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD</code>提供给<code>fastlan</code>。</li>
+<li>执行<code>fastlane spaceauth -u user@email.com</code>，生成<code>session cookie</code>。 </li>
+<li>通过环境变量<code>FASTLANE_SESSION</code> 提供<code>session cookie</code>给<code>fastlan</code>。</li>
+</ul>
+</li>
+<li><p>具体就是在<code>~/.bash_profile</code> 中配置如下两个环境变量（如果你使用的是<code>Iterm2</code> 怎在<code>~/.zshrc</code>中配置）：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 注意需要将上面生成的专属密码和session cookie替换下面的=右边的内容</span><br><span class="line">export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD=专属密码 </span><br><span class="line">export FASTLANE_SESSION=session cookie</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以使用<code>vim ~/.bash_profile</code>访问bash_profile文件进行添加或者直接进入bash_profile文件目录打开后编辑，注意显示隐藏文件。</li>
+<li>此方法有效期只有一个月，超过一个月就需要重新配置<code>session cookie</code>，所以一劳永逸的方法就是将打包上架用的开发者账号的双重验证关闭。</li>
+</ul>
+<h3 id="自动截取屏幕预览图"><a href="#自动截取屏幕预览图" class="headerlink" title="自动截取屏幕预览图"></a>自动截取屏幕预览图</h3><ul>
+<li>有时候，我们可能会在界面改版后就需要再次截取对应的截面图作为App Store的预览图，如果每次都手动操作就会很繁琐，此时就可以配合UI测试进行自动化截屏。</li>
+<li><p>配置好自动截图lane后就可以按照指定的机型及特定界面启动不同模拟器进行截图，截图完成后会生成html预览网页。</p>
+</li>
+<li><p>具体的配置步骤如下：</p>
+<ul>
+<li>创建项目对应的UI Test target，如果已经默认创建过就跳过。</li>
+<li>终端进入项目根目录，执行<code>fastlane snapshot init</code>指令。<ul>
+<li>会在fastlane目录下生成<code>Snapfile</code>和<code>SnapshotHelper.swift</code>两个文件。 <center><img src="/uploads/assets/fastlane_snapshot_init.png" alt="fastlane_snapshot_init"></center></li>
+</ul>
+</li>
+<li><p>把<code>SnapshotHelper.swift</code>文件加入到项目的 <code>UI Test target</code>，注意导入时候选择的target。</p>
+<center><img src="/uploads/assets/fastlane_snapshotHelper.png" alt="fastlane_snapshotHelper"></center>
+</li>
+<li><p>如果你的项目是OC，则默认会创建桥接文件：</p>
+<center><img src="/uploads/assets/fastlane_snapshotHelper_bridge.png" alt="fastlane_snapshotHelper_bridge"></center>
+</li>
+<li><p>为<code>UI Test target</code>创建一个对应的<code>Xcode scheme</code></p>
+</li>
+<li>选择新建的scheme点击编辑选项，进入编辑界面选择”<code>Build</code>“，然后在”<code>Run</code>“的选项下的方框内勾选；并勾选对应的<code>Shared</code>选项。<ul>
+<li>如果是OC项目，需要在UI测试类导入桥接文件，桥接文件格式：<ul>
+<li><code>#import &quot;xxxUITests-Swift.h&quot;</code></li>
+<li><code>xxx</code>是你的项目名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在<code>UI Test</code>类的setUp方法中计入如下代码</p>
+<ul>
+<li><p>如果是Swift项目</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="type">XCUIApplication</span>()</span><br><span class="line">setupSnapshot(app)</span><br><span class="line">app.launch()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如果是OC项目</p>
+<figure class="highlight plain"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XCUIApplication *app = [[XCUIApplication alloc] init];</span><br><span class="line">[Snapshot setupSnapshot:app];</span><br><span class="line">[app launch];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 设置`Build Settings -&gt; Defines Module`设置为`YES`
+- 进入UI测试类，点击左下角的录制按钮（红色圆形），可以将所有的交互动作录制来下自动生成对应的代码。例如哪些界面需要截图，我们就需要点进去对应的界面生成对应的测试代码。
+    - 如果你发现录制按钮是灰色不可点击状体，请将鼠标在testExample方法内部点击下即可。
+- 上一步生成的测试代码中有跳转不同界面的逻辑，我们需要截图就只需跳转界面代码中间插入如下代码：
+    - Swift: `snapshot(&quot;01LoginScreen&quot;)`
+    - Objective C: `[Snapshot snapshot:@&quot;01LoginScreen&quot; timeWaitingForIdle:10];`
+    - 截图演示代码如下，参考格式即可，注意录制时如有中文，默认现实的Unicode字符串，请自行查询。
+
+    <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (void)testExample</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="type">Snapshot</span> snapshot:@<span class="string">"01LoginScreen"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="type">XCUIApplication</span> *app = [[<span class="type">XCUIApplication</span> alloc] <span class="keyword">init</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 登录</span></span><br><span class="line">    <span class="type">XCUIElement</span> *phoneNumberTextFields = app.textFields[@<span class="string">"\u8bf7\u8f93\u5165\u624b\u673a\u53f7"</span>]; <span class="comment">// 请输入手机号</span></span><br><span class="line">    [phoneNumberTextFields tap];</span><br><span class="line">    [phoneNumberTextFields typeText:@<span class="string">"xxxxxxxxxxxx"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="type">XCUIElement</span> *passwordTextFields = app.secureTextFields[@<span class="string">"\u8bf7\u8f93\u5165\u5bc6\u7801"</span>]; <span class="comment">// 请输入密码</span></span><br><span class="line">    [passwordTextFields tap];</span><br><span class="line">    [passwordTextFields typeText:@<span class="string">"xxxxxxxxxxxx"</span>];</span><br><span class="line">    </span><br><span class="line">    [app.buttons[@<span class="string">"\u767b\u5f55"</span>] tap]; <span class="comment">// 登录</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 截取分类图片</span></span><br><span class="line">    <span class="type">XCUIElementQuery</span> *tabBarsQuery = app.tabBars;</span><br><span class="line">    [tabBarsQuery.buttons[@<span class="string">"\u5206\u7c7b"</span>] tap]; <span class="comment">// 分类</span></span><br><span class="line">    [<span class="type">Snapshot</span> snapshot:@<span class="string">"02CategoryScreen"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line">    <span class="comment">// 截取个人界面图片</span></span><br><span class="line">    [tabBarsQuery.buttons[@<span class="string">"\u6211\u7684"</span>] tap]; <span class="comment">// 我的</span></span><br><span class="line">    [<span class="type">Snapshot</span> snapshot:@<span class="string">"03ProfileScreen"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line">    <span class="comment">// 截取首页图片</span></span><br><span class="line">    [tabBarsQuery.buttons[@<span class="string">"\u9996\u9875"</span>] tap]; <span class="comment">// 首页</span></span><br><span class="line">    [<span class="type">Snapshot</span> snapshot:@<span class="string">"04HomeScreen"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 截取商品详情图片[[app.collectionViews.otherElements.collectionViews.cells.otherElements childrenMatchingType:XCUIElementTypeImage].element tap]; // 进入商品详情</span></span><br><span class="line">    [<span class="type">Snapshot</span> snapshot:@<span class="string">"05ItemDetailsScreen"</span> timeWaitingForIdle:<span class="number">10</span>];</span><br><span class="line">    [app.navigationBars[@<span class="string">"\u5546\u54c1\u8be6\u60c5"</span>].buttons[@<span class="string">"btn navbar back"</span>] tap]; <span class="comment">// 退出商品详情</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+- 编辑Snapfile文件，以指定截取哪些机型及哪些页面的图片，具体配置请参考注释。
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 指定截取哪些设备的图片</span></span><br><span class="line">devices([</span><br><span class="line">"iPhone 8",</span><br><span class="line">"iPhone 8 Plus",</span><br><span class="line">"iPhone SE",</span><br><span class="line">"iPhone X",</span><br><span class="line">"iPhone XS Max",</span><br><span class="line">"iPad Pro (12.9-inch)",</span><br><span class="line">"Apple TV 1080p"</span><br><span class="line">])</span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定截取的语言类型</span></span><br><span class="line">languages([</span><br><span class="line">  "en-US",</span><br><span class="line">  "zh-Hans"</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> The name of the scheme <span class="built_in">which</span> contains the UI Tests</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> scheme(<span class="string">"SchemeName"</span>)</span></span><br><span class="line">scheme("你的项目名称UITests")</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 截图保存目录</span></span><br><span class="line">output_directory("./Screenshots")</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 自动覆盖上次截图？</span></span><br><span class="line">clear_previous_screenshots(true)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/<span class="comment">#launch-arguments</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> launch_arguments([<span class="string">"-favColor red"</span>])</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 不要并发运行模拟器截图 默认 <span class="literal">true</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> concurrent_simulators(<span class="literal">false</span>) </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 某个设备截图出现错误就停止截图 默认 <span class="literal">false</span></span></span><br><span class="line">stop_after_first_error(true)</span><br><span class="line">output_simulator_logs(true)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 所有截图完成 打开预览网页 默认 <span class="literal">false</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> skip_open_summary(<span class="literal">true</span>)</span></span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>在终端执行<code>fastlane snapshot</code>指令，开始自动启动模拟器截图，等待完成即可。完成后终端会有提示且会打开预览网页（如果配置的默认开启）。<center><img src="/uploads/assets/fastlane_snapshot_successful.png" alt="fastlane_snapshot_successful"></center>
+
+
+</li>
+</ul>
+<h3 id="下载App-Store-Connect上元数据和屏幕截图"><a href="#下载App-Store-Connect上元数据和屏幕截图" class="headerlink" title="下载App Store Connect上元数据和屏幕截图"></a>下载<code>App Store Connect</code>上元数据和屏幕截图</h3><ul>
+<li>我们可以使用自动化脚本打发布用的安装包，然后手动上传到<code>App Store Connect</code>配置发布应用；也可以直接在本地配置应用在<code>App Store Connect</code>的发布需要的相关配置，然后一键上传发布即可。</li>
+<li><p>要本地配置就需要将<code>App Store Connect</code>应用的已有配置信息拉取到本地：</p>
+<ul>
+<li><p>拉取App相关的元数据及配置参数到本地（发布配置选项以文本文件方式分类）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec fastlane deliver download_metadata -a yourBundleIdentifier -m ./fastlane/metadata/KYAnimalLocation -u yourAppleID</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 拉取App配置的启动图
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec fastlane deliver download_screenshots -a yourBundleIdentifier -m ./fastlane/screenshots/KYAnimalLocation -u yourAppleID</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>以后发布新上线版本，就可以在本地修改相关信息如新版本更新信心、替换预览图等等；然后一个指令上传并发布新版本审核。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.jianshu.com/p/41ecb06ae95f" target="_blank" rel="noopener">手把手教你利用Jenkins持续集成iOS项目</a></li>
+<li><a href="http://www.cocoachina.com/ios/20170811/20218.html" target="_blank" rel="noopener">jenkins+xcode+蒲公英实现ipa自动化打包</a></li>
+<li><a href="https://juejin.im/post/5b7e6b97f265da43445f630d" target="_blank" rel="noopener">iOS持续集成（一）——fastlane 使用</a></li>
+<li><a href="https://docs.fastlane.tools/" target="_blank" rel="noopener">fastlane官方文档</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>要不要鼓励一下😘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/images/wechat-reward-image.JPG" alt="曹雪松 微信"/>
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/images/alipay-reward-image.JPG" alt="曹雪松 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>曹雪松</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sevencho.github.io/archives/56d26041.html" title="iOS开发之使用JenKins & fastlane 实现自动打包及持续集成">https://sevencho.github.io/archives/56d26041.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/JenKins/" rel="tag"><i class="fa fa-tag"></i> JenKins</a>
+          
+            <a href="/tags/fastlane/" rel="tag"><i class="fa fa-tag"></i> fastlane</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/14534beb.html" rel="next" title="Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结">
+                <i class="fa fa-chevron-left"></i> Hexo博客NexT主题从v5.x.x更新到v6.x.x的记录及总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/a9b5807a.html" rel="prev" title="iOS开发之关于静态库制作及注意点">
+                iOS开发之关于静态库制作及注意点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/images/avatar.JPG"
+                alt="曹雪松" />
+            
+              <p class="site-author-name" itemprop="name">曹雪松</p>
+              <p class="site-description motion-element" itemprop="description">一只特立独行的CoderBoy🐶</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/SevenCho" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:243166621@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#homebrew（推荐）"><span class="nav-number">1.</span> <span class="nav-text">homebrew（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins卸载"><span class="nav-number">2.</span> <span class="nav-text">Jenkins卸载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用插件"><span class="nav-number"></span> <span class="nav-text">常用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务"><span class="nav-number"></span> <span class="nav-text">任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#General"><span class="nav-number">1.</span> <span class="nav-text">General</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码管理"><span class="nav-number">2.</span> <span class="nav-text">源码管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建触发器"><span class="nav-number">3.</span> <span class="nav-text">构建触发器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建环境"><span class="nav-number">4.</span> <span class="nav-text">构建环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建"><span class="nav-number">5.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建后操作"><span class="nav-number">6.</span> <span class="nav-text">构建后操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastlane"><span class="nav-number"></span> <span class="nav-text">fastlane</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于自动打包-amp-发布"><span class="nav-number"></span> <span class="nav-text">关于自动打包&amp;发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于fastlane"><span class="nav-number"></span> <span class="nav-text">关于fastlane</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number"></span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fastlane-配置"><span class="nav-number"></span> <span class="nav-text">fastlane 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多-Target-配置"><span class="nav-number"></span> <span class="nav-text">多 Target 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-env-文件"><span class="nav-number">1.</span> <span class="nav-text">配置.env 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Appfile"><span class="nav-number">2.</span> <span class="nav-text">Appfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-Deliverfile文件"><span class="nav-number">3.</span> <span class="nav-text">配置 Deliverfile文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双重验证问题"><span class="nav-number"></span> <span class="nav-text">双重验证问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动截取屏幕预览图"><span class="nav-number"></span> <span class="nav-text">自动截取屏幕预览图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载App-Store-Connect上元数据和屏幕截图"><span class="nav-number"></span> <span class="nav-text">下载App Store Connect上元数据和屏幕截图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">曹雪松</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">351k</span>
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":120,"height":200,"position":"left","hOffset":20,"vOffset":50},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+</html>

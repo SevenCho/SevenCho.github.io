@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sevencho.github.io/"/>
-  <updated>2018-10-09T08:42:41.317Z</updated>
+  <updated>2019-03-28T08:38:37.530Z</updated>
   <id>https://sevencho.github.io/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac 安装Android Studio 及环境变量配置</title>
+    <link href="https://sevencho.github.io/archives/67c8fe48.html"/>
+    <id>https://sevencho.github.io/archives/67c8fe48.html</id>
+    <published>2019-03-27T07:20:52.000Z</published>
+    <updated>2019-03-28T08:38:37.530Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我翻开历史一查，这历史没有年代。歪歪斜斜的每页上都写着“仁义道德”几个字，我横竖睡不着，仔细看了半夜，才从字缝里看出来，满本上都写着两个字“吃人”！&lt;/p&gt;
+&lt;p&gt;–鲁迅《狂人日记》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="https://sevencho.github.io/categories/Android/"/>
+    
+    
+      <category term="Android Studio" scheme="https://sevencho.github.io/tags/Android-Studio/"/>
+    
+      <category term="Android" scheme="https://sevencho.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序入坑</title>
+    <link href="https://sevencho.github.io/archives/c6d2cc27.html"/>
+    <id>https://sevencho.github.io/archives/c6d2cc27.html</id>
+    <published>2019-03-21T09:58:52.000Z</published>
+    <updated>2019-03-28T08:33:52.335Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;中国人的性情是总喜欢调和折中的，譬如你说，这屋子太暗，须在这里开一个窗，大家一定不允许的。但如果你主张拆掉屋顶他们就来调和，愿意开窗了。&lt;/p&gt;
+&lt;p&gt;–鲁迅《无声的中国》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="weapp" scheme="https://sevencho.github.io/categories/weapp/"/>
+    
+    
+      <category term="微信小程序" scheme="https://sevencho.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS开发之新一代iPhone三剑客适配指北</title>
     <link href="https://sevencho.github.io/archives/3a74c3e3.html"/>
     <id>https://sevencho.github.io/archives/3a74c3e3.html</id>
     <published>2018-09-28T11:58:45.000Z</published>
-    <updated>2018-10-09T08:42:41.317Z</updated>
+    <updated>2018-10-09T08:43:16.000Z</updated>
     
     <summary type="html">
     
@@ -45,11 +95,37 @@
   </entry>
   
   <entry>
+    <title>Swift项目版本4.0迁移4.2记录</title>
+    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
+    <id>https://sevencho.github.io/archives/dd5e907.html</id>
+    <published>2018-09-21T11:58:45.000Z</published>
+    <updated>2018-10-09T08:39:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
+&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+    
+    
+      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS开发之关于静态库制作及注意点</title>
     <link href="https://sevencho.github.io/archives/a9b5807a.html"/>
     <id>https://sevencho.github.io/archives/a9b5807a.html</id>
     <published>2018-09-21T11:58:45.000Z</published>
-    <updated>2018-10-09T08:43:05.582Z</updated>
+    <updated>2018-11-21T08:35:28.000Z</updated>
     
     <summary type="html">
     
@@ -71,28 +147,26 @@
   </entry>
   
   <entry>
-    <title>Swift项目版本4.0迁移4.2记录</title>
-    <link href="https://sevencho.github.io/archives/dd5e907.html"/>
-    <id>https://sevencho.github.io/archives/dd5e907.html</id>
-    <published>2018-09-21T11:58:45.000Z</published>
-    <updated>2018-10-09T08:39:22.261Z</updated>
+    <title>iOS开发之使用JenKins &amp; fastlane 实现自动打包及持续集成</title>
+    <link href="https://sevencho.github.io/archives/56d26041.html"/>
+    <id>https://sevencho.github.io/archives/56d26041.html</id>
+    <published>2018-09-18T11:58:45.000Z</published>
+    <updated>2019-03-28T04:26:02.402Z</updated>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;阳光倾泻而下，他的身影穿过院子，提利昂·兰尼斯特昂首挺立，仿佛是一位国王。&lt;/p&gt;
-&lt;p&gt;–《 冰与火之歌》&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;center&gt;&lt;img src=&quot;/uploads/assets/Continuous-integration-with-docker.png&quot; alt=&quot;integration-with-docker&quot;&gt;&lt;/center&gt;&lt;br&gt;
     
     </summary>
     
-      <category term="Swift" scheme="https://sevencho.github.io/categories/Swift/"/>
+      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
     
-    
-      <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
     
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
+    
+      <category term="JenKins" scheme="https://sevencho.github.io/tags/JenKins/"/>
+    
+      <category term="fastlane" scheme="https://sevencho.github.io/tags/fastlane/"/>
     
   </entry>
   
@@ -101,7 +175,7 @@
     <link href="https://sevencho.github.io/archives/14534beb.html"/>
     <id>https://sevencho.github.io/archives/14534beb.html</id>
     <published>2018-09-03T11:58:45.000Z</published>
-    <updated>2018-09-06T07:10:16.109Z</updated>
+    <updated>2018-09-06T07:10:16.000Z</updated>
     
     <summary type="html">
     
@@ -127,7 +201,7 @@
     <link href="https://sevencho.github.io/archives/d3400f8e.html"/>
     <id>https://sevencho.github.io/archives/d3400f8e.html</id>
     <published>2018-08-31T01:25:25.000Z</published>
-    <updated>2018-09-04T09:02:30.178Z</updated>
+    <updated>2018-09-04T09:02:30.000Z</updated>
     
     <summary type="html">
     
@@ -153,7 +227,7 @@
     <link href="https://sevencho.github.io/archives/8e3becb8.html"/>
     <id>https://sevencho.github.io/archives/8e3becb8.html</id>
     <published>2018-08-30T01:25:25.000Z</published>
-    <updated>2018-09-04T03:07:49.886Z</updated>
+    <updated>2018-09-04T03:07:49.000Z</updated>
     
     <summary type="html">
     
@@ -179,7 +253,7 @@
     <link href="https://sevencho.github.io/archives/c12f47b1.html"/>
     <id>https://sevencho.github.io/archives/c12f47b1.html</id>
     <published>2018-08-29T09:25:45.000Z</published>
-    <updated>2018-09-03T03:35:52.515Z</updated>
+    <updated>2018-09-03T03:35:52.000Z</updated>
     
     <summary type="html">
     
@@ -207,7 +281,7 @@
     <link href="https://sevencho.github.io/archives/f7d447dc.html"/>
     <id>https://sevencho.github.io/archives/f7d447dc.html</id>
     <published>2018-08-24T07:25:25.000Z</published>
-    <updated>2018-09-03T03:35:54.059Z</updated>
+    <updated>2018-09-03T03:35:54.000Z</updated>
     
     <summary type="html">
     
@@ -222,9 +296,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="Perfect" scheme="https://sevencho.github.io/tags/Perfect/"/>
     
@@ -235,7 +309,7 @@
     <link href="https://sevencho.github.io/archives/64bb63f1.html"/>
     <id>https://sevencho.github.io/archives/64bb63f1.html</id>
     <published>2018-08-24T01:56:25.000Z</published>
-    <updated>2018-09-03T03:35:54.077Z</updated>
+    <updated>2018-09-03T03:35:54.000Z</updated>
     
     <summary type="html">
     
@@ -250,9 +324,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="Linux" scheme="https://sevencho.github.io/tags/Linux/"/>
     
@@ -265,7 +339,7 @@
     <link href="https://sevencho.github.io/archives/6efe8aae.html"/>
     <id>https://sevencho.github.io/archives/6efe8aae.html</id>
     <published>2018-08-22T06:32:25.000Z</published>
-    <updated>2018-09-03T03:35:54.050Z</updated>
+    <updated>2018-09-03T03:35:54.000Z</updated>
     
     <summary type="html">
     
@@ -280,9 +354,9 @@
       <category term="服务器" scheme="https://sevencho.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="Swift" scheme="https://sevencho.github.io/tags/Swift/"/>
+    
+      <category term="服务器" scheme="https://sevencho.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="MySQL" scheme="https://sevencho.github.io/tags/MySQL/"/>
     
@@ -293,7 +367,7 @@
     <link href="https://sevencho.github.io/archives/cb206c67.html"/>
     <id>https://sevencho.github.io/archives/cb206c67.html</id>
     <published>2018-08-22T03:20:25.000Z</published>
-    <updated>2018-09-04T03:07:43.146Z</updated>
+    <updated>2018-09-04T03:07:43.000Z</updated>
     
     <summary type="html">
     
@@ -321,7 +395,7 @@
     <link href="https://sevencho.github.io/archives/feadc9a.html"/>
     <id>https://sevencho.github.io/archives/feadc9a.html</id>
     <published>2018-07-19T03:10:45.000Z</published>
-    <updated>2018-09-03T03:44:14.419Z</updated>
+    <updated>2018-09-03T03:44:14.000Z</updated>
     
     <summary type="html">
     
@@ -347,7 +421,7 @@
     <link href="https://sevencho.github.io/archives/c7624e77.html"/>
     <id>https://sevencho.github.io/archives/c7624e77.html</id>
     <published>2018-07-10T11:54:45.000Z</published>
-    <updated>2018-09-03T03:44:41.849Z</updated>
+    <updated>2018-09-03T03:44:41.000Z</updated>
     
     <summary type="html">
     
@@ -375,7 +449,7 @@
     <link href="https://sevencho.github.io/archives/971c1db6.html"/>
     <id>https://sevencho.github.io/archives/971c1db6.html</id>
     <published>2018-07-10T08:54:45.000Z</published>
-    <updated>2018-09-03T03:44:37.945Z</updated>
+    <updated>2018-09-03T03:44:37.000Z</updated>
     
     <summary type="html">
     
@@ -403,7 +477,7 @@
     <link href="https://sevencho.github.io/archives/65ed9c65.html"/>
     <id>https://sevencho.github.io/archives/65ed9c65.html</id>
     <published>2018-07-10T07:54:45.000Z</published>
-    <updated>2018-09-03T03:44:30.733Z</updated>
+    <updated>2018-09-03T03:44:30.000Z</updated>
     
     <summary type="html">
     
@@ -431,7 +505,7 @@
     <link href="https://sevencho.github.io/archives/8c50aab9.html"/>
     <id>https://sevencho.github.io/archives/8c50aab9.html</id>
     <published>2018-07-09T01:25:45.000Z</published>
-    <updated>2018-09-03T03:44:35.280Z</updated>
+    <updated>2018-09-03T03:44:35.000Z</updated>
     
     <summary type="html">
     
@@ -459,7 +533,7 @@
     <link href="https://sevencho.github.io/archives/4de69069.html"/>
     <id>https://sevencho.github.io/archives/4de69069.html</id>
     <published>2018-07-06T07:47:45.000Z</published>
-    <updated>2018-09-03T03:44:21.913Z</updated>
+    <updated>2018-09-03T03:44:21.000Z</updated>
     
     <summary type="html">
     
@@ -479,86 +553,6 @@
       <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
     
       <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS攻防（二）：窃取用户的通讯录信息 &amp; 偷窥用户安装应用列表 &amp; Netcat使用</title>
-    <link href="https://sevencho.github.io/archives/bf5c1be0.html"/>
-    <id>https://sevencho.github.io/archives/bf5c1be0.html</id>
-    <published>2018-07-05T10:27:45.000Z</published>
-    <updated>2018-09-03T03:44:26.277Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;咱们应当在一起，否则就太伤天害理啦。&lt;/p&gt;
-&lt;p&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS攻防（一）： iPhone手机越狱 &amp; SSH</title>
-    <link href="https://sevencho.github.io/archives/e38331a.html"/>
-    <id>https://sevencho.github.io/archives/e38331a.html</id>
-    <published>2018-06-29T07:27:45.000Z</published>
-    <updated>2018-09-03T03:42:25.877Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;人在年轻时，最头疼的一件事就是决定自己这一生要做什么。&lt;br&gt;——王小波 《工作与人生》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-      <category term="攻防" scheme="https://sevencho.github.io/categories/iOS/%E6%94%BB%E9%98%B2/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="攻防" scheme="https://sevencho.github.io/tags/%E6%94%BB%E9%98%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建自己的CocoaPods公有库</title>
-    <link href="https://sevencho.github.io/archives/2e7b1d7b.html"/>
-    <id>https://sevencho.github.io/archives/2e7b1d7b.html</id>
-    <published>2018-06-27T09:27:45.000Z</published>
-    <updated>2018-09-03T03:45:22.216Z</updated>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我把我整个灵魂都给你，连同它的怪癖，耍小脾气，忽明忽暗，一千八百种坏毛病。它真讨厌，只有一点好，爱你。&lt;br&gt;——王小波《爱你就像爱生命》&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://sevencho.github.io/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="https://sevencho.github.io/tags/iOS/"/>
-    
-      <category term="CocoaPods" scheme="https://sevencho.github.io/tags/CocoaPods/"/>
     
   </entry>
   
