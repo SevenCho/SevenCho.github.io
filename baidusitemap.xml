@@ -4,23 +4,21 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/56d26041.html</loc>
-    <lastmod>2019-03-28T09:10:58.048Z</lastmod>
+    <loc>https://sevencho.github.io/archives/67c8fe48.html</loc>
+    <lastmod>2019-04-08T04:15:36.891Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之使用JenKins & fastlane 实现自动打包及持续集成</title>
-        <pubTime>2018-09-18T11:58:45.000Z</pubTime>
+        <title>Mac 安装Android Studio 及环境变量配置</title>
+        <pubTime>2019-03-27T07:20:52.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>Android Studio</tag>
          
-        <tag>JenKins</tag>
-         
-        <tag>fastlane</tag>
+        <tag>Android</tag>
          
          
            
              
-              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
+              <breadCrumb title="Android" url="https://sevencho.github.io/categories/Android/"/>
           
         </display>
     </data>
@@ -29,7 +27,7 @@
     
   <url>
     <loc>https://sevencho.github.io/archives/c6d2cc27.html</loc>
-    <lastmod>2019-03-28T08:39:12.689Z</lastmod>
+    <lastmod>2019-04-08T04:13:47.112Z</lastmod>
     <data>
         <display>
         <title>微信小程序入坑</title>
@@ -48,21 +46,23 @@
 
     
   <url>
-    <loc>https://sevencho.github.io/archives/67c8fe48.html</loc>
-    <lastmod>2019-03-28T08:39:12.687Z</lastmod>
+    <loc>https://sevencho.github.io/archives/56d26041.html</loc>
+    <lastmod>2019-03-28T09:10:58.048Z</lastmod>
     <data>
         <display>
-        <title>Mac 安装Android Studio 及环境变量配置</title>
-        <pubTime>2019-03-27T07:20:52.000Z</pubTime>
+        <title>iOS开发之使用JenKins & fastlane 实现自动打包及持续集成</title>
+        <pubTime>2018-09-18T11:58:45.000Z</pubTime>
         
-        <tag>Android Studio</tag>
+        <tag>iOS</tag>
          
-        <tag>Android</tag>
+        <tag>JenKins</tag>
+         
+        <tag>fastlane</tag>
          
          
            
              
-              <breadCrumb title="Android" url="https://sevencho.github.io/categories/Android/"/>
+              <breadCrumb title="iOS" url="https://sevencho.github.io/categories/iOS/"/>
           
         </display>
     </data>

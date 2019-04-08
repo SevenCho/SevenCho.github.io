@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="曹雪松de博客|CoderBoy&#39;s Blog">
 <meta property="og:description" content="中国人的性情是总喜欢调和折中的，譬如你说，这屋子太暗，须在这里开一个窗，大家一定不允许的。但如果你主张拆掉屋顶他们就来调和，愿意开窗了。 –鲁迅《无声的中国》">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-28T08:39:12.689Z">
+<meta property="og:updated_time" content="2019-04-08T04:13:47.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入坑">
 <meta name="twitter:description" content="中国人的性情是总喜欢调和折中的，譬如你说，这屋子太暗，须在这里开一个窗，大家一定不允许的。但如果你主张拆掉屋顶他们就来调和，愿意开窗了。 –鲁迅《无声的中国》">
@@ -502,7 +502,9 @@
 <li>入门简单，封装了一大部分的常用的功能，如果有前端开发经验，一些前端的知识同样适用。</li>
 <li>与微信对接，有微信庞大的日活用户。</li>
 <li>入口比较多，用户安装使用门槛比较低，用完即走。</li>
-<li>针对不懂的系统和手机型号适配相对比较简单（跨平台？）。<h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3></li>
+<li>针对不懂的系统和手机型号适配相对比较简单（跨平台？）。</li>
+</ul>
+<h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul>
 <li>安装包限制2M大小，只能做轻量级小程序。</li>
 <li>一部分前端的东西是不适用小程序的，虽然入门简单，但是还是要学一部分微信封装的东西和一部分前端的知识。</li>
 <li>开发工具真的是一坨屎，基本上连最基本的语法提示都做不到，完全考验记忆和英文水平，或者要不停的查文档。</li>
@@ -514,15 +516,17 @@
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
 <li>遇到一个功能总是想重构封装一下，以便复用，如网络请求模块，蓝牙模块等等；</li>
 <li>之前在实现蓝牙数据交互的时候，将蓝牙连接，蓝牙数据按协议组装、蓝牙指令派发及数据解析完成回调、蓝牙数据解析、蓝牙验证等等功能抽成不同的模块在封装在js文件中，在外部引用的时候遇到了问题：<ul>
-<li>小程序<code>require（‘相对/路径/功能.js’）</code>必须是相对目录 无法引用绝对路径；官方说是历史包袱无法决绝🌚</li>
+<li>小程序<code>require（‘相对/路径/功能.js’）</code>必须是相对目录 无法引用绝对路径；官方说是历史包袱无法解决🌚</li>
 <li>几种目录的区别：<ul>
 <li><code>/</code> 根目录</li>
 <li><code>./</code> 当前目录</li>
-<li><code>../</code>父级目录<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3></li>
+<li><code>../</code>父级目录</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><ul>
 <li>js是一种弱类型语言，是没有枚举类型的，如果想使用枚举类型，如定义蓝牙相关的指令，可以使用json数据格式来实现枚举的功能：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> BLECommand == <span class="string">"undefined"</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> BLECommand = &#123;</span><br><span class="line">    <span class="comment">// authorization</span></span><br><span class="line">    GetRandomDigit: <span class="number">0x00</span>, <span class="comment">/** 向设备获取随机数 */</span></span><br><span class="line">    AuthorizationAL1: <span class="number">0x01</span>, <span class="comment">/** Rand + 设备序列号 生成Key1 */</span></span><br><span class="line"></span><br><span class="line">    EnterOTA: <span class="number">0x02</span>, <span class="comment">/** OTA模式 */</span></span><br><span class="line"></span><br><span class="line">    DeviceBLEVersionInfo: <span class="number">0x03</span>, <span class="comment">/** 版本信息 */</span></span><br><span class="line"></span><br><span class="line">    Read_Info: <span class="number">0x05</span>,</span><br><span class="line">    Write_Info: <span class="number">0x06</span>,</span><br><span class="line"></span><br><span class="line">    NoValidation: <span class="number">0x07</span>, <span class="comment">/** 测试指令 不需要根据协议解析 */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
